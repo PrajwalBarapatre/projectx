@@ -1,0 +1,3382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <meta property="og:title" content="Your Title"/>   -->
+
+    <title>Bverge | Business Display</title>
+    <meta property="og:url" content="https://www.example.com/webpage/" />
+    <meta property="og:description" content="Your description."/>
+    <meta property="og:image" content="http://yourimage_with_complete_URL.png"/>
+
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+
+<style>
+
+        #carousel {
+        width: 100%;
+        height: 150px;
+
+
+        overflow: visible;
+        white-space:nowrap;
+    }
+
+    #carousel .slide {
+        display: inline-block;
+    }
+
+    .sizer{
+        object-fit: cover;
+        width: 100%;
+        height: 118px;
+    }
+
+    .labels {
+     margin-top:-3px;
+     padding: 5px;
+     background-color: #ffff00;
+     position: absolute;
+    visibility: visible;
+    z-index: 1030;
+}
+.labels.active .inner {
+    background: cyan;
+}
+.labels.hover .inner {
+    background-color: yellow;
+}
+
+
+.labels .arrow{
+    border-top-color: #000000;
+    border-right-color: rgba(0,0,0,0);
+    border-bottom-color: rgba(0,0,0,0);
+    border-left-color: rgba(0,0,0,0);
+    border-width: 5px 5px 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-style: solid;
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+.labels .inner{
+    background-color: #000000;
+    border-radius: 4px;
+    color: #FFFFFF;
+    max-width: 200px;
+    padding: 3px 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.labels.active .arrow {
+
+    border-top-color: #00ffff;
+    border-right-color: rgba(0,255,255,0);
+    border-bottom-color: rgba(0,255,255,0);
+    border-left-color: rgba(0,255,255,0);
+
+}
+.labels.hover .arrow {
+    border-top-color: #ffff00;
+    border-right-color: rgba(255,255,0,0);
+    border-bottom-color: rgba(255,255,0,0);
+    border-left-color: rgba(255,255,0,0);
+}
+#my_modal .close {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+}
+#my_modal #modal_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;    
+    max-height: 600px;
+    overflow-y: auto;
+}
+.btn-with-control{
+    min-width: 550px;
+    margin: 10px 0;
+}
+
+
+#overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
+
+    </style>
+<body onload="myCurrency()">
+
+
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+
+    {% include "seller1/sidecontainer.html" %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+              {% include "seller1/topcontainer1.html" %}
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-sm-12 text-center mt-80" style="background: url('/static/seller1/images/display-banner.png');    background-size: cover;
+    background-position: center;">
+                <h2 class="f-36 py-60 ff-pd f-w-bold c-f">View Business/Assets/Equity/Loan</h2>
+            </div>
+        </div>
+        <div class="row bg-f2 py-3">
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-2">
+                    <button id='Business' class="btn-sellers w-100 btn-sellers-tab btn-sellers-active" page='1' onclick="displayTab(this, 0);myCurrency();">To Buy Business</button>
+                </div>
+                <div class="col-md-2">
+                    <button id='Equity' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 1);myCurrency();">To Buy Stake</button>
+                </div>
+                <div class="col-md-2">
+                    <button id='Loan' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 2);myCurrency();">Seeking Loan</button>
+                </div>
+                <div class="col-md-2">
+                    <button id='Asset' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 3);myCurrency();">To Buy Asset</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row text-center pb-3 pt-2">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-md-3">
+                  <input type="text" class="form-control h-35px f-13 ff-p mb-0" id='location' >
+                  <input hidden type="text" id="city">
+                  <input hidden type="text" id="state">
+                  <input hidden type="text" id="country">
+                </div>
+                <div class="col-md-3">
+                  <select id="category" onchange="get_sub_sectors(this);" class="col-sm-12 h-35px form-control f-13 ff-p">
+                    <option value="">All categories</option>  
+                    {% for x in sectors %}
+                          <option value="{{x.sectors}}">{{x.sectors}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+                <select id="sub_category" style="display:none" class="col-sm-12 h-35px form-control f-13 ff-p">
+
+                        </select>
+                <div class="col-md-3 text-left">
+                    <button id='Search' class="btn btn-primary" page='1' onclick="get_sellers(this);myCurrency();">Search</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 pr-30px">
+              <select class="col-md-4 offset-md-8 form-control f-13 ff-p">
+                  <option value="volvo">Sort By</option>
+                  <option value="saab">Near-By</option>
+                  <option value="saab">Most Recent</option>
+                  <option value="saab">Most Popular</option>
+                  <option value="saab">Most Relevant</option>
+                  <option value="saab">A-Z</option>
+                  <option value="saab">Z-A</option>
+              </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div  class="container-fluid">
+                <div id="type_empty" class=  "">
+                    
+                    </div>
+                    <div id="category_empty" class=  "">
+                        
+                    </div>
+                    <div id="country_empty" class=  "">
+                        
+                    </div>
+                    <div id="state_empty" class=  "">
+                        
+                    </div>
+            <div  class="row pt-20">
+                <div id="Specifications">
+                
+                <div id="tab_Business" class=  "custom_tab  side-map overflow col-sm-12 m-hide" >
+                    <!-- card start -->
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Equity" class="custom_tab side-map overflow col-sm-12 m-hide" >
+                    <!-- card start -->
+
+                    Equity
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Loan" class="custom_tab side-map overflow col-sm-12 m-hide" >
+                    <!-- card start -->
+
+                    Loan
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Asset" class="custom_tab side-map overflow col-sm-12 m-hide" >
+                    <!-- card start -->
+
+                    Asset
+                    <!-- end card  -->
+                </div>
+            </div>
+
+
+
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="selected m-hide" onclick="myFunctions()" id="img">
+                        <img src="/static/seller1/images/select-shape.png" alt="">
+                        <i class="fa fa-caret-left selected-card-icon" id="rotate" aria-hidden="true"></i>
+                    </div>
+                    <div id="map_parent" style="width: 50%; margin-left: 50%" >
+                        <div id="map" style="width: 100%;height:660px;"></div>
+                        <!-- <iframe width="100%" height="660" src="https://maps.google.com/maps?width=100%&height=940&hl=en&q=Business%20St%2C%20London%20WC1E%207HU%2C%20United%20Kingdom+(business%20merge)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe> -->
+                    </div><br />
+                </div>
+
+                <!--start mobile view only -->
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+
+    <div class="modal" id="my_modal">
+
+      </div>
+
+    <!-- Pages -->
+    <div class="row text-center pt-35 pb-35">
+            <div id="carousel" class="carousel slide carousel-inner">
+
+
+
+
+
+
+
+
+                </div>
+    </div>
+    <div class="container-fluid bg-ea">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 0%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+
+        .carousel-control-next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 0%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        
+    </style>
+
+    
+
+    <script src="{% static 'investor/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'investor/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'investor/js/popper.min.js' %}"></script>
+    <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    <script src="/static/profiles/js/notification.js"></script>
+    <script src="/static/seller1/js/sidebarloader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+    <script>
+                function myFunctions() {
+                var x = document.getElementById("Specifications");
+                var icon = document.getElementById("rotate");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    icon.classList.remove("rotate-180");
+                    document.getElementById('img').className ='selected-side-icon-right';
+                    $('#map_parent').css('width','50%');
+                    $('#map_parent').css('margin-left','50%');
+                    //console.log("hello1");
+
+                } else {
+                    x.style.display = "none";
+                    icon.classList.add("rotate-180");
+                    document.getElementById('img').className ='selected-side-icon-left';
+                    $('#map_parent').css('width','100%');
+                    $('#map_parent').css('margin-left','0%');
+                    //console.log("hello2");
+                }
+            }
+
+
+    </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+<!-- <script src="https://github.com/warent/markerwithlabel/blob/master/src/markerwithlabel.js"></script> -->
+<script>
+
+
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+       var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
+    // address_auto = document.querySelector('#id_address_line');
+    city1 = document.querySelector('#city');
+    state1 = document.querySelector('#state');
+    country1 = document.querySelector('#country');
+
+    function initMap() {
+
+                    var input1 = document.querySelector('#location');
+                    // var input2 = document.querySelector('#id_address_line2');
+                    // var input3 = document.querySelector('#id_address_line3');
+                    var options = {
+                        types: ['(cities)'] //this should work !
+                    };
+                    var allmarkers=[];
+                    var marker_ref={}
+                    var autocomplete1 = new google.maps.places.Autocomplete(input1,options);
+                    // var autocomplete2 = new google.maps.places.Autocomplete(input2,options);
+                    // var autocomplete3 = new google.maps.places.Autocomplete(input3,options);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: -34.397, lng: 150.644},
+                            zoom: 6
+                        });
+
+
+                        $('.custom_tab').each(function(index, element){
+                        marker_ref={};
+                        //console.log('preparing');
+                        var id = $(element).attr('id');
+                        id = '#' + id;
+                        //console.log(id);
+                        $("body").on('DOMSubtreeModified', id, function() {
+                            //console.log('seller added');
+                            while(allmarkers.length) { allmarkers.pop().setMap(null); }
+                            $('.info').each(function(index, element){
+                                var lat = $(element).attr('lat');
+                                //console.log(lat);
+                                var lng = $(element).attr('lng');
+                                //console.log(lng);
+                                var title = $(element).attr('title');
+                                //console.log(title);
+                                var seller_id=$(element).attr('seller_id');
+                                var asking_price=$(element).attr('investment');
+                                //console.log(asking_price);
+                                var file_name;
+                                var t=0;
+
+                                $(element).find('.carousel-inner').find('.carousel-item').each(function(imdex, ielement){
+                                    var src=$(ielement).find('img').attr('src');
+                                    //console.log(src);
+                                     file_name=src.replace('/media/', '');
+                                    //console.log(file_name)
+                                    t++;
+                                    // if(t==1){
+                                    //     break;
+                                    // }
+                                })
+                                var marker = new google.maps.Marker({
+                                            position: {lat:parseFloat(lat), lng: parseFloat(lng)},
+                                            map: map,
+                                            draggable: false,
+                                            // label:{
+                                            //     color: 'black',
+                                            //     fontWeight: 'bold',
+                                            //     text: asking_price,
+
+                                            // },
+                                            // labelClass: "labels",
+                                        });
+                                        // var marker = new markerwithlabel({
+                                        //     position: {lat:parseFloat(lat), lng: parseFloat(lng)},
+                                        //     map: map,
+                                        //     draggable: false,
+                                        //     labelContent: asking_price,
+                                        //     labelClass: "labels",
+                                        //     labelInBackground: true
+                                        // });
+                                        allmarkers.push(marker);
+                                        marker_ref[seller_id]=marker;
+                                var infoWindow = new google.maps.InfoWindow({
+                                                    content:
+               "<div style='width:500px;height:100px'>"
++                 "<div class='row'>"
++                      "<div class='col-sm-3'>"
++                                         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid'>"
++                     "</div>"
++                     "<div class='col-sm-9 pl-0'>"
++                                         "<a href=''>"
++                                             "<h4 class='c-19 f-12 f-w-bold ff-p' style='margin-top: -0.2vh'>"+title
++                                             "</h4>"
++                                         "</a>"
++                                         "<i class='fa fa-star-o c-d9 f-17 pl-1' aria-hidden='true'></i>"
++                                         "<span class='f-9 pl-1 c-3f pt-1'>8.5</span>"
++                                         "<div class='row pt-2'>"
+           +                               "<div class='col-sm-6 text-left'>"
+           +                                   "<p class='f-12 mb-0'>Revenue</p>"
+           +                               "</div>"
+           +                               "<div class='col-sm-6 text-right col-6'>"
+           +                                   "<p class='f-12 mb-0'>868</p>"
+           +                               "</div>"
++                                         "</div>"
++                                         "<div class='row'>"
+           +                               "<div class='col-sm-6 text-left'>"
+           +                                   "<p class='f-12 mb-0'>Revenue</p>"
+           +                               "</div>"
+           +                               "<div class='col-sm-6 text-right col-6'>"
+           +                                   "<p class='f-12 mb-0'>868</p>"
+           +                               "</div>"
++                                         "</div>"
+
++                     "</div>"
++                 "</div>"
++                 "</div>"
+
+                                                });
+
+                                // infoWindow.open(map, marker);
+                                // marker.setMap(map);
+                                //console.log('marker done');
+                                $(element).hover(function(ele){
+                                    infoWindow.open(map, marker);
+                                },function(ele){
+                                    infoWindow.close(map, marker);
+                                });
+                                marker.addListener('mouseover', () => infoWindow.open(map, marker))
+marker.addListener('mouseout', () => infoWindow.close())
+
+                            })
+
+                                    });
+
+
+
+                    })
+
+
+
+                autocomplete1.addListener('place_changed', function() {
+                    var place = autocomplete1.getPlace();
+                    var bounds = new google.maps.LatLngBounds();
+                    bounds.extend(place.geometry.location);
+                    map.fitBounds(bounds);
+                    map.setZoom(15);
+
+                    //console.log(place.geometry.location);
+                    //console.log(place.address_components[1].long_name);
+                    //console.log(place.address_components[2].long_name);
+                    //console.log(place.address_components[3].long_name);
+                    city1.val(place.address_components[1].long_name);
+                    state1.val(place.address_components[2].long_name);
+                    country1.val(place.address_components[3].long_name);
+
+                });
+                //console.log('changed category')
+                //console.log($('#category').val())
+                $("#category option[value='']").attr('selected','')
+               $("#category option[value='{{category}}']").attr('selected','selected').change();
+               //console.log($('#category').val())
+    // get_sub_sectors(ele);
+
+city1.val('{{city}}');
+    state1.val('{{state}}');
+    country1.val('{{country}}');
+    //console.log('{{sub_category}}');
+    //console.log($('#sub_category'));
+    $("option[value='{{sub_category}}']").attr('selected','selected');
+    $('#sub_category').find('option').each(function(index, element){
+        //console.log($(element));
+        if($(element).val()=='{{sub_category}}'){
+            $(element).attr('selected','selected');
+        }
+    })
+    //console.log();
+
+    //console.log($('#sub_category').val());
+
+    get_sellers($('#Search'), initial=true);
+
+
+    }
+
+  </script>
+
+<script>
+var city1 = $('#city');
+var state1 = $('#state');
+var country1 = $('#country');
+var category1 = $('#category');
+var sub_category1 = $('#sub_category');
+initialTab(0);
+
+var data_investor = {{data_investor| safe}};
+//console.log(data_investor);
+var data_advisors = {{data_advisors|safe}};
+
+var removeByAttr = function(arr, attr, value){
+var i = arr.length;
+while(i--){
+if( arr[i]
+   && arr[i].hasOwnProperty(attr)
+   && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+   arr.splice(i,1);
+
+}
+}
+return arr;
+}
+
+$('#my_modal').on('show.bs.modal', function(e) {
+//console.log('modal clicked');
+$('#my_modal').html('');
+var seller_id = $(e.relatedTarget).data('seller_id');
+var in_just = $(e.relatedTarget).attr('data-just');
+//console.log(in_just);
+var in_invest = $(e.relatedTarget).attr('data-invest');
+//console.log(in_invest);
+var in_advise = $(e.relatedTarget).attr('data-advise');
+//console.log(in_advise);
+//console.log(seller_id);
+// $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
+//     $(element).attr('seller_id', seller_id);
+// });
+$('#my_modal').append(
+    "<div class='modal-dialog modal-lg modal-dialog-centered'>"
++ "<div class='modal-content'>"
++ "<div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>"
++        "<a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>"
++       " <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
++   "</div>"
++   "<div id='modal_body' class='modal-body text-center'>"
+
++   "</div>"
++  "</div>"
++ "</div>"
+);
+
+$('#my_modal').find('#modal_body').append(
+    "<div id='modal_just'>"
++"<button id='just_add'"+
+(in_just=='True' ? "style='display:none;'" : "style='display:block;'")+
+" seller_id='"+seller_id+"' class='btn-sellers btn-with-control btn-sellers-modal' onclick='just_add(this);'>Just Add</button>"
++"<button id='just_remove'"+
+(in_just=='False' ? "style='display:none;'" : "style='display:block;'")+
+" seller_id='"+seller_id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='just_remove(this);'>Just Remove</button>"
++"</div>"
+);
+
+
+for(var tk=0; tk<sup_sellers.length;tk++){
+var id=sup_sellers[tk].business_id;
+var title = sup_sellers[tk].title;
+var attr = 'cart_seller_'+id;
+var in_seller = $(e.relatedTarget).attr(attr);
+
+    $('#my_modal').find('#modal_body').append(
+    "<div id='modal_seller_"+id+"'>"
++"<button id='seller_add_"+id+"'"+
+(in_seller=='True' ? "style='display:none;'" : "style='display:block;'")+
+" seller_id='"+seller_id+"' seller_cart='"+id+"'  class='btn-sellers btn-with-control btn-sellers-modal' onclick='seller_add(this);'>Add to "+title+"</button>"
++"<button id='seller_remove_"+id+"'"+
+(in_seller=='False' ? "style='display:none;'" : "style='display:block;'")+
+" seller_id='"+seller_id+"' seller_cart='"+id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='seller_remove(this);'>Remove from "+title+"</button>"
++"</div>"
+);
+
+}
+
+for(var tk=0; tk<data_investor.length;tk++){
+        var id=data_investor[tk].investor_id;
+        var title = data_investor[tk].title;
+        var attr = 'cart_investor_'+id;
+        var in_investor = $(e.relatedTarget).attr(attr);
+        
+            $('#my_modal').find('#modal_body').append(
+            "<div id='modal_seller_"+id+"'>"
+    +"<button id='investor_add_"+id+"'"+
+    (in_investor=='True' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' investor_cart='"+id+"'  class='btn-sellers btn-with-control btn-sellers-modal' onclick='add_to_invest_cart(this);'>Add to "+title+"</button>"
+    +"<button id='investor_remove_"+id+"'"+
+    (in_investor=='False' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' investor_cart='"+id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='remove_from_invest_cart(this);'>Remove from "+title+"</button>"
+    +"</div>"
+        );
+        
+    }
+
+
+// var adv_busi=false;
+for(var k=0; k<data_advisors.length; k++){
+if(data_advisors[k].type=='Business'){
+    adv_busi=true;
+    var advisor_id=data_advisors[k].advisor_id;
+    var first_name=data_advisors[k].first_name;
+    var attr = 'cart_advisor_'+advisor_id;
+    var in_advise = $(e.relatedTarget).attr(attr);
+    $('#my_modal').find('#modal_body').append(
+        "<div id='modal_advise'>"
+        + "<button id='advisor_add_"+advisor_id+"'"+
+        (in_advise=='True' ? "style='display:none'":"style='display:block'")+
+        " advisor_id='"+advisor_id+"' seller_id='"+seller_id+"' class='btn-sellers btn-with-control btn-sellers-modal' onclick='add_to_advise_cart(this);'   >Add to "+first_name+"</button>"
+        + "<button id='advisor_remove_"+advisor_id+"'"+
+        (in_advise=='False' ? "style='display:none'":"style='display:block'")+
+        " advisor_id='"+advisor_id+"' seller_id='"+seller_id+"' class='btn-cus-success btn-sellers-modal' onclick='remove_from_advise_cart(this);'   >Remove from "+first_name+"</button>"
+        +"</div>"
+    );
+}
+}
+
+
+
+});
+
+
+
+function displayTab(ele, n) {
+    $("#overlay").fadeIn();
+    var currTab, k;
+    var id = ele.id;
+    var element = document.getElementById(id);
+    //console.log(element);
+  // This function will display the specified tab of the form...
+
+    currTab=n;
+    //console.log(currTab);
+
+  var i;
+  var x = document.getElementsByClassName("custom_tab");
+  //console.log(x);
+  for(i=0; i<x.length; i++){
+      x[i].style.display = "none";
+      //console.log(x[i]);
+  }
+  x[currTab].style.display = "block";
+  var zz = document.getElementsByClassName("btn-sellers-tab");
+  for(var t=0; t<zz.length; t++){
+    zz[t].className=zz[t].className.replace('btn-sellers-active', '');
+      //console.log(zz[t]);
+  }
+  //console.log(zz[currTab]);
+  zz[currTab].className += ' btn-sellers-active' ;
+  get_sellers(ele);
+  //... and fix the Previous/Next buttons:
+
+
+  //... and run a function that will display the correct step indicator:
+$("#overlay").fadeOut();
+}
+
+function initialTab(n) {
+    var currTab, k;
+
+  // This function will display the specified tab of the form...
+
+    currTab=n;
+    //console.log(currTab);
+
+  var i;
+  var x = document.getElementsByClassName("custom_tab");
+  //console.log(x);
+  for(i=0; i<x.length; i++){
+      x[i].style.display = "none";
+      //console.log(x[i]);
+  }
+  x[currTab].style.display = "block";
+  var zz = document.getElementsByClassName("btn-sellers-tab");
+  for(var t=0; t<zz.length; t++){
+    zz[t].className=zz[t].className.replace('btn-sellers-active', '');
+      //console.log(zz[t]);
+  }
+  //console.log(zz[currTab]);
+  zz[currTab].className += ' btn-sellers-active' ;
+
+
+  //... and fix the Previous/Next buttons:
+
+
+  //... and run a function that will display the correct step indicator:
+
+}
+
+function get_sub_sectors(ele){
+var id = ele.id;
+$.ajax({
+url: "/metadata/get_sub_sector/",
+data: {
+    'sector': $('#' + id).val()
+},
+success: function(output){
+    var e = $('#sub_' + id);
+    e.html(output);
+}
+});
+}
+
+function just_add(ele){
+var id = ele.id;
+id = '#'+id;
+//console.log(id);
+var seller_id = $(id).attr('seller_id');
+
+// seller_id=parseInt(seller)
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:just_add" %}',
+    data: form_data,
+    success: function(data){
+        //console.log('Added to cart');
+        $(id).hide();
+$('#just_remove').show();
+$('#cart_'+seller_id).attr('data-just', 'True');
+var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_investor=='True' || in_advisor=='True' || in_seller=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+just_sellers.push({
+    business_id: parseInt(seller_id)
+});
+//console.log(just_sellers);
+
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+function just_remove(ele){
+var id = ele.id;
+id = '#'+id;
+//console.log(id);
+var seller_id = $(id).attr('seller_id');
+
+// seller_id=parseInt(seller)
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:just_remove" %}',
+    data: form_data,
+    success: function(data){
+        //console.log('Removed from cart');
+        $(id).hide();
+$('#just_add').show();
+$('#cart_'+seller_id).attr('data-just', 'False');
+var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_investor=='False' && in_advisor=='False' && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+removeByAttr(just_sellers, 'business_id', parseInt(seller_id));
+//console.log(just_sellers);
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+function add_to_advise_cart(ele){
+var id = ele.id;
+
+id = '#'+id;
+
+var advisor_id=$(id).attr('advisor_id');
+var seller_id = $(id).attr('seller_id');
+var form_data = new FormData()
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('advisor_id', advisor_id);
+
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:add_advise_cart" %}',
+    data: form_data,
+    success: function(data){
+        // $(id).hide();
+        $(id).hide();
+        $('#advisor_remove_'+advisor_id).show();
+        $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'True');
+        console.log('Added to cart');
+        
+        var nname= 'advisor_'+advisor_id;
+        advise_sellers.business[nname].push({
+            business_id: parseInt(seller_id)
+        });
+        var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+// $('#cart_'+seller_id).attr('data-advise', 'True');
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_investor=='True' || in_advisor=='True' || in_seller=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+// advise_sellers.business.push({
+//     business_id: parseInt(seller_id)
+// });
+console.log(advise_sellers);
+        console.log('Added to cart');
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+function remove_from_advise_cart(ele){
+var id = ele.id;
+
+id = '#'+id;
+
+var advisor_id=$(id).attr('advisor_id');
+var seller_id = $(id).attr('seller_id');
+var form_data = new FormData()
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('advisor_id', advisor_id);
+
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:remove_advise_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+        $('#advisor_add_'+advisor_id).show();
+        $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'False');
+        console.log('removed from cart');
+       
+        var nname= 'advisor_'+advisor_id;
+        removeByAttr(advise_sellers.business[nname], 'business_id', parseInt(seller_id))
+        console.log('Removed from cart');
+        var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_investor=='False' && in_advisor=='False' && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+// removeByAttr(advise_sellers.startup, 'business_id', parseInt(seller_id))
+console.log(advise_sellers);
+        console.log('Removed from cart');
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+
+
+
+
+
+function add_to_invest_cart(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_investor_id = $(id).attr('investor_cart');
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('investor_id', cart_investor_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:add_invest_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+        $('#investor_remove_'+cart_investor_id).show();
+        $('#cart_'+seller_id).attr('cart_investor_'+cart_investor_id, 'True');
+        console.log('Added to cart');
+        
+        var nname= 'investor_'+cart_investor_id;
+        invest_sellers[nname].push({
+            business_id: parseInt(seller_id)
+        });
+        var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_investor=='True' || in_advisor=='True' ||in_seller=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+// invest_sellers.push({
+//     business_id: parseInt(seller_id)
+// });
+console.log(invest_sellers);
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+
+function remove_from_invest_cart(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_investor_id = $(id).attr('investor_cart');
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('investor_id', cart_investor_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:remove_invest_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+        $('#investor_add_'+cart_investor_id).show();
+        $('#cart_'+seller_id).attr('cart_investor_'+cart_investor_id, 'False');
+        console.log('removed from cart');
+        var in_investor='False';
+        var nname= 'investor_'+cart_investor_id;
+        removeByAttr(invest_sellers[nname], 'business_id', parseInt(seller_id))
+        console.log('Removed from cart');
+        var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_investor=='False' && in_advisor=='False'  && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+// removeByAttr(invest_sellers, 'business_id', parseInt(seller_id))
+// console.log(invest_sellers);
+// console.log('Removed from cart');
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+
+
+function seller_add(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_seller_id = $(id).attr('seller_cart');
+var form_data = new FormData()
+form_data.append('seller_id', cart_seller_id);
+form_data.append('add_seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:add_sell_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+$('#seller_remove_'+cart_seller_id).show();
+$('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
+console.log('Added to cart');
+// var in_seller='False';
+var nname= 'seller_'+cart_seller_id;
+seller_sup_sellers[nname].push({
+    business_id: parseInt(seller_id)
+});
+var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_advisor=='True' || in_seller=='True' || in_investor=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+
+}
+
+function seller_remove(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_seller_id = $(id).attr('seller_cart');
+var form_data = new FormData()
+form_data.append('seller_id', cart_seller_id);
+form_data.append('add_seller_id', seller_id);
+form_data.append('base_type', 'Seller');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:remove_sell_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+$('#seller_add_'+cart_seller_id).show();
+$('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
+console.log('removed from cart');
+// var in_seller='False';
+var nname= 'seller_'+cart_seller_id;
+removeByAttr(seller_sup_sellers[nname], 'business_id', parseInt(seller_id))
+console.log('Removed from cart');
+var in_seller='False';
+        var in_advisor='False';
+        var in_investor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+        
+        check_arr = check_for_invest(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_investor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_advisor=='False' && in_seller=='False' && in_investor=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+
+}
+
+
+
+
+var my_sellers = {{my_sellers| safe}};
+//console.log(my_sellers);
+
+var advise_sellers = {{advise_sellers| safe}};
+//console.log(advise_sellers);
+
+var invest_sellers = {{invest_sellers| safe}};
+//console.log(invest_sellers);
+
+var just_sellers = {{just_sellers| safe}};
+
+var sup_sellers = {{sup_sellers| safe}};
+console.log(sup_sellers)
+
+var seller_sup_sellers = {{seller_sup_sellers| safe}};
+console.log(seller_sup_sellers)
+//console.log(just_sellers);
+function check_for_same(seller_id){
+var same=false;
+for(var i=0; i<my_sellers.length; i++){
+    if(my_sellers[i].business_id==seller_id){
+        same=true;
+        break;
+    }
+}
+return same;
+}
+
+function check_for_advise(seller_id){
+// var same=false;
+// for(var i=0; i<advise_sellers.startup.length; i++){
+//     if(advise_sellers.startup[i].business_id==seller_id){
+//         same=true;
+//         break;
+//     }
+// }
+        var id='';
+        var arr=[];
+        // for(var i=0; i<advise_sellers.startup.length; i++){
+        //     if(advise_sellers.startup[i].business_id==seller_id){
+        //         same=true;
+        //         break;
+        //     }
+        // }
+        for(var i=0; i<data_advisors.length; i++){
+                var name='advisor_'+data_advisors[i].advisor_id;
+                var same=false;
+                var found=false;
+                if(data_advisors[i].type=='Business'){
+                    for(var k=0; k<advise_sellers.business[name].length;k++){
+                    console.log(advise_sellers.business[name][k]);
+                    console.log(seller_id);
+                    if(advise_sellers.business[name][k].business_id==seller_id){
+                        same=true;
+                        found=true;
+                        break;
+                    }
+                }
+                
+                    id=data_advisors[i].advisor_id;
+                    
+                
+                arr.push({
+            same : same,
+            found : found,
+            advisor_id : id
+        });
+                }
+                
+        }
+        
+       console.log(arr);
+
+        return arr;
+
+}
+
+function check_for_invest(seller_id){
+// var same=false;
+// for(var i=0; i<invest_sellers.length; i++){
+//     if(invest_sellers[i].business_id==seller_id){
+//         same=true;
+//         break;
+//     }
+// }
+// return same;
+
+        var id='';
+        var arr=[];
+        // for(var i=0; i<advise_sellers.startup.length; i++){
+        //     if(advise_sellers.startup[i].business_id==seller_id){
+        //         same=true;
+        //         break;
+        //     }
+        // }
+        for(var i=0; i<data_investor.length; i++){
+                var name='investor_'+data_investor[i].investor_id;
+                var same=false;
+                var found=false;
+                for(var k=0; k<invest_sellers[name].length;k++){
+                    console.log(invest_sellers[name][k]);
+                    console.log(seller_id);
+                    if(invest_sellers[name][k].business_id==seller_id){
+                        same=true;
+                        found=true;
+                        break;
+                    }
+                }
+                
+                    id=data_investor[i].investor_id;
+                    
+                
+                arr.push({
+            same : same,
+            found : found,
+            investor_id : id
+        });
+        }
+        
+       console.log(arr);
+
+        return arr;
+
+
+}
+
+
+function check_for_seller(seller_id){
+
+var id='';
+var arr=[];
+// for(var i=0; i<advise_sellers.startup.length; i++){
+//     if(advise_sellers.startup[i].business_id==seller_id){
+//         same=true;
+//         break;
+//     }
+// }
+for(var i=0; i<sup_sellers.length; i++){
+        var name='seller_'+sup_sellers[i].business_id;
+        var same=false;
+        var found=false;
+        for(var k=0; k<seller_sup_sellers[name].length;k++){
+            console.log(seller_sup_sellers[name][k]);
+            console.log(seller_id);
+            if(seller_sup_sellers[name][k].business_id==seller_id){
+                same=true;
+                found=true;
+                break;
+            }
+        }
+
+            id=sup_sellers[i].business_id;
+
+
+        arr.push({
+    same : same,
+    found : found,
+    seller_id : id
+});
+}
+
+console.log(arr);
+
+return arr;
+}
+
+
+
+function check_for_just(seller_id){
+var same=false;
+for(var i=0; i<just_sellers.length; i++){
+    if(just_sellers[i].business_id==seller_id){
+        same=true;
+        break;
+    }
+}
+return same;
+}
+
+$('#category').ready(function(){
+    var ele = document.getElementById('category');
+    get_sub_sectors(ele);
+
+
+
+
+
+})
+
+
+    // $('#Search').click();
+var category_global=''
+var type_global='Business'
+var country_global='India'
+var state_global='Maharashtra'
+
+function get_sellers(ele, initial=false){
+//console.log('inside get_sellers');
+var id = ele.id;
+id = '#'+id;
+var page = $(id).attr('page');
+//console.log(page)
+//console.log(parseInt(page))
+var page_int = parseInt(page)-1;
+//console.log(page_int);
+var type = ''
+var sub_category = ''
+if(initial){
+
+sub_category='{{sub_category}}'
+$('.btn-sellers-tab').each(function(index, element){
+    $(element).removeClass('btn-sellers-active')
+})
+$('#{{type}}').addClass('btn-sellers-active');
+if('{{city}}'!=''){
+    $('#location').val('{{city}}, {{state}}, {{country}}')
+}
+else if('{{state}}'!=''){
+    $('#location').val('{{state}}, {{country}}')
+}
+else if('{{country}}'!=''){
+    $('#location').val('{{country}}')
+}
+
+var x = document.getElementsByClassName("custom_tab");
+  //console.log(x);
+  for(i=0; i<x.length; i++){
+      x[i].style.display = "none";
+      //console.log(x[i]);
+  }
+$('#tab_{{type}}').css('display','block')
+}else{
+sub_category = sub_category1.val() ;
+}
+$('.btn-sellers-active').each(function(index, element){
+//console.log($(element).attr("id"));
+type = $(element).attr("id");
+//console.log(type);
+})
+var category = category1.val();
+
+
+var city = city1.val();
+var state = state1.val();
+var country = country1.val();
+//console.log(category);
+//console.log(sub_category);
+//console.log(country);
+//console.log(state);
+//console.log(city);
+var form_data = new FormData()
+form_data.append('category', category);
+form_data.append('sub_category', sub_category);
+form_data.append('city', city);
+form_data.append('state', state);
+form_data.append('country', country);
+form_data.append('page', page_int);
+form_data.append('type', type);
+var appendto = '#tab_' + type;
+//console.log(appendto);
+tab = document.querySelector(appendto);
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+page_int=page_int+1;
+category_global=category
+country_global=country
+state_global=state
+type_global=type
+
+$.ajax({
+method: "GET",
+url:'{% url "seller1:get_sellers"%}',
+data: {
+    'category' : category,
+    'sub_category' : sub_category,
+    'city' : city,
+    'state' : state,
+    'country' : country,
+    'page' : page_int,
+    'type' : type,
+},
+success: function(data){
+    //console.log('success');
+    $(appendto).html('');
+    //console.log('check here')
+    //console.log(data.sellers[0].seller.category1);
+    //console.log(data.sellers[0].seller.country);
+    //console.log(data.sellers.length);
+    //console.log(data.sellers[0].seller.category1);
+    if(data.sellers.length==0){
+
+        //console.log(data.sellers.length);
+
+        $('#type_empty').html('Sorry, No listings in '+type+', Please Look for other tabs')
+        $('#type_empty').show()
+        setTimeout(function(){
+            $('#type_empty').hide()
+        }, 5000)
+    }
+    else if(data.sellers[0].seller.category1!=category_global){
+        if(category_global==''){
+            if(data.sellers[0].seller.country!=country_global){
+                if(country_global!=''){
+            //console.log(country_global)
+        //console.log(data.sellers[0].seller.country);
+        $('#country_empty').html('Sorry, No listings in '+country+', Showing results in other countries')
+        $('#country_empty').show()
+        setTimeout(function(){
+            $('#country_empty').hide()
+        }, 5000)
+        }
+    }
+    else if(data.sellers[0].seller.region!=state_global){
+        if(state_global!=''){
+            //console.log(state_global)
+        //console.log(data.sellers[0].seller.state);
+        $('#state_empty').html('Showing results in areas around '+state)
+        $('#state_empty').show()
+        setTimeout(function(){
+            $('#state_empty').hide()
+        }, 5000)
+        }
+    }
+        }else{
+            //console.log(category_global)
+        //console.log(data.sellers[0].seller.category1);
+        $('#category_empty').html('Sorry, No listings in '+category+', Showing results in other categories')
+        $('#category_empty').show()
+        setTimeout(function(){
+            $('#category_empty').hide()
+        },5000)
+        }
+        
+    }
+    else if(data.sellers[0].seller.country!=country_global){
+        if(country_global!=''){
+            //console.log(country_global)
+        //console.log(data.sellers[0].seller.country);
+        $('#country_empty').html('Sorry, No listings in '+country+', Showing results in other countries')
+        $('#country_empty').show()
+        setTimeout(function(){
+            $('#country_empty').hide()
+        }, 5000)
+        }
+        
+    }
+    else if(data.sellers[0].seller.region!=state_global){
+        if(state_global!=''){
+            //console.log(state_global)
+        //console.log(data.sellers[0].seller.state);
+        $('#state_empty').html('Showing results in areas around '+state)
+        $('#state_empty').show()
+        setTimeout(function(){
+            $('#state_empty').hide()
+        }, 5000)
+        }
+        
+    }
+    
+    
+    for(i=0; i<data.sellers.length; i++){
+        // define all things you need here and then use in append
+        // do not compute anything in append
+        var in_advise= false;
+         var in_just=false;
+         var in_invest=false;
+         var in_some = false;
+         var seller_id = data.sellers[i].seller.business_id;
+        var investor_arr=check_for_invest(seller_id);
+        var advisor_arr=check_for_advise(seller_id);
+        var seller_arr=check_for_seller(seller_id);
+        if(check_for_same(seller_id)){
+            console.log('same' + seller_id);
+            continue;
+        }
+
+        console.log('going to display this one' + seller_id);
+        // if(check_for_advise(seller_id)){
+        //     in_advise=true;
+        //     in_some = true;
+        // }
+        // if(check_for_invest(seller_id)){
+        //     in_invest=true;
+        //     in_some = true;
+        // }
+        if(check_for_just(seller_id)){
+            in_just=true;
+            in_some = true;
+        }
+        for(var kk=0; kk<investor_arr.length; kk++){
+                    if(investor_arr[kk].found){
+                        in_some=true;
+                        break;
+                    }
+                }
+        for(var kk=0; kk<advisor_arr.length; kk++){
+            if(advisor_arr[kk].found){
+                in_some=true;
+                break;
+            }
+        }
+        for(var kk=0; kk<seller_arr.length; kk++){
+            if(seller_arr[kk].found){
+                in_some=true;
+                break;
+            }
+        }
+        //console.log(data.sellers[i].seller.type);
+
+        switch (data.sellers[i].seller.type) {
+            case 'Business':
+
+        var lat = data.sellers[i].seller.lat;
+        var lng = data.sellers[i].seller.lngt;
+        var title = data.sellers[i].seller.title;
+        var about = data.sellers[i].business.about;
+        var rev_year= data.sellers[i].seller.rev_year;
+        var dcity = data.sellers[i].seller.city;
+        var dcountry = data.sellers[i].seller.country;
+        var reason = data.sellers[i].business.reason_selling;
+        var investment = data.sellers[i].business.asking_price;
+        var profit_per = parseFloat(data.sellers[i].seller.year_17)/parseFloat(data.sellers[i].seller.rev_year);
+        profit_per=parseFloat(profit_per).toFixed(2);
+        var foundation = data.sellers[i].seller.name;
+        var dcategory = data.sellers[i].seller.category1;
+        var dsub_category = data.sellers[i].seller.category2;
+        var dcity = data.sellers[i].seller.city;
+        var drating = data.sellers[i].rating;
+        var dcurrency = data.sellers[i].seller.currency;
+
+        
+
+        //console.log('first time');
+        //console.log(dcurrency);
+        $(appendto).append(
+            "<div investment='"+asking_price+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2 onHoverEffect'>"
++                "<div class='row'>"
+ +                  " <div class='col-sm-8'>"
+  +                      "<div class='ff-p'>"
+   +                         "<div class='container-fluid zero-padding'>"
++                            "<div class='row'>"
+ +                                   "<div class='col-sm-12 col-12 col-md-12 col-lg-12'>"
+  +                                      "<a href='/seller/all_detail/"+seller_id+"'>"
+   +                                         "<h4 class='c-19 f-19 f-w-bold ff-p mb-1 text-title-limit' style='margin-top: -0.2vh'>"+title
+     +                                       "</h4>"
+    +                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 pl-1 c-3f'>"+drating+"</span>"
+     +                                           "<i class='fa fa-map-marker c-eb pl-3' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 c-3f'>"+dcity+", "+dcountry+"</span>"
+     +                                   "</a>"
+     +                               "</div>"
+     +                           "</div>"
+     +                           "<div class='row py-3'>"
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Revenue</p> "
+             +                               "</div>"
+             +                               "<div class='col-sm-8 text-right col-6'>"
+             +                                   "<p class='f-14 mb-0'>"
+            //  +                                   "<span id='businesscurr_dek2_"+i+"'></span>"
+            //  +                                   "<span style='display:none;' id='businesscurr_dek_"+i+"'>"+dcurrency+"</span>"
+            //  +                                   " "
+            //  +                                   "<span id='businesscurr_va_"+i+"'>"+rev_year+"</span>"
+            //  +                                   "<span style='display:none;'id='businesscurr_va2_"+i+"'>"+rev_year+"</span>"
+            +                                  "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+rev_year+"'></span>"
+             +                                   "</p>"    
+             +                               "</div>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Investment</p>"     
+             +                              "</div>"
+             +                               "<div class='col-sm-8 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"
+            //     +"<span id='businesscurr_deko2_"+i+"'></span>"
+            //  +                                   "<span style='display:none;' id='businesscurr_deko_"+i+"'>"+dcurrency+"</span>"+" "
+            //  +                                   "<span id='businesscurr_val_"+i+"'>"+investment+"</span>"
+            //  +                                   "<span style='display:none;'id='businesscurr_val2_"+i+"'>"+investment+"</span>"
+            +                                  "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+investment+"'></span>"
+            +                                   "</p>"     
+             +                              "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+               +                               "<div class='col-sm-3 text-left'>"
+               +                                   "<p class='f-14 mb-0'>Sector</p>"
+               +                              "</div>"
+               +                               "<div class='col-sm-9 text-right'>"
+            //    +                                   "<p class='f-14 mb-0'>"+dcategory+"</p>"
+               +                                   "<p class='f-14 mb-0'>"+dsub_category+"</p>"
+               +                               "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+     +                           "</div>"
+     +                           "<div class='row mb-0'>"
+     +                               "<div class='col-sm-12'>"
+     +                                   "<h2 class='f-14 ff-p f-w-bold'>About</h2>"
+     +                                   "<p class='f-12 ff-p f-w-100'>"+about+"</p>"
+     +                               "</div>"
+     +                           "</div>"
+
+     +                       "</div>"
+     +                  "</div>"
+     +               "</div>"
+     +               "<div class='col-sm-4'>"
+     +                   "<div class='container-fluid'>"
+     +                       "<div class='row'>"
+     +                           "<div class='col-sm-10'>"
+            +"<div id='carouselExampleControls_"+seller_id+"' style='top: 48px;left: 15px;' class='carousel slide' data-ride='carousel' data-interval='false'>"
++ "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
++"</div>"
++ "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
++     "<span>"
++         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
++     "</span>"
++ "</a>"
++ "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
++       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
++  "</a>"
++"</div>"
+
+       +                         "</div>"
+       + "{% if user.is_authenticated %}"
+       +     "<div class='col-sm-2'>"
+        +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+                        // (in_advise ? "data-advise='True'" : "data-advise='False'")+
+                        // (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                        (in_just ? "data-just='True'" : "data-just='False'")+
+                                                    " href='#my_modal'>"+
+(in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+               "</a>"
+          +  "</div>"
+          + "{% endif %}"
+       +                     "</div>"
+       +                 "</div>"
+
+       +             "</div>"
+        +        "</div>"
+       +     "</div>"
+        );
+
+        for(var k=0; k<investor_arr.length; k++){
+                    var attr = 'cart_investor_'+investor_arr[k].investor_id;
+                    var cart_seller_id = investor_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+        for(var k=0; k<advisor_arr.length; k++){
+            var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
+            var cart_seller_id = advisor_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+        for(var k=0; k<seller_arr.length; k++){
+            var attr = 'cart_seller_'+seller_arr[k].seller_id;
+            var cart_seller_id = seller_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+
+        for(var tt=0; tt<data.sellers[i].images.length; tt++){
+              var file_name = data.sellers[i].images[tt].file_name ;
+              if(tt==0){
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item active'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+              else{
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+          }
+                break;
+
+            case 'Asset':
+
+            var seller_id = data.sellers[i].seller.business_id;
+
+        var lat = data.sellers[i].seller.lat;
+        var lng = data.sellers[i].seller.lngt;
+        var title = data.sellers[i].seller.title;
+        var about = data.sellers[i].business.about_asset;
+        var rev_year= data.sellers[i].seller.rev_year;
+        var dcity = data.sellers[i].seller.city;
+        var dcountry = data.sellers[i].seller.country;
+
+        var reason = data.sellers[i].business.reason_selling;
+        var investment = data.sellers[i].business.asking_price;
+        // var profit_per = parseFloat(data.sellers[i].seller.year_17)/parseFloat(data.sellers[i].seller.rev_year);
+        var foundation = data.sellers[i].seller.name;
+        var dcategory = data.sellers[i].seller.category1;
+        var sub_category = data.sellers[i].seller.category2;
+        var year = data.sellers[i].business.purchase_year;
+        var asset_type = data.sellers[i].business.asset_type;
+        var dcurrency = data.sellers[i].seller.currency;
+
+        //console.log('first time');
+        $(appendto).append(
+            "<div investment='"+investment+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
++                "<div class='row'>"
+ +                  " <div class='col-sm-8'>"
+  +                      "<div class='ff-p'>"
+   +                         "<div class='container-fluid zero-padding'>"
++                            "<div class='row'>"
+ +                                   "<div class='col-sm-12 col-12 col-md-12 col-lg-12'>"
+  +                                      "<a href='/seller/all_detail/"+seller_id+"'>"
+   +                                         "<h4 class='c-19 f-19 f-w-bold ff-p text-title-limit' style='margin-top: -0.2vh'>"+title
+     +                                       "</h4>"
+     +                                   "</a>"
+     +                                   "<p class='f-11 mb-0'>"
+    +                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 pl-1 c-3f'>8.5</span>"
+     +                                           "<i class='fa fa-map-marker c-eb pl-3' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 c-3f'>"+dcity+", "+dcountry+"</span>"
+    +                                    "</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                           "<div class='row py-3'>"
+     +                               "<div class='col-md-6'>"
+    +                                    "<div class='row'>"
+            +                               "<div class='col-sm-4 text-left'>"
+            +                                   "<p class='f-14 mb-0'>Ask Price</p>"
+            +                               "</div>"
+            +                               "<div class='col-sm-8 text-right col-6'>"
+            +                                   "<p class='f-14 mb-0'>"
+            // +                          "<span id='assetcurr_deko2_"+i+"'></span>"
+            // +                "<span style='display:none;' id='assetcurr_deko_"+i+"'>"+dcurrency+"</span>"
+            // +                    " "
+            // +          "<span id='assetcurr_val_"+i+"'>"+investment+"</span>"+"</p>"
+            // +       "<span style='display:none;'id='assetcurr_val2_"+i+"'>"+investment+"</span>"
+            +              "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+investment+"'></span>"
+            +                              "</p>"
+            +                               "</div>"
+            +                               "<div class='col-sm-6 text-left'>"
+            +                                   "<p class='f-14 mb-0'>Purchase Year</p>"
+            +                              "</div>"
+            +                               "<div class='col-sm-6 text-right'>"
+            +                                   "<p class='f-14 mb-0'>"+year+"</p>"
+            +                              "</div>"
+    +                                    "</div>"
+    +                                "</div>"
+     +                               "<div class='col-md-6'>"
+    +                                    "<div class='row'>"
+            +                               "<div class='col-sm-3 text-left'>"
+            +                                   "<p class='f-14 mb-0'>Sector</p>"
+            +                               "</div>"
+            +                               "<div class='col-sm-9 text-right col-6'>"
+            +                                   "<p class='f-14 mb-0'>"+sub_category+"</p>"
+            // +                                   "<p class='f-14 mb-0'>"+dcategory+"</p>"
+            +                               "</div>"
+            +                               "<div class='col-sm-3 text-left'>"
+            +                                   "<p class='f-14 mb-0'>Type</p>"
+            +                              "</div>"
+            +                               "<div class='col-sm-9 text-right'>"
+            +                                   "<p class='f-14 mb-0'>"+asset_type+"</p>"
+            +                              "</div>"
+    +                                    "</div>"
+    +                                "</div>"
+     +                           "</div>"
+     +                           "<div class='row'>"
+     +                               "<div class='col-sm-12'>"
+     +                                   "<h2 class='f-14 ff-p f-w-bold'>About</h2>"
+     +                                   "<p class='f-12 ff-p f-w-100'>"+about+"</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                       "</div>"
+     +                  "</div>"
+     +               "</div>"
+     +               "<div class='col-sm-4'>"
+     +                   "<div class='container-fluid'>"
+     +                       "<div class='row'>"
+     +                           "<div class='col-sm-10'>"
+            +"<div id='carouselExampleControls_"+seller_id+"' style='top:48px;left:15px' class='carousel slide' data-ride='carousel' data-interval='false'>"
++ "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
++"</div>"
++ "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
++     "<span>"
++         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
++     "</span>"
++ "</a>"
++ "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
++       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
++  "</a>"
++"</div>"
+
+       +                         "</div>"
+       + "{% if user.is_authenticated %}"
+       +     "<div class='col-sm-2'>"
+        +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+                        // (in_advise ? "data-advise='True'" : "data-advise='False'")+
+                        // (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                        (in_just ? "data-just='True'" : "data-just='False'")+
+                                                    " href='#my_modal'>"+
+(in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+               "</a>"
+          +  "</div>"
+          + "{% endif %}"
+       +                     "</div>"
+       +                 "</div>"
+
+       +             "</div>"
+        +        "</div>"
+       +         "<div class='row pt-20'>"
+       +             "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>"
+       +             "<div class='col-1 col-sm-1 col-md-1 col-lg-1'></div>"
+       +         "</div>"
+       +     "</div>"
+        );
+
+        for(var k=0; k<investor_arr.length; k++){
+                    var attr = 'cart_investor_'+investor_arr[k].investor_id;
+                    var cart_seller_id = investor_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+        for(var k=0; k<advisor_arr.length; k++){
+            var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
+            var cart_seller_id = advisor_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+        for(var k=0; k<seller_arr.length; k++){
+            var attr = 'cart_seller_'+seller_arr[k].seller_id;
+            var cart_seller_id = seller_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+
+        for(var tt=0; tt<data.sellers[i].images.length; tt++){
+              var file_name = data.sellers[i].images[tt].file_name ;
+              if(tt==0){
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item active'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+              else{
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+          }
+                break;
+
+
+
+            case 'Equity':
+            //console.log('equity');
+            var seller_id = data.sellers[i].seller.business_id;
+
+        var lat = data.sellers[i].seller.lat;
+        var lng = data.sellers[i].seller.lngt;
+        var title = data.sellers[i].seller.title;
+        var name = data.sellers[i].seller.name;
+        var about = data.sellers[i].business.about_business;
+        var run_rate = data.sellers[i].seller.rev_year;
+        var category1 = data.sellers[i].seller.category1;
+        var category2 = data.sellers[i].seller.category2;
+        var reason = data.sellers[i].business.reason;
+        var stake = parseFloat(data.sellers[i].business.stake).toFixed(2);
+        var asking_price = data.sellers[i].business.asking_price;
+        var profit_per = parseFloat(data.sellers[i].seller.year_17)/parseFloat(data.sellers[i].seller.rev_year);
+        profit_per=parseFloat(profit_per).toFixed(2);
+        var dcountry = data.sellers[i].seller.country;
+        var city = data.sellers[i].seller.city;
+        var dcurrency = data.sellers[i].seller.currency;
+
+        //console.log('first time');
+        $(appendto).append(
+            "<div investment='"+investment+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
++                "<div class='row'>"
+ +                  " <div class='col-sm-8'>"
+  +                      "<div class='ff-p'>"
+   +                         "<div class='container-fluid zero-padding'>"
++                            "<div class='row'>"
+ +                                   "<div class='col-sm-12 col-12 col-md-12 col-lg-12'>"
+  +                                      "<a href='/seller/all_detail/"+seller_id+"'>"
+   +                                         "<h4 class='c-19 f-19 f-w-bold ff-p text-title-limit' style='margin-top: -0.2vh'>"+title
+     +                                       "</h4>"
+     +                                   "</a>"
+     +                                   "<p class='f-11 mb-0'>"
+    +                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 pl-1 c-3f'>8.5</span>"
+     +                                           "<i class='fa fa-map-marker c-eb pl-3' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 c-3f'>"+dcountry+"</span>"
+     +                                   "</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                           "<div class='row py-3'>"
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Sales</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-8 text-right col-6'>"
+
+             +                                   "<p class='f-14 mb-0'>"
+            //     +"<span id='equitycurr_dek2_"+i+"'></span>"
+            //  +                                   "<span style='display:none;' id='equitycurr_dek_"+i+"'>"+dcurrency+"</span>"
+            //  +" "
+            //  +                                   "<span id='equitycurr_va_"+i+"'>"+run_rate+"</span>"
+            //  +                                   "<span style='display:none;'id='equitycurr_va2_"+i+"'>"+run_rate+"</span>"
+            +                                  "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+run_rate+"'></span>"
+            +                                   "</p>"    
+
+             +                               "</div>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Investment</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-8 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"
+            //     +"<span id='equitycurr_deko2_"+i+"'></span>"
+            //  +       "<span style='display:none;' id='equitycurr_deko_"+i+"'>"+dcurrency+"</span>"
+            //  +" "
+            //  +"<span id='equitycurr_val_"+i+"'>"+asking_price+"</span>"
+            //   +          "<span style='display:none;'id='equitycurr_val2_"+i+"'>"+asking_price+"</span>"
+            +           "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+asking_price+"'></span>"
+             +"</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-6 text-left'>"
+             +                                   "<p class='f-14 mb-0'>% stake for sale</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-6 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"+stake+" %</p>"
+             +                              "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+             +                               "<div class='col-sm-3 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Sector</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-9 text-right col-6'>"
+            //  +                                   "<p class='f-14 mb-0 text-wrap'>"+category1+"</p>"
+             +                                   "<p class='f-14 mb-0 text-wrap'>"+category2+"</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-6 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Profit Percent</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-6 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"+profit_per+" %</p>"
+             +                              "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+    
+     +                           "</div>"
+     +                           "<div class='row mt--8'>"
+     +                               "<div class='col-sm-12'>"
+     +                                   "<h2 class='f-14 ff-p f-w-bold'>About</h2>"
+     +                                   "<p class='f-12 ff-p f-w-100'>"+about+"</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                       "</div>"
+     +                  "</div>"
+     +               "</div>"
+     +               "<div class='col-sm-4'>"
+     +                   "<div class='container-fluid'>"
+     +                       "<div class='row'>"
+     +                           "<div class='col-sm-10'>"
+            +"<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' style='top: 48px;left: 15px;' data-ride='carousel' data-interval='false'>"
++ "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
++"</div>"
++ "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
++     "<span>"
++         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
++     "</span>"
++ "</a>"
++ "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
++       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
++  "</a>"
++"</div>"
+
+       +                         "</div>"
+       + "{% if user.is_authenticated %}"
+       +     "<div class='col-sm-2'>"
+        +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+                        // (in_advise ? "data-advise='True'" : "data-advise='False'")+
+                        // (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                        (in_just ? "data-just='True'" : "data-just='False'")+
+                                                    " href='#my_modal'>"+
+(in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+               "</a>"
+          +  "</div>"
+          + "{% endif %}"
+       +                     "</div>"
+       +                 "</div>"
+
+       +             "</div>"
+        +        "</div>"
+       +         "<div class='row pt-20'>"
+       +             "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>"
+       +             "<div class='col-1 col-sm-1 col-md-1 col-lg-1'></div>"
+       +         "</div>"
+       +     "</div>"
+        );
+
+        for(var k=0; k<investor_arr.length; k++){
+                    var attr = 'cart_investor_'+investor_arr[k].investor_id;
+                    var cart_seller_id = investor_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+        for(var k=0; k<advisor_arr.length; k++){
+            var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
+            var cart_seller_id = advisor_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+        for(var k=0; k<seller_arr.length; k++){
+            var attr = 'cart_seller_'+seller_arr[k].seller_id;
+            var cart_seller_id = seller_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+
+        for(var tt=0; tt<data.sellers[i].images.length; tt++){
+              var file_name = data.sellers[i].images[tt].file_name ;
+              if(tt==0){
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item active'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+              else{
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+          }
+                break;
+
+           case 'Loan':
+
+           var seller_id = data.sellers[i].seller.business_id;
+
+           var lat = data.sellers[i].seller.lat;
+        var lng = data.sellers[i].seller.lngt;
+        var title = data.sellers[i].seller.title;
+        var name = data.sellers[i].seller.name;
+        var about = data.sellers[i].business.about_business;
+        var run_rate = data.sellers[i].seller.rev_year;
+        var category1 = data.sellers[i].seller.category1;
+        var category2 = data.sellers[i].seller.category2;
+        var reason = data.sellers[i].business.reason;
+        var loan_amount = parseFloat(data.sellers[i].business.loan_amount).toFixed(2);
+        var sought = parseFloat(data.sellers[i].business.sought_interest).toFixed(2);
+        // var profit_per = parseFloat(data.sellers[i].seller.year_17)/parseFloat(data.sellers[i].seller.rev_year);
+        // profit_per=parseFloat(profit_per).toFixed(2);
+        var dcountry = data.sellers[i].seller.country;
+        var city = data.sellers[i].seller.city;
+        var year = data.sellers[i].business.year_established;
+        var dcurrency = data.sellers[i].seller.currency;
+
+        //console.log('first time');
+        $(appendto).append(
+            "<div investment='"+sought+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
++                "<div class='row'>"
+ +                  " <div class='col-sm-8'>"
+  +                      "<div class='ff-p'>"
+   +                         "<div class='container-fluid zero-padding'>"
++                            "<div class='row'>"
+ +                                   "<div class='col-sm-12 col-12 col-md-12 col-lg-12'>"
+  +                                      "<a href='/seller/all_detail/"+seller_id+"'>"
+   +                                         "<h4 class='c-19 f-19 f-w-bold ff-p text-title-limit' style='margin-top: -0.2vh'>"+title
+     +                                       "</h4>"
+     +                                   "</a>"
+     +                                   "<p class='f-11 mb-0'>"
+    +                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 pl-1 c-3f'>8.5</span>"
+     +                                           "<i class='fa fa-map-marker c-eb pl-3' aria-hidden='true'></i>"
+     +                                           "<span class='f-12 c-3f'>"+dcountry+"</span>"
+     +                                   "</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                           "<div class='row py-3'>"
+        
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Sales</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-8 text-right col-6'>"
+              +                                   "<p class='f-14 mb-0'>"
+            //     +"<span id='loancurr_dek2_"+i+"'></span>"
+            //  +                                   "<span style='display:none;' id='loancurr_dek_"+i+"'>"+dcurrency+"</span>"
+            //  +" "
+            //  +                                   "<span id='loancurr_va_"+i+"'>"+run_rate+"</span>"
+            //  +                                   "<span style='display:none;'id='loancurr_va2_"+i+"'>"+run_rate+"</span>"
+            +                                  "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+run_rate+"'></span>"
+             +                                   "</p>" 
+             +                               "</div>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Loan Amt</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-8 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"
+            //  +"<span id='loancurr_deko2_"+i+"'></span>"
+            //  +"<span style='display:none;' id='loancurr_deko_"+i+"'>"+dcurrency+"</span>"
+            //  +" "+"<span id='loancurr_val_"+i+"'>"+loan_amount+"</span>"
+            //   +          "<span style='display:none;'id='loancurr_val2_"+i+"'>"+loan_amount+"</span>"      
+            +               "<span class='price' data-currency-type='"+dcurrency+"' data-value='"+loan_amount+"'></span>"     
+             +"</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Term</p>"
+             +                              "</div>"
+             +                               "<div class='col-sm-8 text-right'>"
+             +                                   "<p class='f-14 mb-0'>"+year+" yrs</p>"
+             +                              "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+     
+     +                               "<div class='col-md-6'>"
+     +                                    "<div class='row'>"
+             +                               "<div class='col-sm-3 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Sector</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-9 text-right col-6'>"
+            //  +                                   "<p class='f-14 mb-0'>"+category1+"</p>"
+             +                                   "<p class='f-14 mb-0'>"+category2+"</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-4 text-left'>"
+             +                                   "<p class='f-14 mb-0'>Interest %</p>"
+             +                               "</div>"
+             +                               "<div class='col-sm-8 text-right col-6'>"
+             +                                   "<p class='f-14 mb-0'>"+sought+" %</p>"
+             +                               "</div>"
+     +                                    "</div>"
+     +                                "</div>"
+     +                           "</div>"
+
+     +                           "<div class='row'>"
+     +                               "<div class='col-sm-12'>"
+     +                                   "<h2 class='f-14 ff-p f-w-bold'>About</h2>"
+     +                                   "<p class='f-12 ff-p f-w-100'>"+about+"</p>"
+     +                               "</div>"
+     +                           "</div>"
+     +                       "</div>"
+     +                  "</div>"
+     +               "</div>"
+     +               "<div class='col-sm-4'>"
+     +                   "<div class='container-fluid'>"
+     +                       "<div class='row'>"
+     +                           "<div class='col-sm-10'>"
+            +"<div id='carouselExampleControls_"+seller_id+"' style='top: 48px;left: 15px;' class='carousel slide' data-ride='carousel' data-interval='false'>"
++ "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
++"</div>"
++ "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
++     "<span>"
++         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
++     "</span>"
++ "</a>"
++ "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
++       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
++  "</a>"
++"</div>"
+
+       +                         "</div>"
+       + "{% if user.is_authenticated %}"
+       +     "<div class='col-sm-2'>"
+        +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+                        // (in_advise ? "data-advise='True'" : "data-advise='False'")+
+                        // (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                        (in_just ? "data-just='True'" : "data-just='False'")+
+                                                    " href='#my_modal'>"+
+(in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+               "</a>"
+          +  "</div>"
+          + "{% endif %}"
+       +                     "</div>"
+       +                 "</div>"
+
+       +             "</div>"
+        +        "</div>"
+       +         "<div class='row pt-20'>"
+       +             "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>"
+       +             "<div class='col-1 col-sm-1 col-md-1 col-lg-1'></div>"
+       +         "</div>"
+       +     "</div>"
+        );
+
+        for(var k=0; k<investor_arr.length; k++){
+                    var attr = 'cart_investor_'+investor_arr[k].investor_id;
+                    var cart_seller_id = investor_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+        for(var k=0; k<advisor_arr.length; k++){
+            var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
+            var cart_seller_id = advisor_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+        for(var k=0; k<seller_arr.length; k++){
+            var attr = 'cart_seller_'+seller_arr[k].seller_id;
+            var cart_seller_id = seller_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+
+        for(var tt=0; tt<data.sellers[i].images.length; tt++){
+              var file_name = data.sellers[i].images[tt].file_name ;
+              if(tt==0){
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item active'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+              else{
+                $('#carouselInner_'+seller_id).append(
+               "<div class='carousel-item'>"
+                  + "<div class='container-fluid'>"
+                     +  "<div class='row'>"
+                      +     "<div class='col-sm-12 text-center'>"
+                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +     "</div>"
+                      + "</div>"
+              +     "</div>"
+             + " </div>"
+           );
+              }
+          }
+                break;
+            default:
+                break;
+        }
+
+    }
+    $('#carousel').html('');
+    for(k=0; k<data.pages; k++){
+               var pp = k+1;
+               $('#carousel').append("<div  class='slide btn-pagenation  ff-p mb-2'  >"+
+                "<span id='page_"+pp+"' page='"+pp+"' onclick='get_sellers(this);myCurrency();' ><h6  style='width: 10%' >" + pp +"</h6></span>"+
+            "</div>");
+           }
+},
+async:false
+})
+}
+
+
+</script>
+
+
+<script>
+
+ 
+
+$( document ).ajaxStart(function() {
+  $("#overlay").fadeIn();
+});
+
+$( document ).ajaxStop(function() {
+  $("#overlay").fadeOut();
+});
+
+
+
+       var a = screen.width;
+       console.log(a);
+       if(a<2000 && a>1500){
+            $("body").css("zoom","90%");
+       }
+       else if(a<1500 && a>1400){
+             $("body").css("zoom","80%");
+       }
+       else if(a<1400 && a>1100){
+             $("body").css("zoom","65%");
+       }
+       else if(a<1100 && a>900){
+             $("body").css("zoom","67%");
+       }
+       else{
+            $("body").css("zoom","50%");
+       }
+       
+
+
+
+
+</script>
+
+
+
+{% if user.is_authenticated %}
+<script>
+$(document).ready(function(){
+$('#login_icon_b').css('display','none');
+$('#loggedin_icon_b').css('display','block');
+$('#login_icon_s').css('display','none');
+$('#loggedin_icon_s').css('display','block');
+// name="{{user.profile.photo.name}}";
+// name = "/media/"+name;
+if("{{user.profile.social}}"=="True"){
+    name = "{{user.profile.photo_url}}"
+}else{
+    name = "/media/"+"{{user.profile.photo.name}}";
+}
+//console.log(name)
+//console.log('{{user.profile.photo_url}}');
+$('#prof_pic_b').attr('src',name);
+$('#prof_pic_s').attr('src',name);
+});
+</script>
+
+<script type="text/javascript">
+
+$('#noti_Container_b').click(function(){
+var div = document.getElementById('notifications_b');
+if (div.style.display !== 'none') {
+div.style.display = 'none';
+}
+else {
+div.style.display = 'block';
+}
+})
+$('#noti_Container_s').click(function(){
+var div = document.getElementById('notifications_s');
+if (div.style.display !== 'none') {
+div.style.display = 'none';
+}
+else {
+div.style.display = 'block';
+}
+})
+$('#noti_Button_b').click(function(){
+$('#noti_Counter_s').html('');
+$('#noti_Counter_b').html('');
+$.ajax({
+type:'GET',
+url:'/clear_notif',
+success:function(data){
+    $('#noti_Counter_b').html('');
+    $('#noti_Counter_s').html('');
+}
+})
+})
+$('#noti_Button_s').click(function(){
+$('#noti_Counter_s').html('');
+$('#noti_Counter_b').html('');
+$.ajax({
+type:'GET',
+url:'/clear_notif',
+success:function(data){
+    $('#noti_Counter_s').html('');
+    $('#noti_Counter_b').html('');
+}
+})
+})
+</script>
+{% endif %}
+
+<!-- <script>
+
+            //   $("div").load(function(){
+            //         var curr_showed = $('#id_currency').val().split('**');
+            //     var curr_string = curr_showed[3];
+            //     var curr_value = parseInt(curr_showed[4]); 
+            //     var cur_len = $('[id^=curr_deko]').length;
+            //     $('[id^=curr_deko2]').html(curr_string);
+            //     console.log(curr_string);   
+            //     console.log($('[id^=curr_deko]'));  
+            //     for(var i=1;i<=4;i++){
+            //         var id1 = "#curr_deko_"+i;
+            //         var id2 = "#curr_val_"+i;
+            //         var fut_showed= $(id1).text().split('**');
+            //         var cur_fut = parseInt($(id2).text());    
+            //          console.log(cur_fut);  
+            //         var fut_value= parseInt(fut_showed[4]); 
+            //          console.log(fut_value);  
+            //         fut_value= ((cur_fut)*(curr_value))/fut_value;
+            //          console.log(fut_value);  
+            //         $(id2).html(fut_value.toString(8));
+                    
+            //     }
+            //   }); 
+
+            function myCurrency() {
+                var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var k = ["business","loan","equity","asset"];
+
+                var cur_len = $('[id^=businesscurr_deko]').length;
+                $('[id^=businesscurr_deko2]').html(curr_string);
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#businesscurr_deko_"+i;
+                    var id2 = "#businesscurr_val2_"+i;
+                    var id3 = "#businesscurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=businesscurr_dek]').length;
+                $('[id^=businesscurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#businesscurr_dek_"+i;
+                    var id2 = "#businesscurr_va2_"+i;
+                    var id3 = "#businesscurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+                
+                var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var k = ["equity","loan","equity","asset"];
+
+                var cur_len = $('[id^=equitycurr_deko]').length;
+                $('[id^=equitycurr_deko2]').html(curr_string);
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#equitycurr_deko_"+i;
+                    var id2 = "#equitycurr_val2_"+i;
+                    var id3 = "#equitycurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=equitycurr_dek]').length;
+                $('[id^=equitycurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#equitycurr_dek_"+i;
+                    var id2 = "#equitycurr_va2_"+i;
+                    var id3 = "#equitycurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var k = ["loan","loan","loan","asset"];
+
+                var cur_len = $('[id^=loancurr_deko]').length;
+                $('[id^=loancurr_deko2]').html(curr_string);
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#loancurr_deko_"+i;
+                    var id2 = "#loancurr_val2_"+i;
+                    var id3 = "#loancurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=loancurr_dek]').length;
+                $('[id^=loancurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#loancurr_dek_"+i;
+                    var id2 = "#loancurr_va2_"+i;
+                    var id3 = "#loancurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var k = ["asset","asset","asset","asset"];
+
+                var cur_len = $('[id^=assetcurr_deko]').length;
+                $('[id^=assetcurr_deko2]').html(curr_string);
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#assetcurr_deko_"+i;
+                    var id2 = "#assetcurr_val2_"+i;
+                    var id3 = "#assetcurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=assetcurr_dek]').length;
+                $('[id^=assetcurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len;i++){
+                    var id1 = "#assetcurr_dek_"+i;
+                    var id2 = "#assetcurr_va2_"+i;
+                    var id3 = "#assetcurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+            }
+
+            $('#id_currency').change(function(){
+            // Do something here.
+                var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=businesscurr_deko2]').length;
+                $('[id^=businesscurr_deko2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_deko]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#businesscurr_deko_"+i;
+                    var id2 = "#businesscurr_val2_"+i;
+                    var id3 = "#businesscurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=businesscurr_dek2]').length;
+                $('[id^=businesscurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#businesscurr_dek_"+i;
+                    var id2 = "#businesscurr_va2_"+i;
+                    var id3 = "#businesscurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=assetcurr_deko2]').length;
+                $('[id^=assetcurr_deko2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_deko]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#assetcurr_deko_"+i;
+                    var id2 = "#assetcurr_val2_"+i;
+                    var id3 = "#assetcurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=assetcurr_dek2]').length;
+                $('[id^=assetcurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#assetcurr_dek_"+i;
+                    var id2 = "#assetcurr_va2_"+i;
+                    var id3 = "#assetcurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=loancurr_deko2]').length;
+                $('[id^=loancurr_deko2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_deko]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#loancurr_deko_"+i;
+                    var id2 = "#loancurr_val2_"+i;
+                    var id3 = "#loancurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=loancurr_dek2]').length;
+                $('[id^=loancurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#loancurr_dek_"+i;
+                    var id2 = "#loancurr_va2_"+i;
+                    var id3 = "#loancurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=equitycurr_deko2]').length;
+                $('[id^=equitycurr_deko2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_deko]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#equitycurr_deko_"+i;
+                    var id2 = "#equitycurr_val2_"+i;
+                    var id3 = "#equitycurr_val_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+
+                    var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+                var cur_len = $('[id^=equitycurr_dek2]').length;
+                $('[id^=equitycurr_dek2]').html(curr_string);
+                // console.log(curr_string);   
+                // console.log($('[id^=curr_dek]'));  
+                for(var i=0;i<=cur_len+1;i++){
+                    var id1 = "#equitycurr_dek_"+i;
+                    var id2 = "#equitycurr_va2_"+i;
+                    var id3 = "#equitycurr_va_"+i;
+                    var fut_showed= $(id1).text().split('**');
+                    var cur_fut = parseFloat($(id2).text());    
+                    //  console.log(cur_fut);  
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    //  console.log(fut_value);  
+                    fut_value= ((cur_fut)*(curr_value/fut_value));
+                    fut_value=fut_value.toFixed(2)
+                    //  console.log(fut_value);  
+                    $(id3).html(fut_value.toString(8));
+                    
+                }
+
+            });
+
+            
+
+            //     var id1 = ".curr_deko_"+1;
+            //     var id2 = "#curr_val_"+1;
+            //     $(id1).html("frrttrtrtr");
+            //     console.log(id1);
+            //     console.log(i);
+            //     console.log(curr_string);
+
+
+
+
+</script> -->
+
+
+<script>
+
+
+function myCurrency() {
+
+    var curr_showed = $('#id_currency').val().split('**');
+    var curr_string = curr_showed[3];
+    var curr_value = parseFloat(curr_showed[4]); 
+
+    $(".price").each(function(){
+        var fut_showed= $(this).data("currency-type").split('**')
+        var fut_value= parseFloat(fut_showed[4]); 
+        var cur_fut= parseFloat($(this).data("value"));
+        fut_value= ((cur_fut)*(curr_value))/fut_value;
+        fut_value=fut_value.toFixed(2);
+        $(this).html(fut_value +" "+curr_string );
+        if(fut_value<1000){
+             $(this).html(fut_value +" "+curr_string );
+        }
+        else if(fut_value>=1000 && fut_value<1000000 ){
+            fut_value=fut_value/1000;
+            fut_value=fut_value.toFixed(2);
+            $(this).html(fut_value +" Thousand"+" "+curr_string );
+        }
+        else if(fut_value>=1000000 && fut_value<1000000000 ){
+            fut_value=fut_value/1000000;
+            fut_value=fut_value.toFixed(2);
+            $(this).html(fut_value +" Million"+" "+curr_string );
+        }
+        else if(fut_value>=1000000000 && fut_value<1000000000000 ){
+            fut_value=fut_value/1000000000;
+            fut_value=fut_value.toFixed(2);
+            $(this).html(fut_value +" Billion"+" "+curr_string );
+        }
+    });
+
+    $(".pricei").each(function(){
+        var fut_showed= $(this).data("currency-type").split('**')
+        var fut_value= parseFloat(fut_showed[4]); 
+        var cur_fut= $(this).data("value");
+
+        if(cur_fut=="0 to 10,000"){
+            min=0
+            max=((10000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+        else if(cur_fut=="10,000 to 100,000"){
+            min=((10000)*(curr_value))/fut_value;
+            max=((100000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+        else if(cur_fut=="100,000 to 1 Million"){
+            min=((100000)*(curr_value))/fut_value;
+            max=((1000000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+        else if(cur_fut=="1 Million to 10 Million"){
+            min=((1000000)*(curr_value))/fut_value;
+            max=((10000000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+        else if(cur_fut=="10 Million to 100 Million"){
+            min=((10000000)*(curr_value))/fut_value;
+            max=((100000000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+        else if(cur_fut=="Greater than 100 Million"){
+            min=((100000000)*(curr_value))/fut_value;
+            max=((1000000000)*(curr_value))/fut_value;
+            var avg = (min+max)/2;
+            console.log(avg);
+        }
+
+
+        if(avg<=10000){
+            $(this).html("0 to 10,000"+" "+curr_string);
+            console.log("0 to 10,000");
+        }
+        else if(avg>10000 && avg<=100000){
+            $(this).html("10,000 to 100,000"+" "+curr_string);
+            console.log("10,000 to 100,000");
+        }
+        else if(avg>100000 && avg<=1000000){
+            $(this).html("100,000 to 1 Million"+" "+curr_string);
+            console.log("100,000 to 1 Million");
+        }
+        else if(avg>1000000 && avg<=10000000){
+            $(this).html("1 Million to 10 Million"+" "+curr_string);
+            console.log("1 Million to 10 Million");
+        }
+        else if(avg>10000000 && avg<=100000000){
+            $(this).html("10 Million to 100 Million"+" "+curr_string);
+            console.log("10 Million to 100 Million");
+        }
+        else if(avg>=1000000000){
+            $(this).html("Greater than 100 Million"+" "+curr_string);
+            console.log("Greater than 100 Million");
+        }
+
+    });
+
+}
+
+$('#id_currency').change(function(){
+
+    
+myCurrency();
+});      
+
+</script> 
+
+
+
+</body>
+
+
+
+
+
+</html>

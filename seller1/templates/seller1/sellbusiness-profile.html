@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard 6</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    <script src="{% static 'seller1/js/dropzone.js' %}"></script>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/style.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/meter.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/progressBar.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/seller1/css/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-animate-right bg-16 c-f ff-p pl-2 pr-2" style="display:none;z-index:1000;right: 0%;width: 260px"
+        id="mySidebar">
+        <a href="#" class="w3-bar-item w3-button f-w-bold f-16 pb-2 mt-4">Home</a>
+        <a href="index.html">
+            <button class="w3-button w3-block w3-left-align f-w-bold f-16 pb-2 outline-none">
+                Business
+            </button>
+        </a>
+        <div class="f-14 pb-2 pl-4">
+            <a href="#menu1" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Buy Business</a>
+            <div class="collapse pl-3" id="menu1">
+                <a href="display.html" class="w3-bar-item w3-button">Verified Business</a>
+                <a href="display.html" class="w3-bar-item w3-button">Asset for Sale</a>
+                <a href="display.html" class="w3-bar-item w3-button">View Stake for sale</a>
+                <a href="display.html" class="w3-bar-item w3-button">Business seeking Loan</a>
+            </div>
+            <a href="#menu2" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Investors</a>
+            <div class="collapse pl-3" id="menu2">
+                <a class="w3-bar-item w3-button" href="display4.html">View Investors / Buyer</a>
+                <a class="w3-bar-item w3-button" href="individual.html">List as Investor</a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Financiers </a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Investment Bank</a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Private Equity</a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Venture Capital</a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Banks</a>
+                <a class="w3-bar-item w3-button" href="individual2.html">List as PE / IB / VC</a>
+                <a class="w3-bar-item w3-button" href="individual2.html">List as Financier / Bank</a>
+            </div>
+            <a href="#menu3" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Tools & Resources</a>
+            <div class="collapse pl-3" id="menu3">
+                <a href="#" class="w3-bar-item w3-button">Basic Valuation</a>
+                <a href="#" class="w3-bar-item w3-button">Advanced Valuation</a>
+                <a href="#" class="w3-bar-item w3-button">Biz Insights</a>
+                <a href="#" class="w3-bar-item w3-button">B-Plan Template</a>
+            </div>
+            <a href="#menu4" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Advisors</a>
+            <div class="collapse pl-3" id="menu4">
+                <a href="display3.html" class="w3-bar-item w3-button">View Advisors</a>
+                <a href="display3.html" class="w3-bar-item w3-button">View Consultants</a>
+                <a href="display3.html" class="w3-bar-item w3-button">View Mentors</a>
+                <a href="display3.html" class="w3-bar-item w3-button">View Market Researchers </a>
+                <a href="#" class="w3-bar-item w3-button">Term sheet negotiation</a>
+                <a href="advisor-profile.html" class="w3-bar-item w3-button">List as an Advisor</a>
+            </div>
+            <a href="#menu5" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Sell-Business</a>
+            <div class="collapse pl-3" id="menu5">
+                <a href="sellers-profile.html" class="w3-bar-item w3-button">Sell Business</a>
+                <a href="#" class="w3-bar-item w3-button">Value your business </a>
+                <a href="#" class="w3-bar-item w3-button">How to sell ? </a>
+                <a href="sellers-profile.html" class="w3-bar-item w3-button">Sell Stake in Business</a>
+                <a href="sellers-profile.html" class="w3-bar-item w3-button">Sell Asset</a>
+                <a href="sellers-profile.html" class="w3-bar-item w3-button">Seek Loan</a>
+            </div>
+            <a href="#menu6" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Franchise</a>
+            <div class="collapse pl-3" id="menu6">
+                <a href="display5.html" class="w3-bar-item w3-button">View Franchise</a>
+                <a href="franchises.html" class="w3-bar-item w3-button">List Franchise </a>
+            </div>
+        </div>
+        <a href="index2.html">
+            <button class="w3-button w3-block w3-left-align f-w-bold f-16 pb-2 outline-none">
+                StartUp
+            </button>
+        </a>
+        <div class="f-14 pb-2 pl-4">
+            <a  href="#menu7" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Online business</a>
+            <div class="collapse pl-3" id="menu7">
+                <a class="w3-bar-item w3-button" href="display2.html">Tech Ventures
+                </a>
+                <a class="w3-bar-item w3-button" href="display2.html">Codes for Sale
+                </a>
+                <a class="w3-bar-item w3-button" href="display2.html">Website for sale
+                </a>
+                <a class="w3-bar-item w3-button" href="start-up.html">List Online Business
+                </a>
+            </div>
+            <a href="#menu8" class="collapsed w3-bar-item w3-button" data-toggle="collapse">IP</a>
+            <div class="collapse pl-3" id="menu8">
+                <a class="w3-bar-item w3-button" href="display2.html">Trade Marks
+                </a>
+                <a class="w3-bar-item w3-button" href="display2.html">License & Distribution 
+                </a>
+                <a class="w3-bar-item w3-button" href="display2.html">Copyright
+                </a>
+                <a class="w3-bar-item w3-button" href="display2.html">Patent
+                </a>
+                <a class="w3-bar-item w3-button" href="start-up.html"> List IP
+                </a>
+            </div>
+            <a href="#menu9" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Investors</a>
+            <div class="collapse pl-3" id="menu9">
+                <a class="w3-bar-item w3-button" href="display4.html">View Investors / Buyer 
+                </a>
+                <a class="w3-bar-item w3-button" href="individual.html">List as Investor
+                </a>
+                <a class="w3-bar-item w3-button" href="display5.html">View Financiers
+                </a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Investment Bank
+                </a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Private Equity
+                </a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Venture Capital
+                </a>
+                <a class="w3-bar-item w3-button" href="display4.html">View Banks
+                </a>
+            </div>
+            <a href="#menu10" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Advisors</a>
+            <div class="collapse pl-3" id="menu10">
+                <a class="w3-bar-item w3-button" href="display3.html">Incubators
+                </a>
+                <a class="w3-bar-item w3-button" href="display3.html">Accelerators 
+                </a>
+                <a class="w3-bar-item w3-button" href="display3.html">Mentors
+                </a>
+                <a class="w3-bar-item w3-button" href="display3.html">Institutions
+                </a>
+                <a class="w3-bar-item w3-button" href="display3.html">Legal Advisor/CA
+                </a>
+                <a class="w3-bar-item w3-button" href="advisor-profile.html">List as Advisor
+                </a>
+            </div>
+            <a href="#menu11" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Tools/Resources</a>
+            <div class="collapse pl-3" id="menu11">
+                <a class="w3-bar-item w3-button" href="#">Basic Valuation
+                </a>
+                <a class="w3-bar-item w3-button" href="#">Advanced Valuation 
+                </a>
+                <a class="w3-bar-item w3-button" href="">B-Plan Template
+                </a>
+                <a class="w3-bar-item w3-button" href="">Startup Insights
+                </a>
+            </div>
+        </div>
+        <a href="#" class="w3-bar-item w3-button f-14 pt-2">My Profile</a>
+        <a href="#" class="w3-bar-item w3-button f-14">Download Apps</a>
+        <a href="#" class="w3-bar-item w3-button f-14">Sign Out</a>
+
+        <a href="#" class="w3-bar-item w3-button f-12 pt-4">Follow Us</a>
+        <ul id="social">
+            <li>
+                <i class="fa fa-facebook h" aria-hidden="true"></i>
+            </li>
+            <li>
+                <i class="fa fa-twitter h" aria-hidden="true"></i>
+            </li>
+            <li>
+                <i class="fa fa-linkedin h" aria-hidden="true"></i>
+            </li>
+            <li>
+                <i class="fa fa-google h" aria-hidden="true"></i>
+            </li>
+        </ul>
+    </div>
+    <!-- Page Content -->
+    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                    <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-48 pb-20" style="z-index: 1;" id="navbar">
+                            <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()"></i>
+                            <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="index.html">Business Verge</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+        
+                            <div class="collapse navbar-collapse m-a pt-1" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto pr-4 c-3f ff-p f-17 f-w-500 text-center ">
+                                    <li class="nav-item dropdown pr-2">
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Buy Business
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="">
+                                            <a class="dropdown-item" href="display.html">Verified Businesses</a>
+                                            <a class="dropdown-item" href="display.html">Asset for sale</a>
+                                            <a class="dropdown-item" href="display.html">View Stake for Sale </a>
+                                            <a class="dropdown-item" href="display.html">Business seeking Loan </a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown pr-2 pl-2">
+                                        <!-- <a class="nav-link" href="#">Investors </a> -->
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Investors
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="display4.html">View Investors / Buyer</a>
+                                            <a class="dropdown-item" href="individual.html">List as Investor</a>
+                                            <a class="dropdown-item" href="display4.html">View Financiers </a>
+                                            <a class="dropdown-item" href="display4.html">View Investment Bank</a>
+                                            <a class="dropdown-item" href="display4.html">View Private Equity</a>
+                                            <a class="dropdown-item" href="display4.html">View Venture Capital</a>
+                                            <a class="dropdown-item" href="display4.html">View Banks</a>
+                                            <a class="dropdown-item" href="individual2.html">List as PE / IB / VC</a>
+                                            <a class="dropdown-item" href="individual2.html">List as Financier / Bank</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown pr-2 pl-2">
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Tools &Resources
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a href="" class="dropdown-item">Basic Valuation</a>
+                                            <a href="" class="dropdown-item">Advanced Valuation</a>
+                                            <a href="" class="dropdown-item">Biz Insights</a>
+                                            <a href="" class="dropdown-item">B-Plan Template</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown pr-2 pl-2">
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Advisors
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a href="display3.html" class="dropdown-item">View Advisors</a>
+                                            <a href="display3.html" class="dropdown-item">View Consultants</a>
+                                            <a href="display3.html" class="dropdown-item">View Mentors</a>
+                                            <a href="display3.html" class="dropdown-item">View Market Researchers </a>
+                                            <a href="#" class="dropdown-item">Term sheet negotiation</a>
+                                            <a href="advisor-profile.html" class="dropdown-item">List as an Advisor</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown pr-2 pl-2">
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Sell-Business
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a href="sellers-profile.html" class="dropdown-item">Sell Business</a>
+                                            <a href="#" class="dropdown-item">Value your business </a>
+                                            <a href="#" class="dropdown-item">How to sell ? </a>
+                                            <a href="sellers-profile.html" class="dropdown-item">Sell Stake in Business</a>
+                                            <a href="sellers-profile.html" class="dropdown-item">Sell Asset</a>
+                                            <a href="sellers-profile.html" class="dropdown-item">Seek Loan</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown pr-2 pl-2">
+                                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Franchise
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a href="display5.html" class="dropdown-item">View Franchise</a>
+                                            <a href="franchises.html" class="dropdown-item">List Franchise </a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item pr-2 pl-2 pb-2">
+                                        <!-- <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a> -->
+                                        <img src="http://127.0.0.1:8000/static/seller1/images/bell.png" alt="" class="img-fluid pt-1">
+                                    </li>
+                                </ul>
+                                <form class="text-center mr-4">
+                                    <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                                        data-target="#login">Log In</button>
+                                </form>
+        
+                            </div>
+                        </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mt-111" style="background: url('http://127.0.0.1:8000/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6 col-12 col-md-6 pt-70 pb-69">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <img src="http://127.0.0.1:8000/static/seller1/images/Mask Group.jpg" class="img-fluid pt-3" alt="">
+                                    </div>
+                                    <div class="col-sm-5 pt-80">
+                                        <span class="f-26 ff-p f-w-bold c-f">Vine Yard for Sale
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6 col-12 col-md-6 c-f pb-3">
+                            <h2 class="f-26 ff-pd pt-50 f-w-bold">About the Business</h2>
+                            <address class="f-16 pt-20 pb-5">
+                                {{sell_bsn.about}}<br>
+                                {{sell_bsn.reason_selling}}    
+                            </address>
+                            <a href="{% url 'seller1:business-update' business_id=sell_bsn.business_id %}"><span>
+                                    <button class="btn-dashboard-banner" id="update">Update
+                                        </button>
+                            </span></a>
+                            <a href="{% url 'seller1:business-delete' business_id=sell_bsn.business_id %}"><span>
+                                    <button class="btn-dashboard-banner">Delete
+                                        </button>
+                            </span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--start body section -->
+    <div class="container-fluid bg-f6">
+        <div class="row">
+            <div class="col-sm-9 col-12 col-md-9 col-lg-9">
+                <div class="container-fluid">
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-3 col-6 col-md-3 col-lg-3">
+                                    <h2 class="f-w-bold f-18 ff-p">Annual Revenue
+                                    </h2>
+                                    <h2 class="f-w-bold f-18 ff-p">Location
+                                    </h2>
+                                    <h2 class="f-w-bold f-18 ff-p">Reason for Sale
+                                    </h2>
+                                </div>
+                                <div class="col-sm-3 col-6 col-md-3 col-lg-3">
+                                    <h2 class="ff-p f-18 mPB-4">1,000,000 Rs
+                                    </h2>
+                                    <h2 class="ff-p f-18">Mumbai
+                                    </h2>
+                                    <h2 class="ff-p f-18">Expansion of my other Business
+                                    </h2>
+                                </div>
+                                <div class="col-sm-3 col-6 col-md-3 col-lg-3">
+                                    <h2 class="f-w-bold f-18 ff-p">Cost of Sale
+                                    </h2>
+                                    <h2 class="f-w-bold f-18 ff-p">Profit Percent
+                                    </h2>     
+                                    <h2 class="f-w-bold f-18 ff-p">Asking price of Business
+                                    </h2>                                
+                                </div>
+                                <div class="col-sm-3 col-6 col-md-3 col-lg-3">
+                                    <h2 class="ff-p f-18 mPB-4">1,000,000 Rs
+                                    </h2>
+                                    <h2 class="ff-p f-18">25%
+                                    </h2>   
+                                    <h2 class="ff-p f-18">5000000 INR
+                                    </h2>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-20 mb-20 pb-22 bg-ff" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance
+                                <span class="f-w-100 f-20"> (visible to investor)</span>
+                            </h1>
+                        </div>
+                        
+                        <div class="container-fluid">
+                            <div class="row pt-50">
+                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                    <div class="wow progress blue"> <span class="wow progress-left"> <span class="wow progress-bar"></span> </span> <span class="wow progress-right"> <span class="wow progress-bar"></span> </span>
+                                        <div class="wow progress-value">90+</div>
+                                    </div>
+                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                                    </h4> 
+                                </div>
+                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                    <div class="progress blue2"> <span class="progress-left"> <span class="wow progress-bar2"></span> </span> <span class="progress-right"> <span class="wow progress-bar2"></span> </span>
+                                        <div class="progress-value">15+</div>
+                                    </div>
+                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold"> Growth Potential 
+                                    </h4> 
+                                </div>
+                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                    <div class="progress blue3"> <span class="progress-left"> <span class="wow progress-bar"></span> </span> <span class="progress-right"> <span class="wow progress-bar"></span> </span>
+                                        <div class="progress-value">70+</div>
+                                    </div>
+                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Customer Portfolio 
+                                    </h4> 
+                                </div>
+                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                    <div class="progress blue4"> <span class="progress-left"> <span class="wow progress-bar3"></span> </span> <span class="progress-right"> <span class="wow progress-bar3"></span> </span>
+                                        <div class="progress-value">5+</div>
+                                    </div>
+                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold"> Recurring Revenue 
+                                    </h4> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-md-12 col-lg-12 text-center">
+                            <button class="btn-basic-valuation">Basic Valuation (Free)
+                            </button>
+                        </div>
+                        <div class="col-sm-12 col-12 col-md-12 col-lg-12 pt-20">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pb-3">Value for Money
+                            </h3>
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12 col-md-12 col-lg-12 pt-30" style="padding-bottom: 150px">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pb-3">Value projected for Vine Yard
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="col-sm-7 col-12 col-lg-7 col-md-7">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">Similar Businesses / StartUps
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row pt-36">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Ankur Palm Springs</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Mother Earth Hosts Our
+                                                                Travels</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Live Poker How To Win
+                                                                Tournament…</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Ankur Palm Springs</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Mother Earth Hosts Our
+                                                                Travels</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="http://127.0.0.1:8000/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Live Poker How To Win
+                                                                Tournament…</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-20">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button class="btn-startup-cart">Contact Investor
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span>
+                                    <img src="http://127.0.0.1:8000/static/seller1/images/left-arrow-icon.png" alt="">
+                                </span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span><img src="http://127.0.0.1:8000/static/seller1/images/right-arrow-icon.png" alt=""></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-20 mb-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Relevant Sector Companys’ Performance</h1>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row pt-36 pb-50">
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="http://127.0.0.1:8000/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="http://127.0.0.1:8000/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="http://127.0.0.1:8000/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
+                <div class="onlineChatBox height-scroller">
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <button class="btn-sideBox ff-p"> Advanced Valuation
+                        </button>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p>
+                    </div>
+
+                    <a href="">
+                        <h3 class="f-18 sideMap-online about-seller bg-ff">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-red-icon.png" alt="" class="img-fluid">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-image-3.png" alt="" class="img-fluid pl-2">
+                            <span class="c-3f f-14 ff-p f-w-500 pl-2">Russell Hart</span>
+                        </h3>
+                    </a>
+                    <a href="">
+                        <h3 class="f-18 sideMap-online about-seller bg-ff">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-gray-icon.png" alt="" class="img-fluid">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-image-1.png" alt="" class="img-fluid pl-2">
+                            <span class="c-3f f-14 ff-p f-w-500 pl-2">Charles Alexander</span>
+                        </h3>
+                    </a>
+                    <a href="">
+                        <h3 class="f-18 sideMap-online about-seller bg-ff">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-green-icon.png" alt="" class="img-fluid">
+                            <img src="http://127.0.0.1:8000/static/seller1/images/side-map-image-4.png" alt="" class="img-fluid pl-2">
+                            <span class="c-3f f-14 ff-p f-w-500 pl-2">Russell Hart</span>
+                        </h3>
+                    </a>
+                    <br>
+                    <div class="input-group sideMap-online">
+                        <input class="form-control border-right-0" placeholder="Type a Meassage">
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-ff"><img src="http://127.0.0.1:8000/static/seller1/images/insert-icon.jpg" alt=""></div>
+                        </span>
+                        <span class="input-group-append bg-ff">
+                            <div class="input-group-text bg-ff"><img src="http://127.0.0.1:8000/static/seller1/images/search-icon.jpg" alt=""></div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end body section -->
+    <div class="container-fluid bg-ea sticky-fixed">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .btn-basic-valuation {
+            background: #28a745;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-basic-valuation:hover {
+            color: #28a745;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #28a745;
+            padding: 6px 57px 8px 50px;
+        }
+
+        .btn-startup-cart {
+            background: #192ED5;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-startup-cart:hover {
+            color: #192ED5;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #192ED5;
+            padding: 6px 57px 8px 50px;
+        }
+        .btn-sideBox{
+            padding: 9px 22px 9px 22px;
+            background: #28a745;
+            color: #ffffff;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out
+        }
+
+            .btn-sideBox:hover{
+                color: #28a745;
+            background: #ffffff;
+            border: 1px solid #28a745;
+            cursor: pointer;
+        }
+        .btn-bv {
+            background: #22B683;
+            color: #ffffff;
+            padding: 8px 12px 8px 17px;
+            border: none;
+            font-family: Poppins;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-bv:hover {
+            color: #22B683;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #22B683
+        }
+        .progress-custo {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 1.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 98%;
+            margin-left: 1%;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        'use strict';
+
+        var rangeMeter = document.querySelector('#range');
+        var rangeShow = document.querySelector("#show");
+        var rangeClock = document.querySelector('.meter-clock');
+
+        function rangeChange() {
+            var rotateClock = rangeMeter.value;
+
+            rangeClock.style.transform = 'rotate(' + (-90 + ((rotateClock * 180) / 100)) + 'deg)';
+            rangeShow.value = rotateClock + '%';
+        }
+
+        rangeMeter.addEventListener('input', rangeChange);
+    </script>
+    <script src="http://127.0.0.1:8000/static/seller1/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/seller1/js/popper.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/seller1/js/bootstrap.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/seller1/js/custom.js"></script>
+    <script src="http://127.0.0.1:8000/static/seller1/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+    document.getElementById("update").onclick = function(){
+        $.ajax({
+            type: "POST",
+            url: 'seller_update/',
+            data: {
+                business_id: 1
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

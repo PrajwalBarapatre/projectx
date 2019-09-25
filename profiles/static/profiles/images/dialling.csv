@@ -1,0 +1,2338 @@
+id,country,city,state
+1,Afghanistan,B?dgh?s,Qala i Naw
+2,Afghanistan,Far?h,Farah
+3,Afghanistan,F?ry?b,Meymaneh
+4,Afghanistan,Ghazn?,Ghazni
+5,Afghanistan,Gh?r,Chaghcharan
+6,Afghanistan,Laghm?n,Mehtar Lam
+7,Afghanistan,L?gar,Baraki Barak
+8,Afghanistan,N?mr?z,Zaranj
+9,Afghanistan,Pakt?k?,Sharan
+10,Afghanistan,Panjshir,B?z?rak
+11,Afghanistan,Parw?n,Charikar
+12,Albania,Dibër,Peshkopi
+13,Albania,Durrës,Krujë
+14,Albania,Fier,Lushnjë
+15,Albania,Gjirokastër,Gjirokastër
+16,Albania,Gjirokastër,Përmet
+17,Albania,Korçë,Pogradec
+18,Algeria,Adrar,Adrar
+19,Algeria,Aïn Temouchent,Aïn Temouchent
+20,Algeria,Alger,Algiers
+21,Algeria,Batna,Batna
+22,Algeria,Béchar,Béni Ounif
+23,Algeria,Béchar,Béchar
+24,Algeria,Boumerdes,Boumerdes
+25,Algeria,Ghardaïa,El Goléa
+26,Algeria,Illizi,Djanet
+27,Algeria,Illizi,I-n-Amenas
+28,Algeria,M’sila,M'sila
+29,Algeria,Naama,Naama
+30,Algeria,Ouargla,Hassi Messaoud
+31,Algeria,Ouargla,Touggourt
+32,Algeria,Oum el Bouaghi,Oum el Bouaghi
+33,Andorra,Ordino,Ordino
+34,Angola,Benguela,Benguela
+35,Angola,Bié,Calucinga
+36,Angola,Huambo,Huambo
+37,Angola,Huíla,Quipungo
+38,Angola,Kuando Kubango,Luiana
+39,Angola,Kwanza Norte,Ndalatando
+40,Angola,Kwanza Norte,Dondo
+41,Angola,Kwanza Sul,Quibala
+42,Angola,Malanje,Malanje
+43,Angola,Moxico,Cazombo
+44,Angola,Namibe,Tômbua
+45,Argentina,Buenos Aires,Dolores
+46,Argentina,Buenos Aires,Lobos
+47,Argentina,Buenos Aires,Tandil
+48,Argentina,Buenos Aires,Tres Arroyos
+49,Argentina,"Buenos Aires, Ciudad Autónoma de",Buenos Aires
+50,Argentina,Catamarca,Tinogasta
+51,Argentina,Chaco,Charata
+52,Argentina,Chubut,Trelew
+53,Argentina,Chubut,Rawson
+54,Argentina,Chubut,Paso Rio Mayo
+55,Argentina,Chubut,Puerto Madryn
+56,Argentina,Chubut,Sarmiento
+57,Argentina,Córdoba,Bell Ville
+58,Argentina,Córdoba,Alta Gracia
+59,Argentina,Entre Ríos,Paraná
+60,Argentina,Entre Ríos,Concepción del Uruguay
+61,Argentina,La Pampa,General Pico
+62,Argentina,Mendoza,Malargüe
+63,Argentina,Mendoza,La Paz
+64,Argentina,Misiones,Posadas
+65,Argentina,Misiones,Eldorado
+66,Argentina,Neuquén,Zapala
+67,Armenia,Aragatsotn,Ashtarak
+68,Armenia,Ararat,Artashat
+69,Armenia,Lorri,Vanadzor
+70,Australia,Australian Capital Territory,Canberra
+71,Australia,New South Wales,Forbes
+72,Australia,New South Wales,Singleton
+73,Australia,New South Wales,Newcastle
+74,Australia,New South Wales,Bathurst
+75,Australia,New South Wales,Central Coast
+76,Australia,New South Wales,Yamba
+77,Australia,New South Wales,Coffs Harbour
+78,Australia,New South Wales,Orange
+79,Australia,New South Wales,Wollongong
+80,Australia,New South Wales,Nowra
+81,Australia,New South Wales,Merimbula
+82,Australia,New South Wales,Cowra
+83,Australia,New South Wales,Broken Hill
+84,Australia,Northern Territory,Katherine
+85,Australia,Northern Territory,Adelaide River
+86,Australia,Northern Territory,McMinns Lagoon
+87,Austria,Kärnten,Klagenfurt
+88,Austria,Niederösterreich,Sankt Pölten
+89,Azerbaijan,Ab?eron,X?rdalan
+90,Azerbaijan,A?da?,A?da?
+91,Azerbaijan,Balak?n,Balak?n
+92,Azerbaijan,Da?k?s?n,Da?k?s?n
+93,Azerbaijan,Hac?qabul,Hac?qabul
+94,Azerbaijan,K?lb?c?r,K?lb?c?r
+95,Azerbaijan,Neftçala,Neftçala
+96,Azerbaijan,Ordubad,Ordubad
+97,Bahrain,Al ‘??imah,Manama
+98,Bangladesh,Dhaka,Narayanganj
+99,Bangladesh,Dhaka,Tangail
+100,Bangladesh,Khulna,Khulna
+101,Belarus,Homyel’skaya Voblasts’,Homyel
+102,Belarus,Mahilyowskaya Voblasts’,Babruysk
+103,Belarus,Minskaya Voblasts’,Maladzyechna
+104,Belgium,Flanders,Hasselt
+105,Benin,Ouémé,Porto-Novo
+106,Bhutan,Dagana,Daga
+107,Bhutan,Gasa,Gasa
+108,Bhutan,Lhuentse,Lhuentse
+109,Bhutan,Mongar,Mongar
+110,Bolivia,Chuquisaca,Padilla
+111,Bolivia,Cochabamba,Puerto Villarroel
+112,Bolivia,El Beni,Reyes
+113,Bolivia,El Beni,Guayaramerín
+114,Bolivia,La Paz,Coroico
+115,Bolivia,La Paz,Viacha
+116,Bolivia,La Paz,Charaña
+117,Bolivia,La Paz,Achacachi
+118,Bolivia,La Paz,Sorata
+119,Bolivia,Potosí,Tupiza
+120,Bolivia,Potosí,Villa Martin
+121,Bolivia,Potosí,Uncia
+122,Botswana,Central,Serowe
+123,Botswana,Chobe,Kasane
+124,Botswana,Francistown,Francistown
+125,Botswana,Jwaneng,Jwaneng
+126,Botswana,Kgalagadi,Tshabong
+127,Botswana,Kweneng,Molepolole
+128,Botswana,Lobatse,Lobatse
+129,Brazil,Acre,Sena Madureira
+130,Brazil,Alagoas,Arapiraca
+131,Brazil,Alagoas,Rio Largo
+132,Brazil,Amapá,Porto Santana
+133,Brazil,Amazonas,Natal
+134,Brazil,Amazonas,Tefé
+135,Brazil,Amazonas,Barcelos
+136,Brazil,Amazonas,Tonantins
+137,Brazil,Bahia,Tucano
+138,Brazil,Bahia,Santa Cruz Cabrália
+139,Brazil,Ceará,Icó
+140,Brazil,Ceará,Baturité
+141,Brazil,Ceará,Camocim
+142,Brazil,Ceará,Paracuru
+143,Brazil,Ceará,Canindé
+144,Brazil,Espírito Santo,Vila Velha
+145,Brazil,Espírito Santo,Cachoeiro de Itapemirim
+146,Brazil,Goiás,Jataí
+147,Brazil,Goiás,Niquelândia
+148,Brazil,Maranhão,Chapadinha
+149,Brazil,Maranhão,Grajau
+150,Brazil,Maranhão,Colinas
+151,Brazil,Maranhão,São Luís
+152,Brazil,Maranhão,Itapecuru Mirim
+153,Brazil,Maranhão,Imperatriz
+154,Brazil,Mato Grosso,Cuiabá
+155,Brazil,Mato Grosso,Rondonópolis
+156,Brazil,Mato Grosso do Sul,Aquidauana
+157,Brazil,Mato Grosso do Sul,Jardim
+158,Brazil,Minas Gerais,Almenara
+159,Brazil,Minas Gerais,Araçuaí
+160,Brazil,Minas Gerais,Itaúna
+161,Brazil,Minas Gerais,Divinópolis
+162,Brazil,Minas Gerais,Lavras
+163,Brazil,Minas Gerais,Paracatu
+164,Brazil,Minas Gerais,Araxá
+165,Brazil,Minas Gerais,Araguari
+166,Brazil,Minas Gerais,Poços de Caldas
+167,Brazil,Minas Gerais,Passos
+168,Brazil,Minas Gerais,Frutal
+169,Brazil,Minas Gerais,Januária
+170,Brazil,Minas Gerais,Governador Valadares
+171,Brazil,Minas Gerais,Guanhães
+172,Brazil,Minas Gerais,Ipatinga
+173,Brazil,Minas Gerais,Montes Claros
+174,Brazil,Minas Gerais,Leopoldina
+175,Brazil,Pará,Jacareacanga
+176,Brazil,Pará,Cametá
+177,Brazil,Pará,Paragominas
+178,Brazil,Pará,Itaituba
+179,Brazil,Pará,Xinguara
+180,Brazil,Pará,Abaetetuba
+181,Brazil,Paraná,Cascavel
+182,Brazil,Paraná,Campo Murao
+183,Brazil,Pernambuco,Timbaúba
+184,Brazil,Pernambuco,Garanhuns
+185,Brazil,Pernambuco,Salgueiro
+186,Brazil,Piauí,Piripiri
+187,Brazil,Piauí,Teresina
+188,Brazil,Piauí,Barras
+189,Bulgaria,Kyustendil,Kyustendil
+190,Bulgaria,Plovdiv,Plovdiv
+191,Burkina Faso,Boucle du Mouhoun,Solenzo
+192,Burkina Faso,Centre-Est,Tenkodogo
+193,Burkina Faso,Centre-Nord,Boulsa
+194,Burkina Faso,Centre-Sud,Pô
+195,Burkina Faso,Est,Bogandé
+196,Burkina Faso,Hauts-Bassins,Orodara
+197,Burma,Ayeyawady,Pathein
+198,Burma,Bago,Bago
+199,Burma,Chin State,Hakha
+200,Burma,Magway,Pakokku
+201,Burma,Mandalay,Myingyan
+202,Burma,Mandalay,Mandalay
+203,Burundi,Bujumbura Rural,Isale
+204,Burundi,Kirundo,Kirundo
+205,Cabo Verde,Mosteiros,Porto dos Mosteiros
+206,Cabo Verde,Porto Novo,Porto Novo
+207,Cambodia,Banteay Meanchey,Sisophon
+208,Cambodia,Kampong Chhnang,Kompong Chhnang
+209,Cambodia,Kampong Speu,Kampong Spoe
+210,Cambodia,Mondolkiri,Senmonorom
+211,Cambodia,Oddar Meanchey,Sâmraông
+212,Cambodia,Prey Veng,Prey Veng
+213,Cameroon,Centre,Mbalmayo
+214,Cameroon,Est,Bélabo
+215,Cameroon,Est,Abong Mbang
+216,Cameroon,North-West,Kumbo
+217,Cameroon,Ouest,Bafoussam
+218,Canada,Alberta,Brooks
+219,Canada,Alberta,Camrose
+220,Canada,Alberta,Calgary
+221,Canada,Alberta,Peace River
+222,Canada,Alberta,Medicine Hat
+223,Canada,Alberta,Jasper
+224,Canada,Alberta,Athabasca
+225,Canada,Alberta,Banff
+226,Canada,Alberta,Meander River
+227,Canada,British Columbia,Dawson Creek
+228,Canada,British Columbia,Nelson
+229,Canada,British Columbia,Kelowna
+230,Canada,British Columbia,Courtenay
+231,Canada,British Columbia,Lillooet
+232,Canada,British Columbia,Chilliwack
+233,Canada,British Columbia,Burns Lake
+234,Canada,British Columbia,Tofino
+235,Canada,Manitoba,Berens River
+236,Canada,Manitoba,Steinbach
+237,Canada,Manitoba,Dauphin
+238,Canada,Manitoba,Flin Flon
+239,Canada,Manitoba,Brandon
+240,Canada,Manitoba,Lynn Lake
+241,Canada,Manitoba,Winnipeg
+242,Canada,Newfoundland and Labrador,Forteau
+243,Canada,Newfoundland and Labrador,Channel-Port aux Basques
+244,Canada,Newfoundland and Labrador,St. Anthony
+245,Canada,Newfoundland and Labrador,Happy Valley - Goose Bay
+246,Canada,Northwest Territories,Lutselke
+247,Canada,Northwest Territories,Doline
+248,Canada,Nova Scotia,Windsor
+249,Canada,Nova Scotia,Digby
+250,Canada,Nunavut,Iqaluit
+251,Canada,Nunavut,Kugluktuk
+252,Canada,Nunavut,Baker Lake
+253,Canada,Nunavut,Naujaat
+254,Canada,Nunavut,Taloyoak
+255,Canada,Nunavut,Ennadai
+256,Canada,Nunavut,Hall Beach
+257,Canada,Ontario,Cobalt
+258,Canada,Ontario,Fort Severn
+259,Canada,Ontario,Sudbury
+260,Canada,Ontario,London
+261,Canada,Ontario,Ottawa
+262,Canada,Ontario,Nipigon
+263,Canada,Ontario,Geraldton
+264,Canada,Ontario,New Liskeard
+265,Canada,Ontario,Hamilton
+266,Canada,Ontario,Orangeville
+267,Canada,Ontario,Wawa
+268,Central African Republic,Haute-Kotto,Bria
+269,Central African Republic,Lobaye,Mbaïki
+270,Central African Republic,Nana-Mambéré,Bouar
+271,Central African Republic,Ouaka,Bambari
+272,Chad,Mandoul,Koumra
+273,Chile,Antofagasta,Chuquicamata
+274,Chile,Antofagasta,Calama
+275,Chile,Araucanía,Nueva Imperial
+276,Chile,Araucanía,Angol
+277,Chile,Arica y Parinacota,Arica
+278,Chile,Atacama,Diego de Almagro
+279,Chile,Atacama,Chanaral
+280,Chile,Atacama,Huasco
+281,Chile,Atacama,Copiapó
+282,Chile,Aysén,Puerto Aisén
+283,Chile,Magallanes y de la Antártica Chilena,Puerto Williams
+284,Chile,Maule,Talca
+285,China,Anhui,Fuyang
+286,China,Anhui,Jieshou
+287,China,Chongqing,Fengjie
+288,China,Chongqing,Wanzhou
+289,China,Fujian,Sanming
+290,China,Fujian,Changting
+291,China,Fujian,Fuan
+292,China,Gansu,Minxian
+293,China,Gansu,Longxi
+294,China,Gansu,Tianshui
+295,China,Gansu,Zhangye
+296,China,Guangdong,Meizhou
+297,China,Guangdong,Foshan
+298,China,Guangdong,Dongguan
+299,China,Guangdong,Qingyuan
+300,China,Guangdong,Guangzhou
+301,China,Guangxi,Guilin
+302,China,Guizhou,Guiyang
+303,China,Hebei,Qinhuangdao
+304,China,Hebei,Hengshui
+305,China,Hebei,Dingzhou
+306,China,Hebei,Huanghua
+307,China,Hebei,Xiangtai
+308,China,Heilongjiang,Mishan
+309,China,Heilongjiang,Keshan
+310,China,Heilongjiang,Hulin
+311,China,Heilongjiang,Boli
+312,China,Heilongjiang,Yichun
+313,China,Heilongjiang,Zhaodong
+314,China,Heilongjiang,Ningan
+315,China,Heilongjiang,Linkou
+316,China,Heilongjiang,Angangxi
+317,China,Heilongjiang,Tieli
+318,China,Heilongjiang,Beian
+319,China,Heilongjiang,Hulan Ergi
+320,China,Heilongjiang,Qiqihar
+321,China,Heilongjiang,Qitaihe
+322,China,Henan,Xinyang
+323,China,Henan,Zhengzhou
+324,China,Henan,Nanyang
+325,China,Henan,Kaifeng
+326,China,Hubei,Yichang
+327,China,Hubei,Shiyan
+328,China,Hubei,Jingmen
+329,China,Hunan,Shaoyang
+330,China,Hunan,Zixing
+331,China,Inner Mongolia,Baotou
+332,China,Inner Mongolia,Xilinhot
+333,China,Inner Mongolia,Jining
+334,China,Inner Mongolia,Alxa Zuoqi
+335,China,Inner Mongolia,Erenhot
+336,China,Jiangsu,Huaiyin
+337,China,Jiangxi,Nanchang
+338,China,Jiangxi,Jian
+339,China,Jilin,Panshi
+340,China,Jilin,Liaoyuan
+341,China,Jilin,Shulan
+342,China,Jilin,Changchun
+343,China,Jilin,Tumen
+344,China,Liaoning,Fuxin
+345,China,Liaoning,Tieling
+346,China,Liaoning,Jinzhou
+347,China,Ningxia,Yinchuan
+348,Colombia,Antioquia,Turbo
+349,Colombia,Antioquia,Sonsón
+350,Colombia,Arauca,Arauca
+351,Colombia,Atlántico,Barranquilla
+352,Colombia,Bolívar,Arjona
+353,Colombia,Bolívar,Cartagena
+354,Colombia,Bolívar,Magangué
+355,Colombia,Boyacá,Sogamoso
+356,Colombia,Caldas,Manizales
+357,Colombia,Huila,Neiva
+358,Colombia,Huila,Garzón
+359,Colombia,La Guajira,Riohacha
+360,Colombia,Magdalena,Ciénaga
+361,Colombia,Meta,San Martín
+362,Colombia,Nariño,Tumaco
+363,Colombia,Nariño,Ipiales
+364,Colombia,Nariño,Túquerres
+365,Congo (Brazzaville),Brazzaville,Brazzaville
+366,Congo (Brazzaville),Cuvette,Makoua
+367,Congo (Brazzaville),Cuvette,Owando
+368,Congo (Brazzaville),Cuvette-Ouest,Ewo
+369,Congo (Brazzaville),Niari,Mossendjo
+370,Congo (Brazzaville),Plateaux,Gamboma
+371,Congo (Kinshasa),Bas-Uélé,Aketi
+372,Congo (Kinshasa),Équateur,Mbandaka
+373,Congo (Kinshasa),Haut-Katanga,Kipushi
+374,Congo (Kinshasa),Haut-Katanga,Luanza
+375,Congo (Kinshasa),Haut-Lomami,Kaniama
+376,Congo (Kinshasa),Haut-Uélé,Wamba
+377,Congo (Kinshasa),Haut-Uélé,Watsa
+378,Congo (Kinshasa),Kasaï,Ilebo
+379,Congo (Kinshasa),Kasaï Central,Kananga
+380,Congo (Kinshasa),Kasaï Central,Demba
+381,Congo (Kinshasa),Kinshasa,Kinshasa
+382,Congo (Kinshasa),Kongo Central,Kimpese
+383,Congo (Kinshasa),Kwango,Kenge
+384,Congo (Kinshasa),Kwilu,Kikwit
+385,Congo (Kinshasa),Kwilu,Bandundu
+386,Congo (Kinshasa),Kwilu,Mangai
+387,Congo (Kinshasa),Lomami,Lubao
+388,Congo (Kinshasa),Mai-Ndombe,Mushie
+389,Congo (Kinshasa),Maniema,Kampene
+390,Congo (Kinshasa),Maniema,Kindu
+391,Congo (Kinshasa),Mongala,Lisala
+392,Congo (Kinshasa),Nord-Ubangi,Businga
+393,Costa Rica,Guanacaste,Liberia
+394,Croatia,Li?ko-Senjska Županija,Gospi?
+395,Croatia,Primorsko-Goranska Županija,Rijeka
+396,Cuba,Artemisa,Artemisa
+397,Cuba,Camagüey,Camagüey
+398,Cuba,Camagüey,Nuevitas
+399,Cuba,Isla de la Juventud,Nueva Gerona
+400,Czechia,Karlovarský Kraj,Karlovy Vary
+401,Czechia,Královéhradecký Kraj,Hradec Králové
+402,Czechia,Moravskoslezský Kraj ,Ostrava
+403,Czechia,Olomoucký Kraj,Olomouc
+404,Czechia,Pardubický Kraj,Pardubice
+405,C??D?voire,Bas-Sassandra,Soubré
+406,C??D?voire,Comoé,Grand Bassam
+407,C??D?voire,Gôh-Djiboua,Gagnoa
+408,C??D?voire,Gôh-Djiboua,Divo
+409,C??D?voire,Lacs,Dimbokro
+410,C??D?voire,Lagunes,Dabou
+411,C??D?voire,Montagnes,Guiglo
+412,Denmark,Hovedstaden,Hillerød
+413,Djibouti,Obock,Obock
+414,Dominican Republic,Cibao Noroeste,Dajabón
+415,Dominican Republic,Cibao Norte,Moca
+416,Dominican Republic,Cibao Sur,Cotuí
+417,Dominican Republic,Higuamo,Hato Mayor
+418,Ecuador,Chimborazo,Alausí
+419,Ecuador,Chimborazo,Riobamba
+420,Ecuador,Cotopaxi,Latacunga
+421,Ecuador,Loja,Macará
+422,Ecuador,Los Ríos,Babahoyo
+423,Ecuador,Morona-Santiago,Yaupi
+424,Ecuador,Napo,Tena
+425,Ecuador,Pastaza,Puyo
+426,Egypt,Al Iskandar?yah,Alexandria
+427,Egypt,Al J?zah,El Giza
+428,Egypt,Al Miny?,Mallawi
+429,Egypt,Al Miny?,El Minya
+430,Egypt,Al Qaly?b?yah,Benha
+431,Egypt,Asw?n,Aswan
+432,Egypt,Asy??,Asyut
+433,Egypt,B?r Sa‘?d,Bur Said
+434,Egypt,Ma?r??,Siwa
+435,Egypt,Ma?r??,Matruh
+436,Egypt,Ma?r??,Salum
+437,El Salvador,Cabañas,Sensuntepeque
+438,El Salvador,Cuscatlán,Cojutepeque
+439,Equatorial Guinea,Annobón,Palé
+440,Equatorial Guinea,Litoral,Bata
+441,Eritrea,Debub,Mendefera
+442,Eritrea,Gash Barka,Agordat
+443,Estonia,Järvamaa,Paide
+444,Estonia,Läänemaa,Haapsalu
+445,Ethiopia,?mara,Dese
+446,Ethiopia,?mara,Debre Birhan
+447,Ethiopia,B?nshangul Gumuz,Asosa
+448,Ethiopia,H?rer? Hizb,Harar
+449,Ethiopia,Orom?ya,Dembi Dolo
+450,Fiji,Ba,Nandi
+451,Finland,Etelä-Karjala,Lappeenranta
+452,Finland,Keski-Pohjanmaa,Kokkola
+453,Finland,Lappi,Kemi
+454,Finland,Lappi,Sodankylä
+455,Finland,Lappi,Kemijärvi
+456,France,Bourgogne-Franche-Comté,Dijon
+457,France,Bretagne,Brest
+458,France,Centre-Val de Loire,Tours
+459,France,Corsica,Bastia
+460,France,Grand Est,Troyes
+461,France,Grand Est,Nancy
+462,France,Île-de-France,Versailles
+463,France,Normandie,Rouen
+464,France,Nouvelle-Aquitaine,Biarritz
+465,France,Occitanie,Tarbes
+466,France,Pays de la Loire,Nantes
+467,Gabon,Moyen-Ogooué,Bifoum
+468,Gabon,Moyen-Ogooué,Lambaréné
+469,Gabon,Ogooué-Maritime,Omboué
+470,"Gambia, The",Central River,Bansang
+471,"Gambia, The",North Bank,Kerewan
+472,Georgia,Abkhazia,Sukhumi
+473,Georgia,Imereti,Kutaisi
+474,Georgia,Mtskheta Mtianeti,Mtskheta
+475,Germany,Baden-Württemberg,Ulm
+476,Germany,Baden-Württemberg,Mannheim
+477,Germany,Bavaria,Ingolstadt
+478,Germany,Bavaria,Passau
+479,Germany,Bavaria,Regensburg
+480,Germany,Bavaria,Coburg
+481,Germany,Bavaria,Fürth
+482,Germany,Berlin,Berlin
+483,Germany,Brandenburg,Potsdam
+484,Germany,Brandenburg,Cottbus
+485,Germany,Bremen,Bremen
+486,Germany,Lower Saxony,Hannover
+487,Germany,Lower Saxony,Braunschweig
+488,Germany,North Rhine-Westphalia,Cologne
+489,Germany,North Rhine-Westphalia,Düsseldorf
+490,Germany,North Rhine-Westphalia,Dortmund
+491,Germany,North Rhine-Westphalia,Duisburg
+492,Germany,North Rhine-Westphalia,Essen
+493,Germany,North Rhine-Westphalia,Bielefeld
+494,Germany,North Rhine-Westphalia,Wuppertal
+495,Ghana,Ashanti,Kumasi
+496,Ghana,Central,Cape Coast
+497,Ghana,Greater Accra,Accra
+498,Greece,Dytikí Elláda,Patra
+499,Greece,Ionía Nísia,Kerkira
+500,Greece,Ípeiros,Ioanina
+501,Greece,Kentrikí Makedonía,Katerini
+502,Greece,Kríti,Hania
+503,Greece,Kríti,Sitia
+504,Greece,Notío Aigaío,Ermoupoli
+505,Greece,Peloponnísos,Kalamata
+506,Guatemala,Chiquimula,Chiquimula
+507,Guatemala,Escuintla,San Jose
+508,Guatemala,Huehuetenango,Huehuetenango
+509,Guinea,Boké,Kamsar
+510,Guinea,Boké,Koundara
+511,Guinea,Kankan,Kérouané
+512,Guinea,Kindia,Kindia
+513,Guinea,Kindia,Télimélé
+514,Guinea,Labé,Tongue
+515,Guinea,Labé,Mali
+516,Guinea,Mamou,Dalaba
+517,Guinea,N’Zérékoré,Beyla
+518,Guinea-Bissau,Biombo,Quinhámel
+519,Guyana,Demerara-Mahaica,Georgetown
+520,Guyana,Mahaica-Berbice,Fort Wellington
+521,Guyana,Pomeroon-Supenaam,Anna Regina
+522,Haiti,Centre,Hinche
+523,Haiti,Nippes,Miragoâne
+524,Haiti,Nord-Ouest,Port-De-Paix
+525,Honduras,Cortés,San Pedro Sula
+526,Honduras,La Paz,La Paz
+527,Hungary,Budapest,Budapest
+528,Hungary,Debrecen,Debrecen
+529,Hungary,Gy?r-Moson-Sopron,Sopron
+530,Hungary,Jász-Nagykun-Szolnok,Szolnok
+531,Hungary,Miskolc,Miskolc
+532,Hungary,Pécs,Pécs
+533,Iceland,Austurland,Höfn
+534,India,Andhra Pradesh,Guntur
+535,India,Andhra Pradesh,Vizianagaram
+536,India,Andhra Pradesh,Hindupur
+537,India,Andhra Pradesh,Karimnagar
+538,India,Assam,Guwahati
+539,India,Bih?r,Aurangabad
+540,India,Chand?garh,Chandigarh
+541,India,Gujar?t,Bhuj
+542,India,Gujar?t,Ahmedabad
+543,India,Hary?na,Gurgaon
+544,India,Hary?na,Sirsa
+545,India,Hary?na,Sonipat
+546,India,Hary?na,Panipat
+547,India,Him?chal Pradesh,Simla
+548,India,Jharkhand,Dhanbad
+549,India,Jharkhand,Jamshedpur
+550,India,Karn?taka,Hospet
+551,India,Karn?taka,Bijapur
+552,India,Karn?taka,Mandya
+553,India,Karn?taka,Tumkur
+554,India,Kerala,Kollam
+555,India,Madhya Pradesh,Ujjain
+556,India,Madhya Pradesh,Burhanpur
+557,India,Madhya Pradesh,Indore
+558,India,Mah?r?shtra,Sangli
+559,India,Mah?r?shtra,Ahmednagar
+560,India,Mah?r?shtra,Aurangabad
+561,India,Odisha,Brahmapur
+562,Indonesia,Aceh,Langsa
+563,Indonesia,Banten,Serang
+564,Indonesia,Jawa Timur,Kediri
+565,Indonesia,Jawa Timur,Sumenep
+566,Indonesia,Kalimantan Selatan,Bandjarmasin
+567,Indonesia,Kalimantan Tengah,Sampit
+568,Indonesia,Kalimantan Tengah,Kualakapuas
+569,Indonesia,Nusa Tenggara Timur,Ende
+570,Indonesia,Nusa Tenggara Timur,Waingapu
+571,Indonesia,Papua,Biak
+572,Indonesia,Papua,Timika
+573,Indonesia,Papua,Merauke
+574,Iran,Alborz,Karaj
+575,Iran,?z?arb?yj?n-e Gharb?,Mahabad
+576,Iran,E?fah?n,Kashan
+577,Iran,E?fah?n,Qomsheh
+578,Iran,?l?m,?l?m
+579,Iran,Khor?s?n-e Ra?av?,Kashmar
+580,Iran,Khor?s?n-e Ra?av?,Torbat-e Jam
+581,Iran,Kh?zest?n,Ahvaz
+582,Iran,Kordest?n,Sanandaj
+583,Iran,Markaz?,Arak
+584,Iran,M?zandar?n,Sari
+585,Iraq,Arb?l,Irbil
+586,Iraq,Baghd?d,Baghdad
+587,Iraq,Dh? Q?r,An Nasiriyah
+588,Iraq,Diy?lá,Mandali
+589,Iraq,N?nawá,Mosul
+590,Ireland,Cork,Cork
+591,Ireland,Donegal,Donegal
+592,Ireland,Dublin,Dublin
+593,Ireland,Fingal,Swords
+594,Ireland,Galway,Galway
+595,Ireland,Kilkenny,Kilkenny
+596,Ireland,Leitrim,Carrick on Shannon
+597,Ireland,Louth,Drogheda
+598,Ireland,Louth,Dundalk
+599,Ireland,Mayo,Castlebar
+600,Ireland,Meath,Trim
+601,Israel,Central,Ramla
+602,Italy,Abruzzo,L'Aquila
+603,Italy,Basilicata,Potenza
+604,Italy,Calabria,Catanzaro
+605,Italy,Calabria,Vibo Valentia
+606,Italy,Calabria,Crotone
+607,Italy,Campania,Caserta
+608,Italy,Emilia-Romagna,Bologna
+609,Italy,Emilia-Romagna,Modena
+610,Italy,Friuli-Venezia Giulia,Udine
+611,Italy,Liguria,Genoa
+612,Italy,Molise,Campobasso
+613,Italy,Piedmont,Asti
+614,Japan,Aichi,Nagoya
+615,Japan,Aomori,Hirosaki
+616,Japan,Ehime,Matsuyama
+617,Japan,Fukuoka,Fukuoka
+618,Japan,Fukushima,Iwaki
+619,Japan,Gunma,Maebashi
+620,Japan,Hiroshima,Hiroshima
+621,Japan,Hokkaid?,Sapporo
+622,Japan,Ibaraki,Mito
+623,Japan,Kagawa,Takamatsu
+624,Japan,Nagano,Nagano
+625,Japan,Niigata,Niigata
+626,Jordan,Al Balq?’,As Salt
+627,Jordan,Al Karak,Al Karak
+628,Jordan,A? ?af?lah,At Tafilah
+629,Jordan,Az Zarq?’,Az Zarqa
+630,Kazakhstan,Almaty,Ushtobe
+631,Kazakhstan,Almaty,Qapshaghay
+632,Kazakhstan,Almaty,Esik
+633,Kazakhstan,Almaty,Almaty
+634,Kazakhstan,Aqmola,Zholymbet
+635,Kazakhstan,Aqmola,Esil
+636,Kazakhstan,Aqtöbe,Khromtau
+637,Kazakhstan,Aqtöbe,Embi
+638,Kazakhstan,Aqtöbe,Bayghanin
+639,Kazakhstan,Batys Qazaqstan,Chapaev
+640,Kazakhstan,Mangghysta?,Zhangaozen
+641,Kazakhstan,Mangghysta?,Aqtau
+642,Kazakhstan,Ongtüstik Qazaqstan,Lenger
+643,Kazakhstan,Pavlodar,Kachiry
+644,Kazakhstan,Pavlodar,Ekibastuz
+645,Kenya,Bomet,Bomet
+646,Kenya,Garissa,Garissa
+647,Kenya,Homa Bay,Kendu Bay
+648,Kenya,Kirinyaga,Kerugoya
+649,Kenya,Kisumu,Kisumu
+650,Kenya,Kitui,Mwingi
+651,Kenya,Lamu,Witu
+652,Kenya,Machakos,Konza
+653,Kenya,Marsabit,Moyale
+654,Kenya,Meru,Meru
+655,Kenya,Mombasa,Mombasa
+656,Kenya,Murang’a,Murang’a
+657,Kenya,Nairobi City,Nairobi
+658,Kenya,Nakuru,Nakuru
+659,Kenya,Nakuru,Naivasha
+660,Kenya,Narok,Narok
+661,Kenya,Nyamira,Nyamira
+662,"Korea, North",Hambuk,Kilchu
+663,"Korea, North",Hambuk,Kimchaek
+664,"Korea, North",Hwangnam,Kaesong
+665,"Korea, North",Nas?n,Rajin
+666,"Korea, North",P’y?ngbuk,Taedong
+667,"Korea, South",Chungbuk,Cheongju
+668,"Korea, South",Daegu,Daegu
+669,"Korea, South",Daejeon,Daejeon
+670,"Korea, South",Gangwon,Wonju
+671,"Korea, South",Gangwon,Sokcho
+672,"Korea, South",Gyeonggi,Ansan
+673,"Korea, South",Incheon,Incheon
+674,Kosovo,Gjilan,Gjilan
+675,Kosovo,Istog,Istog
+676,Kosovo,Klinë,Klinë
+677,Kosovo,Kllokot,Kllokot
+678,Kosovo,Mitrovicë,
+679,Kosovo,Partesh,Partesh
+680,Kyrgyzstan,Naryn,Naryn
+681,Laos,Attapu,Attapu
+682,Laos,Houaphan,Xam Nua
+683,Laos,Louangnamtha,Louang Namtha
+684,Latvia,Apes Novads,Ape
+685,Latvia,Bab?tes Novads,Pi??i
+686,Latvia,Burtnieku Novads,Burtnieki
+687,Latvia,C?su Novads,C?sis
+688,Latvia,Iecavas Novads,Iecava
+689,Latvia,In?ukalna Novads,In?ukalns
+690,Latvia,Jaunjelgavas Novads,Jaunjelgava
+691,Latvia,Jaunpiebalgas Novads,Jaunpiebalga
+692,Latvia,K?rsavas Novads,K?rsava
+693,Latvia,?eguma Novads,?egums
+694,Latvia,?ekavas Novads,?ekava
+695,Latvia,Krimuldas Novads,Ragana
+696,Latvia,Kuld?gas Novads,Kuld?ga
+697,Latvia,L?gatnes Novads,L?gatne
+698,Latvia,Limbažu Novads,Limbaži
+699,Latvia,Lub?nas Novads,Lub?na
+700,Latvia,Ludzas Novads,Ludza
+701,Latvia,Olaines Novads,Olaine
+702,Latvia,P?rgaujas Novads,Stalbe
+703,Latvia,Priekules Novads,Priekule
+704,Lebanon,Mont-Liban,B'abda
+705,Lesotho,Mohale’s Hoek,Mohales Hoek
+706,Liberia,Grand Cape Mount,Robertsport
+707,Liberia,Montserrado,Monrovia
+708,Liberia,Montserrado,Bensonville
+709,Libya,Al Jabal al Akh?ar,Al Bayda
+710,Libya,Al Jabal al Gharb?,Gharyan
+711,Libya,Al Jufrah,Hun
+712,Libya,Al Jufrah,Zillah
+713,Libya,Al W?h??t,Maradah
+714,Libya,Mi?r?tah,Bani Walid
+715,Lithuania,Elektrénai,Elektr?nai
+716,Lithuania,Kalvarijos,Kalvarija
+717,Lithuania,Mažeikiai,Mažeikiai
+718,Lithuania,Pakruojis,Pakruojis
+719,Lithuania,Palangos Miestas,Palanga
+720,Lithuania,Pasvalys,Pasvalys
+721,Luxembourg,Clervaux,Clervaux
+722,Macedonia,Berovo,Berovo
+723,Macedonia,Bogovinje,Bogovinje
+724,Macedonia,Brvenica,Brvenica
+725,Macedonia,?aška,?aška
+726,Macedonia,Del?evo,Del?evo
+727,Macedonia,Demir Kapija,Demir Kapija
+728,Macedonia,Dolneni,Dolneni
+729,Macedonia,Gevgelija,Gevgelija
+730,Macedonia,Kavadarci,Kavadarci
+731,Macedonia,Kon?e,Kon?e
+732,Macedonia,Kriva Palanka,Kriva Palanka
+733,Macedonia,Makedonski Brod,Makedonski Brod
+734,Macedonia,Mavrovo i Rostuša,Rostuša
+735,Macedonia,Negotino,Negotino
+736,Macedonia,Ohrid,Ohrid
+737,Macedonia,Peh?evo,Peh?evo
+738,Madagascar,Antsiranana,Antalaha
+739,Madagascar,Fianarantsoa,Mananjary
+740,Madagascar,Fianarantsoa,Ihosy
+741,Madagascar,Mahajanga,Maintirano
+742,Malawi,Dowa,Dowa
+743,Malawi,Kasungu,Kasungu
+744,Malawi,Mangochi,Mangochi
+745,Malawi,Mwanza,Mwanza
+746,Malawi,Neno,Neno
+747,Malawi,Nsanje,Chiromo
+748,Malaysia,Pahang,Kuantan
+749,Malaysia,Pahang,Kuala Lipis
+750,Malaysia,Pahang,Raub
+751,Maldives,Maale,Malé
+752,Mali,Gao,Gao
+753,Mali,Kayes,Kayes
+754,Mali,Kidal,Kidal
+755,Mali,Koulikoro,Kangaba
+756,Malta,Balzan,Balzan
+757,Malta,Bormla,Cospicua
+758,Malta,G?ajnsielem,G?ajnsielem
+759,Malta,?amrun,?amrun
+760,Malta,Imdina,Imdina
+761,Malta,Ker?em,Ker?em
+762,Malta,Nadur,Nadur
+763,Mauritania,Adrar,Atar
+764,Mauritania,Guidimaka,Sélibaby
+765,Mauritania,Nouakchott Nord,Dar Naim
+766,Mauritius,Plaines Wilhems,Curepipe
+767,Mexico,Aguascalientes,Aguascalientes
+768,Mexico,Baja California,San Quintín
+769,Mexico,Baja California,Ensenada
+770,Mexico,Baja California Sur,La Paz
+771,Mexico,Chihuahua,Santa Barbara
+772,Mexico,Chihuahua,Villa Ahumada
+773,Mexico,Coahuila de Zaragoza,Nueva Rosita
+774,Mexico,Coahuila de Zaragoza,Saltillo
+775,Mexico,Coahuila de Zaragoza,Piedras Negras
+776,Mexico,Coahuila de Zaragoza,Parras
+777,Mexico,Coahuila de Zaragoza,Torreón
+778,Mexico,Durango,Canatlan
+779,Mexico,Guerrero,Chilpancingo
+780,Mexico,Guerrero,Ayutla
+781,Mexico,Guerrero,Petatlán
+782,Mexico,Guerrero,Taxco
+783,Mexico,Jalisco,La Barca
+784,Mexico,Jalisco,Ciudad Guzman
+785,Mexico,México,Toluca
+786,Mexico,Michoacán de Ocampo,Uruapan
+787,Mexico,Michoacán de Ocampo,Ciudad Hidalgo
+788,Mexico,Morelos,Cuernavaca
+789,Mexico,Nayarit,Tuxpan
+790,Mexico,Oaxaca,Huajuapan de León
+791,Mexico,Oaxaca,Pochutla
+792,Mexico,Puebla,Puebla
+793,Moldova,Anenii Noi,Anenii Noi
+794,Moldova,B?l?i,B?l?i
+795,Moldova,Bender,Bender
+796,Moldova,Cahul,Cahul
+797,Moldova,Dondu?eni,Dondu?eni
+798,Moldova,Dub?sari,Cocieri
+799,Moldova,Hînce?ti,Hînce?ti
+800,Mongolia,Bayan-Ölgiy,Olgiy
+801,Mongolia,Bulgan,Bulgan
+802,Mongolia,Dornogov?,Ulaan-Uul
+803,Mongolia,Gov?sümber,Choyr
+804,Mongolia,Ömnögov?,Dalandzadgad
+805,Montenegro,Berane,Berane
+806,Montenegro,Bijelo Polje,Bijelo Polje
+807,Montenegro,Nikši?,Nikši?
+808,Morocco,Casablanca-Settat,Settat
+809,Morocco,Casablanca-Settat,El Jadida
+810,Morocco,Fès-Meknès,Fez
+811,Morocco,Guelmim-Oued Noun,Tan Tan
+812,Mozambique,Gaza,Macia
+813,Mozambique,Inhambane,Quissico
+814,Mozambique,Nampula,Mocambique
+815,Mozambique,Niassa,Cuamba
+816,Mozambique,Niassa,Lichinga
+817,Namibia,//Karas,Oranjemund
+818,Namibia,//Karas,Lüderitz
+819,Namibia,Erongo,Karibib
+820,Namibia,Erongo,Usakos
+821,Namibia,Erongo,Swakopmund
+822,Namibia,Kunene,Outjo
+823,Namibia,Oshana,Oshakati
+824,Namibia,Oshikoto,Omuthiya
+825,Namibia,Otjozondjupa,Grootfontein
+826,Namibia,Otjozondjupa,Otjiwarongo
+827,Nepal,B?gmat?,Kathmandu
+828,Nepal,Janakpur,Ramechhap
+829,Netherlands,Drenthe,Assen
+830,Netherlands,Gelderland,Arnhem
+831,Netherlands,Noord-Brabant,Eindhoven
+832,Netherlands,Noord-Holland,Haarlem
+833,New Zealand,Bay of Plenty,Rotorua
+834,New Zealand,Canterbury,Kaikoura
+835,New Zealand,Gisborne,Gisborne
+836,New Zealand,Manawatu-Wanganui,Palmerston North
+837,New Zealand,Nelson,Nelson
+838,New Zealand,Northland,Kaitaia
+839,New Zealand,Otago,Dunedin
+840,Nicaragua,Caribe Sur,Bluefields
+841,Nicaragua,Chontales,Juigalpa
+842,Nicaragua,Estelí,Estelí
+843,Nicaragua,Masaya,Masaya
+844,Nicaragua,Nueva Segovia,Ocotal
+845,Nigeria,Abia,Umuahia
+846,Nigeria,Akwa Ibom,Opobo
+847,Nigeria,Anambra,Awka
+848,Nigeria,Bauchi,Azare
+849,Nigeria,Benue,Oturkpo
+850,Nigeria,Borno,Maiduguri
+851,Nigeria,Gombe,Kumo
+852,Nigeria,Imo,Orlu
+853,Nigeria,Katsina,Katsina
+854,Nigeria,Kebbi,Birnin Kebbi
+855,Nigeria,Ogun,Abeokuta
+856,Nigeria,Ogun,Ijebu Ode
+857,Nigeria,Ondo,Ondo
+858,Nigeria,Ondo,Ikare
+859,Nigeria,Oyo,Iseyin
+860,Norway,Aust-Agder,Arendal
+861,Norway,Hordaland,Vossavangen
+862,Norway,Nordland,Svolvær
+863,Norway,Nordland,Mo i Rana
+864,Norway,Østfold,Sarpsborg
+865,Oman,Ad D?khil?yah,Nizwa
+866,Oman,Al Wus?á,Haym?’
+867,Oman,Musandam,Kha?ab
+868,Pakistan,Balochist?n,Quetta
+869,Pakistan,Khyber Pakhtunkhwa,Bannu
+870,Pakistan,Khyber Pakhtunkhwa,Peshawar
+871,Pakistan,Khyber Pakhtunkhwa,Dera Ismail Khan
+872,Palau,Melekeok,Melekeok
+873,Panama,Bocas del Toro,Bocas del Toro
+874,Panama,Bocas del Toro,Almirante
+875,Panama,Coclé,Penonome
+876,Panama,Colón,Colón
+877,Panama,Darién,La Palma
+878,Panama,Panamá,Balboa
+879,Papua New Guinea,Central,Abau
+880,Papua New Guinea,East New Britain,Rabaul
+881,Papua New Guinea,Enga,Wabag
+882,Papua New Guinea,Madang,Madang
+883,Papua New Guinea,New Ireland,Kavieng
+884,Paraguay,Alto Paraguay,La Victoria
+885,Paraguay,Amambay,Pedro Juan Caballero
+886,Paraguay,Caaguazú,Coronel Oviedo
+887,Paraguay,Canindeyú,Ype Jhu
+888,Paraguay,Central,Areguá
+889,Paraguay,Central,Itá
+890,Paraguay,Concepción,Belén
+891,Paraguay,Cordillera,Caacupé
+892,Paraguay,Cordillera,Arroyos y Esteros
+893,Paraguay,Ñeembucú,Pilar
+894,Peru,Amazonas,Chachapoyas
+895,Peru,Ancash,Casma
+896,Peru,Arequipa,Arequipa
+897,Peru,Ayacucho,Ayacucho
+898,Peru,Ayacucho,Huanta
+899,Peru,Cusco,Santo Tomas
+900,Peru,Huánuco,Tournavista
+901,Peru,Huánuco,Huánuco
+902,Peru,Ica,Chincha Alta
+903,Peru,Junín,Tarma
+904,Peru,Junín,San Ramon
+905,Peru,Junín,Huancayo
+906,Peru,La Libertad,Trujillo
+907,Peru,Lambayeque,Olmos
+908,Peru,Lambayeque,Pimentel
+909,Peru,Lima,Lima
+910,Peru,Lima,Chancay
+911,Peru,Loreto,Andoas
+912,Peru,Loreto,Soldado Bartra
+913,Peru,Loreto,Nauta
+914,Peru,Loreto,Contamana
+915,Peru,Madre de Dios,Puerto Maldonado
+916,Peru,Moquegua,Ilo
+917,Peru,Piura,Chulucanas
+918,Philippines,Angeles,Angeles
+919,Philippines,Bacolod,Bacolod
+920,Philippines,Basilan,City of Isabela
+921,Philippines,Butuan,Butuan
+922,Philippines,Cagayan,Tuguegarao
+923,Philippines,Camiguin,Mambajao
+924,Philippines,Capiz,Roxas
+925,Philippines,Cavite,Trece Martires City
+926,Philippines,Davao del Norte,Tagum
+927,Philippines,Ilocos Sur,Vigan
+928,Philippines,Isabela,Ilagan
+929,Philippines,La Union,San Fernando
+930,Philippines,Lanao del Sur,Marawi City
+931,Philippines,Marinduque,Boac
+932,Philippines,Navotas,Navotas
+933,Philippines,Negros Occidental,Cadiz
+934,Philippines,Nueva Ecija,Cabanatuan
+935,Philippines,Nueva Vizcaya,Bayombong
+936,Philippines,Olongapo,Olongapo
+937,Philippines,Oriental Mindoro,Calapan
+938,Philippines,Ormoc,Ormac
+939,Poland,Dolno?l?skie,Wroc?aw
+940,Poland,Kujawsko-Pomorskie,Bydgoszcz
+941,Poland,Kujawsko-Pomorskie,Grudzi?dz
+942,Poland,Lubuskie,Gorzów Wielkopolski
+943,Poland,Mazowieckie,Warsaw
+944,Portugal,Azores,Angra do Heroísmo
+945,Portugal,Bragança,Bragança
+946,Portugal,Castelo Branco,Castelo Branco
+947,Portugal,Coimbra,Coimbra
+948,Portugal,Madeira,Funchal
+949,Qatar,Al Wakrah,Al Wakrah
+950,Qatar,Ar Rayy?n,Ar Rayy?n
+951,Qatar,Ash Sham?l,Mad?nat ash Sham?l
+952,Romania,Bac?u,Bac?u
+953,Romania,Boto?ani,Boto?ani
+954,Romania,Cara?-Severin,Re?i?a
+955,Romania,Constan?a,Constan?a
+956,Romania,Dâmbovi?a,Târgovi?te
+957,Romania,Gorj,Târgu Jiu
+958,Romania,Harghita,Miercurea Cuic
+959,Romania,Hunedoara,Hunedoara
+960,Romania,Olt,Slatina
+961,Romania,Prahova,Ploie?ti
+962,Russia,Adygeya,Gorod Maykop
+963,Russia,Amurskaya Oblast’,Skovorodino
+964,Russia,Amurskaya Oblast’,Tynda
+965,Russia,Amurskaya Oblast’,Nyukzha
+966,Russia,Amurskaya Oblast’,Blagoveshchensk
+967,Russia,Arkhangel’skaya Oblast’,Velsk
+968,Russia,Astrakhanskaya Oblast’,Astrakhan
+969,Russia,Bashkortostan,Rayevskiy
+970,Russia,Bashkortostan,Sibay
+971,Russia,Belgorodskaya Oblast’,Gubkin
+972,Russia,Bryanskaya Oblast’,Bryansk
+973,Russia,Bryanskaya Oblast’,Dyatkovo
+974,Russia,Bryanskaya Oblast’,Klintsy
+975,Russia,Buryatiya,Bagdarin
+976,Russia,Buryatiya,Severobaykalsk
+977,Russia,Chechnya,Groznyy
+978,Russia,Chelyabinskaya Oblast’,Magnitogorsk
+979,Russia,Chelyabinskaya Oblast’,Zlatoust
+980,Russia,Chelyabinskaya Oblast’,Bakal
+981,Russia,Chelyabinskaya Oblast’,Chelyabinsk
+982,Russia,Chuvashiya,Kanash
+983,Russia,Dagestan,Derbent
+984,Russia,Irkutskaya Oblast’,Cheremkhovo
+985,Russia,Irkutskaya Oblast’,Angarsk
+986,Russia,Irkutskaya Oblast’,Slyudyanka
+987,Russia,Irkutskaya Oblast’,Tulun
+988,Russia,Ivanovskaya Oblast’,Ivanovo
+989,Russia,Kaliningradskaya Oblast’,Chernyakhovsk
+990,Russia,Kamchatskiy Kray,Ust Kamchatsk
+991,Russia,Kamchatskiy Kray,Oktyabrskiy
+992,Russia,Kemerovskaya Oblast’,Yurga
+993,Russia,Kemerovskaya Oblast’,Prokopyevsk
+994,Russia,Khabarovskiy Kray,Amursk
+995,Russia,Khabarovskiy Kray,Komsomolsk na Amure
+996,Russia,Khabarovskiy Kray,Ayan
+997,Russia,Khabarovskiy Kray,Chumikan
+998,Russia,Khabarovskiy Kray,Okhotsk
+999,Russia,Khabarovskiy Kray,Vanino
+1000,Russia,Khabarovskiy Kray,Tukchi
+1001,Russia,Khabarovskiy Kray,Khakhar
+1002,Russia,Khanty-Mansiyskiy Avtonomnyy Okrug-Yugra,Numto
+1003,Russia,Khanty-Mansiyskiy Avtonomnyy Okrug-Yugra,Laryak
+1004,Russia,Khanty-Mansiyskiy Avtonomnyy Okrug-Yugra,Uray
+1005,Russia,Kostromskaya Oblast’,Buy
+1006,Russia,Krasnodarskiy Kray,Tuapse
+1007,Russia,Krasnoyarskiy Kray,Turukhansk
+1008,Russia,Krasnoyarskiy Kray,Agapa
+1009,Russia,Krasnoyarskiy Kray,Yessey
+1010,Russia,Krasnoyarskiy Kray,Uyar
+1011,Russia,Krasnoyarskiy Kray,Komsa
+1012,Russia,Krasnoyarskiy Kray,Starorybnoye
+1013,Russia,Krasnoyarskiy Kray,Achinsk
+1014,Russia,Krasnoyarskiy Kray,Uzhur
+1015,Russia,Krasnoyarskiy Kray,Dudinka
+1016,Russia,Kurskaya Oblast’,Kursk
+1017,Russia,Leningradskaya Oblast’,Gatchina
+1018,Russia,Leningradskaya Oblast’,Vyborg
+1019,Russia,Leningradskaya Oblast’,Tikhvin
+1020,Russia,Leningradskaya Oblast’,Volkhov
+1021,Russia,Magadanskaya Oblast’,Omchak
+1022,Russia,Magadanskaya Oblast’,Susuman
+1023,Russia,Moskovskaya Oblast’,Klin
+1024,Russia,Moskovskaya Oblast’,Yegoryevsk
+1025,Russia,Murmanskaya Oblast’,Severomorsk
+1026,Russia,Murmanskaya Oblast’,Nikel
+1027,Russia,Nenetskiy Avtonomnyy Okrug,Bugrino
+1028,Russia,Nizhegorodskaya Oblast’,Vyska
+1029,Russia,North Ossetia,Vladikavkaz
+1030,Russia,Novgorodskaya Oblast’,Borovichi
+1031,Russia,Novgorodskaya Oblast’,Velikiy Novgorod
+1032,Russia,Novgorodskaya Oblast’,Staraya Russa
+1033,Russia,Novosibirskaya Oblast’,Kargat
+1034,Russia,Novosibirskaya Oblast’,Tatarsk
+1035,Russia,Omskaya Oblast’,Tara
+1036,Russia,Orenburgskaya Oblast’,Orenburg
+1037,Russia,Orenburgskaya Oblast’,Buzuluk
+1038,Russia,Orenburgskaya Oblast’,Orsk
+1039,Russia,Orenburgskaya Oblast’,Gay
+1040,Russia,Penzenskaya Oblast’,Kamenka
+1041,Russia,Penzenskaya Oblast’,Serdobsk
+1042,Russia,Permskiy Kray,Perm’
+1043,Russia,Permskiy Kray,Chusovoy
+1044,Russia,Permskiy Kray,Berezniki
+1045,Russia,Primorskiy Kray,Vladivostok
+1046,Rwanda,Eastern Province,Rwamagana
+1047,Rwanda,Northern Province,Ruhengeri
+1048,Samoa,Aiga-i-le-Tai,Mulifanua
+1049,Saudi Arabia,Ash Sharq?yah,Al Jubayl
+1050,Saudi Arabia,Makkah al Mukarramah,Jeddah
+1051,Senegal,Kaolack,Kaolack
+1052,Senegal,Louga,Louga
+1053,Senegal,Matam,Kaédi
+1054,Serbia,Aleksinac,Aleksinac
+1055,Serbia,Ba?ka Palanka,Ba?ka Palanka
+1056,Serbia,Ba?ki Petrovac,Ba?ki Petrovac
+1057,Serbia,Bato?ina,Bato?ina
+1058,Serbia,Bogati?,Bogati?
+1059,Serbia,Bojnik,Bojnik
+1060,Serbia,Boljevac,Boljevac
+1061,Serbia,Bor,Bor
+1062,Serbia,?ajetina,?ajetina
+1063,Serbia,?i?evac,?i?evac
+1064,Serbia,?oka,?oka
+1065,Serbia,Crna Trava,Crna Trava
+1066,Serbia,Despotovac,Despotovac
+1067,Serbia,Dimitrovgrad,Dimitrovgrad
+1068,Serbia,Doljevac,Doljevac
+1069,Serbia,In?ija,In?ija
+1070,Serbia,Kni?,Kni?
+1071,Serbia,Knjaževac,Knjaževac
+1072,Serbia,Kovin,Kovin
+1073,Serbia,Kraljevo,Kraljevo
+1074,Serbia,Loznica,Loznica
+1075,Serbia,Merošina,Merošina
+1076,Serbia,Mionica,Mionica
+1077,Serbia,Novi Be?ej,Novi Be?ej
+1078,Serbia,Novi Sad,Novi Sad
+1079,Serbia,Pan?evo,Pan?evo
+1080,Serbia,Požarevac,Požarevac
+1081,Serbia,Požega,Požega
+1082,Serbia,Priboj,Priboj
+1083,Serbia,Prokuplje,Prokuplje
+1084,Sierra Leone,Eastern,Koidu
+1085,Sierra Leone,Northern,Makeni
+1086,Slovakia,Banskobystrický,Banská Bystrica
+1087,Slovakia,Bratislavský,Bratislava
+1088,Slovakia,Košický,Košice
+1089,Slovakia,Nitriansky,Nitra
+1090,Slovakia,Prešovský,Prešov
+1091,Slovenia,Ajdovš?ina,Ajdovš?ina
+1092,Slovenia,Bled,Bled
+1093,Slovenia,Bovec,Bovec
+1094,Slovenia,Cerklje na Gorenjskem,Cerklje na Gorenjskem
+1095,Slovenia,?rna na Koroškem,?rna na Koroškem
+1096,Slovenia,Destrnik,Destrnik
+1097,Slovenia,Diva?a,Diva?a
+1098,Slovenia,Dobje,Dobje pri Planini
+1099,Slovenia,Dobrna,Dobrna
+1100,Slovenia,Dol pri Ljubljani,Dol pri Ljubljani
+1101,Slovenia,Dolenjske Toplice,Dolenjske Toplice
+1102,Slovenia,Dravograd,Dravograd
+1103,Slovenia,Hajdina,Spodnja Hajdina
+1104,Slovenia,Horjul,Horjul
+1105,Slovenia,Idrija,Idrija
+1106,Slovenia,Izola,Izola
+1107,Slovenia,Jesenice,Jesenice
+1108,Slovenia,Ko?evje,Ko?evje
+1109,Slovenia,Kostel,Kostel
+1110,Slovenia,Logatec,Logatec
+1111,Slovenia,Lu?e,Lu?e
+1112,Slovenia,Majšperk,Majšperk
+1113,Slovenia,Medvode,Medvode
+1114,Slovenia,Mirna Pe?,Mirna Pe?
+1115,Slovenia,Mokronog-Trebelno,Mokronog
+1116,Slovenia,Prevalje,Prevalje
+1117,Solomon Islands,Makira and Ulawa,Kirakira
+1118,Somalia,Bakool,Hudur
+1119,Somalia,Banaadir,Mogadishu
+1120,Somalia,Bari,Boosaaso
+1121,Somalia,Gedo,Luuq
+1122,Somalia,Jubbada Dhexe,Bu'aale
+1123,South Africa,Eastern Cape,Middelburg
+1124,South Africa,Eastern Cape,Uitenhage
+1125,South Africa,Eastern Cape,Bhisho
+1126,South Africa,Eastern Cape,Queenstown
+1127,South Africa,Eastern Cape,Grahamstown
+1128,South Africa,Free State,Kroonstad
+1129,South Africa,KwaZulu-Natal,Durban
+1130,South Africa,Mpumalanga,Middelburg
+1131,South Africa,North West,Rustenburg
+1132,South Africa,North West,Brits
+1133,South Africa,North West,Vryburg
+1134,South Africa,North West,Mahikeng
+1135,South Africa,Northern Cape,Springbok
+1136,South Africa,Northern Cape,Upington
+1137,Spain,Andalusia,Linares
+1138,Spain,Andalusia,Córdoba
+1139,Spain,Andalusia,Málaga
+1140,Spain,Asturias,Oviedo
+1141,Spain,Basque Country,Vitoria
+1142,Spain,Basque Country,Bilbao
+1143,Spain,Basque Country,San Sebastián
+1144,Spain,Canary Islands,Las Palmas
+1145,Spain,Galicia,Vigo
+1146,Spain,Galicia,Ourense
+1147,Spain,Murcia,Murcia
+1148,Spain,Murcia,Cartagena
+1149,Sri Lanka,Central,Kandy
+1150,Sri Lanka,North Western,Puttalan
+1151,Sri Lanka,Northern,Jaffna
+1152,Sudan,Al Gedaref,Gedaref
+1153,Sudan,Blue Nile,Ad Damaz?n
+1154,Sudan,North Kordofan,El Obeid
+1155,Sudan,Northern,Kerma
+1156,Sudan,Northern,Dongola
+1157,Suriname,Commewijne,Nieuw Amsterdam
+1158,Suriname,Paramaribo,Paramaribo
+1159,Sweden,Dalarna,Falun
+1160,Sweden,Dalarna,Borlänge
+1161,Sweden,Gävleborg,Bollnäs
+1162,Sweden,Gotland,Visby
+1163,Sweden,Halland,Halmstad
+1164,Sweden,Kronoberg,Växjö
+1165,Switzerland,Appenzell Ausserrhoden,Herisau
+1166,Switzerland,Bern,Bern
+1167,Switzerland,Graubünden,Chur
+1168,Switzerland,Neuchâtel,Neuchâtel
+1169,Syria,Al ?asakah,Al Hasakah
+1170,Syria,Ar Raqqah,Madinat ath Thawrah
+1171,Syria,Dayr az Zawr,Dayr az Zawr
+1172,Syria,Dayr az Zawr,Abu Kamal
+1173,Syria,?alab,Izaz
+1174,Syria,?alab,Aleppo
+1175,Syria,?im?,Hims
+1176,Syria,Idlib,Idlib
+1177,Taiwan,Hsinchu,Zhubei
+1178,Tajikistan,K?histoni Badakhshon,Khorugh
+1179,Tanzania,Arusha,Oldeani
+1180,Tanzania,Kagera,Biharamulo
+1181,Tanzania,Katavi,Karema
+1182,Tanzania,Katavi,Mpanda
+1183,Tanzania,Kigoma,Uvinza
+1184,Tanzania,Kilimanjaro,Moshi
+1185,Tanzania,Mbeya,Tunduma
+1186,Tanzania,Morogoro,Morogoro
+1187,Tanzania,Pemba North,Wete
+1188,Thailand,Bueng Kan,Bueng Kan
+1189,Thailand,Buriram,Buriram
+1190,Thailand,Chai Nat,Chainat
+1191,Thailand,Khon Kaen,Khon Kaen
+1192,Thailand,Krabi,Krabi
+1193,Thailand,Lamphun,Lamphun
+1194,Thailand,Mae Hong Son,Mae Hong Son
+1195,Thailand,Mukdahan,Mukdahan
+1196,Thailand,Nakhon Ratchasima,Bua Yai
+1197,Thailand,Nakhon Si Thammarat,Nakhon Si Thammarat
+1198,Thailand,Nong Bua Lamphu,Nong Bua Lamphu
+1199,Thailand,Nonthaburi,Nonthaburi
+1200,Thailand,Phangnga,Phangnga
+1201,Thailand,Phatthalung,Phatthalung
+1202,Thailand,Phichit,Phichit
+1203,Thailand,Prachuap Khiri Khan,Prachuap Khiri Khan
+1204,Togo,Centrale,Sokodé
+1205,Togo,Kara,Bassar
+1206,Togo,Maritime,Lomé
+1207,Trinidad And Tobago,Diego Martin,Diego Martin
+1208,Trinidad And Tobago,Mayaro/Rio Claro,Rio Claro
+1209,Trinidad And Tobago,Port of Spain,Port-of-Spain
+1210,Tunisia,Gafsa,Gafsa
+1211,Tunisia,Kasserine,Qasserine
+1212,Tunisia,Médenine,Zarzis
+1213,Tunisia,Médenine,Medenine
+1214,Turkey,Ad?yaman,Ad?yaman
+1215,Turkey,Aksaray,Aksaray
+1216,Turkey,Amasya,Amasya
+1217,Turkey,Ayd?n,Ayd?n
+1218,Turkey,Ayd?n,Söke
+1219,Turkey,Bayburt,Bayburt
+1220,Turkey,Bolu,Bolu
+1221,Turkey,Çanakkale,Çanakkale
+1222,Turkey,Denizli,Denizli
+1223,Turkey,Erzurum,Erzurum
+1224,Turkey,Giresun,Giresun
+1225,Turkey,Hakkâri,Hakkâri
+1226,Turkey,Hatay,Hatay
+1227,Turkey,Hatay,Samandagi
+1228,Turkey,Kilis,Kilis
+1229,Turkey,Kocaeli,?zmit
+1230,Turkey,Konya,Konya
+1231,Turkey,Manisa,Manisa
+1232,Turkey,Ni?de,Ni?de
+1233,Turkey,Osmaniye,Osmaniye
+1234,Turkmenistan,Ahal,Tejen
+1235,Turkmenistan,Balkan,Balkanabat
+1236,Turkmenistan,Lebap,Atamyrat
+1237,Uganda,Adjumani,Adjumani
+1238,Uganda,Amolatar,Amolatar
+1239,Uganda,Amuru,Amuru
+1240,Uganda,Bulambuli,Bulambuli
+1241,Uganda,Bundibugyo,Bundibugyo
+1242,Uganda,Butambala,Gombe
+1243,Uganda,Kalangala,Kalangala
+1244,Uganda,Kalungu,Kalungu
+1245,Uganda,Kanungu,Kanungu
+1246,Uganda,Kapchorwa,Kapchorwa
+1247,Uganda,Kasese,Kasese
+1248,Uganda,Kiruhura,Kiruhura
+1249,Uganda,Koboko,Koboko
+1250,Uganda,Kotido,Kotido
+1251,Uganda,Kumi,Kumi
+1252,Uganda,Kween,Binyin
+1253,Uganda,Kyankwanzi,Kyankwanzi
+1254,Uganda,Kyenjojo,Kyenjojo
+1255,Uganda,Lwengo,Lwengo
+1256,Uganda,Mityana,Mityana
+1257,Uganda,Nakasongola,Nakasongola
+1258,Uganda,Nebbi,Nebbi
+1259,Uganda,Ngora,Ngora
+1260,Uganda,Ntoroko,Ntoroko
+1261,Uganda,Ntungamo,Ntungamo
+1262,Uganda,Nwoya,Nwoya
+1263,Uganda,Oyam,Oyam
+1264,Ukraine,Cherkas’ka Oblast’,Cherkasy
+1265,Ukraine,Cherkas’ka Oblast’,Uman
+1266,Ukraine,Dnipropetrovs’ka Oblast’,Kryvyy Rih
+1267,Ukraine,Kharkivs’ka Oblast’,Kupyansk
+1268,Ukraine,"Kyyiv, Misto",Kiev
+1269,Ukraine,L’vivs’ka Oblast’,Lvov
+1270,Ukraine,L’vivs’ka Oblast’,Drohobych
+1271,Ukraine,Mykolayivs’ka Oblast’,Mykolayiv
+1272,United Arab Emirates,Ash Sh?riqah,Sharjah
+1273,United Kingdom,Angus,Forfar
+1274,United Kingdom,Ards and North Down,Bangor
+1275,United Kingdom,"Armagh, Banbridge and Craigavon",Armagh
+1276,United Kingdom,Barnet,Hendon
+1277,United Kingdom,Bath and North East Somerset,Bath
+1278,United Kingdom,Blackpool,Blackpool
+1279,United Kingdom,Brighton and Hove,Hove
+1280,United Kingdom,Calderdale,Halifax
+1281,United Kingdom,Ceredigion,Aberaeron
+1282,United Kingdom,Cheshire West and Chester,Chester
+1283,United Kingdom,Clackmannanshire,Alloa
+1284,United Kingdom,Coventry,Coventry
+1285,United Kingdom,Cumbria,Carlisle
+1286,United Kingdom,Denbighshire,Rhuthun
+1287,United Kingdom,Derbyshire,Matlock
+1288,United Kingdom,Derry and Strabane,Strabane
+1289,United Kingdom,Devon,Exeter
+1290,United Kingdom,Ealing,Ealing
+1291,United Kingdom,East Ayrshire,Kilmarnock
+1292,United Kingdom,East Lothian,Haddington
+1293,United Kingdom,East Renfrewshire,Giffnock
+1294,United Kingdom,Falkirk,Falkirk
+1295,United Kingdom,Flintshire,Mold
+1296,United Kingdom,Greenwich,Woolwich
+1297,United Kingdom,Hampshire,Winchester
+1298,United Kingdom,Haringey,Wood Green
+1299,United Kingdom,Hertfordshire,Hertford
+1300,United Kingdom,Highland,Inverness
+1301,United Kingdom,Hounslow,Hounslow
+1302,United Kingdom,Inverclyde,Greenock
+1303,United Kingdom,Isle of Wight,Newport
+1304,United Kingdom,Kirklees,Huddersfield
+1305,United Kingdom,Lancashire,Preston
+1306,United Kingdom,Leeds,Leeds
+1307,United Kingdom,Lewisham,Catford
+1308,United Kingdom,Liverpool,Liverpool
+1309,United Kingdom,Luton,Luton
+1310,United Kingdom,Medway,Rochester
+1311,United Kingdom,Midlothian,Dalkeith
+1312,United Kingdom,Monmouthshire,Usk
+1313,United Kingdom,Moray,Elgin
+1314,United Kingdom,Newham,East Ham
+1315,United Kingdom,North Ayrshire,Irvine
+1316,United Kingdom,North Lincolnshire,Scunthorpe
+1317,United Kingdom,North Somerset,Weston-super-Mare
+1318,United Kingdom,North Tyneside,Wallsend
+1319,United Kingdom,North Yorkshire,Scarborough
+1320,United Kingdom,Nottingham,Nottingham
+1321,United Kingdom,Oldham,Oldham
+1322,United Kingdom,Orkney Islands,Kirkwall
+1323,United Kingdom,Portsmouth,Portsmouth
+1324,United States,Alabama,Lanett
+1325,United States,Alabama,Scottsboro
+1326,United States,Alabama,Opelika
+1327,United States,Alabama,Alexander City
+1328,United States,Alabama,Clanton
+1329,United States,Alabama,Selma
+1330,United States,Alabama,Pelham
+1331,United States,Alabama,Gulf Shores
+1332,United States,Alabama,Jacksonville
+1333,United States,Alabama,Decatur
+1334,United States,Alabama,Pleasant Grove
+1335,United States,Alabama,Leeds
+1336,United States,Alabama,Chickasaw
+1337,United States,Alabama,Brent
+1338,United States,Alabama,Birmingham
+1339,United States,Alabama,Helena
+1340,United States,Alabama,Fort Payne
+1341,United States,Alabama,Oneonta
+1342,United States,Alabama,Demopolis
+1343,United States,Alabama,Brewton
+1344,United States,Alabama,Mountain Brook
+1345,United States,Alabama,Jasper
+1346,United States,Alabama,Madison
+1347,United States,Alabama,Fairfield
+1348,United States,Alabama,Ozark
+1349,United States,Alabama,Boaz
+1350,United States,Alaska,Wasilla
+1351,United States,Alaska,Ketchikan
+1352,United States,Arizona,Flagstaff
+1353,United States,Arizona,Tolleson
+1354,United States,Arizona,Queen Creek
+1355,United States,Arizona,Buckeye
+1356,United States,Arizona,Show Low
+1357,United States,Arizona,Mesa
+1358,United States,Arizona,Sierra Vista
+1359,United States,Arizona,Somerton
+1360,United States,Arizona,Chandler
+1361,United States,Arizona,Glendale
+1362,United States,Arizona,Surprise
+1363,United States,Arizona,South Tucson
+1364,United States,Arizona,Kingman
+1365,United States,Arizona,San Luis
+1366,United States,Arizona,Tempe
+1367,United States,Arkansas,Batesville
+1368,United States,Arkansas,Pea Ridge
+1369,United States,Arkansas,Centerton
+1370,United States,Arkansas,Stuttgart
+1371,United States,Arkansas,Beebe
+1372,United States,Arkansas,Monticello
+1373,United States,Arkansas,Rogers
+1374,United States,Arkansas,Heber Springs
+1375,United States,Arkansas,North Little Rock
+1376,United States,Arkansas,Hot Springs
+1377,United States,Arkansas,Siloam Springs
+1378,United States,Arkansas,Maumelle
+1379,United States,Arkansas,Little Rock
+1380,United States,Arkansas,Benton
+1381,United States,Arkansas,Marion
+1382,United States,Arkansas,Forrest City
+1383,United States,Arkansas,Conway
+1384,United States,Arkansas,De Queen
+1385,United States,Arkansas,Mountain Home
+1386,United States,Arkansas,Magnolia
+1387,United States,Arkansas,Malvern
+1388,United States,Arkansas,Cabot
+1389,United States,Arkansas,Jacksonville
+1390,United States,California,Saint Helena
+1391,United States,California,Windsor
+1392,United States,California,Calistoga
+1393,United States,California,Sebastopol
+1394,United States,California,Rancho Santa Margarita
+1395,United States,California,Corning
+1396,United States,California,East Palo Alto
+1397,United States,California,Norco
+1398,United States,California,Salinas
+1399,United States,California,Apple Valley
+1400,United States,California,Foster City
+1401,United States,California,Indio
+1402,United States,California,Emeryville
+1403,United States,California,Bakersfield
+1404,United States,California,Paradise
+1405,United States,California,Mammoth Lakes
+1406,United States,California,Twentynine Palms
+1407,United States,California,Lompoc
+1408,United States,California,Crescent City
+1409,United States,California,Fillmore
+1410,United States,California,Palm Desert
+1411,United States,California,Los Gatos
+1412,United States,California,Corona
+1413,United States,California,National City
+1414,United States,California,Los Alamitos
+1415,United States,California,Hawaiian Gardens
+1416,United States,California,Gustine
+1417,United States,California,Fairfield
+1418,United States,California,Calexico
+1419,United States,California,Porterville
+1420,United States,California,Pleasanton
+1421,United States,California,Vista
+1422,United States,California,Palo Alto
+1423,United States,California,Wildomar
+1424,United States,California,Laguna Beach
+1425,United States,California,Santa Barbara
+1426,United States,California,San Bruno
+1427,United States,California,Calabasas
+1428,United States,California,Monterey Park
+1429,United States,California,Costa Mesa
+1430,United States,California,Livermore
+1431,United States,California,Desert Hot Springs
+1432,United States,California,Coachella
+1433,United States,California,Sierra Madre
+1434,United States,California,Hughson
+1435,United States,California,Ceres
+1436,United States,California,Turlock
+1437,United States,California,Cypress
+1438,United States,California,Pittsburg
+1439,United States,California,Gilroy
+1440,United States,California,Commerce
+1441,United States,California,Fortuna
+1442,United States,California,Concord
+1443,United States,California,Laguna Niguel
+1444,United States,California,Sacramento
+1445,United States,California,Fontana
+1446,United States,California,Merced
+1447,United States,California,Marysville
+1448,United States,California,Aliso Viejo
+1449,United States,California,Stockton
+1450,United States,California,San Gabriel
+1451,United States,California,Arvin
+1452,United States,California,Santa Monica
+1453,United States,California,Susanville
+1454,United States,California,La Palma
+1455,United States,California,Hermosa Beach
+1456,United States,California,Petaluma
+1457,United States,California,Carpinteria
+1458,United States,California,Alhambra
+1459,United States,California,Huron
+1460,United States,California,Santa Ana
+1461,United States,California,Oakley
+1462,United States,California,Half Moon Bay
+1463,United States,California,Marina
+1464,United States,California,San Luis Obispo
+1465,United States,California,Baldwin Park
+1466,United States,California,Davis
+1467,United States,California,Bell
+1468,United States,California,Goleta
+1469,United States,California,Grover Beach
+1470,United States,California,Citrus Heights
+1471,United States,California,Pismo Beach
+1472,United States,California,Covina
+1473,United States,California,Capitola
+1474,United States,California,Garden Grove
+1475,United States,California,San Mateo
+1476,United States,California,Oceanside
+1477,United States,California,Palos Verdes Estates
+1478,United States,California,San Jose
+1479,United States,California,South Lake Tahoe
+1480,United States,California,Redlands
+1481,United States,California,Clovis
+1482,United States,California,Woodlake
+1483,United States,California,Colton
+1484,United States,California,Montclair
+1485,United States,California,Placentia
+1486,United States,California,Lawndale
+1487,United States,California,Banning
+1488,United States,California,Rio Vista
+1489,United States,California,Livingston
+1490,United States,California,Imperial
+1491,United States,California,San Ramon
+1492,United States,California,Coalinga
+1493,United States,California,Huntington Beach
+1494,United States,California,Rancho Mirage
+1495,United States,California,McFarland
+1496,United States,California,Lake Forest
+1497,United States,California,Kingsburg
+1498,United States,California,Avenal
+1499,United States,California,Morro Bay
+1500,United States,California,Yuba City
+1501,United States,Colorado,Rifle
+1502,United States,Colorado,Lone Tree
+1503,United States,Colorado,Loveland
+1504,United States,Colorado,Estes Park
+1505,United States,Colorado,Leadville
+1506,United States,Colorado,Aspen
+1507,United States,Colorado,Craig
+1508,United States,Colorado,Berthoud
+1509,United States,Colorado,Durango
+1510,United States,Colorado,Frederick
+1511,United States,Colorado,Woodland Park
+1512,United States,Colorado,Dacono
+1513,United States,Colorado,Sterling
+1514,United States,Colorado,Glendale
+1515,United States,Colorado,Steamboat Springs
+1516,United States,Colorado,Salida
+1517,United States,Colorado,Longmont
+1518,United States,Colorado,Fort Collins
+1519,United States,Colorado,Commerce City
+1520,United States,Colorado,Boulder
+1521,United States,Colorado,Golden
+1522,United States,Colorado,New Castle
+1523,United States,Connecticut,Waterbury
+1524,United States,Connecticut,City of Milford (balance)
+1525,United States,Connecticut,New Haven
+1526,United States,Delaware,Elsmere
+1527,United States,Florida,North Palm Beach
+1528,United States,Florida,Winter Springs
+1529,United States,Florida,Ormond Beach
+1530,United States,Florida,Dade City
+1531,United States,Florida,Daytona Beach
+1532,United States,Florida,Pinellas Park
+1533,United States,Florida,Wildwood
+1534,United States,Florida,Key Biscayne
+1535,United States,Florida,Winter Haven
+1536,United States,Florida,Lighthouse Point
+1537,United States,Florida,Lake City
+1538,United States,Florida,Venice
+1539,United States,Florida,Panama City
+1540,United States,Florida,South Miami
+1541,United States,Florida,Wauchula
+1542,United States,Florida,Orlando
+1543,United States,Florida,Oldsmar
+1544,United States,Florida,Starke
+1545,United States,Florida,Palmetto Bay
+1546,United States,Florida,Port Orange
+1547,United States,Florida,Saint Pete Beach
+1548,United States,Florida,West Miami
+1549,United States,Florida,Tallahassee
+1550,United States,Florida,Leesburg
+1551,United States,Florida,West Park
+1552,United States,Florida,Palmetto
+1553,United States,Florida,Atlantic Beach
+1554,United States,Florida,Delray Beach
+1555,United States,Florida,DeLand
+1556,United States,Florida,Fort Myers
+1557,United States,Florida,Groveland
+1558,United States,Florida,Coral Gables
+1559,United States,Florida,Lauderhill
+1560,United States,Florida,Treasure Island
+1561,United States,Florida,Fruitland Park
+1562,United States,Florida,Holly Hill
+1563,United States,Florida,Pompano Beach
+1564,United States,Florida,Rockledge
+1565,United States,Florida,Palm Springs
+1566,United States,Florida,Inverness
+1567,United States,Florida,Cape Coral
+1568,United States,Florida,Clermont
+1569,United States,Florida,Temple Terrace
+1570,United States,Florida,Belle Glade
+1571,United States,Florida,Maitland
+1572,United States,Florida,Satellite Beach
+1573,United States,Florida,Deerfield Beach
+1574,United States,Florida,Auburndale
+1575,United States,Florida,North Miami Beach
+1576,United States,Florida,Fort Meade
+1577,United States,Florida,Milton
+1578,United States,Florida,Gainesville
+1579,United States,Florida,Pahokee
+1580,United States,Florida,Neptune Beach
+1581,United States,Florida,Arcadia
+1582,United States,Florida,Margate
+1583,United States,Florida,Cape Canaveral
+1584,United States,Florida,Cocoa
+1585,United States,Florida,Boca Raton
+1586,United States,Florida,Punta Gorda
+1587,United States,Florida,North Miami
+1588,United States,Florida,Crestview
+1589,United States,Georgia,Fort Valley
+1590,United States,Georgia,Buford
+1591,United States,Georgia,Moultrie
+1592,United States,Georgia,Vidalia
+1593,United States,Georgia,Valdosta
+1594,United States,Georgia,Byron
+1595,United States,Georgia,Tyrone
+1596,United States,Georgia,Calhoun
+1597,United States,Georgia,Summerville
+1598,United States,Georgia,Barnesville
+1599,United States,Georgia,Covington
+1600,United States,Georgia,Augusta
+1601,United States,Georgia,Rome
+1602,United States,Georgia,Commerce
+1603,United States,Georgia,Decatur
+1604,United States,Georgia,Cordele
+1605,United States,Georgia,Dalton
+1606,United States,Georgia,Holly Springs
+1607,United States,Georgia,Villa Rica
+1608,United States,Georgia,Dallas
+1609,United States,Georgia,Baxley
+1610,United States,Georgia,Kingsland
+1611,United States,Georgia,Athens
+1612,United States,Georgia,Cumming
+1613,United States,Georgia,Garden City
+1614,United States,Georgia,Clarkston
+1615,United States,Georgia,Albany
+1616,United States,Georgia,Griffin
+1617,United States,Georgia,Saint Marys
+1618,United States,Georgia,Stone Mountain
+1619,United States,Georgia,Lilburn
+1620,United States,Georgia,Cartersville
+1621,United States,Georgia,Jasper
+1622,United States,Georgia,Gainesville
+1623,United States,Georgia,College Park
+1624,United States,Georgia,Sandersville
+1625,United States,Georgia,Columbus
+1626,United States,Georgia,Tifton
+1627,United States,Georgia,Thomaston
+1628,United States,Georgia,Camilla
+1629,United States,Georgia,Roswell
+1630,United States,Hawaii,Honolulu
+1631,United States,Idaho,Fruitland
+1632,United States,Idaho,Jerome
+1633,United States,Idaho,Twin Falls
+1634,United States,Idaho,Coeur d'Alene
+1635,United States,Illinois,East Alton
+1636,United States,Illinois,Libertyville
+1637,United States,Illinois,New Lenox
+1638,United States,Illinois,South Holland
+1639,United States,Illinois,Oak Brook
+1640,United States,Illinois,River Forest
+1641,United States,Illinois,Frankfort
+1642,United States,Illinois,Evanston
+1643,United States,Illinois,Chatham
+1644,United States,Illinois,Channahon
+1645,United States,Illinois,Chicago
+1646,United States,Illinois,Marengo
+1647,United States,Illinois,Berwyn
+1648,United States,Illinois,Naperville
+1649,United States,Illinois,Granite City
+1650,United States,Illinois,Pontoon Beach
+1651,United States,Illinois,Metropolis
+1652,United States,Illinois,Columbia
+1653,United States,Illinois,Calumet Park
+1654,United States,Illinois,Coal City
+1655,United States,Illinois,Lisle
+1656,United States,Illinois,Plainfield
+1657,United States,Illinois,Joliet
+1658,United States,Illinois,Minooka
+1659,United States,Illinois,Rolling Meadows
+1660,United States,Illinois,Lake Zurich
+1661,United States,Illinois,La Salle
+1662,United States,Illinois,Lawrenceville
+1663,United States,Illinois,Island Lake
+1664,United States,Illinois,Riverside
+1665,United States,Illinois,Alsip
+1666,United States,Illinois,Warrenville
+1667,United States,Illinois,Plano
+1668,United States,Illinois,Lombard
+1669,United States,Illinois,Chillicothe
+1670,United States,Illinois,Bridgeview
+1671,United States,Illinois,Wilmington
+1672,United States,Illinois,Moline
+1673,United States,Illinois,West Chicago
+1674,United States,Illinois,Springfield
+1675,United States,Illinois,Canton
+1676,United States,Illinois,Oak Park
+1677,United States,Illinois,Dixon
+1678,United States,Illinois,South Beloit
+1679,United States,Illinois,Herrin
+1680,United States,Illinois,Effingham
+1681,United States,Illinois,Batavia
+1682,United States,Illinois,Homewood
+1683,United States,Illinois,Shiloh
+1684,United States,Illinois,Chicago Heights
+1685,United States,Illinois,Park Forest
+1686,United States,Illinois,Mascoutah
+1687,United States,Illinois,McHenry
+1688,United States,Illinois,Salem
+1689,United States,Illinois,Woodridge
+1690,United States,Illinois,Oswego
+1691,United States,Illinois,Berkeley
+1692,United States,Illinois,Campton Hills
+1693,United States,Illinois,Bradley
+1694,United States,Illinois,Colona
+1695,United States,Illinois,Winnetka
+1696,United States,Illinois,Gillespie
+1697,United States,Illinois,Elmwood Park
+1698,United States,Illinois,Lake Villa
+1699,United States,Illinois,Lincolnwood
+1700,United States,Illinois,Wauconda
+1701,United States,Illinois,Genoa
+1702,United States,Illinois,Bartonville
+1703,United States,Illinois,Zion
+1704,United States,Illinois,Glencoe
+1705,United States,Illinois,Bethalto
+1706,United States,Illinois,Kewanee
+1707,United States,Illinois,Franklin Park
+1708,United States,Illinois,East Peoria
+1709,United States,Illinois,Gilberts
+1710,United States,Illinois,Blue Island
+1711,United States,Illinois,La Grange Park
+1712,United States,Illinois,Macomb
+1713,United States,Illinois,Round Lake Park
+1714,United States,Illinois,Eureka
+1715,United States,Illinois,Lake in the Hills
+1716,United States,Illinois,Palatine
+1717,United States,Illinois,Greenville
+1718,United States,Illinois,Lake Forest
+1719,United States,Illinois,Pingree Grove
+1720,United States,Illinois,O'Fallon
+1721,United States,Indiana,Whitestown
+1722,United States,Indiana,Batesville
+1723,United States,Indiana,Griffith
+1724,United States,Indiana,Scottsburg
+1725,United States,Indiana,Munster
+1726,United States,Indiana,Richmond
+1727,United States,Indiana,Columbia City
+1728,United States,Indiana,Avon
+1729,United States,Indiana,Westfield
+1730,United States,Indiana,Winfield
+1731,United States,Indiana,Lafayette
+1732,United States,Indiana,Boonville
+1733,United States,Indiana,Clarksville
+1734,United States,Indiana,Bedford
+1735,United States,Indiana,Shelbyville
+1736,United States,Indiana,Rochester
+1737,United States,Indiana,Crawfordsville
+1738,United States,Indiana,Evansville
+1739,United States,Indiana,Speedway
+1740,United States,Indiana,Logansport
+1741,United States,Indiana,Portland
+1742,United States,Indiana,Merrillville
+1743,United States,Indiana,Rushville
+1744,United States,Indiana,Cedar Lake
+1745,United States,Indiana,Linton
+1746,United States,Indiana,Schererville
+1747,United States,Indiana,New Haven
+1748,United States,Iowa,Pleasant Hill
+1749,United States,Iowa,Sioux Center
+1750,United States,Iowa,Charles City
+1751,United States,Iowa,Spirit Lake
+1752,United States,Iowa,Newton
+1753,United States,Iowa,Marshalltown
+1754,United States,Iowa,Washington
+1755,United States,Iowa,Creston
+1756,United States,Iowa,Clinton
+1757,United States,Iowa,Knoxville
+1758,United States,Iowa,Shenandoah
+1759,United States,Iowa,Asbury
+1760,United States,Iowa,Boone
+1761,United States,Iowa,Ottumwa
+1762,United States,Iowa,Glenwood
+1763,United States,Iowa,Spencer
+1764,United States,Iowa,Grimes
+1765,United States,Iowa,Anamosa
+1766,United States,Iowa,Clarinda
+1767,United States,Iowa,Cedar Rapids
+1768,United States,Iowa,Oskaloosa
+1769,United States,Iowa,Muscatine
+1770,United States,Iowa,Fairfield
+1771,United States,Iowa,Mason City
+1772,United States,Iowa,Bondurant
+1773,United States,Iowa,Hiawatha
+1774,United States,Kansas,Ottawa
+1775,United States,Kansas,Overland Park
+1776,United States,Kansas,Gardner
+1777,United States,Kansas,Spring Hill
+1778,United States,Kansas,McPherson
+1779,United States,Kansas,Pittsburg
+1780,United States,Kansas,Winfield
+1781,United States,Kansas,Emporia
+1782,United States,Kansas,Paola
+1783,United States,Kansas,Hutchinson
+1784,United States,Kansas,Independence
+1785,United States,Kansas,Chanute
+1786,United States,Kansas,Wellington
+1787,United States,Kansas,Garden City
+1788,United States,Kansas,Tonganoxie
+1789,United States,Kansas,Atchison
+1790,United States,Kansas,Manhattan
+1791,United States,Kansas,Wichita
+1792,United States,Kentucky,Radcliff
+1793,United States,Kentucky,Richmond
+1794,United States,Kentucky,Middletown
+1795,United States,Kentucky,Lebanon
+1796,United States,Kentucky,Glasgow
+1797,United States,Kentucky,Carrollton
+1798,United States,Kentucky,Frankfort
+1799,United States,Kentucky,Vine Grove
+1800,United States,Kentucky,Paintsville
+1801,United States,Kentucky,Paducah
+1802,United States,Kentucky,Shelbyville
+1803,United States,Kentucky,La Grange
+1804,United States,Kentucky,Princeton
+1805,United States,Kentucky,Elsmere
+1806,United States,Kentucky,Madisonville
+1807,United States,Kentucky,Villa Hills
+1808,United States,Kentucky,Hazard
+1809,United States,Kentucky,Cynthiana
+1810,United States,Kentucky,Dayton
+1811,United States,Kentucky,Berea
+1812,United States,Kentucky,Maysville
+1813,United States,Kentucky,Morganfield
+1814,United States,Louisiana,Breaux Bridge
+1815,United States,Louisiana,Zachary
+1816,United States,Louisiana,Houma
+1817,United States,Louisiana,Ponchatoula
+1818,United States,Louisiana,Ruston
+1819,United States,Louisiana,Slidell
+1820,United States,Louisiana,New Orleans
+1821,United States,Louisiana,Patterson
+1822,United States,Louisiana,Benton
+1823,United States,Louisiana,Hammond
+1824,United States,Louisiana,Gramercy
+1825,United States,Louisiana,Central
+1826,United States,Louisiana,Winnsboro
+1827,United States,Louisiana,Broussard
+1828,United States,Louisiana,Abbeville
+1829,United States,Louisiana,Walker
+1830,United States,Louisiana,Scott
+1831,United States,Maine,Saco
+1832,United States,Maine,Sanford
+1833,United States,Maine,Auburn
+1834,United States,Maine,South Portland
+1835,United States,Maine,Rockland
+1836,United States,Maine,Caribou
+1837,United States,Maine,Bath
+1838,United States,Maine,Portland
+1839,United States,Maryland,Frostburg
+1840,United States,Maryland,Mount Rainier
+1841,United States,Maryland,Brunswick
+1842,United States,Maryland,Takoma Park
+1843,United States,Maryland,Walkersville
+1844,United States,Maryland,New Carrollton
+1845,United States,Maryland,Chestertown
+1846,United States,Maryland,Greenbelt
+1847,United States,Maryland,Emmitsburg
+1848,United States,Maryland,Westernport
+1849,United States,Maryland,Laurel
+1850,United States,Massachusetts,Waltham
+1851,United States,Massachusetts,Gloucester
+1852,United States,Massachusetts,Pittsfield
+1853,United States,Massachusetts,North Adams
+1854,United States,Massachusetts,Watertown
+1855,United States,Massachusetts,Somerville
+1856,United States,Massachusetts,Woburn
+1857,United States,Massachusetts,Gardner
+1858,United States,Massachusetts,Attleboro
+1859,United States,Michigan,Lapeer
+1860,United States,Michigan,Paw Paw
+1861,United States,Michigan,Northville
+1862,United States,Michigan,Cadillac
+1863,United States,Michigan,Albion
+1864,United States,Michigan,Grosse Pointe
+1865,United States,Michigan,Kingsford
+1866,United States,Michigan,Three Rivers
+1867,United States,Michigan,Swartz Creek
+1868,United States,Michigan,Escanaba
+1869,United States,Michigan,Muskegon
+1870,United States,Michigan,Fenton
+1871,United States,Michigan,River Rouge
+1872,United States,Michigan,Trenton
+1873,United States,Michigan,Menominee
+1874,United States,Michigan,Gaylord
+1875,United States,Michigan,Coldwater
+1876,United States,Michigan,Kalamazoo
+1877,United States,Michigan,Sault Sainte Marie
+1878,United States,Michigan,Harper Woods
+1879,United States,Michigan,Pontiac
+1880,United States,Michigan,Manistee
+1881,United States,Michigan,Eaton Rapids
+1882,United States,Michigan,Rockford
+1883,United States,Michigan,Ionia
+1884,United States,Michigan,Berrien Springs
+1885,United States,Michigan,Marshall
+1886,United States,Michigan,Grand Blanc
+1887,United States,Michigan,Auburn Hills
+1888,United States,Michigan,Dearborn
+1889,United States,Michigan,Inkster
+1890,United States,Michigan,Berkley
+1891,United States,Michigan,Laurium
+1892,United States,Michigan,Mount Clemens
+1893,United States,Michigan,Benton Harbor
+1894,United States,Michigan,Springfield
+1895,United States,Michigan,Hillsdale
+1896,United States,Minnesota,Maple Grove
+1897,United States,Minnesota,Hermantown
+1898,United States,Minnesota,Glencoe
+1899,United States,Minnesota,Edina
+1900,United States,Minnesota,Brainerd
+1901,United States,Minnesota,Byron
+1902,United States,Minnesota,Owatonna
+1903,United States,Minnesota,Mounds View
+1904,United States,Minnesota,Crookston
+1905,United States,Minnesota,Hibbing
+1906,United States,Minnesota,Oak Grove
+1907,United States,Minnesota,Lake Elmo
+1908,United States,Minnesota,New Ulm
+1909,United States,Minnesota,Cambridge
+1910,United States,Minnesota,Medina
+1911,United States,Minnesota,Elk River
+1912,United States,Minnesota,Oakdale
+1913,United States,Minnesota,Litchfield
+1914,United States,Minnesota,Hastings
+1915,United States,Minnesota,Mankato
+1916,United States,Minnesota,Shoreview
+1917,United States,Minnesota,Minneapolis
+1918,United States,Minnesota,Eden Prairie
+1919,United States,Minnesota,Saint Joseph
+1920,United States,Minnesota,South Saint Paul
+1921,United States,Minnesota,Corcoran
+1922,United States,Minnesota,Chaska
+1923,United States,Minnesota,Saint Louis Park
+1924,United States,Minnesota,Albertville
+1925,United States,Minnesota,Lindstrom
+1926,United States,Minnesota,Dayton
+1927,United States,Minnesota,North Saint Paul
+1928,United States,Minnesota,Hutchinson
+1929,United States,Minnesota,Bemidji
+1930,United States,Minnesota,Austin
+1931,United States,Minnesota,Falcon Heights
+1932,United States,Minnesota,Sartell
+1933,United States,Minnesota,Saint Paul
+1934,United States,Minnesota,East Grand Forks
+1935,United States,Mississippi,Flowood
+1936,United States,Mississippi,Bay Saint Louis
+1937,United States,Mississippi,Booneville
+1938,United States,Mississippi,Brookhaven
+1939,United States,Mississippi,Kosciusko
+1940,United States,Mississippi,Amory
+1941,United States,Mississippi,Biloxi
+1942,United States,Mississippi,Jackson
+1943,United States,Mississippi,Senatobia
+1944,United States,Mississippi,Horn Lake
+1945,United States,Mississippi,Greenwood
+1946,United States,Mississippi,Madison
+1947,United States,Mississippi,Moss Point
+1948,United States,Missouri,Parkville
+1949,United States,Missouri,Hannibal
+1950,United States,Missouri,Lebanon
+1951,United States,Missouri,Clayton
+1952,United States,Missouri,Eureka
+1953,United States,Missouri,Kearney
+1954,United States,Missouri,Willard
+1955,United States,Missouri,Monett
+1956,United States,Missouri,Florissant
+1957,United States,Missouri,Battlefield
+1958,United States,Missouri,Marshfield
+1959,United States,Missouri,Springfield
+1960,United States,Missouri,Sedalia
+1961,United States,Missouri,Independence
+1962,United States,Missouri,Sullivan
+1963,United States,Missouri,Washington
+1964,United States,Missouri,Pevely
+1965,United States,Missouri,Rolla
+1966,United States,Missouri,Saint Ann
+1967,United States,Missouri,Kennett
+1968,United States,Missouri,Park Hills
+1969,United States,Missouri,Greenwood
+1970,United States,Missouri,Chillicothe
+1971,United States,Missouri,Carthage
+1972,United States,Missouri,Jefferson City
+1973,United States,Missouri,Cottleville
+1974,United States,Montana,Butte
+1975,United States,Montana,Belgrade
+1976,United States,Montana,Kalispell
+1977,United States,Montana,Havre
+1978,United States,Montana,Laurel
+1979,United States,Montana,Helena
+1980,United States,Nebraska,Fremont
+1981,United States,Nebraska,Kearney
+1982,United States,Nebraska,La Vista
+1983,United States,Nebraska,Sidney
+1984,United States,Nevada,Henderson
+1985,United States,Nevada,Winnemucca
+1986,United States,Nevada,Carson City
+1987,United States,Nevada,Sparks
+1988,United States,Nevada,Boulder City
+1989,United States,Nevada,Reno
+1990,United States,New Hampshire,Dover
+1991,United States,New Hampshire,Franklin
+1992,United States,New Hampshire,Nashua
+1993,United States,New Jersey,Ridgefield Park
+1994,United States,New Jersey,Closter
+1995,United States,New Jersey,North Caldwell
+1996,United States,New Jersey,Emerson
+1997,United States,New Jersey,Guttenberg
+1998,United States,New Jersey,Spotswood
+1999,United States,New Jersey,Paterson
+2000,United States,New Jersey,River Edge
+2001,United States,New Jersey,Kenilworth
+2002,United States,New Jersey,Ridgewood
+2003,United States,New Jersey,Leonia
+2004,United States,New Jersey,Phillipsburg
+2005,United States,New Jersey,Little Silver
+2006,United States,New Jersey,New Milford
+2007,United States,New Jersey,Chatham
+2008,United States,New Jersey,Highland Park
+2009,United States,New Jersey,Pompton Lakes
+2010,United States,New Jersey,Mount Arlington
+2011,United States,New Jersey,Westfield
+2012,United States,New Jersey,North Arlington
+2013,United States,New Jersey,Oradell
+2014,United States,New Jersey,Bellmawr
+2015,United States,New Jersey,Carteret
+2016,United States,New Jersey,Runnemede
+2017,United States,New Jersey,Allendale
+2018,United States,New Jersey,Jersey City
+2019,United States,New Jersey,Hackettstown
+2020,United States,New Jersey,Raritan
+2021,United States,New Jersey,Morristown
+2022,United States,New Jersey,Northfield
+2023,United States,New Jersey,Camden
+2024,United States,New Jersey,Paulsboro
+2025,United States,New Jersey,Linden
+2026,United States,New Jersey,Bridgeton
+2027,United States,New Jersey,New Brunswick
+2028,United States,New Jersey,Bound Brook
+2029,United States,New Jersey,Edgewater
+2030,United States,New Jersey,Somerville
+2031,United States,New Jersey,Midland Park
+2032,United States,New Jersey,Bogota
+2033,United States,New Jersey,East Orange
+2034,United States,New Jersey,Freehold
+2035,United States,New Jersey,Rutherford
+2036,United States,New Jersey,Hillsdale
+2037,United States,New Jersey,Roselle
+2038,United States,New Jersey,Elmwood Park
+2039,United States,New Jersey,Jamesburg
+2040,United States,New Jersey,Englewood Cliffs
+2041,United States,New Jersey,Collingswood
+2042,United States,New Jersey,Wallington
+2043,United States,New Jersey,Morris Plains
+2044,United States,New Jersey,Dover
+2045,United States,New Mexico,Carlsbad
+2046,United States,New Mexico,Hobbs
+2047,United States,New Mexico,Socorro
+2048,United States,New Mexico,Ruidoso
+2049,United States,New York,Williston Park
+2050,United States,New York,Port Chester
+2051,United States,New York,Canandaigua
+2052,United States,New York,Penn Yan
+2053,United States,New York,Airmont
+2054,United States,New York,Albion
+2055,United States,New York,Fredonia
+2056,United States,New York,Pelham Manor
+2057,United States,New York,North Hills
+2058,United States,New York,New Rochelle
+2059,United States,New York,Waterloo
+2060,United States,New York,Dobbs Ferry
+2061,United States,New York,Mastic Beach
+2062,United States,New York,Malone
+2063,United States,New York,Pleasantville
+2064,United States,New York,Elmsford
+2065,United States,New York,Auburn
+2066,United States,New York,Amityville
+2067,United States,New York,Rockville Centre
+2068,United States,New York,Croton-on-Hudson
+2069,United States,New York,Lackawanna
+2070,United States,New York,Manorhaven
+2071,United States,New York,Babylon
+2072,United States,New York,Bronx
+2073,United States,New York,Washingtonville
+2074,United States,New York,Poughkeepsie
+2075,United States,New York,Mineola
+2076,United States,New York,Patchogue
+2077,United States,New York,East Rochester
+2078,United States,New York,Haverstraw
+2079,United States,New York,Harrison
+2080,United States,New York,Norwich
+2081,United States,New York,Baldwinsville
+2082,United States,New York,Woodbury
+2083,United States,New York,Sidney
+2084,United States,New York,Chester
+2085,United States,New York,Attica
+2086,United States,New York,Yonkers
+2087,United States,New York,Lawrence
+2088,United States,New York,Massena
+2089,United States,New York,Fort Plain
+2090,United States,New York,Mount Vernon
+2091,United States,New York,Johnstown
+2092,United States,New York,Glen Cove
+2093,United States,New York,Staten Island
+2094,United States,North Carolina,Roanoke Rapids
+2095,United States,North Carolina,New Bern
+2096,United States,North Carolina,Burlington
+2097,United States,North Carolina,Waynesville
+2098,United States,North Carolina,Davidson
+2099,United States,North Carolina,Forest City
+2100,United States,North Carolina,Elizabeth City
+2101,United States,North Carolina,Whiteville
+2102,United States,North Carolina,Pinehurst
+2103,United States,North Carolina,Conover
+2104,United States,North Carolina,Archer Lodge
+2105,United States,North Carolina,Stokesdale
+2106,United States,North Carolina,Clinton
+2107,United States,North Carolina,Manteo
+2108,United States,North Carolina,Angier
+2109,United States,North Carolina,Goldsboro
+2110,United States,North Carolina,Chapel Hill
+2111,United States,North Carolina,Taylorsville
+2112,United States,North Carolina,Gibsonville
+2113,United States,North Carolina,Harrisburg
+2114,United States,North Carolina,Gastonia
+2115,United States,North Carolina,Lumberton
+2116,United States,North Carolina,Indian Trail
+2117,United States,North Carolina,Cherryville
+2118,United States,North Carolina,Hillsborough
+2119,United States,North Carolina,Hope Mills
+2120,United States,North Carolina,Walkertown
+2121,United States,North Carolina,Huntersville
+2122,United States,North Carolina,Rockingham
+2123,United States,North Carolina,Wilmington
+2124,United States,North Carolina,Elkin
+2125,United States,North Dakota,Minot
+2126,United States,North Dakota,Mandan
+2127,United States,Ohio,Northwood
+2128,United States,Ohio,Vandalia
+2129,United States,Ohio,Kirtland
+2130,United States,Ohio,Galion
+2131,United States,Ohio,Brecksville
+2132,United States,Ohio,Lisbon
+2133,United States,Ohio,Steubenville
+2134,United States,Ohio,Powell
+2135,United States,Ohio,The Village of Indian Hill
+2136,United States,Ohio,Strongsville
+2137,United States,Ohio,Athens
+2138,United States,Ohio,Ashland
+2139,United States,Ohio,Parma
+2140,United States,Ohio,Caldwell
+2141,United States,Ohio,Westerville
+2142,United States,Ohio,Seven Hills
+2143,United States,Ohio,Circleville
+2144,United States,Ohio,Mount Vernon
+2145,United States,Ohio,Gahanna
+2146,United States,Ohio,Shelby
+2147,United States,Ohio,Cuyahoga Falls
+2148,United States,Ohio,Grandview Heights
+2149,United States,Ohio,Pickerington
+2150,United States,Ohio,Euclid
+2151,United States,Ohio,Avon
+2152,United States,Ohio,Norwalk
+2153,United States,Ohio,Ontario
+2154,United States,Ohio,Sharonville
+2155,United States,Ohio,Rittman
+2156,United States,Ohio,Kent
+2157,United States,Ohio,Dover
+2158,United States,Ohio,Barberton
+2159,United States,Ohio,Forest Park
+2160,United States,Ohio,Struthers
+2161,United States,Ohio,Marysville
+2162,United States,Ohio,Celina
+2163,United States,Ohio,Ada
+2164,United States,Ohio,Berea
+2165,United States,Ohio,Springfield
+2166,United States,Ohio,Macedonia
+2167,United States,Ohio,Carlisle
+2168,United States,Ohio,North Ridgeville
+2169,United States,Ohio,Kettering
+2170,United States,Ohio,Beavercreek
+2171,United States,Ohio,Willoughby
+2172,United States,Ohio,Wapakoneta
+2173,United States,Ohio,Reading
+2174,United States,Ohio,Brook Park
+2175,United States,Ohio,Middleport
+2176,United States,Ohio,Broadview Heights
+2177,United States,Ohio,Dublin
+2178,United States,Ohio,Marion
+2179,United States,Ohio,Upper Arlington
+2180,United States,Ohio,Milford
+2181,United States,Ohio,Clyde
+2182,United States,Ohio,Cheviot
+2183,United States,Ohio,Perrysburg
+2184,United States,Ohio,Urbana
+2185,United States,Ohio,Findlay
+2186,United States,Ohio,Bryan
+2187,United States,Ohio,Franklin
+2188,United States,Ohio,Parma Heights
+2189,United States,Ohio,Warrensville Heights
+2190,United States,Ohio,Wooster
+2191,United States,Ohio,Rocky River
+2192,United States,Ohio,Lima
+2193,United States,Ohio,Huber Heights
+2194,United States,Ohio,Bellevue
+2195,United States,Ohio,Greenville
+2196,United States,Oklahoma,McAlester
+2197,United States,Oklahoma,Skiatook
+2198,United States,Oklahoma,Durant
+2199,United States,Oklahoma,Blanchard
+2200,United States,Oklahoma,Edmond
+2201,United States,Oklahoma,Clinton
+2202,United States,Oklahoma,Oklahoma City
+2203,United States,Oklahoma,Bixby
+2204,United States,Oklahoma,Noble
+2205,United States,Oklahoma,Muskogee
+2206,United States,Oklahoma,Chickasha
+2207,United States,Oklahoma,Bethany
+2208,United States,Oklahoma,El Reno
+2209,United States,Oklahoma,Muldrow
+2210,United States,Oklahoma,Okmulgee
+2211,United States,Oklahoma,Altus
+2212,United States,Oklahoma,Woodward
+2213,United States,Oregon,Tualatin
+2214,United States,Oregon,Bend
+2215,United States,Oregon,Redmond
+2216,United States,Oregon,Gladstone
+2217,United States,Oregon,Warrenton
+2218,United States,Oregon,Grants Pass
+2219,United States,Oregon,Tigard
+2220,United States,Oregon,Fairview
+2221,United States,Oregon,Beaverton
+2222,United States,Oregon,Ashland
+2223,United States,Oregon,Portland
+2224,United States,Oregon,Scappoose
+2225,United States,Oregon,Albany
+2226,United States,Oregon,Eugene
+2227,United States,Oregon,Milwaukie
+2228,United States,Oregon,Dallas
+2229,United States,Oregon,Florence
+2230,United States,Oregon,Woodburn
+2231,United States,Oregon,Eagle Point
+2232,United States,Pennsylvania,Quakertown
+2233,United States,Pennsylvania,North East
+2234,United States,Pennsylvania,Sugarcreek
+2235,United States,Pennsylvania,West Chester
+2236,United States,Pennsylvania,Red Lion
+2237,United States,Pennsylvania,Titusville
+2238,United States,Pennsylvania,Downingtown
+2239,United States,Pennsylvania,Carlisle
+2240,United States,Pennsylvania,Dunmore
+2241,United States,Pennsylvania,Altoona
+2242,United States,Pennsylvania,Archbald
+2243,United States,Pennsylvania,Bristol
+2244,United States,Pennsylvania,Quarryville
+2245,United States,Pennsylvania,New Castle
+2246,United States,Pennsylvania,Glenolden
+2247,United States,Pennsylvania,York
+2248,United States,Pennsylvania,Lebanon
+2249,United States,Pennsylvania,Media
+2250,United States,Pennsylvania,Bellefonte
+2251,United States,Pennsylvania,Erie
+2252,United States,Pennsylvania,Shippensburg
+2253,United States,Pennsylvania,Hazleton
+2254,United States,Pennsylvania,Palmerton
+2255,United States,Pennsylvania,Latrobe
+2256,United States,Pennsylvania,Brentwood
+2257,United States,Pennsylvania,Coatesville
+2258,United States,Pennsylvania,Carnegie
+2259,United States,Pennsylvania,Edinboro
+2260,United States,Pennsylvania,Somerset
+2261,United States,Pennsylvania,Conshohocken
+2262,United States,Pennsylvania,Doylestown
+2263,United States,Pennsylvania,Slippery Rock
+2264,United States,Pennsylvania,West Mifflin
+2265,United States,Pennsylvania,Palmyra
+2266,United States,Pennsylvania,Philipsburg
+2267,United States,Pennsylvania,Franklin
+2268,United States,Pennsylvania,Lower Burrell
+2269,United States,Pennsylvania,Lock Haven
+2270,United States,Pennsylvania,Hellertown
+2271,United States,Pennsylvania,Clifton Heights
+2272,United States,Pennsylvania,Muncy
+2273,United States,Pennsylvania,Jersey Shore
+2274,United States,Pennsylvania,Souderton
+2275,United States,Pennsylvania,Bridgeville
+2276,United States,Pennsylvania,Schuylkill Haven
+2277,United States,Pennsylvania,Mount Pocono
+2278,United States,Pennsylvania,Berwick
+2279,United States,Pennsylvania,Wilkes-Barre
+2280,United States,Pennsylvania,Milton
+2281,United States,Pennsylvania,New Freedom
+2282,United States,Pennsylvania,Chester
+2283,United States,Pennsylvania,Ellwood City
+2284,United States,Pennsylvania,Shillington
+2285,United States,Pennsylvania,Lewisburg
+2286,Uruguay,Artigas,Bella Unión
+2287,Uruguay,Cerro Largo,Melo
+2288,Uruguay,Durazno,Paso de los Toros
+2289,Uruguay,Flores,Trinidad
+2290,Uruguay,Florida,Florida
+2291,Uruguay,Maldonado,Maldonado
+2292,Uruguay,Montevideo,Montevideo
+2293,Uzbekistan,Buxoro,Kogon
+2294,Uzbekistan,Farg‘ona,Fargona
+2295,Uzbekistan,Navoiy,Navoiy
+2296,Venezuela,Amazonas,Puerto Ayacucho
+2297,Venezuela,Anzoátegui,El Tigre
+2298,Venezuela,Aragua,Maracay
+2299,Venezuela,Bolívar,Ciudad Bolívar
+2300,Venezuela,Cojedes,San Carlos
+2301,Venezuela,Falcón,Punto Fijo
+2302,Venezuela,Guárico,Calabozo
+2303,Venezuela,Lara,Carora
+2304,Venezuela,Mérida,Merida
+2305,Venezuela,Nueva Esparta,La Asunción
+2306,Venezuela,Portuguesa,Guanare
+2307,Vietnam,An Giang,Long Xuyen
+2308,Vietnam,B?c Ninh,B?c Ninh
+2309,Vietnam,Bình D??ng,Thu Dau Mot
+2310,Vietnam,Bình Ph??c,Hon Quan
+2311,Vietnam,??ng Nai,Biên Hòa
+2312,Vietnam,Hà Nam,Thành Ph? Ph? Lý
+2313,Vietnam,Hà N?i,Hanoi
+2314,Vietnam,H?ng Yên,H?ng Yên
+2315,Vietnam,Lâm ??ng,Da Lat
+2316,Vietnam,Lào Cai,Lao Chi
+2317,Vietnam,Long An,Tan An
+2318,Vietnam,Ninh Thu?n,Phan Rang
+2319,Vietnam,Phú Yên,Tuy Hòa
+2320,Yemen,Abyan,Zinjib?r
+2321,Yemen,Al Jawf,Al ?azm
+2322,Yemen,Al Ma?w?t,Al Ma?w?t
+2323,Yemen,?a?ramawt,Saywun
+2324,Yemen,?a?ramawt,Al Mukalla
+2325,Yemen,?ajjah,Hajjah
+2326,Zambia,Central,Kabwe
+2327,Zambia,Copperbelt,Chililabombwe
+2328,Zambia,Copperbelt,Chingola
+2329,Zambia,Copperbelt,Kitwe
+2330,Zambia,Eastern,Lundazi
+2331,Zambia,Eastern,Nyimba
+2332,Zambia,Luapula,Kawambwa
+2333,Zambia,Lusaka,Lusaka
+2334,Zambia,Northern,Kasama
+2335,Zambia,North-Western,Zambezi
+2336,Zimbabwe,Harare,Chitungwiza
+2337,Zimbabwe,Midlands,Kwekwe

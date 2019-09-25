@@ -1,0 +1,1083 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-5" style="z-index: 100;background:#fff" id="navbar">
+    <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()"></i>
+    <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">Business Verge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse m-a pt-1" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto pr-4 c-3f ff-p f-17 f-w-500 text-center ">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        View StartUps
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/seller/display/startup">View StartUps
+                        </a>
+                        <a class="dropdown-item" href="/seller/startup">List Your Startup
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Websites
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/seller/display/web">Website for sale
+                        </a>
+                        <a class="dropdown-item" href="/seller/app">List Your Website
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        IP
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/seller/display/web">IP / Codes
+
+                        <a class="dropdown-item" href="/seller/ipcode"> List IP
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Investors
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/seller/display/investors?type=Individual_Investor">View Investors / Buyer</a>
+                      <a class="dropdown-item" href="/investor/individual">List as Investor</a>
+                      <a class="dropdown-item" href="/seller/display/investors?type=Financier">View Financiers </a>
+                      <a class="dropdown-item" href="/seller/display/investors?type=Investment_Bank">View Investment Bank</a>
+                      <a class="dropdown-item" href="/seller/display/investors?type=Private_Equity">View Private Equity</a>
+                      <a class="dropdown-item" href="/seller/display/investors?type=VC">View Venture Capital</a>
+                      <a class="dropdown-item" href="/seller/display/investors?type=Banks">View Banks</a>
+                      <a class="dropdown-item" href="/investor/company">List as PE / IB / VC</a>
+                      <a class="dropdown-item" href="/investor/company">List as Financier / Bank</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Startup Advisors
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/seller/display/advisors_startup?type=Incubators">Incubators
+                        </a>
+                        <a class="dropdown-item" href="/seller/display/advisors_startup?type=Accelerators">Accelerators
+                        </a>
+                        <a class="dropdown-item" href="/seller/display/advisors_startup?type=Mentors">Mentors
+                        </a>
+                        <a class="dropdown-item" href="/seller/display/advisors_startup?type=Institutions">Institutions
+                        </a>
+                        <a class="dropdown-item" href="/seller/display/advisors_startup?type=Legal_Advisor">Legal Advisor/CA
+                        </a>
+                        <a class="dropdown-item" href="/advisor/startup">List as Advisor
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-2 pl-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tools/Resources
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Basic Valuation
+                        </a>
+                        <a class="dropdown-item" href="#">Advanced Valuation
+                        </a>
+                        <a class="dropdown-item" href="">B-Plan Template
+                        </a>
+                        <a class="dropdown-item" href="">Startup Insights
+                        </a>
+                    </div>
+                </li>
+            {% else %}
+            <li class="nav-item dropdown pr-2">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Buy Business
+                </a>
+                <div class="dropdown-menu" aria-labelledby="">
+                    <a href="#" onclick="$('#signup').modal('show');" class="dropdown-item">Verified Business</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Asset for Sale</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Stake for sale</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Business seeking Loan</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown pr-2 pl-2">
+                <!-- <a class="nav-link" href="#">Investors </a> -->
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Investors
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Investors / Buyer</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >List as Investor</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Financiers </a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Investment Bank</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Private Equity</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Venture Capital</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >View Banks</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >List as PE / IB / VC</a>
+                    <a class="dropdown-item" href="#" onclick="$('#signup').modal('show');" >List as Financier / Bank</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown pr-2 pl-2">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Tools &Resources
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Basic Valuation</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Advanced Valuation</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Biz Insights</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">B-Plan Template</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown pr-2 pl-2">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Advisors
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Advisors</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Consultants</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Mentors</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Market Researchers </a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Term sheet negotiation</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">List as an Advisor</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown pr-2 pl-2">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Sell-Business
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Business</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Value your business </a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">How to sell ? </a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Stake in Business</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Asset</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Seek Loan</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown pr-2 pl-2">
+                <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Franchise
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Franchise</a>
+                    <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">List Franchise </a>
+                </div>
+            </li>
+            {% endif %}
+
+        {% if user.is_authenticated %}
+                                <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_s" >
+                                        <div id="noti_Counter_s">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
+
+                                        <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
+                                         <div id="noti_Button_s"><input type="image" src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
+
+                                         <!--THE NOTIFICAIONS DROPDOWN BOX.-->
+                                         <div id="notifications_s">
+                                             <h3><b>Notifications</b></h3>
+
+                                             <hr class="m-0">
+                                             <div class="notification_container">
+
+
+                                            {% for notif in notifications %}
+                                            {% if notif.notif_type == 'Chat' %}
+
+                                                <div class="notify_box">
+                                                    <div class="img_box">
+                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                    </div>
+                                                    <div class="content_box">
+                                                        <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
+                                                        <div class="date_time">
+                                                            <span class="day">Fri</span> at
+                                                            <span class="time">18:00</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            {% endif %}
+                                            {% if notif.notif_type == 'Cart' %}
+                                            <div class="notify_box">
+                                                    <div class="img_box">
+                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                    </div>
+                                                    <div class="content_box">
+                                                        <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
+                                                        <div class="date_time">
+                                                            <span class="day">Fri</span> at
+                                                            <span class="time">18:00</span>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                             </div>
+                                         </div>
+                                     </li>
+        {% endif %}
+        </ul>
+        <form id="login_icon_b" class="text-center mr-4">
+            <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                data-target="#login">Log In</button>
+        </form>
+        <form id="loggedin_icon_b" style="display:none" class="text-center mr-4 custom_logout_dropdown">
+
+                <div class="dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img id="prof_pic_b" src="" alt="img" class="avatar">
+                    </a>
+                        <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit Profile</a>
+                          {% ifequal  user.profile.social False %}
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password" >Change Password</a>
+                          {% endifequal %}
+                          <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
+                          <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                          data-target="#login">Log out</button> -->
+                        </div>
+                </div>
+
+    </form>
+
+    </div>
+</nav>
+
+{% ifequal  user.profile.social False %}
+<div class="modal" id="modal_change_password">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex align-items-center" style="background: url('../../static/seller1/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
+        <a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <!-- <h4 class="modal-title">Modal header</h4> -->
+      </div>
+        <div class="modal-body">
+            <div id="con_password" class="container-fluid text-left" >
+                <label for="change_password" >Confirm Password</label>
+                <input type="password" id="change_password" name="change_password" class="form-control col-sm-12 " />
+                <button id="confirm_button" class="btn btn-primary my-3">Confirm Password</button>
+                <div id="confirm_err" style="display: none">
+                    <p style="color: red" >Oops... , The password is incorrect</p>
+                </div>
+
+            </div>
+
+            <div id="chng_password" class="container-fluid" style="display: none" >
+                <label for="new_password" >New Password</label>
+                <br/>
+                <input type="password" id="new_password" name="new_password" class="form-control col-sm-12 " />
+
+
+                <label for="confirm_password" class="mt-2">Confirm New Password</label>
+                <br/>
+                <input type="password" id="confirm_password" name="confirm_password" class="form-control col-sm-12 " />
+                <button id="chng_button" class="btn btn-primary my-3">Change Password</button>
+                <div id="change_err" style="display: none">
+                        <p  style="color: red" >Please fill in correct credentials</p>
+                    </div>
+                    <div id="pass_type_err" style="display: none">
+                            <p  style="color: red" >A password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character</p>
+                        </div>
+                    <div id="change_success" style="display: none">
+                            <p style="color: green" >Your password has been changed, You can logout and verify it</p>
+                    </div>
+            </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal_edit_profile">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header d-flex align-items-center" style="background: url('../../static/seller1/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
+                <a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <!-- <h4 class="modal-title">Modal header</h4> -->
+              </div>
+              <div class="modal-body">
+                  <form action="" method="POST" id="edit_form" enctype="multipart/form-data" >
+                  <div class="container-fluid c-3f text-left">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <label for="{{ profile_form.first_name.id_for_label }}" class="f-16 f-w-500 pt-1">First Name</label><br>
+                              <input required class="form-control col-sm-12" id="e_first_name" name="first_name" placeholder="Name" value="{{user.profile.first_name}}" />
+                              <span class="errors" id="first_name_error" style="color: red"></span>
+                          </div>
+                          <div class="col-sm-6">
+                              <label for="{{ profile_form.last_name.id_for_label }}" class="f-16 f-w-500 pt-1">Last Name</label><br>
+                              <input required class="form-control col-sm-12" id="e_last_name" name="last_name" placeholder="Name" value="{{user.profile.last_name}}" />
+                              <span class="errors" id="last_name_error" style="color: red"></span>
+                          </div>
+                      </div>
+                      <div class="row pt-2">
+                          <div class="col-sm-6">
+                              <label for="" class="f-16 pt-1">Country Code</label>
+                              <select class="form-control col-sm-12" name= "country_code_primary" id="e_country_code_primary">
+                                <option value="Afghanistan (+93)">Afghanistan (+93)</option>
+                                                                   <option value="Albania (+355)">Albania (+355)</option>                                                                                             
+                                                                   <option value="Algeria (+213)">Algeria (+213)</option>
+
+
+                                                                   <option value="Samoa(+1-684)">Samoa(+1-684)</option>
+
+
+                                                                   <option value="Andorra(+376)">Andorra(+376)</option>
+
+
+                                                                   <option value="Angola(+244)">Angola(+244)</option>
+
+
+                                                                   <option value="Anguilla (+1-264)">Anguilla (+1-264)</option>
+
+
+                                                                   <option value="Antarctica(+672)">Antarctica(+672)</option>
+
+
+                                                                   <option value="Antigua(+1-268)">Antigua(+1-268)</option>
+
+
+                                                                   <option value="Argentina (+54)">Argentina (+54)</option>
+
+
+                                                                   <option value="Armenia(+374)">Armenia(+374)</option>
+
+
+                                                                   <option value="Aruba(+297)">Aruba(+297)</option>
+
+
+                                                                   <option value="Australia(+61)">Australia(+61)</option>
+
+
+                                                                   <option value="Austria(+43)">Austria(+43)</option>
+
+
+                                                                   <option value="Azerbaijan(+994)">Azerbaijan(+994)</option>
+
+
+                                                                   <option value="Bahamas(+1-242)">Bahamas(+1-242)</option>
+
+
+                                                                   <option value="Bahrain(+973)">Bahrain(+973)</option>
+
+
+                                                                   <option value="Bangladesh(+880)">Bangladesh(+880)</option>
+
+
+                                                                   <option value="Barbados (+1-246)">Barbados (+1-246)</option>
+
+
+                                                                   <option value="Belarus(+375)">Belarus(+375)</option>
+
+
+                                                                   <option value="Belgium (+32)">Belgium (+32)</option>
+
+
+                                                                   <option value="Belize(+501)">Belize(+501)</option>
+
+
+                                                                   <option value="Benin(+229)">Benin(+229)</option>
+
+
+                                                                   <option value="Bermuda (+1-441)">Bermuda (+1-441)</option>
+
+
+                                                                   <option value="Bhutan(+975)">Bhutan(+975)</option>
+
+
+                                                                   <option value="Bolivia (+591)">Bolivia (+591)</option>
+
+
+                                                                   <option value="Bosnia(+387)">Bosnia(+387)</option>
+
+
+                                                                   <option value="Botswana(+267)">Botswana(+267)</option>
+
+
+                                                                   <option value="Brazil (+55)">Brazil (+55)</option>
+
+
+                                                                   <option value="Brunei(+673)">Brunei(+673)</option>
+
+
+                                                                   <option value="Bulgaria (+359)">Bulgaria (+359)</option>
+
+
+                                                                   <option value="Burkina Faso(+226)">Burkina Faso(+226)</option>
+
+
+                                                                   <option value="Burundi(+257)">Burundi(+257)</option>
+
+
+                                                                   <option value="Cambodia(+855)">Cambodia(+855)</option>
+
+
+                                                                   <option value="Cameroon(+237)">Cameroon(+237)</option>
+
+
+                                                                   <option value="Canada (+1)">Canada (+1)</option>
+
+
+                                                                   <option value="Cape Verde (+238)">Cape Verde (+238)</option>
+
+
+                                                                   <option value="Cayman Islands (+1-345)">Cayman Islands (+1-345)</option>
+
+
+                                                                   <option value="Central African(+236)">Central African(+236)</option>
+
+
+                                                                   <option value="Chad (+235)">Chad (+235)</option>
+
+
+                                                                   <option value="Chile (+56)">Chile (+56)</option>
+
+
+                                                                   <option value="China (+86)">China (+86)</option>
+
+
+                                                                   <option value="Christmas Island (+53)">Christmas Island (+53)</option>
+
+
+                                                                   <option value="Cocos(+61)">Cocos(+61)</option>
+
+
+                                                                   <option value="Colombia (+57)">Colombia (+57)</option>
+
+
+                                                                   <option value="Comoros(+269)">Comoros(+269)</option>
+
+
+                                                                   <option value="Congo(+243)">Congo(+243)</option>
+
+
+                                                                   <option value="Congo(+242)">Congo(+242)</option>
+
+
+                                                                   <option value="Cook Islands(+682)">Cook Islands(+682)</option>
+
+
+                                                                   <option value="Costa Rica (+506)">Costa Rica (+506)</option>
+
+
+                                                                   <option value="Cote D'Ivoire(+225)">Cote D'Ivoire(+225)</option>
+
+
+                                                                   <option value="Croatia(+385)">Croatia(+385)</option>
+
+
+                                                                   <option value="Cuba (+53)">Cuba (+53)</option>
+
+
+                                                                   <option value="Cyprus (+357)">Cyprus (+357)</option>
+
+
+                                                                   <option value="Czech Republic(+420)">Czech Republic(+420)</option>
+
+
+                                                                   <option value="Denmark (+45)">Denmark (+45)</option>
+
+
+                                                                   <option value="Djibouti(+253)">Djibouti(+253)</option>
+
+
+                                                                   <option value="Dominica (+1-767)">Dominica (+1-767)</option>
+
+
+                                                                   <option value="East Timor(+670)">East Timor(+670)</option>
+
+
+                                                                   <option value="Ecuador (+593 )">Ecuador (+593 )</option>
+
+
+                                                                   <option value="Egypt(+20)">Egypt(+20)</option>
+
+
+                                                                   <option value="El Salvador (+503)">El Salvador (+503)</option>
+
+
+                                                                   <option value="Guinea(+240)">Guinea(+240)</option>
+
+
+                                                                   <option value="Eritrea(+291)">Eritrea(+291)</option>
+
+
+                                                                   <option value="Estonia(+372)">Estonia(+372)</option>
+
+
+                                                                   <option value="Ethiopia(+251)">Ethiopia(+251)</option>
+
+
+                                                                   <option value="Falkland Islands(+500)">Falkland Islands(+500)</option>
+
+
+                                                                   <option value="Faroe Islands (+298)">Faroe Islands (+298)</option>
+
+
+                                                                   <option value="Fiji (+679)">Fiji (+679)</option>
+
+
+                                                                   <option value="Finland (+358)">Finland (+358)</option>
+
+
+                                                                   <option value="France (+33)">France (+33)</option>
+
+
+                                                                   <option value="French Guiana(+594)">French Guiana(+594)</option>
+
+
+                                                                   <option value="French Polynesia(+689)">French Polynesia(+689)</option>
+
+
+                                                                   <option value="Gabon(+241)">Gabon(+241)</option>
+
+
+                                                                   <option value="Gambia, The (+220)">Gambia, The (+220)</option>
+
+
+                                                                   <option value="Georgia(+995)">Georgia(+995)</option>
+
+
+                                                                   <option value="Germany (+49)">Germany (+49)</option>
+
+
+                                                                   <option value="Ghana(+233)">Ghana(+233)</option>
+
+
+                                                                   <option value="Gibraltar (+350)">Gibraltar (+350)</option>
+
+
+                                                                   <option value="Greece (+30)">Greece (+30)</option>
+
+
+                                                                   <option value="Greenland (+299)">Greenland (+299)</option>
+
+
+                                                                   <option value="Grenada (+1-473)">Grenada (+1-473)</option>
+
+
+                                                                   <option value="Guadeloupe(+590)">Guadeloupe(+590)</option>
+
+
+                                                                   <option value="Guam(+1-671)">Guam(+1-671)</option>
+
+
+                                                                   <option value="Guatemala (+502)">Guatemala (+502)</option>
+
+
+                                                                   <option value="Guinea(+224)">Guinea(+224)</option>
+
+
+                                                                   <option value="Guinea-Bissau(+245)">Guinea-Bissau(+245)</option>
+
+
+                                                                   <option value="Guyana(+592)">Guyana(+592)</option>
+
+
+                                                                   <option value="Haiti (+509)">Haiti (+509)</option>
+
+
+                                                                   <option value="Honduras (+504)">Honduras (+504)</option>
+
+
+                                                                   <option value="Hong Kong (+852)">Hong Kong (+852)</option>
+
+
+                                                                   <option value="Hungary (+36)">Hungary (+36)</option>
+
+
+                                                                   <option value="Iceland (+354)">Iceland (+354)</option>
+
+
+                                                                   <option value="India (+91)">India (+91)</option>
+
+
+                                                                   <option value="Indonesia(+62)">Indonesia(+62)</option>
+
+
+                                                                   <option value="Iran, Islamic Republic of(+98)">Iran, Islamic Republic of(+98)</option>
+
+
+                                                                   <option value="Iraq (+964)">Iraq (+964)</option>
+
+
+                                                                   <option value="Ireland (+353)">Ireland (+353)</option>
+
+
+                                                                   <option value="Israel (+972)">Israel (+972)</option>
+
+
+                                                                   <option value="Italy (+39)">Italy (+39)</option>
+
+
+                                                                   <option value="Jamaica (+1-876)">Jamaica (+1-876)</option>
+
+
+                                                                   <option value="Japan (+81)">Japan (+81)</option>
+
+
+                                                                   <option value="Jordan(+962)">Jordan(+962)</option>
+
+
+                                                                   <option value="Kazakstan(+7)">Kazakstan(+7)</option>
+
+
+                                                                   <option value="Kenya(+254)">Kenya(+254)</option>
+
+
+                                                                   <option value="Kiribati(+686)">Kiribati(+686)</option>
+
+
+                                                                   <option value="North Korea(+850)">North Korea(+850)</option>
+
+
+                                                                   <option value="South Korea(+82)">South Korea(+82)</option>
+
+
+                                                                   <option value="Kuwait (+965)">Kuwait (+965)</option>
+
+
+                                                                   <option value="Kyrgyzstan(+996)">Kyrgyzstan(+996)</option>
+
+
+                                                                   <option value="Lao(+856)">Lao(+856)</option>
+
+
+                                                                   <option value="Latvia(+371)">Latvia(+371)</option>
+
+
+                                                                   <option value="Lebanon (+961)">Lebanon (+961)</option>
+
+
+                                                                   <option value="Lesotho(+266)">Lesotho(+266)</option>
+
+
+                                                                   <option value="Liberia (+231)">Liberia (+231)</option>
+
+
+                                                                   <option value="Libya(+218)">Libya(+218)</option>
+
+
+                                                                   <option value="Liechtenstein (+423)">Liechtenstein (+423)</option>
+
+
+                                                                   <option value="Lithuania(+370)">Lithuania(+370)</option>
+
+
+                                                                   <option value="Luxembourg (+352)">Luxembourg (+352)</option>
+
+
+                                                                   <option value="Macau (+853)">Macau (+853)</option>
+
+
+                                                                   <option value="Madagascar(+261)">Madagascar(+261)</option>
+
+
+                                                                   <option value="Malawi(+265)">Malawi(+265)</option>
+
+
+                                                                   <option value="Malaysia (+60)">Malaysia (+60)</option>
+
+
+                                                                   <option value="Maldives (+960)">Maldives (+960)</option>
+
+
+                                                                   <option value="Mali(+223)">Mali(+223)</option>
+
+
+                                                                   <option value="Malta (+356)">Malta (+356)</option>
+
+
+                                                                   <option value="Marshall Islands(+692)">Marshall Islands(+692)</option>
+
+
+                                                                   <option value="Martinique(+596)">Martinique(+596)</option>
+
+
+                                                                   <option value="Mauritania (+222)">Mauritania (+222)</option>
+
+
+                                                                   <option value="Mauritius (+230)">Mauritius (+230)</option>
+
+
+                                                                   <option value="Mayotte(+269)">Mayotte(+269)</option>
+
+
+                                                                   <option value="Mexico (+52)">Mexico (+52)</option>
+
+
+                                                                   <option value="Micronesia(+691)">Micronesia(+691)</option>
+
+
+                                                                   <option value="Moldova, Republic of(+373)">Moldova, Republic of(+373)</option>
+
+
+                                                                   <option value="Monaco, Principality of(+377)">Monaco, Principality of(+377)</option>
+
+
+                                                                   <option value="Mongolia(+976)">Mongolia(+976)</option>
+
+
+                                                                   <option value="Montserrat (+1-664)">Montserrat (+1-664)</option>
+
+
+                                                                   <option value="Morocco (+212)">Morocco (+212)</option>
+
+
+                                                                   <option value="Mozambique(+258)">Mozambique(+258)</option>
+
+
+                                                                   <option value="Myanmar(+95)">Myanmar(+95)</option>
+
+
+                                                                   <option value="Namibia(+264)">Namibia(+264)</option>
+
+
+                                                                   <option value="Nauru(+674)">Nauru(+674)</option>
+
+
+                                                                   <option value="Nepal (+977)">Nepal (+977)</option>
+
+
+                                                                   <option value="Netherlands (+31)">Netherlands (+31)</option>
+
+
+                                                                   <option value="Netherlands Antilles(+599)">Netherlands Antilles(+599)</option>
+
+
+                                                                   <option value="New Caledonia (+687)">New Caledonia (+687)</option>
+
+
+                                                                   <option value="New Zealand(+64)">New Zealand(+64)</option>
+
+
+                                                                   <option value="Nicaragua (+505)">Nicaragua (+505)</option>
+
+
+                                                                   <option value="Niger (+227)">Niger (+227)</option>
+
+
+                                                                   <option value="Nigeria (+234)">Nigeria (+234)</option>
+
+
+                                                                   <option value="Niue(+683)">Niue(+683)</option>
+
+
+                                                                   <option value="Norfolk Island (+672)">Norfolk Island (+672)</option>
+
+
+                                                                   <option value="Mariana Islands(+1-670)">Mariana Islands(+1-670)</option>
+
+
+                                                                   <option value="Norway (+47)">Norway (+47)</option>
+
+
+                                                                   <option value="Oman(+968)">Oman(+968)</option>
+
+
+                                                                   <option value="Pakistan(+92)">Pakistan(+92)</option>
+
+
+                                                                   <option value="Palau(+680)">Palau(+680)</option>
+
+
+                                                                   <option value="Palestinian State(+970)">Palestinian State(+970)</option>
+
+
+                                                                   <option value="Panama (+507)">Panama (+507)</option>
+
+
+                                                                   <option value="Papua New Guinea(+675)">Papua New Guinea(+675)</option>
+
+
+                                                                   <option value="Paraguay (+595)">Paraguay (+595)</option>
+
+
+                                                                   <option value="Peru (+51)">Peru (+51)</option>
+
+
+                                                                   <option value="Philippines (+63)">Philippines (+63)</option>
+
+
+                                                                   <option value="Poland (+48)">Poland (+48)</option>
+
+
+                                                                   <option value="Portugal (+351)">Portugal (+351)</option>
+
+
+                                                                   <option value="Qatar, State of (+974 )">Qatar, State of (+974 )</option>
+
+
+                                                                   <option value="Reunion(+262)">Reunion(+262)</option>
+
+
+                                                                   <option value="Romania (+40)">Romania (+40)</option>
+
+
+                                                                   <option value="Russian Federation (+7)">Russian Federation (+7)</option>
+
+
+                                                                   <option value="Rwanda(+250)">Rwanda(+250)</option>
+
+
+                                                                   <option value="Saint Helena (+290)">Saint Helena (+290)</option>
+
+
+                                                                   <option value="Saint Kitts(+1-869)">Saint Kitts(+1-869)</option>
+
+
+                                                                   <option value="Saint Lucia (+1-758)">Saint Lucia (+1-758)</option>
+
+
+                                                                   <option value="Saint Pierre(+508)">Saint Pierre(+508)</option>
+
+
+                                                                   <option value="Saint Vincent(+1-784)">Saint Vincent(+1-784)</option>
+
+
+                                                                   <option value="Samoa(+685)">Samoa(+685)</option>
+
+
+                                                                   <option value="San Marino (+378)">San Marino (+378)</option>
+
+
+                                                                   <option value="Sao Tome(+239)">Sao Tome(+239)</option>
+
+
+                                                                   <option value="Saudi Arabia (+966)">Saudi Arabia (+966)</option>
+
+
+                                                                   <option value="Senegal (+221)">Senegal (+221)</option>
+
+
+                                                                   <option value="Seychelles (+248)">Seychelles (+248)</option>
+
+
+                                                                   <option value="Sierra Leone (+232)">Sierra Leone (+232)</option>
+
+
+                                                                   <option value="Singapore (+65)">Singapore (+65)</option>
+
+
+                                                                   <option value="Slovakia(+421)">Slovakia(+421)</option>
+
+
+                                                                   <option value="Slovenia (+386)">Slovenia (+386)</option>
+
+
+                                                                   <option value="Solomon Islands(+677)">Solomon Islands(+677)</option>
+
+
+                                                                   <option value="Somalia(+252)">Somalia(+252)</option>
+
+
+                                                                   <option value="South Africa(+27)">South Africa(+27)</option>
+
+
+                                                                   <option value="Spain (+34)">Spain (+34)</option>
+
+
+                                                                   <option value="Sri Lanka(+94)">Sri Lanka(+94)</option>
+
+
+                                                                   <option value="Sudan(+249)">Sudan(+249)</option>
+
+
+                                                                   <option value="Suriname(+597)">Suriname(+597)</option>
+
+
+                                                                   <option value="Swaziland(+268)">Swaziland(+268)</option>
+
+
+                                                                   <option value="Sweden (+46)">Sweden (+46)</option>
+
+
+                                                                   <option value="Switzerland (+41)">Switzerland (+41)</option>
+
+
+                                                                   <option value="Syria(+963)">Syria(+963)</option>
+
+
+                                                                   <option value="Taiwan(+886)">Taiwan(+886)</option>
+
+
+                                                                   <option value="Tajikistan(+992)">Tajikistan(+992)</option>
+
+
+                                                                   <option value="Tanzania(+255)">Tanzania(+255)</option>
+
+
+                                                                   <option value="Thailand(+66)">Thailand(+66)</option>
+
+
+                                                                   <option value="Tokelau (+690)">Tokelau (+690)</option>
+
+
+                                                                   <option value="Tonga, Kingdom of(+676)">Tonga, Kingdom of(+676)</option>
+
+
+                                                                   <option value="Trinidad(+1-868)">Trinidad(+1-868)</option>
+
+
+                                                                   <option value="Tunisia (+216)">Tunisia (+216)</option>
+
+
+                                                                   <option value="Turkey (+90)">Turkey (+90)</option>
+
+
+                                                                   <option value="Turkmenistan(+993)">Turkmenistan(+993)</option>
+
+
+                                                                   <option value="Turks &amp; Caicos(+1-649)">Turks &amp; Caicos(+1-649)</option>
+
+
+                                                                   <option value="Tuvalu(+688)">Tuvalu(+688)</option>
+
+
+                                                                   <option value="Uganda(+256)">Uganda(+256)</option>
+
+
+                                                                   <option value="Ukraine(+380)">Ukraine(+380)</option>
+
+
+                                                                   <option value="UAE(+971)">UAE(+971)</option>
+
+
+                                                                   <option value="United Kingdom(+44)">United Kingdom(+44)</option>
+
+
+                                                                   <option value="United States (+1)">United States (+1)</option>
+
+
+                                                                   <option value="Uruguay(+598)">Uruguay(+598)</option>
+
+
+                                                                   <option value="Uzbekistan(+998)">Uzbekistan(+998)</option>
+
+
+                                                                   <option value="Vanuatu(+678)">Vanuatu(+678)</option>
+
+
+                                                                   <option value="Vatican City State(+418)">Vatican City State(+418)</option>
+
+
+                                                                   <option value="Venezuela (+58)">Venezuela (+58)</option>
+
+
+                                                                   <option value="Vietnam (+84)">Vietnam (+84)</option>
+
+
+                                                                   <option value="Virgin Islands(+1-284)">Virgin Islands(+1-284)</option>
+
+
+                                                                   <option value="Virgin Islands(+1-340)">Virgin Islands(+1-340)</option>
+
+
+                                                                   <option value="Wallis &amp; Futuna(+681)">Wallis &amp; Futuna(+681)</option>
+
+
+                                                                   <option value="Yemen (+967)">Yemen (+967)</option>
+
+
+                                                                   <option value="Zambia(+260)">Zambia(+260)</option>
+                                                                   <option value="Zimbabwe(+263)">Zimbabwe(+263)</option>
+
+                            </select>
+                          </div>
+                          <div class="col-sm-6">
+                                <label for="{{ profile_form.contact_number.id_for_label }}" class="f-16 f-w-500 pt-1">Contact Number</label><br>
+                                <input required class="form-control col-sm-12" id="e_contact_number" name="contact_number" placeholder="Contact Number" value="{{user.profile.contact_number}}" />
+                                <span class="errors" id="contact_number_error" style="color: red"></span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-12 ff-p c-3f">
+                          <div class="row my-3">
+                            <div class="col-md-4 col-12 text-center">
+                              <img id="blah" src="https://manjeettattooz.com/wp-content/uploads/2018/09/User-dummy-300x300.png" alt="your image" />
+                            </div>
+                            <div class="col-md-8 col-12 location_fields">
+                              <input type="file" class="form-control bg-transparent" id="e_photo" name="photo" onchange="readURL(this);"    />
+                              <div class="row">
+                                <div class="col-md-10">
+                                  <div id="locationField">
+                                      <input required class="controls form-control" id="e_address_line" name="address_line" value="{{user.profile.address_line}}" />
+                                  </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                  <button id="edit_getLocation" class="btn btn-primary" type="button" style="font-size:16px;">Get</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="errors" id="photo_error" style="color: red"></div>
+                          <input name="country" id="e_country" value="{{user.profile.country}}" hidden />
+                          <input name="region" id="e_region" value="{{user.profile.region}}" hidden />
+                          <input name="city" id="e_city" value="{{user.profile.city}}" hidden />
+                  </div>
+                  <!-- <div class="col-sm-12 ff-p c-3f">
+
+                          <label for="{{ profile_form.about_me.id_for_label }}" class="f-16 f-w-500 pt-44">Profile Pic</label><br>
+                          {{ profile_form.about_me|add_class:"form-control col-sm-12 ginput " }}
+                          <div class="errors" id="about_me_err" style="color: red">
+                                  {{ profile_form.about_me.errors }}
+                                  </div>
+                  </div> -->
+
+                  <div class="col-sm-12 pt-20">
+                      <button class="btn-log pt-1 pb-1" id="button_edit_form" type="submit">Edit Profile</button>
+                  </div>
+
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+  {% endifequal %}
+
+
+<div class="chat_container">
+    <div class="fixed_chat_on_window" id="toggle_chat">
+    <button type="button" id="chat_btn" name="button">Chat</button>
+    <!-- <button type="button" name="button">Dropdown</button>-->
+    </div>
+    <div class="arrow_toggle" onclick="toggle_chat()">
+    <i class="fa fa-angle-left" id="rotate_icon" aria-hidden="true"></i>
+    </div>
+    <div class='selectdropdown'>
+    <select id='id_currency' class="dropdown_custom" style='width: 150px;'>
+        {% include "currencydetails.html" %}
+    </select>
+
+    </div>
+</div>
+  

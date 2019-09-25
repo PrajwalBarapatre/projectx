@@ -1,0 +1,1715 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bverge || Sell Loan</title>
+    <link rel="stylesheet" href="{% static 'seller1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/w3.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'seller1/css/dropzone.css' %}">
+    <script src="{% static 'seller1/js/dropzone.js' %}"></script>
+</head>
+
+<style>
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.content2 span{
+ width: 250px;
+}
+
+.dz-message{
+ text-align: center;
+ font-size: 28px;
+}
+ul
+{
+list-style-type: none;
+}
+</style>
+
+<style type="text/css">
+    #map {
+        height: 100%;
+      }
+    .valid {
+    border: 2px solid #71F2A9;
+    }
+    .invalid {
+        border: 2px solid #FD819E;
+    }
+    .off {
+        background-color: white !important;
+    }
+    .on {
+        display: block;
+    }
+    .offf{
+        display: none !important;
+    }
+    .file_drag_area{
+        border: 2px dashed #ccc;
+        text-align: center;
+        font-size: 2px;
+        height: 200px;
+    }
+    .file_drag_over{
+        color: #000;
+        border-color: #000;
+    }
+    .drop_image{
+        /* border: 2px dashed #ccc; */
+        /* text-align: center; */
+        font-size: 2px;
+        height: 200px;
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .cross{
+        z-index: 10;
+
+        font-size: 24px;
+        color: red;
+    }
+    .prof_pic{
+        z-index: 10;
+        top: 2px;
+        left: 2px;
+        font-size: 16px;
+    }
+    .drop_img{
+        padding: 5px;
+        width: 30%;
+    }
+    .remove{
+        font-size: 16px;
+        width:100%;
+    }
+    .tab_error{
+        background-color: #FE3C69 !important;
+    }
+    </style>
+<body>
+
+
+    {% include "seller1/topcontainer.html" %}
+    <div class="container-fluid bg-f2 ff-p">
+        <!-- Top container -->
+        <!-- form container -->
+        <form action="" method="POST" id="regForm" >
+            {% csrf_token %}
+            <div class="container">
+              <div class="row ff-p f-17 pt-61 pr-28" >
+                    <div class="col-md-3">
+                      <button type="button" onclick="displayTab(0)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Your Information</button>
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" onclick="displayTab(1)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Detailed Information</button>
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" onclick="displayTab(2)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Business Financials</button>
+                    </div>
+                    <div class="col-md-3">
+                       <button type="button" onclick="displayTab(3)" class="btn-sellers w-100 ff-p off" disabled=true>Advanced Financials</button>
+                    </div>
+              </div>
+            </div>
+            <!-- your information -->
+
+
+
+
+
+            <div class="container">
+                <div class="custom_tab">
+                         <div class="row">
+                             <div class="col-sm-12 ff-p pt-30">
+                                 <h3 class="f-23 f-w-bold bg-transparent">List Your Requirement For Loan
+                                     <span class="f-w-500"></span></h3>
+                             </div>
+                         </div>
+                         <div class="row pt-20">
+                             <div class="col-sm-6 col-12 ff-p pb-2">
+                                <label for="{{ business_form.first_name.id_for_label }}" class="f-16 pl-1">First name</label>
+                                {{ business_form.first_name|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:First name" }}
+                                <div class="errors" id="first_name_err" style="color: red">
+                                    {{ business_form.first_name.errors }}
+                                </div>
+                                <label for="{{ business_form.middle_name.id_for_label }}" class="f-16 pl-1 pt-15">Middle name</label>
+                                    {{ business_form.middle_name|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:Middle name" }}
+                                 <div class="errors" id="middle_name_err" style="color: red">
+                                  {{ business_form.middle_name.errors }}
+                                  </div>
+
+                                <label for="{{ business_form.last_name.id_for_label }}" class="f-16 pl-1 pt-15">Last name</label>
+                                    {{ business_form.last_name|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:Last name" }}
+                                 <div class="errors" id="last_name_err" style="color: red">
+                                  {{ business_form.last_name.errors }}
+                                  </div>
+
+                                 <div class="container-fluid zero-padding">
+                                        <div class="row">
+                                           <div class="col-sm-6">
+                                               <!-- <input type="text" name="pass" id="pass" class="form-control col-sm-12" maxlength="4" placeholder="Country Code"> -->
+                                               <label for="" class="f-16 pl-1 pt-15">Country Code</label>
+                                               <select class="form-control" name= "country_code_primary" id="country_code_primary">
+                                                        {% for x in code_data %}
+                                                        <option value="+{{x.dialing}}">{{x.code}}</option>
+
+                                                        {% endfor %}
+                                              </select>
+                                           </div>
+                                           <div class="col-sm-6">
+
+                                <label for="{{ business_form.phone_number_primary.id_for_label }}" class="f-16 pl-1 pt-15">Phone number</label>
+                                            {{ business_form.phone_number_primary|add_class:"form-control col-sm-12 ginput begin_empty" |append_attr:"placeholder:Phone Number"}}
+                                            <div class="errors" id="email_err" style="color: red">
+                                                {{ business_form.phone_number_primary.errors }}
+                                            </div>
+
+                                           </div>
+                                        </div>
+                                    </div>
+
+
+                                            <label for="{{ business_form.email_adress.id_for_label }}" class="f-16 pl-1 pt-15">Email Id</label>
+                                            {{ business_form.email_adress|add_class:"form-control ginput begin_empty"|append_attr:"placeholder:Email" }}
+                                            <div class="errors" id="email_err" style="color: red">
+                                                {{ business_form.email_adress.errors }}
+                                            </div>
+                             </div>
+
+                             <div class="col-sm-6 col-12 ff-p">
+                                            <div>
+                                                    <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">About the Seller ?</h3>
+                                                    <div class="f-16 about-seller-body-2 about-seller bg-ff p-0">
+                                                            <!-- <input type="radio" checked="checked" name="about_seller" value="Owner" />
+                                                                Owner<br>
+                                                            <input type="radio" name="about_seller" value="Broker">
+                                                                Broker -->
+                                                            {{business_form.about_seller}}
+                                                    </div>
+                                                    <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body mt-4">Select Currency for Listing</h3>
+                                                    <div class="f-16 about-seller-body about-seller bg-ff p-0">
+                                                      <select id='id_currency' name='currency' class="dropdown_custom w-100 ff-p" >
+                                                      {% include "currencydetails.html" %}
+                                                      </select>
+                                                    </div>
+                                            </div>
+                                                    <br><br>
+                                            <div>
+                                            <!-- <div class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">Here to Sell ?
+                                            </div>
+                                            <div class="f-16 about-seller-body about-seller bg-ff">
+                                                        <input type="radio" name="seller_purpose"  checked="checked" value="0" />
+                                                            Sell Business<br>
+                                                            <input type="radio" name="seller_purpose" value="1" />
+                                                            Sell Asset<br>
+                                                            <input type="radio" name="seller_purpose" value="2" />
+                                                            Raise Loan<br>
+                                                            <input type="radio" name="seller_purpose" value="3" />
+                                                            Sell Equity<br>
+                                            </div> -->
+                             </div>
+                        </div>
+                        </div>
+            </div>
+
+            <!-- Business_Information-->
+
+                <div class="custom_tab">
+                         <div class="row pt-40">
+                                 <div class="col-sm-6 col-12 ff-p pb-2">
+                                     <div class="container-fluid zero-padding">
+                                         <div class="row">
+                                             <div class="col-sm-6 col-12">
+                                                <label for="" class="f-16 ff-p f-w-500">Select category</label>
+                                                <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="sectors" name="category1">
+                                                        {% for x in sectors %}
+                                                            <option value="{{x.sectors}}">{{x.sectors}}</option>
+                                                        {% endfor %}
+                                                </select>
+                                             </div>
+                                             <div class="col-sm-6 col-12">
+                                                    <label for="" class="f-16 ff-p f-w-500">Select Sub category</label>
+                                                    <select class="form-control f-13 ff-p" id="sub_sectors" name="category2">
+                                                            <option name="category2" value="volvo">Select</option>
+                                                    </select>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="container-fluid zero-padding pt-15">
+                                         <div class="row">
+                                             <div class="col-sm-6 col-12">
+                                                <label for="" class="f-16 ff-p f-w-500">Select type of business</label>
+                                                <select class="form-control f-13 ff-p" style="width: 213%;" name="business_type">
+                                                        {% for x in types_companies %}
+                                                        <option value="{{x.types}}">{{x.types}}</option>
+                                                        {% endfor %}
+                                                </select>
+                                             </div>
+                                         </div>
+                                     </div>
+                                    <label for="{{ business_form.title.id_for_label }}" class="f-16 pl-1 pt-25">Title of the Listing</label>
+                                    {{ business_form.title|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:Enter the Title" }}
+                                    <div class="errors" id="email_err" style="color: red">
+                                    {{ business_form.title.errors }}
+                                    <i class="errors" id="myWordCount_3" style="color: red"></i>
+                                    </div>
+
+                                    <label for="{{ business_form.name.id_for_label }}" class="f-16 pl-1 pt-10">Name of the business</label>
+                                    {{ business_form.name|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:Enter the Name" }}
+                                    <div class="errors" id="email_err" style="color: red">
+                                    {{ business_form.name.errors }}
+                                    </div>
+                                    <h3 class="f-16 pl-1 font-weight-normal bg-transparent pt-25">Location of the Business</h3>
+                                        {{ business_form.lat|attr:"hidden" }}
+                                        {{ business_form.lngt|attr:"hidden" }}
+                                        {{ business_form.country|attr:"hidden" }}
+                                        {{ business_form.region|attr:"hidden" }}
+                                        {{ business_form.city|attr:"hidden" }}
+                                         <div class="row pt-10">
+                                             <div class="col-sm-10 col-12">
+                                    <div id="locationField">
+                                        {{ business_form.address_line|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9 ginput begin_empty" }}
+                                    </div>
+                                             </div>
+                                             <div class="col-sm-1 col-12">
+                                      <button id="getLocation" class="btn btn-primary h-40" type="button" style="font-size:16px;">Get</button>
+                                             </div>
+                                         </div>
+                                    <label for="{{ business_form.adress.id_for_label }}" class="f-16 pl-1 pt-30">Address in specific (Optional)</label>
+                                    {{ business_form.adress|add_class:"form-control"|append_attr:"placeholder:Address"|attr:"rows:2"|append_attr:"style: resize:none" }}
+
+                                        <!-- why do i have this -->
+                                    {{ business_form.adress.errors }}
+
+
+
+
+
+                                     <label for="" class="f-16 pl-1 pt-15"> Upload Pictures
+                                     </label> <br>
+                                     <div id="top_img" class="container-fluid zero-padding pb-2">
+
+                                        <div id="dropzonewidget" class="dropzone">
+                                            <div class="dz-default dz-message"></div>
+                                        </div>
+
+                                     </div>
+                                 </div>
+                                 {{ business_form.album_id|attr:"hidden" }}
+
+                                 <div class="col-sm-6 col-12 ff-p" >
+                                        <div id="map"></div>
+
+                                 </div>
+                         </div>
+                </div>
+
+            <!-- Business_Sell_Business-->
+            <div class="custom_tab" >
+
+
+                <div class="row pt-30">
+                    <div class="col-sm-12 ff-p">
+                        <h4 class="f-16 f-w-500">About the business</h4>
+                        {{ sell_loan.about_business|add_class:"form-control pt-9 ginput begin_empty" }}
+                            <div class="errors" id="about_business_err" style="color: red">
+                                {{ sell_loan.about_business.errors }}
+                                <i class="errors" id="myWordCount" style="color: red"></i>
+                            </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <h4 class="f-16 f-w-500 pt-30">Loan amount</h4>
+                            <div class="input-group">
+                                    {{ sell_loan.loan_amount|add_class:"form-control col-sm-6 ginput begin_empty" }}
+                                    <div class="errors" id="loan_amount_err" style="color: red">
+                                        {{ sell_loan.loan_amount.errors }}
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                    </div>
+                            </div>
+                            <span id="currency_message_8"></span>
+                    </div>
+                    <div class="col-sm-8">
+                        <h4 class="f-16 f-w-500 pt-30">Interest rate sought</h4>
+                        <div class="input-group">
+                                    <input type="number" name="sought_interest" step="1e-20" class="form-control col-sm-3 ginput begin_empty" id="id_sought_interest" oninput="javascript: if (this.value > 100) this.value = this.value.slice(0, 2);">
+                                    <div class="errors" id="sought_interest_err" style="color: red">
+                                        {{ sell_loan.sought_interest.errors }}
+                                    </div>
+                                    <div class="input-group-append">
+                                    <span class="input-group-text bg-ff">%</span>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                            <h4 class="f-16 f-w-500 pt-30">Year established</h4>
+                            <div class="input-group">
+                              <select class="form-control col-sm-2" id="year_established" name="year_established">
+
+                                                                                      <option value="2019">2019</option>
+
+                                                                                      <option value="2018">2018</option>
+
+                                                                                      <option value="2017">2017</option>
+
+                                                                                      <option value="2016">2016</option>
+
+                                                                                      <option value="2015">2015</option>
+
+                                                                                      <option value="2014">2014</option>
+
+                                                                                      <option value="2013">2013</option>
+
+                                                                                      <option value="2012">2012</option>
+
+                                                                                      <option value="2011">2011</option>
+
+                                                                                      <option value="2010">2010</option>
+
+                                                                                      <option value="2009">2009</option>
+
+                                                                                      <option value="2008">2008</option>
+
+                                                                                      <option value="2007">2007</option>
+
+                                                                                      <option value="2006">2006</option>
+
+                                                                                      <option value="2005">2005</option>
+
+                                                                                      <option value="2004">2004</option>
+
+                                                                                      <option value="2003">2003</option>
+
+                                                                                      <option value="2002">2002</option>
+
+                                                                                      <option value="2001">2001</option>
+
+                                                                                      <option value="2000">2000</option>
+
+                                                                                      <option value="1999">1999</option>
+
+                                                                                      <option value="1998">1998</option>
+
+                                                                                      <option value="1997">1997</option>
+
+                                                                                      <option value="1996">1996</option>
+
+                                                                                      <option value="1995">1995</option>
+
+                                                                                      <option value="1994">1994</option>
+
+                                                                                      <option value="1993">1993</option>
+
+                                                                                      <option value="1992">1992</option>
+
+                                                                                      <option value="1991">1991</option>
+
+                                                                                      <option value="1990">1990</option>
+
+                                                                                      <option value="1989">1989</option>
+
+                                                                                      <option value="1988">1988</option>
+
+                                                                                      <option value="1987">1987</option>
+
+                                                                                      <option value="1986">1986</option>
+
+                                                                                      <option value="1985">1985</option>
+
+                                                                                      <option value="1984">1984</option>
+
+                                                                                      <option value="1983">1983</option>
+
+                                                                                      <option value="1982">1982</option>
+
+                                                                                      <option value="1981">1981</option>
+
+                                                                                      <option value="1980">1980</option>
+
+                                                                                      <option value="1979">1979</option>
+
+                                                                                      <option value="1978">1978</option>
+
+                                                                                      <option value="1977">1977</option>
+
+                                                                                      <option value="1976">1976</option>
+
+                                                                                      <option value="1975">1975</option>
+
+                                                                                      <option value="1974">1974</option>
+
+                                                                                      <option value="1973">1973</option>
+
+                                                                                      <option value="1972">1972</option>
+
+                                                                                      <option value="1971">1971</option>
+
+                                                                                      <option value="1970">1970</option>
+
+                                                                                      <option value="1969">1969</option>
+
+                                                                                      <option value="1968">1968</option>
+
+                                                                                      <option value="1967">1967</option>
+
+                                                                                      <option value="1966">1966</option>
+
+                                                                                      <option value="1965">1965</option>
+
+                                                                                      <option value="1964">1964</option>
+
+                                                                                      <option value="1963">1963</option>
+
+                                                                                      <option value="1962">1962</option>
+
+                                                                                      <option value="1961">1961</option>
+
+                                                                                      <option value="1960">1960</option>
+
+                                                                                      <option value="1959">1959</option>
+
+                                                                                      <option value="1958">1958</option>
+
+                                                                                      <option value="1957">1957</option>
+
+                                                                                      <option value="1956">1956</option>
+
+                                                                                      <option value="1955">1955</option>
+
+                                                                                      <option value="1954">1954</option>
+
+                                                                                      <option value="1953">1953</option>
+
+                                                                                      <option value="1952">1952</option>
+
+                                                                                      <option value="1951">1951</option>
+
+                                                                                      <option value="1950">1950</option>
+
+                                                                                      <option value="1949">1949</option>
+
+                                                                                      <option value="1948">1948</option>
+
+                                                                                      <option value="1947">1947</option>
+
+                                                                                      <option value="1946">1946</option>
+
+                                                                                      <option value="1945">1945</option>
+
+                                                                                      <option value="1944">1944</option>
+
+                                                                                      <option value="1943">1943</option>
+
+                                                                                      <option value="1942">1942</option>
+
+                                                                                      <option value="1941">1941</option>
+
+                                                                                  </select>
+                            </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                            <h4 class="f-16 f-w-500 pt-30">Reason for seeking loan</h4>
+                                    {{ sell_loan.reason_loan|add_class:"form-control pt-9 ginput begin_empty" }}
+                                        <div class="errors" id="reason_loan_err" style="color: red">
+                                            {{ sell_loan.reason_loan.errors }}
+                                            <i class="errors" id="myWordCount_2" style="color: red"></i>
+                                        </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                            <h4 class="f-16 f-w-500 pt-30">Business website (if any)</h4>
+                                    {{ sell_loan.website|add_class:"form-control col-sm-6 ginput" }}
+                                        <div class="errors" id="website_err" style="color: red">
+                                            {{ sell_loan.website.errors }}
+                                        </div>
+                    </div>
+            </div>
+
+            <div id="dialog-confirm"> 
+                    <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
+                    <div class="buttons"> 
+                        <a class="cancel" href="#">Cancel</a> 
+                        <a class="ok" href="#">Ok</a> 
+                    </div> 
+            </div> 
+
+            </div>
+            <!-- Advanced Financials-->
+
+                            <div class="custom_tab">
+                                    <div class="row pt-30">
+                                      <div class="col-sm-2">
+                                        <label for="{{ rev_form.rev_year.id_for_label }}" class="f-16 f-w-500">Revenues/Year:</label>
+                                                <div class="input-group">
+                                                        {{ rev_form.rev_year|add_class:"form-control ginput begin_empty"|attr:"placeholder:0" }}
+                                                    <div class="errors" id="rev_year" style="color: red">
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                    <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                                    </div>
+
+                                                </div>
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.rev_year.errors }}
+                                        </div>
+                                        <span id="currency_message_2"></span>
+                                            </div>
+                                      <div class="col-sm-2">
+                                                <h4 class="f-16 f-w-500">2016 <span class="f-w-100"> (Optional) </span></h4>
+                                                <div class="input-group">
+                                                        {{ rev_form.year_16|add_class:"form-control ginput"|attr:"placeholder:0" }}
+                                                    <div class="errors" id="year_16" style="color: red">
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                    <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="errors" id="email_err" style="color: red">
+                                                {{ rev_form.year_16.errors }}
+                                                </div>
+                                                <span id="currency_message_3"></span>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <h4 class="f-16 f-w-500">2015 <span class="f-w-100"> (Optional) </span></h4>
+                                                <div class="input-group">
+                                                        {{ rev_form.year_15|add_class:"form-control ginput"|attr:"placeholder:0" }}
+                                                    <div class="errors" id="year_16" style="color: red">
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                    <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                                    </div>
+                                                </div>
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.year_15.errors }}
+                                        </div>
+                                        <span id="currency_message_4"></span>
+                                                </div>
+                                            <div class="col-sm-2">
+                                                <h4 class="f-16 f-w-500">2014 <span class="f-w-100"> (Optional) </span></h4>
+                                                <div class="input-group">
+                                                        {{ rev_form.year_14|add_class:"form-control ginput "|attr:"placeholder:0" }}
+                                                    <div class="errors" id="year_16" style="color: red">
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                    <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                                    </div>
+                                                </div>
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.year_14.errors }}
+                                        </div>
+                                        <span id="currency_message_5"></span>
+                                             </div>
+                                            <div class="col-sm-2">
+                                                <h4 class="f-16 f-w-500">2013 <span class="f-w-100"> (Optional) </span></h4>
+                                             <div class="input-group">
+                                                     {{ rev_form.year_13|add_class:"form-control ginput "|attr:"placeholder:0" }}
+                                                 <div class="errors" id="year_16" style="color: red">
+                                                 </div>
+                                                 <div class="input-group-append">
+                                                 <span class="input-group-text bg-ff currency_tag">AFN</span>
+                                                 </div>
+                                             </div>
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.year_13.errors }}
+                                        </div>
+                                        <span id="currency_message_6"></span>
+                                            </div>
+                                            <div class="col-sm-2"></div>
+                                                </div>
+                                                <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="f-16 f-w-500 pt-30">Final profit for 2017 </h4>
+                                                    <div class="input-group">
+                                                             {{ rev_form.year_17|add_class:"form-control col-sm-3 ginput begin_empty"|attr:"placeholder:0" }}
+                                                            <div class="errors" id="email_err" style="color: red">
+                                                            {{ rev_form.year_17.errors }}
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                            <span class="input-group-text bg-ff">Year </span>
+                                                            </div>
+
+                                                    </div>
+                                                    <span id="currency_message_7"></span>
+
+                                                <h4 class="f-16 f-w-500 pt-30">No of employees </h4>
+                                        {{ rev_form.no_emp|add_class:"form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.no_emp.errors }}
+                                        </div>
+                                        <h4 class="f-16 f-w-500 pt-30">Cost per employee </h4>
+                                         {{ rev_form.cp_emp|add_class:"form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
+                                        <div class="errors" id="email_err" style="color: red">
+                                        {{ rev_form.cp_emp.errors }}
+                                        </div>
+                                        <span id="currency_message_13"></span>
+                                      </div>
+                                    </div>
+                            </div>
+            </div>
+        </form>
+        <!-- Bottom next right container -->
+        <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-6 text-left pt-30 pb-100">
+                                <button type="button" class="btn-seller-next ff-p" id="prevBtn" onclick="nextPrev(-1)" >Previous</button>
+                            </div>
+                            <div class="col-sm-6 col-6 text-right pt-30 pb-100">
+                                <button type="button" class="btn-seller-next ff-p" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                            </div>
+                        </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="modal" id="otp_modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Modal header</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="otp_body" >
+                        <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
+                        <input type="text" class="form-control col-sm-4 " name="otp" id="otp" />
+                        <br/>
+                        <button id="otp_verify">Verify</button>
+                        <button id="resend_otp">Resend OTP</button>
+                        <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
+                    </div>
+                    <div id="otp_email_body" style="display: none">
+                            <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
+                            <input type="text" class="form-control col-sm-4 " name="otp_email" id="otp_email" />
+                            <br/>
+                            <button id="otp_email_verify">Verify</button>
+                            <button id="resend_otp_email">Resend OTP</button>
+                            <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    {% include "seller1/endbodysection.html" %}
+
+
+    <script src="{% static 'seller1/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'seller1/js/jquery-ui.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script src="{% static 'seller1/js/popper.min.js' %}"></script>
+    <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
+
+    <script>
+    $(document).ready(function(){
+
+        $("#id_currency").select2();
+
+
+
+    });
+
+    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+
+
+<!-- <script>
+      $('#otp_verify').on('click', function(){
+              var cnumber = localStorage.getItem('cnumber');
+              var number = $('#id_phone_number_primary').val();
+              var code = $('#country_code_primary').val()
+                  var fnumber = code+number;
+              console.log(cnumber);
+              if(fnumber==cnumber){
+                  var otp = localStorage.getItem('otp');
+                  console.log(otp);
+                  if($('#otp').val()==otp){
+                      localStorage.setItem('phone_verify','true');
+                      $('#otp_err').hide();
+                      if(localStorage.getItem('email_verify')=='true'){
+                          document.getElementById("regForm").submit();
+                          console.log(localStorage.getItem('email_verify'))
+                      }else{
+                          $('#otp_email_body').show();
+                      }
+
+                  }else{
+                      $('#otp_err').show();
+                  }
+              }else{
+                  localStorage.setItem('phone_verify',false);
+                  $('#otp_modal').modal('hide');
+                  alert('Phone number changed');
+              }
+          })
+
+          $('#otp_email_verify').on('click', function(){
+              var cnumber = localStorage.getItem('cemail');
+              var femail = $('#id_email_adress').val();
+                  // var fnumber = code+number;
+              console.log(cnumber);
+              if(femail==cnumber){
+                  var otp = localStorage.getItem('otp_email');
+                  console.log(otp);
+                  if($('#otp_email').val()==otp){
+                      localStorage.setItem('email_verify','true');
+                      $('#otp_email_err').hide();
+                      if(localStorage.getItem('phone_verify')=='true'){
+                          console.log(localStorage.getItem('phone_verify'))
+                          document.getElementById("regForm").submit();
+                      }else{
+                          $('#otp_body').show();
+                      }
+
+                  }else{
+                      $('#otp_email_err').show();
+                  }
+              }else{
+                  localStorage.setItem('email_verify',false);
+                  $('#otp_modal').modal('hide');
+                  alert('Email Address changed');
+              }
+          })
+
+          $('#resend_otp').on('click', function(){
+
+              var number = $('#id_phone_number_primary').val()
+                  var code = $('#country_code_primary').val()
+                  var fnumber = code+number;
+                  var name = ""+ $('#id_first_name').val()
+                  console.log(name);
+                  console.log(fnumber);
+                  $.ajax({
+                      method:'GET',
+                      url : 'ajax/otp',
+                      data: {
+                          number:fnumber,
+                          name: name
+                      },
+                      success: function(data){
+                          console.log(data)
+                          if(data.status=='success'){
+                              localStorage.setItem('phone_verify', 'false');
+                              localStorage.setItem('cnumber', data.number);
+                              localStorage.setItem('otp', data.otp);
+
+                              console.log('otp sent');
+                          }else{
+                              alert('Invalid Phone Number')
+                          }
+                      }
+                  })
+
+          })
+
+          $('#resend_otp_email').on('click', function(){
+
+      var email = $('#id_email_adress').val()
+
+          var name = ""+ $('#id_first_name').val()
+          console.log(name);
+          console.log(email);
+          $.ajax({
+              method:'GET',
+              url : 'ajax/email',
+              data: {
+                  email:email,
+                  name: name
+              },
+              success: function(data){
+                  console.log(data)
+                  if(data.status=='success'){
+                      localStorage.setItem('email_verify', 'false');
+                      localStorage.setItem('cemail', data.email);
+                      localStorage.setItem('otp_email', data.otp);
+
+                      console.log('otp sent');
+                  }
+              }
+          })
+
+      })
+
+
+      function nextPrev(n) {
+                // This function will figure out which tab to display
+                var x = document.getElementsByClassName("custom_tab");
+                var y = document.getElementsByClassName("btn-sellers");
+                var error=false;
+                var z = x[currTab].getElementsByClassName("ginput");
+                  console.log(z);
+                  if(n==1){
+                      validateForm();
+                      for(var m=0;m<=currTab;m++){
+                          var check_prev = x[m].getElementsByClassName("ginput");
+                          if(error){
+                              break;
+                          }
+                          for(var l=0; l<check_prev.length; l++){
+                          if(check_prev[l].classList.contains('invalid')||check_prev[l].classList.contains('begin_empty')||check_prev[l].classList.contains('kinvalid')){
+                              error=true;
+                              console.log(check_prev[l]);
+                              break;
+                          }
+                      }
+                      }
+                      if(error){
+                          y[m-1].classList.add('tab_error');
+                          console.log(error);
+                          error=false;
+                          console.log(error);
+                          return false;
+                      }
+                  }
+
+                  if (currTab+n >= x.length) {
+                  // ... the form gets submitted:
+                  var number = $('#id_phone_number_primary').val()
+                  var code = $('#country_code_primary').val()
+                  var fnumber = code+number;
+                  var name = ""+ $('#id_first_name').val()
+                  console.log(name);
+                  console.log(fnumber)
+                  $.ajax({
+                      method:'GET',
+                      url : 'ajax/otp',
+                      data: {
+                          number:fnumber,
+                          name:name
+                      },
+                      success: function(data){
+                          console.log(data)
+                          if(data.status=='success'){
+                              localStorage.setItem('phone_verify', 'false');
+                              localStorage.setItem('cnumber', data.number);
+                              localStorage.setItem('otp', data.otp);
+
+
+                              var email = $('#id_email_adress').val();
+                  $.ajax({
+                      method:'GET',
+                      url : 'ajax/email',
+                      data: {
+                          email:email,
+                          name: name
+                      },
+                      success: function(data){
+                          console.log(data)
+                          if(data.status=='success'){
+                              localStorage.setItem('email_verify', 'false');
+                              localStorage.setItem('cemail', data.email);
+                              localStorage.setItem('otp_email', data.otp);
+                              $('#otp_modal').modal('show');
+                              console.log('email sent');
+                          }
+                      }
+                  })
+
+                          }else{
+                              alert('Invalid Phone Number')
+
+                          }
+                      }
+                  })
+
+                  // let headers = new Headers()
+                  // headers.append('Access-Control-Allow-Origin', '/seller');
+                  // headers.append('Access-Control-Allow-Credentials', 'true');
+                  // $.ajax({
+                  //     method:'POST',
+                  //     url : 'https://api.karix.io/message/',
+                  //     data: JSON.stringify({
+                  //         headers:headers,
+                  //             channel: "sms",
+                  //             source: "+919080120756",
+                  //             destination: [
+                  //                 +919167330324
+                  //             ],
+                  //             content: {
+                  //                 text: "Hey, Prajwal. It's Prajwal.",
+                  //             },
+
+                  //             }),
+                  //     success: function(data){
+                  //         console.log(data)
+                  //     }
+                  // })
+                  // document.getElementById("regForm").submit();
+                  return false;
+                }
+                x[currTab].style.display = "none";
+                if(currTab+n<x.length){
+                  y[currTab + n].className=y[currTab + n].className.replace(" off", "on");
+                }
+                // Increase or decrease the current tab by 1:
+                currTab = currTab + n;
+                // if you have reached the end of the form...
+
+                // Otherwise, display the correct tab:
+                displayTab(currTab);
+              }
+
+
+
+             var currTab = 0;
+              displayTab(currTab);
+              function displayTab(n) {
+                // This function will display the specified tab of the form...
+                currTab=n;
+                var i, x = document.getElementsByClassName("custom_tab");
+                for(i=0; i<x.length; i++){
+                    x[i].style.display = "none";
+                }
+                x[n].style.display = "block";
+                //... and fix the Previous/Next buttons:
+                if (n == 0) {
+                  document.getElementById("prevBtn").style.display = "none";
+                } else {
+                  document.getElementById("prevBtn").style.display = "inline";
+                }
+                if (n == (x.length - 1)) {
+                  document.getElementById("nextBtn").innerHTML = "Submit";
+                } else {
+                  document.getElementById("nextBtn").innerHTML = "Next";
+                }
+                //... and run a function that will display the correct step indicator:
+                fixTabIndicator(n)
+              }
+
+
+
+              function validateForm() {
+                // This function deals with validation of the form fields
+                var x, y, i, valid = true;
+                x = document.getElementsByClassName("custom_tab");
+                y = x[currTab].getElementsByClassName("ginput");
+                // A loop that checks every input field in the current tab:
+                for (i = 0; i < y.length; i++) {
+                  // If a field is empty...
+                  if (y[i].classList.contains('kinvalid')||y[i].classList.contains('begin_empty')) {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                  }
+                }
+                // If the valid status is true, mark the step as finished and valid:
+                if (valid) {
+                  document.getElementsByClassName("btn-sellers")[currTab].className += " finish";
+                }
+                return valid; // return the valid status
+              }
+
+              function fixTabIndicator(n) {
+                // This function removes the "active" class of all steps...
+                var i, x = document.getElementsByClassName("btn-sellers");
+                for (i = 0; i < x.length; i++) {
+                  x[i].className = x[i].className.replace(" btn-sellers-active", "");
+                  x[i].classList.remove('tab_error');
+                }
+                x[n].className=x[n].className.replace(" off", "on");
+                //... and adds the "active" class on the current step:
+                x[n].className += " btn-sellers-active";
+                x[n].disabled = false;
+              //   x[n].className.replace("off", "on");
+              }
+</script>
+ -->
+
+    {% for key in model_fields %}
+    {% block javascript %}
+
+    <script>
+        $(document).ready(function(){
+        var id="#id_" + "{{key}}";
+            $(id).on('change',function(){
+                var input = $(this);
+                var field_name = $(this).val();
+                console.log(field_name);
+                $.ajax({
+                                type: "GET",
+                                url: 'ajax/validate',
+                                data: {
+                                value: field_name,
+                                field: "{{key}}"
+                                },
+                                success: function (data) {
+                                if (data.error!="") {
+                                    console.log(data.error);
+                                    var err_id = "#" + "{{key}}" + "_err";
+                                    // $(err_id).html(data.error);
+                                    $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                    console.log(id);
+                                }
+                                else {
+                                    var err_id = "#" + "{{key}}" + "_err";
+                                    // $(err_id).html('');
+                                    $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                    console.log(data);
+                                }
+                                }
+                })
+
+            });
+});
+
+  </script>
+
+
+      {% endblock %}
+    {% endfor %}
+
+
+</script>
+{% for key in type_fields %}
+
+
+<script>
+    $(document).ready(function(){
+    var id="#id_" + "{{key}}";
+        $(id).on('change',function(){
+            var input = $(this);
+            var field_name = $(this).val();
+            console.log(field_name);
+            $.ajax({
+                            type: "GET",
+                            url: 'ajax/validate/loan',
+                            data: {
+                            value: field_name,
+                            field: "{{key}}"
+                            },
+                            success: function (data) {
+                            if (data.error!="") {
+                                console.log(data.error);
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html(data.error);
+                                $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                console.log(id);
+                            }
+                            else {
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html('');
+                                $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                console.log(data);
+                            }
+                            },
+                            async:false
+            })
+
+        });
+});
+
+</script>
+
+
+
+{% endfor %}
+
+
+
+{% for key in revenue_fields %}
+
+
+<script>
+    $(document).ready(function(){
+    var id="#id_" + "{{key}}";
+        $(id).on('change',function(){
+            var input = $(this);
+            var field_name = $(this).val();
+            console.log(field_name);
+            $.ajax({
+                            type: "GET",
+                            url: 'ajax/validate/rev',
+                            data: {
+                            value: field_name,
+                            field: "{{key}}"
+                            },
+                            success: function (data) {
+                            if (data.error!="") {
+                                console.log(data.error);
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html(data.error);
+                                $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                console.log(id);
+                            }
+                            else {
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html('');
+                                $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                console.log(data);
+                            }
+                            },
+                            async:false
+            })
+
+        });
+});
+
+</script>
+
+
+
+{% endfor %}
+
+
+
+<script>
+$(document).ready(function(){
+
+var id="#id_about_business";
+  var max=400;
+  var min=3;
+  $(id).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+        // $('#myWordCount').text(max-words+" words left");
+        if(words<min){
+            $('#myWordCount').text(min-words+" Charectors needed");
+            console.log('invalid');
+            $(id).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=min){
+            $('#myWordCount').text(max-words+" Charectors left");
+            console.log('valid');
+            $(id).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == max + 1) {
+            e.preventDefault();
+            $('#myWordCount').text('no more than 400 Charectors, please!');
+        } else if (words > max + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, max);
+
+
+        }
+    });
+
+
+    var kid="#id_reason_loan";
+  var kmax=400;
+  var kmin=3;
+  $(kid).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+
+        // $('#myWordCount_2').text(max-words+" words left");
+        if(words<kmin){
+            $('#myWordCount_2').text(kmin-words+" Charectors needed");
+            console.log('invalid');
+            $(kid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=kmin){
+            $('#myWordCount_2').text(kmax-words+" Charectors left");
+            console.log('kvalid');
+            $(kid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == kmax + 1) {
+            e.preventDefault();
+            $('#myWordCount_2').text('no more than 400 Charectors, please!');
+        } else if (words > kmax + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, kmax);
+
+
+        }
+    });
+
+
+
+    var tid="#id_title";
+  var tmax=50;
+  var tmin=5;
+  $(tid).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+
+        // $('#myWordCount_2').text(max-words+" words left");
+        if(words<tmin){
+            $('#myWordCount_3').text(tmin-words+" Charectors needed");
+            console.log('invalid');
+            $(tid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=tmin){
+            $('#myWordCount_3').text(tmax-words+" Charectors left");
+            console.log('kvalid');
+            $(tid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == tmax + 1) {
+            e.preventDefault();
+            $('#myWordCount_3').text('no more than 450 Charectors, please!');
+        } else if (words > tmax + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, tmax);
+
+
+        }
+    });
+});
+</script>
+
+
+<script>
+ // When the user scrolls down 20px from the top of the document, slide down the navbar
+ window.onscroll = function() {scrollFunction()};
+
+ function scrollFunction() {
+     if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+         $('#navbar').removeClass('bg-t');
+         $('#navbar').addClass('bg-change');
+
+     } else {
+         $('#navbar').removeClass('bg-change');
+         $('#navbar').addClass('bg-t');
+     }
+ }
+
+ if($("#city").length)
+    $("#city").autocomplete({
+        source: "/generic_info/get_city/",
+        minLength: 2,
+        });
+
+$('.dropdown-menu a').click(function(){
+    $('#selected').text($(this).text());
+    $('#sector1').val($(this).text());
+    });
+
+function get_sub_sectors(ele){
+    var id = ele.id;
+    $.ajax({
+        url: "/metadata/get_sub_sector/",
+        data: {
+            'sector': $('#' + id).val()
+        },
+        success: function(output){
+            var e = $('#sub_' + id);
+            e.html(output);
+        }
+    });
+}
+</script>
+
+
+    <script src="{% static 'seller1/js/dropzone.js' %}"></script>
+
+<script>
+Dropzone.autoDiscover = false;
+var initialize=true;
+var album_id;
+
+$("#dropzonewidget").dropzone({
+   url: "{% url 'album:basic_upload'%}",
+   acceptedFiles: ".jpeg,.jpg,.png",
+   dictDefaultMessage: "Add Your Image here",
+   maxFilesize: 2,
+   maxFiles:5,
+   dictDuplicateFile: "Duplicate Files Cannot Be Uploaded",
+
+
+preventDuplicates: true,
+      init: function() {
+
+     this.on("addedfile", function(file) {
+
+       if (this.files.length) {
+           var img_ele = document.getElementById('dropzonewidget');
+           img_ele.className = img_ele.className.replace("ginput", "");
+           img_ele.className = img_ele.className.replace("begin_empty", "");
+           img_ele.className = img_ele.className.replace("invalid", "");
+         var _i, _len, _ref = this.files.slice();
+         for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) {
+                            if (_ref[_i].name === file.name && _ref[_i].size === file.size) {
+                                // var r = confirm("Overrite existing file");
+                                // console.log(r);
+                                alert('Overrite existing file');
+                                this.removeFile(_ref[_i]);
+                                // if (r == true) {
+                                //     this.removeFile(_ref[_i]);
+                                // }
+                                // else{
+                                //    err=true;
+
+                                // }
+
+                            }
+                        }
+                    }
+
+                });
+
+                this.on("removedfile", function(file){
+                    if(this.files.length == 0){
+                        console.log('inside remove if');
+                        var img_ele = document.getElementById('dropzonewidget');
+        //    img_ele.className = img_ele.className.replace("ginput begin_empty", "");
+           img_ele.className += " ginput";
+           img_ele.className += " invalid";
+
+                    }
+                });
+
+                this.on("success", function(file, response){
+                    console.log(response);
+                    console.log(response.name);
+                    // if(err){
+                    //     var dummy_name = response.name;
+                    //     dummy_name = dummy_name.replace('files/', '');
+                    //     var dummy_file = {
+                    //         name : dummy_name
+                    //     }
+                    //     this.removeFile(dummy_file);
+                    //     err=false;
+                    // }
+                    var name = response.name;
+                    console.log(name);
+                    name = name.replace('files/', '');
+                    console.log(name);
+                    console.log(initialize);
+                    $.ajax({
+            type: 'POST',
+            url: '/album/add/',
+            data: {
+                initialize:initialize,
+                name:name,
+                album_id: album_id
+            },
+            success:function(data){
+                console.log(initialize);
+                album_id = data.album_id;
+                var album=document.querySelector("#id_album_id");
+                album.value=album_id;
+                initialize=false
+                console.log(initialize);
+            },
+            async:false
+         });
+                });
+    },
+
+
+ addRemoveLinks: true,
+    removedfile: function (file) {
+
+
+       $.ajax({
+     type: 'POST',
+     url: '{% url "album:remove"%}',
+     data: {name: file.name,reque:2, album_id:album_id},
+     sucess: function(data){
+        console.log('success: ' + data);
+     }
+   });
+
+//    if(this.files.length == 0){
+//        console.log('inside remove if');
+//                         var img_ele = document.getElementById('dropzonewidget');
+//         //    img_ele.className = img_ele.className.replace("ginput begin_empty", "");
+//            img_ele.className =+ "invalid";
+//                     }
+
+			var _ref;
+			return(_ref = file.previewElement) != null
+				? _ref.parentNode.removeChild(file.previewElement)
+				: void 0;
+    },
+
+});
+</script>
+
+
+
+<script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+    var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
+    address_auto = document.querySelector('#id_address_line');
+    city = document.querySelector('#id_city');
+    region = document.querySelector('#id_region');
+    country = document.querySelector('#id_country');
+    lat = document.querySelector('#id_lat');
+    long = document.querySelector('#id_lngt');
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 6
+      });
+      searchbox = new google.maps.places.SearchBox(address_auto);
+      infoWindow = new google.maps.InfoWindow;
+      marker = new google.maps.Marker({
+		position: map.center,
+		map: map,
+		draggable: true
+	});
+      document.getElementById("getLocation").onclick = function(){
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          var circle = new google.maps.Circle(
+          {center: pos, radius: position.coords.accuracy});
+      searchbox.setBounds(circle.getBounds());
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ latLng: pos}, function(result, status){
+            if(status == google.maps.GeocoderStatus.OK){
+                content = result[0].formatted_address;
+                map.setCenter(pos);
+          marker.setPosition(pos);
+                infoWindow.setPosition(pos);
+          infoWindow.setContent(content);
+          infoWindow.open(map, marker);
+          address_auto.value = content;
+          $("#id_address_line").change();
+
+          var places = searchbox.getPlaces();
+          lat.value = marker.getPosition().lat();
+        long.value = marker.getPosition().lng();
+        console.log(lat.value);
+		console.log(long.value);
+        console.log(result);
+        console.log(content);
+
+        var resultArray = result[0].address_components;
+
+        for(var i=0; i<resultArray.length; i++){
+            if(resultArray[i].types[0] && 'administrative_area_level_2'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                city.value = citi;
+            }
+            if(resultArray[i].types[0] && 'administrative_area_level_1'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                region.value = citi;
+            }
+            if(resultArray[i].types[0] && 'country'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                country.value = citi;
+            }
+        }
+        console.log(city.value);
+		console.log(region.value);
+		console.log(country.value);
+
+            }
+
+            });
+
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+
+      }
+      google.maps.event.addListener(searchbox, 'places_changed', function(){
+        var places = searchbox.getPlaces(),
+            bounds = new google.maps.LatLngBounds(),
+            i, place, resultArray,
+			addresss = places[0].formatted_address;
+
+        for(i=0; place=places[i]; i++){
+            bounds.extend(place.geometry.location);
+            marker.setPosition(place.geometry.location);
+        }
+        map.fitBounds(bounds);
+        map.setZoom(15);
+        lat.value = marker.getPosition().lat();
+        long.value = marker.getPosition().lng();
+
+        resultArray = places[0].address_components;
+
+        for(var i=0; i<resultArray.length; i++){
+            if(resultArray[i].types[0] && 'administrative_area_level_2'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                city.value = citi;
+            }
+            if(resultArray[i].types[0] && 'administrative_area_level_1'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                region.value = citi;
+            }
+            if(resultArray[i].types[0] && 'country'===resultArray[i].types[0]){
+                var citi = resultArray[i].long_name;
+                country.value = citi;
+            }
+        }
+
+        if ( infoWindow ) {
+			infoWindow.close();
+		}
+
+        infoWindow = new google.maps.InfoWindow({
+			content: addresss
+		});
+
+        infoWindow.open(map, marker);
+        console.log(city.value);
+		console.log(region.value);
+		console.log(country.value);
+		console.log(lat.value);
+		console.log(long.value);
+      });
+
+
+      google.maps.event.addListener(marker, 'dragend', function(){
+          var address, resultArray, citi;
+
+          lat.value = marker.getPosition().lat();
+          long.value = marker.getPosition().lng();
+
+          var geocoder = new google.maps.Geocoder();
+
+          geocoder.geocode({ latLng: marker.getPosition()}, function(result, status){
+            if(status == google.maps.GeocoderStatus.OK){
+                address = result[0].formatted_address;
+                console.log(address);
+                resultArray = result[0].address_components;
+
+                for(var i=0; i<resultArray.length; i++){
+                    if(resultArray[i].types[0] && 'administrative_area_level_2'===resultArray[i].types[0]){
+                        var citi = resultArray[i].long_name;
+                        city.value = citi;
+                    }
+                    if(resultArray[i].types[0] && 'administrative_area_level_1'===resultArray[i].types[0]){
+                        var citi = resultArray[i].long_name;
+                        region.value = citi;
+                    }
+                    if(resultArray[i].types[0] && 'country'===resultArray[i].types[0]){
+                        var citi = resultArray[i].long_name;
+                        country.value = citi;
+                    }
+                }
+                address_auto.value = address;
+                if(infoWindow){
+              infoWindow.close();
+          }
+          console.log(address);
+          infoWindow = new google.maps.InfoWindow({
+              content: address
+          });
+          infoWindow.open(map, marker);
+
+            }
+            else{
+                console.log('Geocode was not successful for the following reason: '+ status);
+            }
+          });
+          console.log(city.value);
+		console.log(region.value);
+		console.log(country.value);
+		console.log(lat.value);
+		console.log(long.value);
+
+
+      });
+
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+
+  </script>
+
+<script>
+    $('#sectors').ready(function(){
+        var ele = document.getElementById('sectors');
+        get_sub_sectors(ele);
+    })
+</script>
+
+ {% for key in text_fields %}
+
+
+
+
+
+    {% endfor %}
+
+
+    <script>
+
+        $(document).ready(function(){
+               var a = screen.width;
+               console.log(a);
+               if(a<2000 && a>1500){
+                    $("body").css("zoom","90%");
+               }
+               else if(a<1500 && a>1400){
+                     $("body").css("zoom","80%");
+               }
+               else if(a<1400 && a>1100){
+                     $("body").css("zoom","65%");
+               }
+               else if(a<1100 && a>900){
+                     $("body").css("zoom","67%");
+               }
+               else{
+                    $("body").css("zoom","50%");
+               }
+
+        });
+
+
+</script>
+
+</body>
+
+</html>

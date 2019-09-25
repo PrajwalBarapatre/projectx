@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard 8</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/meter.css">
+    <link rel="stylesheet" href="/static/seller1/css/progressBar.css">
+    <link rel="stylesheet" href="/static/seller1/css/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+
+              #modal_edit_profile .close{
+                position: absolute;
+                right: 16px;
+                top: 18px;
+                padding: 8px;
+              }
+              #modal_change_password .close{
+                position: absolute;
+                right: 16px;
+                top: 18px;
+                padding: 8px;
+              }
+               #signup .profile_section{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+    .f-40{
+      font-size: 40px;
+    }
+    .h-170{
+      height: 170px;
+    }
+    .modal-content{
+      box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+    }
+
+    .pac-container {
+        z-index:20000;
+    }
+    .lodal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #mlodal {
+
+        position:   fixed;
+        z-index:    10000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+
+    /* When the body has the loading class, we turn
+       the scrollbar off with overflow:hidden */
+    body.loading .lodal {
+        overflow: hidden;
+    }
+
+    /* Anytime the body has the loading class, our
+       modal element will be visible */
+    body.loading .lodal {
+        display: block;
+    }
+    .h-51{
+      height: 51px !important;
+    }
+    .border-r-0{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .border-r-all{
+      border-radius: 0;
+    }
+    .location_fields{
+          display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+
+      .avatar {
+          margin: auto;
+          /* width: 50%; */
+          border: 3px solid #22B683;
+          padding: 0;
+          vertical-align: middle;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          position: relative;
+          top: -1px;
+          left: -2px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+
+    </style>
+
+
+
+
+<style>
+    .sizer{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
+    {% include "seller1/sidecontainer.html" %}
+    <!-- Page Content -->
+    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                    {% include "seller1/topcontainer1.html" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mt-80" style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6 col-12 col-md-6 py-2">
+                            <div class="container-fluid">
+
+                                <div class="row">
+                                    <div class="col-sm-5 offset-2">
+                                    {% if photo_link %}
+                                        <img  src="/media/{{cart.0.photo_link}}" class="img-fluid sizer" alt="">
+                                    {% else %}
+                                        <img  src="{{cart.0.photo_url}}" class="img-fluid sizer" alt="">
+                                    {% endif %}
+                                    </div>
+                                    <div class="col-sm-5 pt-80">
+
+                                        <span class="f-26 ff-p f-w-bold c-f">{{cart.0.first_name}} {{cart.0.last_name}} 
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--start body section -->
+    <div class="container-fluid bg-f6">
+        <div class="row">
+            <div class="col-sm-9 col-12 col-md-9 col-lg-9">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">About</a>
+                    </li>
+                </ul><!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                        <div class="container-fluid">
+                            {% if list %}
+                                {% for seller in list %}
+                                    {% if seller.seller.base_type == 'Seller' %}
+                                        <div class="row"> 
+                                            <div class="col-md-12">                                                                   
+                                                <div class="cards_listing">
+                                                    <div class="img_box">        
+                                                        <span>
+                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                        </span>                        
+                                                    </div>
+                                                    <div class="content">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                            <h4 class="c-19 f-16 f-w-bold">{{seller.seller.title}}</h4>
+                                                        </a>
+                                                            <h4 class="c-19 f-14 f-w-bold">{{seller.seller.type}} Listing</h4>
+                                                        <p>
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                        </p>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    {% endif %}
+
+                                    {% if seller.seller.base_type == 'Advisor' %}
+                                        <div class="row"> 
+                                            <div class="col-md-12">                                                                   
+                                                <div class="cards_listing">                                                                   
+                                                    <div class="img_box">        
+                                                        <span>
+                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                        </span>                        
+                                                    </div>
+                                                    <div class="content">
+                                                        <a href="/advisor/all_detail/{{seller.seller.advisor_id}}">
+                                                            <h4 class="c-19 f-16 f-w-bold">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
+                                                        </a>
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.type}} Advisor</h4>
+                                                        <p>
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                        </p>
+                                                    </div> 
+                                                </div> 
+                                            </div>
+                                        </div>    
+                                    {% endif %}
+
+                                    {% if seller.seller.base_type == 'Investor' %}
+                                        <div class="row"> 
+                                            <div class="col-md-12">                                                                   
+                                                <div class="cards_listing">        
+                                                    <div class="img_box">        
+                                                        <span>
+                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                        </span>                        
+                                                    </div>
+                                                    <div class="content">
+                                                        <a href="/investor/all_detail/{{seller.seller.investor_id}}">
+                                                            <h4 class="c-19 f-16 f-w-bold">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
+                                                        </a>
+                                                            <h4 class="c-19 f-14 f-w-bold">{{seller.seller.about_seller}} Invester</h4>
+                                                        <p>
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                        </p>
+                                                    </div> 
+                                                </div>  
+                                            </div>
+                                        </div> 
+                                    {% endif %}
+                                {% endfor %}
+
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabs-2" role="tabpanel">
+                        <p>Second Panel</p>
+                    </div>
+                </div>
+
+            </div>
+
+    <style>
+        ul.nav.nav-tabs {
+            margin: 1rem 0;
+            padding: 0 2rem;
+            font-size: 20px;
+        }
+        .cards_listing{
+            display:flex;
+            margin: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding: 0.5rem 0 1rem;
+        }
+        .cards_listing .content p {
+            font-size: 14px;
+            word-break: break-word;
+            padding: 0.5rem 0;
+        }
+        .cards_listing .img_box {
+            margin: 0.5rem 1rem;
+        }
+        .cards_listing .content p{
+        }
+        .cards_listing .img_box  img.img-fluid {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+
+
+            <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
+                <div class="onlineChatBox">
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <button class="btn-sideBox ff-p"> Advanced Valuation
+                        </button>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end body section -->
+    <div class="container-fluid bg-ea sticky-fixed">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .btn-basic-valuation {
+            background: #28a745;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-basic-valuation:hover {
+            color: #28a745;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #28a745;
+            padding: 6px 57px 8px 50px;
+        }
+
+        .btn-startup-cart {
+            background: #192ED5;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-startup-cart:hover {
+            color: #192ED5;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #192ED5;
+            padding: 6px 57px 8px 50px;
+        }
+        .btn-sideBox{
+            padding: 9px 22px 9px 22px;
+            background: #28a745;
+            color: #ffffff;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out
+        }
+
+            .btn-sideBox:hover{
+                color: #28a745;
+            background: #ffffff;
+            border: 1px solid #28a745;
+            cursor: pointer;
+        }
+        .btn-bv {
+            background: #22B683;
+            color: #ffffff;
+            padding: 8px 12px 8px 17px;
+            border: none;
+            font-family: Poppins;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-bv:hover {
+            color: #22B683;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #22B683
+        }
+        .progress-custo {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 1.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 98%;
+            margin-left: 1%;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        'use strict';
+
+        var rangeMeter = document.querySelector('#range');
+        var rangeShow = document.querySelector("#show");
+        var rangeClock = document.querySelector('.meter-clock');
+
+        function rangeChange() {
+            var rotateClock = rangeMeter.value;
+
+            rangeClock.style.transform = 'rotate(' + (-90 + ((rotateClock * 180) / 100)) + 'deg)';
+            rangeShow.value = rotateClock + '%';
+        }
+
+        rangeMeter.addEventListener('input', rangeChange);
+    </script>
+
+   <script src="/static/profiles/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/profiles/js/jquery-ui.min.js"></script>
+    <script src="/static/seller1/js/bootstrap.min.js"></script>
+    <script src="/static/seller1/js/custom.js"></script>
+    <script src="/static/seller1/js/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    {% comment %} <script src="/static/profiles/js/notification.js"></script> {% endcomment %}
+
+
+    <script>
+
+            $(document).ready(function(){
+                   var a = screen.width;
+                   console.log(a);
+                   if(a<2000 && a>1500){
+                        $("body").css("zoom","90%");
+                   }
+                   else if(a<1500 && a>1400){
+                         $("body").css("zoom","80%");
+                   }
+                   else if(a<1400 && a>1100){
+                         $("body").css("zoom","65%");
+                   }
+                   else if(a<1100 && a>900){
+                         $("body").css("zoom","67%");
+                   }
+                   else{
+                        $("body").css("zoom","50%");
+                   }
+
+
+
+            });
+
+
+            </script>
+
+    {% if user.is_authenticated %}
+    <script>
+        $(document).ready(function(){
+
+            if("{{user.profile.social}}"=="True"){
+                name = "{{user.profile.photo_url}}"
+            }else{
+                name = "/media/"+"{{user.profile.photo.name}}";
+            }
+
+            $('#prof_pic').attr('src',name);
+
+        });
+    </script>
+
+ {% endif %}
+
+    {% if user.is_authenticated %}
+    <script>
+        $(document).ready(function(){
+            $('#login_icon_b').css('display','none');
+            $('#loggedin_icon_b').css('display','block');
+            $('#login_icon_s').css('display','none');
+            $('#loggedin_icon_s').css('display','block');
+            // name="{{user.profile.photo.name}}";
+            // name = "/media/"+name;
+            if("{{user.profile.social}}"=="True"){
+                name = "{{user.profile.photo_url}}"
+            }else{
+                name = "/media/"+"{{user.profile.photo.name}}";
+            }
+            console.log(name)
+            console.log('{{user.profile.photo_url}}');
+            $('#prof_pic_b').attr('src',name);
+            $('#prof_pic_s').attr('src',name);
+        });
+    </script>
+
+
+   
+
+
+    {% endif %}
+
+    <script>
+    
+function toggle_chat() {
+var c_toggle_w = document.getElementById('toggle_chat');
+var c_btn = document.getElementById('chat_btn');
+var r_icon = document.getElementById('rotate_icon');
+var c_drop = document.getElementById('select2-id_currency-container');
+    if (c_toggle_w.style.width !== '30px') {
+        c_toggle_w.style.width = '30px';
+        c_drop.style.width = '30px';
+                    $("#id_currency").select2({    placeholder: 'C',
+        dropdownParent: $('.selectdropdown'),width: '30px'});
+        document.getElementById("chat_btn").innerHTML = "C";
+    }
+    else {
+        c_toggle_w.style.width = '150px';
+        c_drop.style.width = '150px';
+    $("#id_currency").select2({    placeholder: 'Currency',
+        dropdownParent: $('.selectdropdown'),width: '150px'});
+        document.getElementById("chat_btn").innerHTML = "Chat";
+    }
+    if (r_icon.style.transform !== 'rotate(180deg)') {
+        r_icon.style.transform = 'rotate(180deg)';
+    }
+    else {
+        r_icon.style.transform = 'rotate(0deg)';
+    }
+};
+
+
+
+
+
+$(document).ready(function(){
+    $("#id_currency").select2();
+    $("#id_currency").change(function () {
+        // console.log($(this).val().slice(-3));
+        var a = $(this).val().split("**");
+        $("#select2-id_currency-container").text(a[3]);
+        sessionStorage.setItem("currency", $(this).val());
+
+
+    });
+
+    var a = sessionStorage.getItem("currency");
+    $('#id_currency').val(a).change();
+    // console.log(a);
+    var b = a.split("**");
+    $("#select2-id_currency-container").html(b[3]);
+    // console.log(b[3]);
+    // $.getJSON('https://ipapi.co/json/', function(data) {
+    //       console.log(data.country);
+
+    //       myList = [];
+    //       $('#id_currency option').each(function() {
+    //           myList.push($(this).val())
+    //       });
+
+    //       for (i = 0; i < myList.length; i++) {
+    //         var b = myList[i].split("**");
+    //         console.log(b[1]);
+    //         if(b[1]==data.country){
+    //           $("#select2-id_currency-container").text(b[3]);
+    //         }
+    //       }
+
+    //       });
+
+});
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard 2</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/meter.css">
+    <link rel="stylesheet" href="/static/seller1/css/progressBar.css">
+    <link rel="stylesheet" href="/static/seller1/css/animate.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+    <style>
+
+            #carousel {
+            width: 100%;
+            height: 150px;
+
+
+            overflow: visible;
+            white-space:nowrap;
+        }
+
+        #carousel .slide {
+            display: inline-block;
+        }
+
+        .sizer{
+            object-fit: contain;
+            width: 100%;
+            height: 118px;
+        }
+
+        .labels {
+         margin-top:-3px;
+         padding: 5px;
+         background-color: #ffff00;
+         position: absolute;
+        visibility: visible;
+        z-index: 1030;
+    }
+    .labels.active .inner {
+        background: cyan;
+    }
+    .labels.hover .inner {
+        background-color: yellow;
+    }
+
+
+    .labels .arrow{
+        border-top-color: #000000;
+        border-right-color: rgba(0,0,0,0);
+        border-bottom-color: rgba(0,0,0,0);
+        border-left-color: rgba(0,0,0,0);
+        border-width: 5px 5px 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -5px;
+        border-style: solid;
+        height: 0;
+        position: absolute;
+        width: 0;
+    }
+    .labels .inner{
+        background-color: #000000;
+        border-radius: 4px;
+        color: #FFFFFF;
+        max-width: 200px;
+        padding: 3px 8px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+
+    .labels.active .arrow {
+
+        border-top-color: #00ffff;
+        border-right-color: rgba(0,255,255,0);
+        border-bottom-color: rgba(0,255,255,0);
+        border-left-color: rgba(0,255,255,0);
+
+    }
+    .labels.hover .arrow {
+        border-top-color: #ffff00;
+        border-right-color: rgba(255,255,0,0);
+        border-bottom-color: rgba(255,255,0,0);
+        border-left-color: rgba(255,255,0,0);
+    }
+
+        </style>
+
+    <style media="screen">
+      .img_slider_box{
+        width: auto;
+        height: 220px
+      }
+      .img_slider_box img{
+        object-fit: contain;
+        height: 220px
+      }
+      .custom_banner_slider .carousel-control-next,
+      .custom_banner_slider .carousel-control-prev {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 35% !important;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+    }
+    .btn-sideBox {
+        padding: 9px 22px 9px 22px;
+        background: #28a745;
+        color: #ffffff;
+        border: 1px solid #28a745;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-sideBox:hover{
+      cursor: pointer;
+      background: #fff;
+      color: #28a745;
+    }
+    </style>
+    <style media="screen">
+      .owl_card{
+        text-align: center;
+        box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+            border: 1px solid #d2d2d2;
+      }
+      .owl_card .owl_card_image{
+        text-align: center;
+        object-fit: contain;
+        height: 150px;
+      }
+      .owl_card .owl_card_image a img.img-fluid{
+        text-align: center;
+        object-fit: contain;
+      }
+      .owl-carousel .owl-item img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      dots.disabled, .owl-carousel .owl-nav.disabled {
+          display: block;
+      }
+      .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+        background: rgba(0,0,0,0.2);
+        color: #fff;
+        border: none;
+        font: inherit;
+        position: absolute;
+        top: 39%;
+        text-align: center;
+        line-height: 0px;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      button.owl-dot.active {
+          background: rgba(0,0,0,0.2);
+          color: #fff;
+      }
+      button.owl-dot.active:hover {
+          background: rgba(0,0,0,0.5);
+          color: #fff;
+      }
+      .owl-carousel .owl-nav button.owl-next span, .owl-carousel .owl-nav button.owl-prev span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .owl-carousel .owl-nav button.owl-next{
+        right: -15px;
+      }
+      .owl-carousel .owl-nav button.owl-next:hover,
+      .owl-carousel .owl-nav button.owl-prev:hover,
+      .owl-carousel .owl-nav button.owl-prev:active,
+      .owl-carousel .owl-nav button.owl-next:active{
+          background: rgba(0,0,0,0.5);
+      }
+      .owl-carousel .owl-nav button.owl-prev{
+        left: -15px;
+      }
+      .card .img_box{
+        height: 200px;
+        background: #3f3f3f38;
+      }
+      .card .img_box .card-img-top.img-contain{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .your_cart.card p{
+        margin: 0;
+        padding: 0;
+      }
+      .your_cart.card .card-body{
+        min-height: 260px;
+      }
+      .your_cart.card .card-footer {
+          background: #fff;
+          border-top: 0;
+      }
+      .owl-stage
+      {
+        /* transform: translate3d(0px, 0px, 0px);
+        transition: all 0s ease 0s;  */
+        width: 105%!important;
+      }
+      .owl-item {
+       width: 30.63%!important;
+       margin-right: 1.05%!important;
+       left: .60%!important;
+       }
+    </style>
+
+</head>
+
+<body onload="myCurrency()">
+  <style media="screen">
+    .img_slider_box{
+      width: auto;
+      height: 220px
+    }
+    .img_slider_box img{
+      object-fit: contain;
+      height: 220px
+    }
+
+  </style>
+
+
+    {% include "seller1/sidecontainer.html" %}
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            {% include "seller1/topcontainer1.html" %}
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 mt-80" style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-8 col-lg-8 col-12 col-md-8 py-4">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-7 custom_banner_slider">
+                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <div class="img_slider_box">
+                                                                          <img src="/media/{{name.file_name}}" id="largePic" alt="" class="img-fluid pt-3" onclick="unlargePic()">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 pt-55">
+                                        <span class="f-15 ff-p f-w-bold c-f">{{seller.title}} <br>
+                                        By
+                                            <span class="f-w-100 f-14">
+                                                {{seller.name}}
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f pb-3">
+                            <h2 class="f-22 ff-pd pt-80 f-w-bold"></h2>
+                            <a href="/seller/all_detail/{{seller.business_id}}" >
+                            <button class="btn-dashboard-banner">View Profile</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--start body section -->
+    <div class="container-fluid bg-f6">
+        <div class="row">
+            <div class="col-sm-9 col-12 col-md-9 col-lg-9">
+                <div class="container-fluid">
+
+<!-- dummy text style start -->
+    <style>
+        .row.empty_box {
+            background: #fff;
+            margin: 30px 3px;
+            box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1);
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<!-- dummy text style end -->
+{% comment %} {% if not "vars" in inst %} {% endcomment %}
+                    {% comment %} <div class="row empty_box">
+                        <div class="col-md-12 text-center">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">
+                                People are yet to express interest in your profile
+                            </h3>
+                        </div>
+                    </div> {% endcomment %}
+
+{% comment %} {% else %} {% endcomment %}
+
+{% if cart %}
+
+                    <div class="row pt-60">
+                        <div class="col-sm-7 col-12 col-lg-7 col-md-7">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">Your Cart
+                            </h3>
+                        </div>
+                        <div class="col-sm-3 col-12 col-md-3 col-lg-3">
+                            <!-- <select class="col-sm-12 o-1 form-control f-13 ff-p" style="border: 1px solid #3F3F3F">
+                                <option value="volvo">Select Category</option>
+                                <option value="saab">City</option>
+                            </select> -->
+                        </div>
+                    </div>
+
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2">
+                        <div class="col-sm-12 col-12 pt-50">
+                            <!-- <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel" data-interval="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                            <div class="container-fluid">
+                                                <div class="row text-center">
+                                                    <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                        <img src="/static/seller1/images/advisor-img1.png" class="img-fluid" alt="">
+                                                    </div>
+                                                    <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                        <img src="/static/seller1/images/advisor-img2.png" class="img-fluid" alt="">
+                                                    </div>
+                                                    <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                        <img src="/static/seller1/images/advisor-img3.png" class="img-fluid" alt="">
+                                                    </div>
+                                                    <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                        <img src="/static/seller1/images/advisor-img4.png" class="img-fluid" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="container-fluid">
+                                            <div class="row text-center">
+                                                <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                    <img src="/static/seller1/images/advisor-img1.png" class="img-fluid" alt="">
+                                                </div>
+                                                <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                    <img src="/static/seller1/images/advisor-img2.png" class="img-fluid" alt="">
+                                                </div>
+                                                <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                    <img src="/static/seller1/images/advisor-img3.png" class="img-fluid" alt="">
+                                                </div>
+                                                <div class="col-sm-3 col-3 col-md-3 col-lg-3">
+                                                    <img src="/static/seller1/images/advisor-img4.png" class="img-fluid" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls4" role="button" data-slide="prev">
+                                    <span>
+                                        <img src="/static/seller1/images/left-arrow-icon.png" alt="">
+                                    </span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls4" role="button" data-slide="next">
+                                    <span><img src="/static/seller1/images/right-arrow-icon.png" alt=""></span>
+                                </a>
+                            </div> -->
+                            <div class="owl-carousel">
+                                {% for seller in cart %}
+                                {%if seller.base_type == 'Advisor' %}
+                                    <div class="your_cart card">
+                                            <a href="" class="img_box">
+                                                <img class="card-img-top img-contain" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid">
+                                            </a>
+                                            <div class="card-body ff-p py-0">
+                                                <a href="/advisor/all_detail/{{seller.seller.advisor_id}}">
+                                                    <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                                                </a>
+                                                <p class="f-11">{{seller.type}} Advisor</p>
+                                                <div class="container-fluid zero-padding pt-2 ff-p">
+                                                    <div class="row">
+                                                        <div class="col-sm-3 col-3">
+                                                            <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                            <span class="f-12 pl-1">8.5</span>
+                                                        </div>
+                                                        <div class="col-sm-9 col-9">
+                                                            <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                            <span class="f-12 pl-1">Bangalore, India</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row f-12 pt-10">
+                                                        <div class="col-sm-6 col-7 text-left">
+                                                            <p class="">Domain Expertise :  </p>
+                                                        </div>
+                                                        <div class="col-sm-6 col-5 text-right">
+                                                            <p class="m-0">{{seller.category1}}</p>
+                                                            <p class="m-0"> {{seller.category2}}</p>
+                                                            <p class="m-0">{{seller.category3}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row f-12 pt-10">
+                                                            <div class="col-sm-12 col-7 text-left">
+                                                                <p>Preffered Locations : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p class="m-0">{{seller.city1}}</p>
+                                                                <p class="m-0">{{seller.city2}}</p>
+                                                                <p class="m-0">{{seller.city3}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p>Years Of Experience</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>{{seller.year_exp}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Core Skills</p>
+                                                                   </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p class="m-0">{{seller.skill1}}</p>
+                                                                        <p class="m-0"> {{seller.skill2}}</p>
+                                                                        <p class="m-0">{{seller.skill3}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Fee/Hour</p>
+                                                                        </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p class="price" data-currency-type="{{seller.currency}}" data-value="{{seller.hour_fee}}"></p>
+                                                                        </div>
+
+                                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                              <div class="row">
+                                                <div class="col-sm-12">
+                                                    <button class="btn-startup-cart w-100">Contact Advisor
+                                                    </button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                {% endif %}
+                                {%if seller.base_type == 'Investor' %}
+
+                                    <div class="your_cart card">
+                                            <a href="" class="img_box">
+                                                <img class="card-img-top img-contain" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid">
+                                            </a>
+                                            <div class="card-body ff-p py-0">
+                                                <a href="/investor/all_detail/{{seller.seller.investor_id}}">
+                                                    <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                                                </a>
+                                                <p class="f-11">{{seller.about_seller}}</p>
+                                                <div class="container-fluid zero-padding pt-2 ff-p">
+                                                    <div class="row">
+                                                        <div class="col-sm-3 col-3">
+                                                            <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                            <span class="f-12 pl-1">8.5</span>
+                                                        </div>
+                                                        <div class="col-sm-9 col-9">
+                                                            <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                            <span class="f-12 pl-1">Bangalore, India</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row f-12 pt-10">
+                                                        <div class="col-sm-3 col-7 text-left">
+                                                            <p class="">Interested Sectors</p>
+                                                        </div>
+                                                        <div class="col-sm-9 col-5 text-right">
+                                                            <p>{{seller.sub_category1}}</p>
+                                                            <p>{{seller.sub_category2}}</p>
+                                                            <p> {{seller.sub_category3}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row f-12 pt-10">
+                                                            <div class="col-sm-3 col-7 text-left">
+                                                                <p>Prefered Locations</p>
+                                                            </div>
+                                                            <div class="col-sm-9 col-5 text-right">
+                                                                <p>{{seller.city1}}</p>
+                                                                <p> {{seller.city2}}</p>
+                                                                <p>{{seller.city3}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-3 col-7 text-left">
+                                                                    <p>Type of Capital</p>
+                                                                </div>
+                                                                <div class="col-sm-9 col-5 text-right">
+                                                                    <p>{{seller.capital_type}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-3 col-7 text-left">
+                                                                        <p>Investment Bracket</p>
+                                                                    </div>
+                                                                    <div class="col-sm-9 col-5 text-right">
+                                                                    <p class="pricei" data-currency-type="{{seller.currency}}" data-value="{{seller.investment_bracket}}"></p>                                
+                                                                    </div>
+
+                                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                              <div class="row">
+                                                <div class="col-sm-12">
+                                                    <button class="btn-startup-cart w-100">Contact Advisor
+                                                    </button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+{% comment %} {% endif %} {% endcomment %}
+{% else %}
+
+                    <div class="row pt-40">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">Presently your cart is empty, kindly view listings and add to cart
+                            </h3>
+                        </div>
+                    </div>
+
+{% endif %}
+
+{% if seller.type == 'Business' %}
+<!--business start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Sell-ability Score
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}</h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the Business</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about}}
+                                        </p>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">Reason for Sale</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.reason_selling}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Run rate Sales</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-currency-type="{{seller.currency}}" data-value="{{seller.rev_year}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Investment Required</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Profit Percentage</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="profit f-12 ff-p"></h2>
+                                            </div>
+                                    <script>
+                                        var a = ({{seller.year_17}}/{{seller.rev_year}})*100;
+                                        a=a.toFixed(2);
+                                        $(".profit").text(a+"%");                                 
+                                    </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_2" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_2" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/seller_update/{{business.business_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/delete/{{business.business_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+<!--business end -->
+{% endif %}
+
+{% if seller.type == 'Asset' %}
+<!--Asset start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Sell-ability Score
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}</h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the Business</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about_asset}}
+                                        </p>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">Reason for Sale</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.reason_selling}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Asset Price</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                            <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Purchase Year</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.purchase_year}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Asset Type</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.asset_type}}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/asset_update/{{business.asset_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/asset/delete/{{business.asset_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+<!--Asset end -->
+{% endif %}
+
+{% if seller.type == 'Equity' %}
+<!--Equity start -->
+
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Sell-ability Score
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}</h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the Business</h2>
+                                        <p class="f-12 pr-3">
+                                             {{business.about_business}}
+                                        </p>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">Reason for Sale</h2>
+                                        <p class="f-12 pr-3">
+                                           {{business.reason}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Run rate Sales</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-currency-type="{{seller.currency}}" data-value="{{seller.rev_year}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Investment Required</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                            <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Profit Percentage</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="profit f-12 ff-p"></h2>
+                                            </div>
+                                        </div>
+                                        <script>
+                                                var a = ({{seller.year_17}}/{{seller.rev_year}})*100;
+                                                a=a.toFixed(2);
+                                                $(".profit").text(a+"%");                                 
+                                        </script>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">% Stake for Sale</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-value="{{business.stake}}" class="percentfixed f-12 ff-p"></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/equity_update/{{business.equity_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/equity/delete/{{business.equity_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--Equity end -->
+{% endif %}
+
+{% if seller.type == 'Loan' %}
+<!--Loan start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Sell-ability Score
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}</h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the Business</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about_business}}
+                                        </p>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">Reason for Sale</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.reason_loan}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Run rate Sales</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-currency-type="{{seller.currency}}" data-value="{{seller.rev_year}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Loan Amount</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-currency-type="{{seller.currency}}" data-value="{{business.loan_amount}}" class="f-12 ff-p price"></h2>                                           
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Loan Term</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.year_established}} Yrs</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Loan Interest %</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-value="{{business.sought_interest}}" class="percentfixed f-12 ff-p"></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/loan_update/{{business.loan_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/loan/delete/{{business.loan_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+
+<!--Loan end -->
+{% endif %}
+
+{% if seller.type == 'Startup' %}
+<!--startup start -->
+
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Sell-ability Score
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}</h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the Business</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about}}
+                                        </p>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">Reason for Sale</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.reason_selling}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">StartUp Domain</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Equity for Sale</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-value="{{business.sought_equity}}" class="percentfixed f-12 ff-p"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Asking Price</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                            <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Year of Start</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.year_established}}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/startup_update/{{business.startup_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/startup/delete/{{business.startup_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--startup end -->
+{% endif %}
+
+{% if seller.type == 'Application' %}
+<!--application start -->
+
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Completeness of Profile
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 88%">88</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}
+                                        </h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the {{business.startup_type}}</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Monitization Method</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 data-value="{{business.monitization_method}}" class="spliter f-12 ff-p"></h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Link</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.website}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Asking Price</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                            <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/app_update/{{business.app_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/app/delete/{{business.app_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--application end -->
+{% endif %}
+
+{% if seller.type == 'Ipcode' %}
+<!--Ipcode start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Completeness of Profile
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 88%">88</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}
+                                        </h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the {{business.startup_type}}</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.about}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Link</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.website}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Asking Price</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                             <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="f-12 ff-p price"></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/ipcode_update/{{business.ipcode_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/ipcode/delete/{{business.ipcode_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--Ipcode end -->
+{% endif %}
+
+
+{% if seller.type == 'Franchise' %}
+<!--Ipcode start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Completeness of Profile
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 88%">88</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-10 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}
+                                        </h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-10">About the {{business.franchise_type}}</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.prod_info}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Link</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.website}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">No. of Outlets</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.num_outlets}}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/franchise_update/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/franchise/delete/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--Ipcode end -->
+{% endif %}
+
+{% if seller.type == 'Supplier' %}
+<!--Ipcode start -->
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Completeness of Profile
+                            </h3>
+                        </div>
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-3">
+                            <div class="progress-custo">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 88%">88</div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7">
+                                    <div class="col-sm-12-col-12 col-md-12 col-lg-12 pt-20 ff-p">
+                                        <h2 class="c-19 ff-p f-w-bold f-18">{{seller.title}}
+                                        </h2>
+                                        <h2 class="c-black f-12 f-w-bold pt-20">About the {{business.franchise_type}}</h2>
+                                        <p class="f-12 pr-3">
+                                            {{business.prod_info}}
+                                        </p>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Category</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{seller.category1}} | {{seller.category2}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Link</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.website}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <h2 class="f-12 ff-p f-w-bold">Supplier Type</h2>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h2 class="f-12 ff-p">{{business.supplier_type}}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h2 class="f-12 ff-p f-w-bold">Product Information</h2>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <h2 class="f-12 ff-p">{{business.prod_info}}</h2>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                            <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls_{{seller.type}}" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="/seller/franchise_update/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            </button></a>
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            </button></a>
+                            <a href="/seller/franchise/delete/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Delete Profile
+                            </button></a>
+                        </div>
+                    </div>
+
+<!--Ipcode end -->
+{% endif %}
+
+
+<!--Ipcode end -->
+
+{% if seller.type == 'Business' or seller.type == 'Asset' or seller.type == 'Equity' or seller.type == 'Loan' or seller.type == 'Startup' %}
+<!--performance start -->
+                    <div class="row mt-20 mb-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your detailed performance
+                                <span class="f-w-100 f-20"> (visible to investor)</span>
+                            </h1>
+                        </div>
+                        <div class="container-fluid">
+                                    <div class="row pt-50">
+                                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                                    <canvas id="canvas-id"></canvas>
+                                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                                    <canvas id="canvas-id4"></canvas>
+
+                                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold"> Growth Potential
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                                    <canvas id="canvas-id3"></canvas>
+                                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Customer Portfolio
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 wow fadeIn">
+                                                    <canvas id="canvas-id2"></canvas>
+
+
+
+                                                    <h4 class="text-center f-18 pt-2 ff-p f-w-bold"> Recurring Revenue
+                                                    </h4>
+                                                </div>
+                                    </div>
+                        </div>
+                    </div>
+<!--performance end -->
+{% endif %}
+<!--you may be interested in start -->
+
+{% if inst %}
+                    <div class="row pt-40">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">People who have added your listing to their cart:
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2">
+                            <div class="owl-carousel">
+                                    {% for seller in inst %}
+                                    {%if seller.base_type == 'Advisor' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top img-contain" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/advisor/all_detail/{{seller.seller.advisor_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.type}} Advisor</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class="">Domain Expertise : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p>{{seller.category1}} </p>
+                                                                <p>{{seller.category2}}</p>
+                                                                <p>{{seller.category3}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Preffered Locations : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                    <p>{{seller.city1}}</p>
+                                                                    <p>{{seller.city2}}</p>
+                                                                    <p>{{seller.city3}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Years Of Experience</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.year_exp}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Core Skills</p>
+                                                                       </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p>{{seller.skill1}}</p>
+                                                                            <p>{{seller.skill2}}</p>
+                                                                            <p>{{seller.skill3}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row f-12 pt-10">
+                                                                            <div class="col-sm-7 col-7 text-left">
+                                                                                <p>Fee/Hour</p>
+                                                                            </div>
+                                                                            <div class="col-sm-5 col-5 text-right">
+                                                                                <p data-currency-type="{{seller.currency}}" data-value="{{seller.hour_fee}}"></p>
+                                                                            </div>
+
+                                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Contact Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                    {% endif %}
+                                    {%if seller.base_type == 'Investor' %}
+
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top img-contain" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/investor/all_detail/{{seller.seller.investor_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.about_seller}}</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-3 col-7 text-left">
+                                                                <p class="">Interested Sectors</p>
+                                                            </div>
+                                                            <div class="col-sm-9 col-5 text-right">
+                                                                <p>{{seller.sub_category1}}</p>
+                                                                <p>{{seller.sub_category2}}</p>
+                                                                <p> {{seller.sub_category3}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-3 col-7 text-left">
+                                                                    <p>Prefered Locations</p>
+                                                                </div>
+                                                                <div class="col-sm-9 col-5 text-right">
+                                                                    <p>{{seller.city1}}</p>
+                                                                    <p>{{seller.city2}}</p>
+                                                                    <p>{{seller.city3}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-3 col-7 text-left">
+                                                                        <p>Type of Capital</p>
+                                                                    </div>
+                                                                    <div class="col-sm-9 col-5 text-right">
+                                                                        <p>{{seller.capital_type}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-3 col-7 text-left">
+                                                                            <p>Investment Bracket</p>
+                                                                        </div>
+                                                                        <div class="col-sm-9 col-5 text-right">
+                                                                            <p class="pricei" data-currency-type="{{seller.currency}}" data-value="{{seller.investment_bracket}}"></p>
+                                                                        </div>
+
+                                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Contact Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                    </div>
+
+{% else %}
+
+                    <div class="row pt-40">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">People are yet to add your listing to their cart
+                            </h3>
+                        </div>
+                    </div>
+
+{% endif %}
+
+<!--you may be interested in end -->
+
+<!--sector performance start -->
+                    <!-- <div class="row mt-20 mb-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Relevant Sector Companys’ Performance</h1>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row pt-36 pb-50">
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-12 col-lg-4 col-md-4">
+                                    <img src="/static/seller1/images/relevant-img.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+<!--sector performance end -->
+                </div>
+            </div>
+<!--chat start -->
+            <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
+                <div class="onlineChatBox height-scroller">
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <button class="btn-sideBox ff-p"> Advanced Valuation
+                        </button>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+<!--chat end -->
+        </div>
+    </div>
+
+
+
+
+
+    <!-- end body section -->
+    <div class="container-fluid bg-ea sticky-fixed">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+
+        .btn-startup-cart {
+            background: #192ED5;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-startup-cart:hover {
+            color: #192ED5;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #192ED5;
+            padding: 6px 57px 8px 50px;
+        }
+
+        .btn-bv {
+            background: #22B683;
+            color: #ffffff;
+            padding: 8px 12px 8px 17px;
+            border: none;
+            font-family: Poppins;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-bv:hover {
+            color: #22B683;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #22B683
+        }
+        .progress-custo {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 1.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 98%;
+            margin-left: 1%;
+            font-weight: bold;
+        }
+    </style>
+
+
+
+    <script src="/static/seller1/js/popper.min.js"></script>
+    <script src="/static/seller1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    <script src="/static/seller1/js/custom.js"></script>
+    <script src="/static/seller1/js/owl.carousel.min.js"></script>
+    <!-- <script src="/static/seller1/js/wow.min.js"></script> -->
+    <script src="/static/seller1/js/wow.min.js"></script>
+    <!-- <script src="/static/seller1/js/gauge.min.js"></script> -->
+    <script src="/static/profiles/js/notification.js"></script>
+    <script src="/static/seller1/js/sidebarloader.js"></script>
+
+
+</body>
+
+
+
+<script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+<script>
+    $(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    items:3,
+    loop:false,
+    margin:10,
+    nav:true,
+    navText: ["<img src='{% static 'seller1/images/displayIcon-left.png'%}'>","<img src='{% static 'seller1/images/displayIcon-right.png'%}'>"]
+  });
+});
+</script>
+
+
+
+    <style>
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .btn-basic-valuation {
+            background: #28a745;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-basic-valuation:hover {
+            color: #28a745;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #28a745;
+            padding: 6px 57px 8px 50px;
+        }
+
+        .btn-startup-cart {
+            background: #192ED5;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-startup-cart:hover {
+            color: #192ED5;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #192ED5;
+            padding: 6px 57px 8px 50px;
+        }
+        .btn-sideBox{
+            padding: 9px 22px 9px 22px;
+            background: #28a745;
+            color: #ffffff;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out
+        }
+
+            .btn-sideBox:hover{
+                color: #28a745;
+            background: #ffffff;
+            border: 1px solid #28a745;
+            cursor: pointer;
+        }
+        .btn-bv {
+            background: #22B683;
+            color: #ffffff;
+            padding: 8px 12px 8px 17px;
+            border: none;
+            font-family: Poppins;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-bv:hover {
+            color: #22B683;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #22B683
+        }
+        .progress-custo {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 1.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 98%;
+            margin-left: 1%;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+
+               var a = screen.width;
+               console.log(a);
+               if(a<2000 && a>1500){
+                    $("body").css("zoom","90%");
+               }
+               else if(a<1500 && a>1400){
+                     $("body").css("zoom","80%");
+               }
+               else if(a<1400 && a>1100){
+                     $("body").css("zoom","65%");
+               }
+               else if(a<1100 && a>900){
+                     $("body").css("zoom","67%");
+               }
+               else{
+                    $("body").css("zoom","50%");
+               }
+
+
+
+
+</script>
+
+{% if user.is_authenticated %}
+<script>
+    $(document).ready(function(){
+        $('#login_icon_b').css('display','none');
+        $('#loggedin_icon_b').css('display','block');
+        $('#login_icon_s').css('display','none');
+        $('#loggedin_icon_s').css('display','block');
+        // name="{{user.profile.photo.name}}";
+        // name = "/media/"+name;
+        if("{{user.profile.social}}"=="True"){
+            name = "{{user.profile.photo_url}}"
+        }else{
+            name = "/media/"+"{{user.profile.photo.name}}";
+        }
+        console.log(name)
+        console.log('{{user.profile.photo_url}}');
+        $('#prof_pic_b').attr('src',name);
+        $('#prof_pic_s').attr('src',name);
+    });
+</script>
+
+{% endif %}
+
+<script>
+
+            $(".percentfixed").each(function(){
+                    var cur_fut= parseFloat($(this).data("value")).toFixed(2);
+                    // cur_fut=cur_fut.replace("__"," | ");
+                    $(this).html(cur_fut+" %");
+            });
+
+            $(".spliter").each(function(){
+                    var cur_fut= $(this).data("value");
+                    cur_fut=cur_fut.replace("__"," | ");
+                    $(this).html(cur_fut);
+                });
+
+
+        function myCurrency() {
+           
+           var curr_showed = $('#id_currency').val().split('**');
+                var curr_string = curr_showed[3];
+                var curr_value = parseFloat(curr_showed[4]); 
+
+                $(".price").each(function(){
+                    var fut_showed= $(this).data("currency-type").split('**')
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    var cur_fut= parseFloat($(this).data("value"));
+                    fut_value= ((cur_fut)*(curr_value))/fut_value;
+                    fut_value=fut_value.toFixed(2);
+                    $(this).html(fut_value +" "+curr_string );
+                    if(fut_value<1000){
+                         $(this).html(fut_value +" "+curr_string );
+                    }
+                    else if(fut_value>=1000 && fut_value<1000000 ){
+                        fut_value=fut_value/1000;
+                        fut_value=fut_value.toFixed(2);
+                        $(this).html(fut_value +" "+curr_string+" Thousand" );
+                    }
+                    else if(fut_value>=1000000 && fut_value<1000000000 ){
+                        fut_value=fut_value/1000000;
+                        fut_value=fut_value.toFixed(2);
+                        $(this).html(fut_value +" "+curr_string+" Million" );
+                    }
+                    else if(fut_value>=1000000000 && fut_value<1000000000000 ){
+                        fut_value=fut_value/1000000000;
+                        fut_value=fut_value.toFixed(2);
+                        $(this).html(fut_value +" "+curr_string+" Billion" );
+                    }
+                });
+
+                $(".pricei").each(function(){
+                    var fut_showed= $(this).data("currency-type").split('**')
+                    var fut_value= parseFloat(fut_showed[4]); 
+                    var cur_fut= $(this).data("value");
+
+                    if(cur_fut=="0 to 10,000"){
+                        min=0
+                        max=((10000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+                    else if(cur_fut=="10,000 to 100,000"){
+                        min=((10000)*(curr_value))/fut_value;
+                        max=((100000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+                    else if(cur_fut=="100,000 to 1 Million"){
+                        min=((100000)*(curr_value))/fut_value;
+                        max=((1000000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+                    else if(cur_fut=="1 Million to 10 Million"){
+                        min=((1000000)*(curr_value))/fut_value;
+                        max=((10000000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+                    else if(cur_fut=="10 Million to 100 Million"){
+                        min=((10000000)*(curr_value))/fut_value;
+                        max=((100000000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+                    else if(cur_fut=="Greater than 100 Million"){
+                        min=((100000000)*(curr_value))/fut_value;
+                        max=((1000000000)*(curr_value))/fut_value;
+                        var avg = (min+max)/2;
+                        console.log(avg);
+                    }
+
+
+                    if(avg<=10000){
+                        $(this).html("0 to 10,000"+" "+curr_string);
+                        console.log("0 to 10,000");
+                    }
+                    else if(avg>10000 && avg<=100000){
+                        $(this).html("10,000 to 100,000"+" "+curr_string);
+                        console.log("10,000 to 100,000");
+                    }
+                    else if(avg>100000 && avg<=1000000){
+                        $(this).html("100,000 to 1 Million"+" "+curr_string);
+                        console.log("100,000 to 1 Million");
+                    }
+                    else if(avg>1000000 && avg<=10000000){
+                        $(this).html("1 Million to 10 Million"+" "+curr_string);
+                        console.log("1 Million to 10 Million");
+                    }
+                    else if(avg>10000000 && avg<=100000000){
+                        $(this).html("10 Million to 100 Million"+" "+curr_string);
+                        console.log("10 Million to 100 Million");
+                    }
+                    else if(avg>=1000000000){
+                        $(this).html("Greater than 100 Million"+" "+curr_string);
+                        console.log("Greater than 100 Million");
+                    }
+
+                });
+            
+        }
+
+        $('#id_currency').change(function(){
+
+                
+            myCurrency();
+        });      
+
+</script>
+
+
+</html>

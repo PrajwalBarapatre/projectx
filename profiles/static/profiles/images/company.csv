@@ -1,0 +1,19 @@
+id,types
+1,List of Companies
+2,Sole Proprietorship/trader
+3,Association
+4,S Corporation
+5,C Corporation 
+6,General Partnership
+7,Joint Venture
+8,Limited Liability Company (LLC)
+9,Limited Liability Limited Partnership (LLLP)
+10,Limited Liability Partnership (LLP)
+11,Limited Partnership
+12,Trust
+13,Municipality
+14,Nonprofit Corporation
+15,Co-orperative
+16,Private Limited
+17,Public Limited
+18,One Person Company

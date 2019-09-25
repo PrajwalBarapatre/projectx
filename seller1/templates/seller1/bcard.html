@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+        {% load mathfilters %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard 6</title>
+    
+    
+    
+    
+</head>
+
+<body>
+
+
+        {% if seller.type == 'Business' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.type}} Seller</p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Run Rate Sales : {{seller.rev_year}} </p>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Investment</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>{{business.asking_price}}</p>
+                                    </div>
+                                </div>
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Profit Percent</p>
+                                    </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                                <p>{{ seller.year_17|div:seller.rev_year |floatformat }}</p> 
+                                        </div>
+                                    </div>
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Equity' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.type}} Seller</p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Run Rate Sales : {{seller.rev_year}} </p>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Investment</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>{{business.asking_price}}</p>
+                                    </div>
+                                </div>
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Profit Percent</p>
+                                    </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                            <p>{{ seller.year_17|div:seller.rev_year |floatformat }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row f-12 pt-20">
+                                            <div class="col-sm-7 col-7 text-left">
+                                                <p>% Stake For Sale</p>
+                                        </div>
+                                            <div class="col-sm-5 col-5 text-right">
+                                                    <p>{{ business.stake |floatformat }}</p>
+                                            </div>
+                                        </div>
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Asset' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/files/Bitmap_Copy_4.png" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.type}} Seller</p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Asking Price : {{business.asking_price}} </p>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Purchase Year</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>{{business.purchase_year}}</p>
+                                    </div>
+                                </div>
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Asset Type</p>
+                                    </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                            <p>{{ business.asset_type }}</p>
+                                        </div>
+                                    </div>
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Loan' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.type}} Seller</p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Run Rate Sales : {{seller.rev_year}} </p>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Loan Amount</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>INR {{business.loan_amount}}</p>
+                                    </div>
+                                </div>
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Loan Term</p>
+                                    </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                            <p>{{ business.year_established }} yrs</p>
+                                        </div>
+                                    </div>
+                                    <div class="row f-12 pt-20">
+                                            <div class="col-sm-7 col-7 text-left">
+                                                <p>Loan Interest %</p>
+                                        </div>
+                                            <div class="col-sm-5 col-5 text-right">
+                                                    <p>{{ business.sought_interest|floatformat }} %</p>
+                                            </div>
+                                        </div>
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Startup' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.type}} Seller</p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Startup Domain : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Asking Price : {{business.asking_price}} </p>
+                            </div>
+                        </div>
+                        
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Equity For Sale</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>INR {{business.sought_equity|floatformat}}</p>
+                                    </div>
+                                </div>
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Year of Start</p>
+                                    </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                            <p>{{ business.year_established }} yrs</p>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Ipcode' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.about_seller}} </p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Asking Price : {{business.asking_price}} </p>
+                            </div>
+                        </div>
+                        
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Type</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>{{business.startup_type}}</p>
+                                    </div>
+                                </div>
+
+                                {% if business.website %}
+                                <div class="row f-12 pt-20">
+                                        <div class="col-sm-7 col-7 text-left">
+                                            <p>Link</p>
+                                        </div>
+                                        <div class="col-sm-5 col-5 text-right">
+                                            <p><a href="{{business.website}}">{{business.website}}</a></p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                
+                                    
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+        {% if seller.type == 'Application' %}
+        <div class="card" id="bcard">
+                <a href="">
+                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                </a>
+                <div class="card-body ff-p">
+                    <a href="">
+                        <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
+                    </a>
+                    <p class="f-11">{{seller.about_seller}} </p>
+                    <div class="container-fluid zero-padding pt-2 ff-p">
+                        <div class="row">
+                            <div class="col-sm-3 col-3">
+                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                <span class="f-12 pl-1">8.5</span>
+                            </div>
+                            <div class="col-sm-9 col-9">
+
+                                <span class="f-12 pl-1"></span>
+                            </div>
+                        </div>
+                        <div class="row f-12 pt-20">
+                                <div class="col-sm-12 col-7 text-left">
+                                    <p>Category : {{seller.category1}} | {{seller.category2}}</p>
+                                </div>
+                            </div>
+                        <div class="row f-12 pt-20">
+                            <div class="col-sm-12 col-7 text-left">
+                                <p class=""> Asking Price : {{business.asking_price}} </p>
+                            </div>
+                        </div>
+                        
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Type</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p>{{business.startup_type}}</p>
+                                    </div>
+                                </div>
+
+                            {% if business.website %}
+                            <div class="row f-12 pt-20">
+                                    <div class="col-sm-7 col-7 text-left">
+                                        <p>Link</p>
+                                    </div>
+                                    <div class="col-sm-5 col-5 text-right">
+                                        <p><a href="{{business.website}}">{{business.website}}</a></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                                
+                                    
+                                    
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+
+</body>
+
+</html>

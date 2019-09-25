@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard 7</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/meter.css">
+    <link rel="stylesheet" href="/static/seller1/css/progressBar.css">
+    <link rel="stylesheet" href="/static/seller1/css/animate.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+        .your_cart.card .card-footer {
+            background: #fff;
+            border-top: 0;
+        }
+        .your_cart.card p {
+            margin: 0;
+            padding: 0;
+        }
+        .card .img_box .card-img-top.img-contain {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .btn-cart-bg{
+            background: #fff;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 0.5rem 0rem;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 0.1rem solid #22B683;
+            border: none;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-cart-bg:hover{
+           box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .btn-cart-contact{
+            background: #22B683;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 0.5rem 0rem;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 0.1rem solid #22B683;
+            border: none;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-cart-contact:hover{
+            background: #fff;
+            color: #22B683;
+            cursor: pointer;
+        }
+        .mt--6{
+            margin-top:-6px;
+        }
+            #my_modal .close {
+            position: absolute;
+            right: 16px;
+            top: 18px;
+            padding: 8px;
+        }
+        #my_modal #modal_body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .btn-with-control{
+            min-width: 550px;
+            margin: 10px 0;
+        }
+        .sizer{
+            height:200px;
+            width:200px;
+            object-fit: cover;
+        }
+    </style>
+<style>
+
+          #modal_edit_profile .close{
+            position: absolute;
+            right: 16px;
+            top: 18px;
+            padding: 8px;
+          }
+          #modal_change_password .close{
+            position: absolute;
+            right: 16px;
+            top: 18px;
+            padding: 8px;
+          }
+           #signup .profile_section{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+.f-40{
+  font-size: 40px;
+}
+.modal-content{
+  box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+}
+
+.pac-container {
+    z-index:20000;
+}
+.lodal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000000000000000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('http://i.stack.imgur.com/FhHRx.gif')
+                50% 50%
+                no-repeat;
+}
+#mlodal {
+
+    position:   fixed;
+    z-index:    10000000000000000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('http://i.stack.imgur.com/FhHRx.gif')
+                50% 50%
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .lodal {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .lodal {
+    display: block;
+}
+.h-51{
+  height: 51px !important;
+}
+.border-r-0{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.border-r-all{
+  border-radius: 0;
+}
+.location_fields{
+      display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .avatar {
+      margin: auto;
+      /* width: 50%; */
+      border: 3px solid #22B683;
+      padding: 0;
+      vertical-align: middle;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      top: -1px;
+      left: -2px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+</style>
+
+<style media="screen">
+        .img_slider_box{
+          width: auto;
+          height: 220px
+        }
+        .img_slider_box img{
+          object-fit: contain;
+          height: 220px
+        }
+        .carousel-control-next, .carousel-control-prev {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          width: 35% !important;
+          color: #fff;
+          text-align: center;
+          opacity: .5;
+      }
+      </style>
+    <style>
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .btn-basic-valuation {
+            background: #28a745;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-basic-valuation:hover {
+            color: #28a745;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #28a745;
+            padding: 6px 57px 8px 50px;
+        }
+
+        .btn-startup-cart {
+            background: #192ED5;
+            color: #ffffff;
+            padding: 6px 60px 8px 50px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-family: Poppins;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-startup-cart:hover {
+            color: #192ED5;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #192ED5;
+            padding: 6px 57px 8px 50px;
+        }
+        .btn-sideBox{
+            padding: 9px 22px 9px 22px;
+            background: #28a745;
+            color: #ffffff;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out
+        }
+
+            .btn-sideBox:hover{
+                color: #28a745;
+            background: #ffffff;
+            border: 1px solid #28a745;
+            cursor: pointer;
+        }
+        .btn-bv {
+            background: #22B683;
+            color: #ffffff;
+            padding: 8px 12px 8px 17px;
+            border: none;
+            font-family: Poppins;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-bv:hover {
+            color: #22B683;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #22B683
+        }
+        .progress-custo {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 1.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 98%;
+            margin-left: 1%;
+            font-weight: bold;
+        }
+    </style>
+
+<body>
+
+  {% include "seller1/sidecontainer.html" %}
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            {% include "seller1/topcontainer1.html" %}
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mt-80" style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 col-lg-6 col-12 col-md-6" style="padding-top:1.5rem ; padding-bottom: 1.5rem">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                    <div class="carousel-inner">
+                                                    {% for name in images %}
+                                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 text-center">
+                                                                        <div class="img_slider_box">
+                                                                            <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                                        data-slide="prev">
+                                                        <span>
+                                                            <img src="{% static 'seller1/images/displayIcon-left.png'%}" alt="">
+                                                        </span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                                        data-slide="next">
+                                                        <span><img src="{% static 'seller1/images/displayIcon-right.png'%}" alt=""></span>
+                                                    </a>
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 pt-80">
+                                        <span class="f-26 ff-p f-w-bold c-f">{{seller.title}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6 col-12 col-md-6 c-f pb-3">
+                            <h2 class="f-26 ff-pd f-w-bold">About the {{seller.about_seller}} </h2>
+                            <address class="f-16 pb-5">
+                                {{business.about}}
+                            </address>
+
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <button id="button_cart" style="display: none" class="btn-cart-bg">
+                                    </button>
+                                </div>
+                                <div class="col-md-5">
+                                    <div id="make_contact" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--start body section -->
+    <div class="container-fluid bg-f6">
+        <div class="row">
+            <div class="col-sm-9 col-12 col-md-9 col-lg-9">
+                <div class="container-fluid">
+
+
+
+                    {% if seller.type == 'Individual' %}
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                                    <h3 class="f-26 ff-p f-w-bold c-3f pb-5">General Details
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Interested Sectors
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{business.sub_category1}} | {{business.sub_category2}} | {{business.sub_category3}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Investment Bracket
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{business.investment_bracket}} INR
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Preferred Locations
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{business.city1}} | {{business.city2}} | {{business.city3}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Type Of Capital
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{business.capital_type}}
+                                    </h2>
+                                </div>
+                            </div>
+                            {% if business.website %}
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Professional Link
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18"><a href="{{business.website}}" target="_blank">{{business.website}}</a>
+                                    </h2>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                                    <h3 class="f-26 ff-p f-w-bold c-3f pb-5">Premium Details
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Name
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{seller.first_name}} {{seller.middle_name}} {{seller.last_name}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Phone Number
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{seller.country_code_primary}}-{{seller.phone_number_primary}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Email
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{seller.email_adress}}
+                                    </h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+{% endif %}
+
+{% if seller.type == 'Company' %}
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                            <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                                            <h3 class="f-26 ff-p f-w-bold c-3f pb-5">General Details
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="f-w-bold f-18 ff-p">Interested Sectors
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="ff-p f-18">{{business.sub_category1}} | {{business.sub_category2}} | {{business.sub_category3}}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="f-w-bold f-18 ff-p">Investment Bracket
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="ff-p f-18">{{business.investment_bracket}} INR
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="f-w-bold f-18 ff-p">Preferred Locations
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="ff-p f-18">{{business.city1}} | {{business.city2}} | {{business.city3}}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="f-w-bold f-18 ff-p">Type Of Capital
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="ff-p f-18">{{business.capital_type}}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    {% if business.website %}
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="f-w-bold f-18 ff-p">Professional Link
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                            <h2 class="ff-p f-18"><a href="{{business.website}}" target="_blank">{{business.website}}</a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                    </div>
+                    <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                                    <h3 class="f-26 ff-p f-w-bold c-3f pb-5">Premium Details
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Name
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{business.institution_name}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Phone Number
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{seller.country_code_primary}}-{{seller.phone_number_primary}}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="f-w-bold f-18 ff-p">Email
+                                    </h2>
+                                </div>
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
+                                    <h2 class="ff-p f-18">{{seller.email_adress}}
+                                    </h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+{% endif %}
+
+
+                    <div class="row pt-10">
+                        <div class="col-sm-7 col-12 col-lg-7 col-md-7">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">Similar Investors
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row pt-36">
+                        <div class="owl-carousel">
+                            {% for seller in similar_seller %}
+                            {%if seller.seller.base_type == 'Investor' %}
+
+                            <div class="your_cart card card">
+                                    <a href="" class="img_box">
+                                        <img class="card-img-top img-contain" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                    </a>
+                                    <div class="card-body ff-p py-0">
+                                        <a href="">
+                                            <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                        </a>
+                                        <p class="f-11">{{seller.seller.about_seller}}</p>
+                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                            <div class="row">
+                                                <div class="col-sm-3 col-3">
+                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                    <span class="f-12 pl-1">8.5</span>
+                                                </div>
+                                                <div class="col-sm-9 col-9">
+                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                </div>
+                                            </div>
+                                            <div class="row f-12 pt-10">
+                                                <div class="col-sm-3 col-7 text-left">
+                                                    <p class="">Interested Sectors</p>
+                                                </div>
+                                                <div class="col-sm-9 col-5 text-right">
+                                                    <p>{{seller.business.sub_category1}}</p>
+                                                    <p>{{seller.business.sub_category2}}</p>
+                                                    <p>{{seller.business.sub_category3}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row f-12 pt-10">
+                                                <div class="col-sm-3 col-7 text-left">
+                                                    <p>Prefered Locations</p>
+                                                </div>
+                                                <div class="col-sm-9 col-5 text-right">
+                                                    <p>{{seller.business.city1}}</p>
+                                                    <p>{{seller.business.city2}}</p>
+                                                    <p>{{seller.business.city3}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row f-12 pt-10">
+                                                <div class="col-sm-3 col-7 text-left">
+                                                    <p>Type of Capital</p>
+                                                </div>
+                                                <div class="col-sm-9 col-5 text-right">
+                                                    <p>{{seller.business.capital_type}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row f-12 pt-10">
+                                                <div class="col-sm-3 col-7 text-left">
+                                                    <p>Investment Bracket</p>
+                                                </div>
+                                                <div class="col-sm-9 col-5 text-right">
+                                                    <p>{{seller.business.investment_bracket}} INR</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button class="btn-startup-cart w-100">Contact Advisor
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
+                <div class="onlineChatBox">
+                    <!-- <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <button class="btn-sideBox ff-p"> Advanced Valuation
+                        </button>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p>
+                    </div> -->
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <div class="img_box_val_box">
+                            <span>
+                                <img id ="master_tagger1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0lsWrDfVqy5D3fsJGcSvu7xOWDNFlmUmrSv4GUs52IoCczg9eQ" class="img-fluid img_box_val" alt="">
+                            </span>
+                        </div>
+                        <h2 id ="master_tagger2" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2> 
+                        <h2 id ="master_tagger3" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2>
+                        <!-- <h2 id ="master_tagger4" class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+
+
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p> -->
+                        <a id ="master_tagger4" href="" target="_blank"> <button class="btn-sideBox ff-p"> View Listers Detail
+                        </button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end body section -->
+    <div class="container-fluid bg-ea sticky-fixed">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my_modal" ></div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+
+    <script>
+        'use strict';
+
+        var rangeMeter = document.querySelector('#range');
+        var rangeShow = document.querySelector("#show");
+        var rangeClock = document.querySelector('.meter-clock');
+
+        function rangeChange() {
+            var rotateClock = rangeMeter.value;
+
+            rangeClock.style.transform = 'rotate(' + (-90 + ((rotateClock * 180) / 100)) + 'deg)';
+            rangeShow.value = rotateClock + '%';
+        }
+
+        rangeMeter.addEventListener('input', rangeChange);
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="/static/seller1/js/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    <script src="/static/seller1/js/bootstrap.min.js"></script>
+    <script src="/static/seller1/js/custom.js"></script>
+    <script src="/static/profiles/js/notification.js"></script>
+    <script src="/static/seller1/js/wow.min.js"></script>
+    <script src="/static/seller1/js/owl.carousel.min.js"></script>
+    <script src="/static/seller1/js/sidebarloader.js"></script>
+    <script>
+
+var data_investor = {{data_investor| safe}};
+    console.log(data_investor);
+    var data_advisors = {{data_advisors|safe}};
+
+
+    var my_sellers = {{my_sellers| safe}};
+    console.log(my_sellers);
+
+    var sellers_investors = {{sellers_investors| safe}}
+    console.log(sellers_investors);
+
+    var advise_investors = {{advise_investors| safe}};
+    console.log(advise_investors);
+
+    var just_investors = {{just_investors| safe}};
+    console.log(just_investors);
+
+    var removeByAttr = function(arr, attr, value){
+var i = arr.length;
+while(i--){
+if( arr[i]
+   && arr[i].hasOwnProperty(attr)
+   && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+   arr.splice(i,1);
+
+}
+}
+return arr;
+}
+
+
+
+
+    function just_add(ele){
+var id = ele.id;
+id = '#'+id;
+console.log(id);
+var seller_id = $(id).attr('seller_id');
+
+// seller_id=parseInt(seller)
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:just_add" %}',
+    data: form_data,
+    success: function(data){
+        console.log('Added to cart');
+        $(id).hide();
+$('#just_remove').show();
+$('#cart_'+seller_id).attr('data-just', 'True');
+var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_advisor=='True' || in_seller=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+
+just_investors.push({
+    investor_id: parseInt(seller_id)
+});
+
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+function just_remove(ele){
+var id = ele.id;
+id = '#'+id;
+console.log(id);
+var seller_id = $(id).attr('seller_id');
+
+// seller_id=parseInt(seller)
+var form_data = new FormData()
+form_data.append('seller_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:just_remove" %}',
+    data: form_data,
+    success: function(data){
+        console.log('Removed from cart');
+        $(id).hide();
+$('#just_add').show();
+$('#cart_'+seller_id).attr('data-just', 'False');
+var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_advisor=='False' && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+removeByAttr(just_investors, 'investor_id', parseInt(seller_id));
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+
+
+function seller_add(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_seller_id = $(id).attr('seller_cart');
+var form_data = new FormData()
+form_data.append('seller_id', cart_seller_id);
+form_data.append('investor_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:add_sell_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+$('#seller_remove_'+cart_seller_id).show();
+$('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
+console.log('Added to cart');
+// var in_seller='False';
+var nname= 'seller_'+cart_seller_id;
+sellers_investors[nname].push({
+    investor_id: parseInt(seller_id)
+});
+var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_advisor=='True' || in_seller=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+
+}
+
+function seller_remove(ele){
+var id = ele.id;
+id = '#'+id;
+var seller_id = $(id).attr('seller_id');
+var cart_seller_id = $(id).attr('seller_cart');
+var form_data = new FormData()
+form_data.append('seller_id', cart_seller_id);
+form_data.append('investor_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:remove_sell_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+$('#seller_add_'+cart_seller_id).show();
+$('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'False');
+console.log('removed from cart');
+// var in_seller='False';
+var nname= 'seller_'+cart_seller_id;
+removeByAttr(sellers_investors[nname], 'investor_id', parseInt(seller_id))
+console.log('Removed from cart');
+var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_advisor=='False' && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+
+}
+
+
+
+
+function add_to_advise_cart(ele){
+var id = ele.id;
+
+id = '#'+id;
+
+var advisor_id=$(id).attr('advisor_id');
+var seller_id = $(id).attr('seller_id');
+var form_data = new FormData()
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+form_data.append('investor_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('advisor_id', advisor_id);
+
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:add_advise_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+        $('#advisor_remove_'+advisor_id).show();
+        $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'True');
+        console.log('Added to cart');
+
+        var nname= 'advisor_'+advisor_id;
+        advise_investors[nname].push({
+            investor_id: parseInt(seller_id)
+        });
+        var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='True' || in_seller=='True' || in_advisor=='True'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+    );
+}
+// advise_investors.business.push({
+//     investor_id: parseInt(seller_id)
+// });
+        console.log('Added to cart');
+    },
+    processData: false,
+contentType: false,
+async:false
+})
+}
+
+function remove_from_advise_cart(ele){
+var id = ele.id;
+
+id = '#'+id;
+
+var advisor_id=$(id).attr('advisor_id');
+var seller_id = $(id).attr('seller_id');
+var form_data = new FormData()
+form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+form_data.append('investor_id', seller_id);
+form_data.append('base_type', 'Investor');
+form_data.append('advisor_id', advisor_id);
+
+$.ajax({
+    type:'POST',
+    url: '{% url "seller1:remove_advise_cart" %}',
+    data: form_data,
+    success: function(data){
+        $(id).hide();
+        $('#advisor_add_'+advisor_id).show();
+        $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'False');
+        console.log('removed from cart');
+
+        var nname= 'advisor_'+advisor_id;
+        removeByAttr(advise_investors[nname], 'investor_id', parseInt(seller_id))
+        var in_seller='False';
+        var in_advisor='False';
+        var check_arr = check_for_seller(seller_id);
+for(var p=0; p< check_arr.length; p++){
+    if(check_arr[p].found){
+        in_seller='True'
+        break;
+    }
+}
+check_arr = check_for_advise(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_advisor='True'
+                break;
+            }
+        }
+if($('#cart_'+seller_id).attr('data-just')=='False' && in_advisor=='False' && in_seller=='False'){
+    $('#cart_'+seller_id).html('');
+    $('#cart_'+seller_id).append(
+        "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+    );
+}
+// removeByAttr(advise_investors.business, 'investor_id', parseInt(seller_id))
+//         console.log('Removed from cart');
+    },
+
+async:false,
+processData: false,
+contentType: false,
+})
+}
+
+
+
+function check_for_same(seller_id){
+    var same=false;
+if(data_investor.length>0){
+    for(var i=0; i<data_investor.length; i++){
+    if(data_investor[i].investor_id==seller_id){
+        same=true;
+        break;
+    }
+}
+}
+return same;
+}
+
+function check_for_seller(seller_id){
+
+var id='';
+var arr=[];
+// for(var i=0; i<advise_sellers.startup.length; i++){
+//     if(advise_sellers.startup[i].business_id==seller_id){
+//         same=true;
+//         break;
+//     }
+// }
+for(var i=0; i<my_sellers.length; i++){
+        var name='seller_'+my_sellers[i].business_id;
+        var same=false;
+        var found=false;
+        for(var k=0; k<sellers_investors[name].length;k++){
+            console.log(sellers_investors[name][k]);
+            console.log(seller_id);
+            if(sellers_investors[name][k].investor_id==seller_id){
+                same=true;
+                found=true;
+                break;
+            }
+        }
+
+            id=my_sellers[i].business_id;
+
+
+        arr.push({
+    same : same,
+    found : found,
+    seller_id : id
+});
+}
+
+console.log(arr);
+
+return arr;
+}
+
+function check_for_advise(seller_id){
+    var id='';
+        var arr=[];
+        // for(var i=0; i<advise_sellers.startup.length; i++){
+        //     if(advise_sellers.startup[i].business_id==seller_id){
+        //         same=true;
+        //         break;
+        //     }
+        // }
+        for(var i=0; i<data_advisors.length; i++){
+                var name='advisor_'+data_advisors[i].advisor_id;
+                var same=false;
+                var found=false;
+
+                    for(var k=0; k<advise_investors[name].length;k++){
+                    console.log(advise_investors[name][k]);
+                    console.log(seller_id);
+                    if(advise_investors[name][k].investor_id==seller_id){
+                        same=true;
+                        found=true;
+                        break;
+                    }
+                }
+
+
+
+
+                    id=data_advisors[i].advisor_id;
+
+
+                arr.push({
+            same : same,
+            found : found,
+            advisor_id : id
+        });
+
+
+        }
+
+       console.log(arr);
+
+        return arr;
+
+}
+
+function check_for_just(seller_id){
+var same=false;
+for(var i=0; i<just_investors.length; i++){
+    if(just_investors[i].investor_id==seller_id){
+        same=true;
+        break;
+    }
+}
+return same;
+}
+
+
+
+                    $(document).ready(function() {
+
+                        $(".owl-carousel").owlCarousel({
+                    items:3,
+                    loop:false,
+                    margin:10,
+                    // nav:true,
+                    // navText: ["<img src='{% static 'seller1/images/displayIcon-left.png'%}'>","<img src='{% static 'seller1/images/displayIcon-right.png'%}'>"]
+                  });
+
+                  var in_just=false;
+                //  var in_advise=false;
+                //  var in_advise_str=false;
+                 var in_some = false;
+                var seller_id = '{{seller.investor_id}}'
+                console.log(seller_id);
+                var seller_arr=check_for_seller(seller_id);
+        var advisor_arr = check_for_advise(seller_id)
+        // if(check_for_same(seller_id)){
+        //     break;
+        // }
+        console.log('going to display this one');
+
+        // if(check_for_advise(seller_id)){
+        //     in_advise=true;
+        //     in_some = true;
+        // }
+        if(check_for_just(seller_id)){
+            in_just=true;
+            in_some = true;
+        }
+        for(var kk=0; kk<seller_arr.length; kk++){
+            if(seller_arr[kk].found){
+                in_some=true;
+                break;
+            }
+        }
+        for(var kk=0; kk<advisor_arr.length; kk++){
+            if(advisor_arr[kk].found){
+                in_some=true;
+                break;
+            }
+        }
+                                if(check_for_same(seller_id)){
+                                    console.log('same' + seller_id);
+                                    $('#button_cart').hide()
+
+                                }else{
+                                    $('#button_cart').show()
+                                    $('#button_cart').append(
+                                        "{% if user.is_authenticated %}"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                        //  (in_advise ? "data-advise='True'" : "data-advise='False'")+
+                        //  (in_advise_str ? "data-advise_str='True'" : "data-advise_str='False'")+
+                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                     " href='#my_modal'>"+
+                            (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           + "{% endif %}"
+
+                    )
+                    $('#make_contact').append(
+                        "<a href='/chat/make-invest?investor_id='"+"{{seller.investor_id}}"+"' ><button class='btn-cart-contact' >Contact the Investor</button></a>"
+                    )
+                    for(var k=0; k<seller_arr.length; k++){
+            var attr = 'cart_seller_'+seller_arr[k].seller_id;
+            var cart_seller_id = seller_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+        for(var k=0; k<advisor_arr.length; k++){
+            var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
+            var cart_seller_id = advisor_arr[k].found;
+            console.log(cart_seller_id);
+            if(cart_seller_id){
+                $('#cart_'+seller_id).attr(attr, 'True');
+            }
+            else{
+                $('#cart_'+seller_id).attr(attr, 'False');
+            }
+        }
+                                }
+
+                            });
+
+
+                            $('#my_modal').on('show.bs.modal', function(e) {
+        console.log('modal clicked');
+        $('#my_modal').html('');
+    var seller_id = $(e.relatedTarget).data('seller_id');
+    var in_just = $(e.relatedTarget).attr('data-just');
+    console.log(in_just);
+    var in_advise = $(e.relatedTarget).attr('data-advise');
+    console.log(in_advise);
+    var in_advise_str = $(e.relatedTarget).attr('data-advise_str');
+    console.log(in_advise_str);
+    // var in_advise = $(e.relatedTarget).attr('data-advise');
+    // console.log(in_advise);
+    console.log(seller_id);
+    // $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
+    //     $(element).attr('seller_id', seller_id);
+    // });
+        $('#my_modal').append(
+        "<div class='modal-dialog modal-lg modal-dialog-centered'>"
+        + "<div class='modal-content'>"
+        + "<div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>"
+        +        "<a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>"
+        +       " <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
+        +   "</div>"
+       +   "<div id='modal_body' class='modal-body'>"
+
+       +   "</div>"
+      +  "</div>"
+       + "</div>"
+        );
+
+        $('#my_modal').find('#modal_body').append(
+            "<div id='modal_just'>"
+    +"<button id='just_add'"+
+    (in_just=='True' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' class='btn-sellers btn-with-control btn-sellers-modal' onclick='just_add(this);'>Just Add</button>"
+    +"<button id='just_remove'"+
+    (in_just=='False' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='just_remove(this);'>Just Remove</button>"
+    +"</div>"
+        );
+
+
+
+        for(var k=0; k<data_advisors.length; k++){
+
+        // adv_busi=true;
+        var advisor_id=data_advisors[k].advisor_id;
+        var first_name=data_advisors[k].first_name;
+        var attr = 'cart_advisor_'+advisor_id;
+        var in_advise = $(e.relatedTarget).attr(attr);
+        $('#my_modal').find('#modal_body').append(
+            "<div id='modal_advise'>"
+            + "<button id='advisor_add_"+advisor_id+"'"+
+            (in_advise=='True' ? "style='display:none'":"style='display:block'")+
+            " advisor_id='"+advisor_id+"' seller_id='"+seller_id+"' class='btn-sellers btn-with-control btn-sellers-modal' onclick='add_to_advise_cart(this);'   >Add to "+first_name+"</button>"
+            + "<button id='advisor_remove_"+advisor_id+"'"+
+            (in_advise=='False' ? "style='display:none'":"style='display:block'")+
+            " advisor_id='"+advisor_id+"' seller_id='"+seller_id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='remove_from_advise_cart(this);'   >Remove from "+first_name+"</button>"
+            +"</div>"
+        );
+
+
+        }
+
+
+        for(var tk=0; tk<my_sellers.length;tk++){
+        var id=my_sellers[tk].business_id;
+        var title = my_sellers[tk].title;
+        var attr = 'cart_seller_'+id;
+        var in_seller = $(e.relatedTarget).attr(attr);
+
+        $('#my_modal').find('#modal_body').append(
+        "<div id='modal_seller_"+id+"'>"
+        +"<button id='seller_add_"+id+"'"+
+        (in_seller=='True' ? "style='display:none;'" : "style='display:block;'")+
+        " seller_id='"+seller_id+"' seller_cart='"+id+"'  class='btn-sellers btn-with-control btn-sellers-modal' onclick='seller_add(this);'>Add to "+title+"</button>"
+        +"<button id='seller_remove_"+id+"'"+
+        (in_seller=='False' ? "style='display:none;'" : "style='display:block;'")+
+        " seller_id='"+seller_id+"' seller_cart='"+id+"' class='btn-cus-success btn-with-control btn-sellers-modal' onclick='seller_remove(this);'>Remove from "+title+"</button>"
+        +"</div>"
+        );
+
+        }
+
+
+
+
+    });
+
+
+
+</script>
+
+<script>
+
+
+           var a = screen.width;
+           console.log(a);
+           if(a<2000 && a>1500){
+                $("body").css("zoom","90%");
+           }
+           else if(a<1500 && a>1400){
+                 $("body").css("zoom","80%");
+           }
+           else if(a<1400 && a>1100){
+                 $("body").css("zoom","65%");
+           }
+           else if(a<1100 && a>900){
+                 $("body").css("zoom","67%");
+           }
+           else{
+                $("body").css("zoom","50%");
+           }
+
+
+
+
+
+</script>
+
+
+{% if user.is_authenticated %}
+<script>
+    $(document).ready(function(){
+        $('#login_icon_b').css('display','none');
+        $('#loggedin_icon_b').css('display','block');
+        $('#login_icon_s').css('display','none');
+        $('#loggedin_icon_s').css('display','block');
+        // name="{{user.profile.photo.name}}";
+        // name = "/media/"+name;
+        if("{{user.profile.social}}"=="True"){
+            name = "{{user.profile.photo_url}}"
+        }else{
+            name = "/media/"+"{{user.profile.photo.name}}";
+        }
+        console.log(name)
+        console.log('{{user.profile.photo_url}}');
+        $('#prof_pic_b').attr('src',name);
+        $('#prof_pic_s').attr('src',name);
+    });
+</script>
+
+
+{% endif %}
+
+<script>
+$(document).ready(function(){
+
+    $.ajax({
+        type:'GET',
+        url:'/seller/fetch-invest/{{seller.investor_id}}',
+        success:function(data){
+             console.log(data.contact_number);
+             if(data.photo_link != ''){
+                name="/media/"+data.photo_link;
+                console.log(data.photo_link);
+                console.log(data.photo_url);
+             }
+             else{
+                name=data.photo_url;
+             }
+             
+             $('#master_tagger1').attr('src',name);
+             namer=data.first_name+" "+data.last_name
+             $('#master_tagger2').html(namer);
+             $('#master_tagger3').html(data.country);
+             name2="/seller/fetch-detail/"+data.profile_id;
+             $('#master_tagger4').attr('href',name2);
+
+             // photo_link = invest.photo.name
+             // first_name = invest.first_name
+             // last_name = invest.last_name
+             // contact_number = invest.contact_number
+             // social= invest.social
+             // country= invest.country
+             // premium = invest.premium
+
+
+
+            }
+
+    })
+
+});
+
+
+</script>
+
+
+<script>
+
+
+let startDate = new Date();
+let elapsedTime = 0;
+
+// const focus = function() {
+//     startDate = new Date();
+// };
+
+// const blur = function() {
+//     const endDate = new Date();
+//     const spentTime = endDate.getTime() - startDate.getTime();
+//     spentTime=spentTime/1000
+//     elapsedTime += spentTime;
+// };
+
+// const beforeunload = function() {
+//     const endDate = new Date();
+//     const spentTime = endDate.getTime() - startDate.getTime();
+//     spentTime=spentTime/1000
+//     elapsedTime += spentTime;
+//     $.ajax({
+//             type:'GET',
+//             url:'/seller/save_view',
+//             data:{
+//                 base_type:'Investor',
+
+//                 type:'{{seller.about_seller}}',
+//                 id:'{{seller.investor_id}}',
+//                 category:'{{business.all_category}}',
+//                 duration:elapsedTime
+//             }
+//         })
+//     // elapsedTime contains the time spent on page in milliseconds
+// };
+
+$(window).focus(function() {
+    startDate = new Date();
+})
+
+$(window).blur(function() {
+    const endDate = new Date();
+    var spentTime = endDate.getTime() - startDate.getTime();
+    spentTime=spentTime/1000
+    elapsedTime += spentTime;
+    console.log(elapsedTime)
+})
+
+$(window).on('unload',function(){
+    const endDate = new Date();
+    var spentTime = endDate.getTime() - startDate.getTime();
+    spentTime=spentTime/1000
+    elapsedTime += spentTime;
+    $.ajax({
+            type:'GET',
+            url:'/seller/save_view',
+            data:{
+                base_type:'Investor',
+                type:'{{seller.about_seller}}',
+                id:'{{seller.investor_id}}',
+                category:'{{business.all_category}}',
+                duration:elapsedTime
+            },
+            async:false
+        })
+})
+
+
+
+// window.addEventListener('focus', focus);
+// window.addEventListener('blur', blur);
+// window.addEventListener('beforeunload', beforeunload);
+
+   
+</script>
+
+
+
+
+</body>
+
+</html>

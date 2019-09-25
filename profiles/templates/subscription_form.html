@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <select name="plans" >
+            {% if user.profile.trial %}
+            <option value="trial" >Free Trial period for 1 Month</option>
+            {% endif %}
+            <option value="1-month" >1-Month subscription ($10 USD/Mon)</option>
+            <option value="6-month" >6-Month subscription Save $10 ($50 USD/Mon)</option>
+            <option value="1-year" >1-Year subscription Save $30 ($90 USD/Mon)</option>
+        </select>
+        <input type="submit" value="Subscribe">
+    </form>
+</body>
+</html>

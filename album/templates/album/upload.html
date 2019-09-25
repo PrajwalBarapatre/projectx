@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static "album/css/dropzone.css" %}">
+    <script src="{% static "album/js/dropzone.js" %}"></script>
+
+</head>
+<style>
+.container{
+ margin: 0 auto;
+ width: 50%;
+}
+
+.content{
+ padding: 5px;
+ margin: 0 auto;
+}
+.content span{
+ width: 250px;
+}
+
+.dz-message{
+ text-align: center;
+ font-size: 28px;
+}
+</style>
+
+ <body >
+  <div class="container" >
+   <div class='content'>
+    <form action="{% url "album:basic_upload"%}" class="dropzone" id="dropzonewidget">
+ 
+    </form> 
+   </div> 
+  </div>
+ </body>
+
+<script>
+
+Dropzone.autoDiscover = false;
+
+
+
+$(".dropzone").dropzone({
+   dictDefaultMessage: "Add Your Image here",
+      init: function() {   
+     this.on("addedfile", function(file) {
+       if (this.files.length) {
+         var _i, _len, _ref = this.files.slice();
+         for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) {
+                            if (_ref[_i].name === file.name && _ref[_i].size === file.size) {
+                                var r = confirm("Overrite existing file");
+                                if (r == true) {
+                                    this.removeFile(_ref[_i]);
+                                }
+                                
+                            }
+                        }
+                    }
+                });
+    }, 
+ addRemoveLinks: true,
+    removedfile: function (file) {
+       $.ajax({
+     type: 'POST',
+     url: '{% url "album:remove"%}',
+     data: {name: file.name,reque:2},
+     sucess: function(data){
+        console.log('success: ' + data);
+     }
+   }); 
+			var _ref;
+			return(_ref = file.previewElement) != null
+				? _ref.parentNode.removeChild(file.previewElement)
+				: void 0;   
+    },
+
+});
+</script>
+
+
+
+</html>

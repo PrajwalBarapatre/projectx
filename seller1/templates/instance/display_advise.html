@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bverge | Business Advisor Display</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+        <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+          #carousel {
+          width: 100%;
+          height: 150px;
+
+
+          overflow: visible;
+          white-space:nowrap;
+      }
+
+      #carousel .slide {
+          display: inline-block;
+      }
+
+      .sizer{
+          height:100%;
+          width:100%;
+      }
+
+      .labels {
+       margin-top:-3px;
+       padding: 5px;
+       background-color: #ffff00;
+       position: absolute;
+      visibility: visible;
+      z-index: 1030;
+  }
+  .labels.active .inner {
+      background: cyan;
+  }
+  .labels.hover .inner {
+      background-color: yellow;
+  }
+
+
+  .labels .arrow{
+      border-top-color: #000000;
+      border-right-color: rgba(0,0,0,0);
+      border-bottom-color: rgba(0,0,0,0);
+      border-left-color: rgba(0,0,0,0);
+      border-width: 5px 5px 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -5px;
+      border-style: solid;
+      height: 0;
+      position: absolute;
+      width: 0;
+  }
+  .labels .inner{
+      background-color: #000000;
+      border-radius: 4px;
+      color: #FFFFFF;
+      max-width: 200px;
+      padding: 3px 8px;
+      text-align: center;
+      text-decoration: none;
+  }
+
+
+  .labels.active .arrow {
+
+      border-top-color: #00ffff;
+      border-right-color: rgba(0,255,255,0);
+      border-bottom-color: rgba(0,255,255,0);
+      border-left-color: rgba(0,255,255,0);
+
+  }
+  .labels.hover .arrow {
+      border-top-color: #ffff00;
+      border-right-color: rgba(255,255,0,0);
+      border-bottom-color: rgba(255,255,0,0);
+      border-left-color: rgba(255,255,0,0);
+  }
+
+</style>
+
+<body>
+
+    {% include "sidecontainer.html" %}
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            {% include "seller1/topcontainer1.html" %}
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center mt-70" style="background: url('/static/seller1/images/display-banner.png');background-size: cover">
+                <h2 class="f-36 py-60 ff-pd f-w-bold c-f">View Business Advisor</h2>
+            </div>
+        </div>
+        <div class="row bg-f2 py-3">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-2">
+                <button id='Incubators' class="btn-sellers w-100 btn-sellers-tab btn-sellers-active" page='1' onclick="displayTab(this, 0);">Incubators</button>
+              </div>
+              <div class="col-md-2">
+                <button id='Accelerators' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 1);">Accelerators</button>
+              </div>
+              <div class="col-md-2">
+                <button id='Mentors' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 2);">Mentors</button>
+              </div>
+              <div class="col-md-2">
+                <button id='Institutions' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 3);">Institutions</button>
+              </div>
+              <div class="col-md-2">
+                <button id='Legal_Advisor' class="btn-sellers w-100 btn-sellers-tab" page='1' onclick="displayTab(this, 4);">Legal Advisor</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center pb-3 pt-2">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-md-3">
+                  <input type="text" class="form-control h-35px f-13 ff-p mb-0" id='location' >
+                  <input hidden type="text" id="city">
+                  <input hidden type="text" id="state">
+                  <input hidden type="text" id="country">
+                </div>
+                <div class="col-md-3">
+                  <select id="category" onchange="get_sub_sectors(this);" class="col-sm-12 h-35px form-control f-13 ff-p">
+                      {% for x in sectors %}
+                          <option value="{{x.sectors}}">{{x.sectors}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select id="sub_category" class="col-sm-12 h-35px form-control f-13 ff-p">
+
+                  </select>
+                </div>
+                <div class="col-md-3 text-left">
+                    <button id='Search' class="btn btn-primary" page='1' onclick="get_sellers(this);">Search</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 pr-30px">
+              <select class="col-md-4 offset-md-8 form-control f-13 ff-p">
+                  <option value="volvo">Sort By</option>
+                  <option value="saab">Near-By</option>
+                  <option value="saab">Most Recent</option>
+                  <option value="saab">Most Popular</option>
+                  <option value="saab">Most Relevant</option>
+                  <option value="saab">A-Z</option>
+                  <option value="saab">Z-A</option>
+              </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pb-30">
+
+
+
+                <div id="tab_Incubators" class=  "custom_tab row pt-30" >
+                    <!-- card start -->
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Accelerators" class="custom_tab row pt-30" >
+                    <!-- card start -->
+
+                    Equity
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Mentors" class="custom_tab row pt-30" >
+                    <!-- card start -->
+
+                    Loan
+                    <!-- end card  -->
+                </div>
+
+                <div id="tab_Institutions" class="custom_tab row pt-30" >
+                    <!-- card start -->
+
+                    Asset
+                    <!-- end card  -->
+                </div>
+                <div id="tab_Legal_Advisor" class="custom_tab row pt-30" >
+                    <!-- card start -->
+
+                    Asset
+                    <!-- end card  -->
+                </div>
+
+
+
+
+
+
+                <!--start mobile view only -->
+
+
+
+    </div>
+
+
+    <!-- Modal -->
+
+    <div class="modal" id="my_modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Modal header</h4>
+            </div>
+            <div class="modal-body">
+                <button id="just_add" class="btn-sellers btn-sellers-modal" onclick="just_add(this);" >Just Add</button><br>
+              {% ifequal data_investor.exist 'True' %}
+                <button id="{{data_investor.investor_id}}" class="btn-sellers btn-sellers-modal" onclick="add_to_invest_cart(this);"   >Add to {{data_investor.type}} investor</button>
+              {% endifequal %}
+              {% ifnotequal data_investor.exist 'True' %}
+              <a>
+                <button class="btn-sellers btn-sellers-modal"   >create an investor</button>
+            </a>
+              {% endifnotequal %}
+
+              {% for advisor in data_advisors %}
+                {% ifequal advisor.type 'Business' %}
+                <button id="{{advisor.advisor_id}}" class="btn-sellers btn-sellers-modal" onclick="add_to_advise_cart(this);"   >Add to {{advisor.first_name}} name </button>
+                {% endifequal %}
+              {% endfor %}
+              <a>
+                <button class="btn-sellers btn-sellers-modal">create an advisor</button>
+            </a>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Pages -->
+    <div class="row text-center pt-35 pb-35">
+            <div id="carousel" class="carousel slide carousel-inner">
+
+
+
+
+
+
+
+
+                </div>
+    </div>
+    <div class="container-fluid bg-ea">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 0%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+
+        .carousel-control-next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 0%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 4%;
+            color: #fff;
+            text-align: center;
+            opacity: .5;
+        }
+    </style>
+    <script src="{% static 'investor/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'investor/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'investor/js/popper.min.js' %}"></script>
+    <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
+    <script>
+                function myFunctions() {
+                var x = document.getElementById("Specifications");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    document.getElementById('img').className ='selected-side-icon-right';
+                    $('#map_parent').css('width','50%');
+                    $('#map_parent').css('margin-left','50%');
+                    console.log("hello1");
+
+                } else {
+                    x.style.display = "none";
+                    document.getElementById('img').className ='selected-side-icon-left';
+                    $('#map_parent').css('width','100%');
+                    $('#map_parent').css('margin-left','0%');
+                    console.log("hello2");
+                }
+            }
+
+
+    </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+<!-- <script src="https://github.com/warent/markerwithlabel/blob/master/src/markerwithlabel.js"></script> -->
+    <script>
+
+
+            // Note: This example requires that you consent to location sharing when
+            // prompted by your browser. If you see the error "The Geolocation service
+            // failed.", it means you probably did not give permission for the browser to
+            // locate you.
+               var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
+            // address_auto = document.querySelector('#id_address_line');
+            city1 = document.querySelector('#city');
+            state1 = document.querySelector('#state');
+            country1 = document.querySelector('#country');
+
+            function initMap() {
+
+                            var input1 = document.querySelector('#location');
+                            // var input2 = document.querySelector('#id_address_line2');
+                            // var input3 = document.querySelector('#id_address_line3');
+                            var options = {
+                                types: ['(cities)'] //this should work !
+                            };
+                            var allmarkers=[];
+                            var marker_ref={}
+                            var autocomplete1 = new google.maps.places.Autocomplete(input1,options);
+                            // var autocomplete2 = new google.maps.places.Autocomplete(input2,options);
+                            // var autocomplete3 = new google.maps.places.Autocomplete(input3,options);
+
+                        autocomplete1.addListener('place_changed', function() {
+                            var place = autocomplete1.getPlace();
+                            var bounds = new google.maps.LatLngBounds();
+                            bounds.extend(place.geometry.location);
+
+
+                            console.log(place.geometry.location);
+                            console.log(place.address_components[1].long_name);
+                            console.log(place.address_components[2].long_name);
+                            console.log(place.address_components[3].long_name);
+                            city1.val(place.address_components[1].long_name);
+                            state1.val(place.address_components[2].long_name);
+                            country1.val(place.address_components[3].long_name);
+
+                        });
+
+
+                        $("#category option[value='{{category}}']").attr('selected','selected').change();
+            // get_sub_sectors(ele);
+
+        city1.val('{{city}}');
+            state1.val('{{state}}');
+            country1.val('{{country}}');
+            console.log('{{sub_category}}');
+            console.log($('#sub_category'));
+            $("option[value='{{sub_category}}']").attr('selected','selected');
+            $('#sub_category').find('option').each(function(index, element){
+                console.log($(element));
+                if($(element).val()=='{{sub_category}}'){
+                    $(element).attr('selected','selected');
+                }
+            })
+            console.log();
+
+            console.log($('#sub_category').val());
+
+            get_sellers($('#Search'), initial=true);
+
+
+            }
+
+          </script>
+
+<script>
+    var city1 = $('#city');
+    var state1 = $('#state');
+    var country1 = $('#country');
+    var category1 = $('#category');
+    var sub_category1 = $('#sub_category');
+    initialTab(0);
+
+    var removeByAttr = function(arr, attr, value){
+    var i = arr.length;
+    while(i--){
+       if( arr[i]
+           && arr[i].hasOwnProperty(attr)
+           && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+           arr.splice(i,1);
+
+       }
+    }
+    return arr;
+}
+
+    var data_investor = {{data_investor| safe}};
+    console.log(data_investor);
+    var data_advisors = {{data_advisors|safe}};
+
+
+    var my_sellers = {{my_sellers| safe}};
+    console.log(my_sellers);
+
+    var sellers_advisors = {{sellers_advisors| safe}}
+    console.log(sellers_advisors);
+
+    var invest_advisors = {{invest_advisors| safe}};
+    console.log(invest_advisors);
+
+    var just_advisors = {{just_advisors| safe}};
+    console.log(just_advisors);
+
+    $('#my_modal').on('show.bs.modal', function(e) {
+        console.log('modal clicked');
+        $('#my_modal').html('');
+    var seller_id = $(e.relatedTarget).data('seller_id');
+    var in_just = $(e.relatedTarget).attr('data-just');
+    console.log(in_just);
+    var in_invest = $(e.relatedTarget).attr('data-invest');
+    console.log(in_invest);
+    // var in_advise = $(e.relatedTarget).attr('data-advise');
+    // console.log(in_advise);
+    console.log(seller_id);
+    // $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
+    //     $(element).attr('seller_id', seller_id);
+    // });
+        $('#my_modal').append(
+            "<div class='modal-dialog'>"
+       + "<div class='modal-content'>"
+       +   "<div class='modal-header'>"
+       +     "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
+       +       "<h4 class='modal-title'>Modal header</h4>"
+       +   "</div>"
+       +   "<div id='modal_body' class='modal-body'>"
+
+       +   "</div>"
+       +   "<div class='modal-footer'>"
+       +     "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+       +   "</div>"
+      +  "</div>"
+       + "</div>"
+        );
+
+        $('#my_modal').find('#modal_body').append(
+            "<div id='modal_just'>"
+    +"<button id='just_add'"+
+    (in_just=='True' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' class='btn-sellers btn-sellers-modal' onclick='just_add(this);'>Just Add</button><br>"
+    +"<button id='just_remove'"+
+    (in_just=='False' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' class='btn-sellers btn-sellers-modal' onclick='just_remove(this);'>Just Remove</button><br>"
+    +"</div>"
+        );
+
+    var investor_exist = data_investor.exist;
+    var investor_type = data_investor.type;
+    if(investor_exist=='True'){
+        $('#my_modal').find('#modal_body').append(
+        "<div id='modal_invest'>"
+        +"<button id='invest_add'"+
+        (in_invest=='False' ? "style='display:block'":"style='display:none'")+
+        " seller_id='"+seller_id+"' class='btn-sellers btn-sellers-modal' onclick='add_to_invest_cart(this);'   >Add to "+investor_type +"investor</button>"+
+        "<button id='invest_remove'"+
+        (in_invest=='True' ? "style='display:block'":"style='display:none'")+
+        " seller_id='"+seller_id+"' class='btn-sellers btn-sellers-modal' onclick='remove_from_invest_cart(this);'   >Remove from "+investor_type +"investor</button>"
+        +"</div>"
+    );
+    }
+    else{
+        $('#my_modal').find('#modal_body').append(
+            "<div id='modal_invest'>"
+                +    "<button class='btn-sellers'>create an investor</button>"
+            +"</div>"
+        );
+    }
+
+
+    for(var tk=0; tk<my_sellers.length;tk++){
+        var id=my_sellers[tk].business_id;
+        var title = my_sellers[tk].title;
+        var attr = 'cart_seller_'+id;
+        var in_seller = $(e.relatedTarget).attr(attr);
+
+            $('#my_modal').find('#modal_body').append(
+            "<div id='modal_seller_"+id+"'>"
+    +"<button id='seller_add_"+id+"'"+
+    (in_seller=='True' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' seller_cart='"+id+"'  class='btn-sellers btn-sellers-modal' onclick='seller_add(this);'>Add to "+title+"</button><br>"
+    +"<button id='seller_remove_"+id+"'"+
+    (in_seller=='False' ? "style='display:none;'" : "style='display:block;'")+
+    " seller_id='"+seller_id+"' seller_cart='"+id+"' class='btn-sellers btn-sellers-modal' onclick='seller_remove(this);'>Remove from "+title+"</button><br>"
+    +"</div>"
+        );
+
+    }
+
+    $('#my_modal').find('#modal_body').append(
+            "<div >"
+                +    "<button class='btn-sellers'>Add a seller</button>"
+            +"</div>"
+        );
+
+
+
+    });
+
+
+
+    function displayTab(ele, n) {
+            var currTab, k;
+            var id = ele.id;
+            var element = document.getElementById(id);
+            console.log(element);
+          // This function will display the specified tab of the form...
+
+            currTab=n;
+            console.log(currTab);
+
+          var i;
+          var x = document.getElementsByClassName("custom_tab");
+          console.log(x);
+          for(i=0; i<x.length; i++){
+              x[i].style.display = "none";
+              console.log(x[i]);
+          }
+          x[currTab].style.display = "block";
+          var zz = document.getElementsByClassName("btn-sellers-tab");
+          for(var t=0; t<zz.length; t++){
+            zz[t].className=zz[t].className.replace('btn-sellers-active', '');
+              console.log(zz[t]);
+          }
+          console.log(zz[currTab]);
+          zz[currTab].className += ' btn-sellers-active' ;
+          get_sellers(ele);
+          //... and fix the Previous/Next buttons:
+
+
+          //... and run a function that will display the correct step indicator:
+
+        }
+
+        function initialTab(n) {
+            var currTab, k;
+
+          // This function will display the specified tab of the form...
+
+            currTab=n;
+            console.log(currTab);
+
+          var i;
+          var x = document.getElementsByClassName("custom_tab");
+          console.log(x);
+          for(i=0; i<x.length; i++){
+              x[i].style.display = "none";
+              console.log(x[i]);
+          }
+          x[currTab].style.display = "block";
+          var zz = document.getElementsByClassName("btn-sellers-tab");
+          for(var t=0; t<zz.length; t++){
+            zz[t].className=zz[t].className.replace('btn-sellers-active', '');
+              console.log(zz[t]);
+          }
+          console.log(zz[currTab]);
+          zz[currTab].className += ' btn-sellers-active' ;
+
+
+          //... and fix the Previous/Next buttons:
+
+
+          //... and run a function that will display the correct step indicator:
+
+        }
+
+    function get_sub_sectors(ele){
+    var id = ele.id;
+    $.ajax({
+        url: "/metadata/get_sub_sector/",
+        data: {
+            'sector': $('#' + id).val()
+        },
+        success: function(output){
+            var e = $('#sub_' + id);
+            e.html(output);
+        }
+    });
+}
+
+    function just_add(ele){
+        var id = ele.id;
+        id = '#'+id;
+        console.log(id);
+        var seller_id = $(id).attr('seller_id');
+
+        // seller_id=parseInt(seller)
+        var form_data = new FormData()
+        form_data.append('seller_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:just_add" %}',
+            data: form_data,
+            success: function(data){
+                console.log('Added to cart');
+                $(id).hide();
+        $('#just_remove').show();
+        $('#cart_'+seller_id).attr('data-just', 'True');
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        if($('#cart_'+seller_id).attr('data-just')=='True' || $('#cart_'+seller_id).attr('data-invest')=='True' || in_seller=='True'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+            );
+        }
+
+        just_advisors.push({
+            advisor_id: parseInt(seller_id)
+        });
+
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+    }
+
+    function just_remove(ele){
+        var id = ele.id;
+        id = '#'+id;
+        console.log(id);
+        var seller_id = $(id).attr('seller_id');
+
+        // seller_id=parseInt(seller)
+        var form_data = new FormData()
+        form_data.append('seller_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:just_remove" %}',
+            data: form_data,
+            success: function(data){
+                console.log('Removed from cart');
+                $(id).hide();
+        $('#just_add').show();
+        $('#cart_'+seller_id).attr('data-just', 'False');
+        var in_seller='False';
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        if($('#cart_'+seller_id).attr('data-just')=='False' && $('#cart_'+seller_id).attr('data-invest')=='False' && in_seller=='False'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+            );
+        }
+        removeByAttr(just_advisors, 'advisor_id', parseInt(seller_id));
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+    }
+
+
+
+    function seller_add(ele){
+        var id = ele.id;
+        id = '#'+id;
+        var seller_id = $(id).attr('seller_id');
+        var cart_seller_id = $(id).attr('seller_cart');
+        var form_data = new FormData()
+        form_data.append('seller_id', cart_seller_id);
+        form_data.append('advisor_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:add_sell_cart" %}',
+            data: form_data,
+            success: function(data){
+                $(id).hide();
+        $('#seller_remove_'+cart_seller_id).show();
+        $('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
+        console.log('Added to cart');
+        var in_seller='False';
+        var nname= 'seller_'+cart_seller_id;
+        sellers_advisors[nname].push({
+            advisor_id: parseInt(seller_id)
+        });
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        if($('#cart_'+seller_id).attr('data-just')=='True' || $('#cart_'+seller_id).attr('data-invest')=='True' || in_seller=='True'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+            );
+        }
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+
+    }
+
+    function seller_remove(ele){
+        var id = ele.id;
+        id = '#'+id;
+        var seller_id = $(id).attr('seller_id');
+        var cart_seller_id = $(id).attr('seller_cart');
+        var form_data = new FormData()
+        form_data.append('seller_id', cart_seller_id);
+        form_data.append('advisor_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:remove_sell_cart" %}',
+            data: form_data,
+            success: function(data){
+                $(id).hide();
+        $('#seller_add_'+cart_seller_id).show();
+        $('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
+        console.log('removed from cart');
+        var in_seller='False';
+        var nname= 'seller_'+cart_seller_id;
+        removeByAttr(sellers_advisors[nname], 'advisor_id', parseInt(seller_id))
+        console.log('Removed from cart');
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        if($('#cart_'+seller_id).attr('data-just')=='False' && $('#cart_'+seller_id).attr('data-invest')=='False' && in_seller=='False'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+            );
+        }
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+
+    }
+
+
+
+
+    function add_to_invest_cart(ele){
+        var id = ele.id;
+        id = '#'+id;
+        var seller_id = $(id).attr('seller_id');
+        var form_data = new FormData()
+        form_data.append('advisor_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:add_invest_cart" %}',
+            data: form_data,
+            success: function(data){
+                $(id).hide();
+        $('#invest_remove').show();
+        $('#cart_'+seller_id).attr('data-invest', 'True');
+        var in_seller='False';
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        console.log('Added to cart');
+        if($('#cart_'+seller_id).attr('data-just')=='True' || $('#cart_'+seller_id).attr('data-invest')=='True' || in_seller=='True'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>"
+            );
+        }
+        invest_advisors.push({
+            advisor_id: parseInt(seller_id)
+        });
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+    }
+
+
+    function remove_from_invest_cart(ele){
+        var id = ele.id;
+        id = '#'+id;
+        var seller_id = $(id).attr('seller_id');
+        var form_data = new FormData()
+        form_data.append('advisor_id', seller_id);
+        form_data.append('base_type', 'Advisor');
+        form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        $.ajax({
+            type:'POST',
+            url: '{% url "seller1:remove_invest_cart" %}',
+            data: form_data,
+            success: function(data){
+                $(id).hide();
+        $('#invest_add').show();
+        $('#cart_'+seller_id).attr('data-invest', 'False');
+        var in_seller='False';
+        var check_arr = check_for_seller(seller_id);
+        for(var p=0; p< check_arr.length; p++){
+            if(check_arr[p].found){
+                in_seller='True'
+                break;
+            }
+        }
+        if($('#cart_'+seller_id).attr('data-just')=='False' && $('#cart_'+seller_id).attr('data-invest')=='False' && in_seller=='False'){
+            $('#cart_'+seller_id).html('');
+            $('#cart_'+seller_id).append(
+                "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>"
+            );
+        }
+        removeByAttr(invest_advisors, 'advisor_id', parseInt(seller_id))
+        console.log('Removed from cart');
+            },
+            processData: false,
+        contentType: false,
+        async:false
+        })
+    }
+
+
+    function check_for_same(seller_id){
+        var same=false;
+        if(data_advisors.business){
+            for(var i=0; i<data_advisors.business.length; i++){
+            if(data_advisors.business[i].advisor_id==seller_id){
+                same=true;
+                break;
+            }
+        }
+        }
+
+        return same;
+    }
+
+    function check_for_seller(seller_id){
+
+        var id='';
+        var arr=[];
+        // for(var i=0; i<advise_sellers.startup.length; i++){
+        //     if(advise_sellers.startup[i].business_id==seller_id){
+        //         same=true;
+        //         break;
+        //     }
+        // }
+        for(var i=0; i<my_sellers.length; i++){
+                var name='seller_'+my_sellers[i].business_id;
+                var same=false;
+                var found=false;
+                for(var k=0; k<sellers_advisors[name].length;k++){
+                    console.log(sellers_advisors[name][k]);
+                    console.log(seller_id);
+                    if(sellers_advisors[name][k].advisor_id==seller_id){
+                        same=true;
+                        found=true;
+                        break;
+                    }
+                }
+
+                    id=my_sellers[i].business_id;
+
+
+                arr.push({
+            same : same,
+            found : found,
+            seller_id : id
+        });
+        }
+
+       console.log(arr);
+
+        return arr;
+    }
+
+    function check_for_invest(seller_id){
+        var same=false;
+        for(var i=0; i<invest_advisors.length; i++){
+            if(invest_advisors[i].advisor_id==seller_id){
+                same=true;
+                break;
+            }
+        }
+        return same;
+    }
+
+    function check_for_just(seller_id){
+        var same=false;
+        for(var i=0; i<just_advisors.length; i++){
+            if(just_advisors[i].advisor_id==seller_id){
+                same=true;
+                break;
+            }
+        }
+        return same;
+    }
+
+    function get_sellers(ele, initial=false){
+       console.log('inside get_sellers');
+       var id = ele.id;
+       id = '#'+id;
+       var page = $(id).attr('page');
+       var page_int = parseInt(page)-1;
+       var type = ''
+       var sub_category = ''
+    if(initial){
+        sub_category='{{sub_category}}'
+        $('.btn-sellers-tab').each(function(index, element){
+            $(element).removeClass('btn-sellers-active')
+        })
+        $('#{{type}}').addClass('btn-sellers-active');
+    }else{
+        sub_category = sub_category1.val() ;
+    }
+    $('.btn-sellers-active').each(function(index, element){
+        console.log($(element).attr("id"));
+        type = $(element).attr("id");
+        console.log(type);
+    })
+    var category = category1.val();
+
+
+    var city = city1.val();
+    var state = state1.val();
+    var country = country1.val();
+    console.log(category);
+    console.log(sub_category);
+    console.log(country);
+    console.log(state);
+    console.log(city);
+    var form_data = new FormData()
+    form_data.append('category', category);
+    form_data.append('sub_category', sub_category);
+    form_data.append('city', city);
+    form_data.append('state', state);
+    form_data.append('country', country);
+    form_data.append('page', page_int);
+    form_data.append('type', type);
+    var appendto = '#tab_' + type;
+    console.log(appendto);
+    tab = document.querySelector(appendto);
+    form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+    page_int=page_int+1;
+    $.ajax({
+        method: "GET",
+        url:'{% url "seller1:get_advisors"%}',
+        data: {
+            'category' : category,
+            'sub_category' : sub_category,
+            'city' : city,
+            'state' : state,
+            'country' : country,
+            'page' : page_int,
+            'type' : type,
+        },
+        success: function(data){
+            console.log('success');
+            $(appendto).html('');
+            for(i=0; i<data.sellers.length; i++){
+                // define all things you need here and then use in append
+                // do not compute anything in append
+
+                var in_just=false;
+                 var in_invest=false;
+                 var in_some = false;
+                var seller_id = data.sellers[i].advisor.advisor_id;
+                console.log(seller_id);
+                var seller_arr=check_for_seller(seller_id);
+                if(check_for_same(seller_id)){
+                    break;
+                }
+                console.log('going to display this one');
+
+                if(check_for_invest(seller_id)){
+                    in_invest=true;
+                    in_some = true;
+                }
+                if(check_for_just(seller_id)){
+                    in_just=true;
+                    in_some = true;
+                }
+                for(var kk=0; kk<seller_arr.length; kk++){
+                    if(seller_arr[kk].found){
+                        in_some=true;
+                        break;
+                    }
+                }
+
+                switch (data.sellers[i].advisor.about_seller) {
+                    case 'Incubators':
+
+
+
+                var lat = ''
+                var lng = ''
+                var title = ''
+                var about = ''
+                var rev_year= ''
+                var dcity = ''
+                var dcountry = ''
+                var reason = ''
+                var investment = ''
+                var profit_per = ''
+                var foundation = ''
+                var dcategory = ''
+
+
+                console.log('first time');
+                $(appendto).append(
+                    "<div class='info col-sm-6 col-md-6 col-lg-6'>" +
+                "<div class='container-fluid pt-2 pb-2'>" +
+                    "<div class='row'>" +
+                            "<div class='col-sm-5 col-md-5 col-lg-5'>"+
+                                    "<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' data-ride='carousel' data-interval='false'>"
+                                            + "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
+                                            +"</div>"
+                                            + "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
+                                            +     "<span>"
+                                            +         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
+                                            +     "</span>"
+                                            + "</a>"
+                                            + "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
+                                          +       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
+                                           +  "</a>"
+                                     +"</div>"+
+                                "<div class='container-fluid zero-padding'>"+
+                                    "<div class='row pt-3'>"+
+                                        "<div class='col-sm-4 col-3'>"+
+                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"+
+                                            "<span class='f-12 pl-1'>8.5</span>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+
+
+
+                        "<div class='col-sm-7 col-md-7 col-lg-7'>" +
+                            "<div class='ff-p'>" +
+                                "<div class='container-fluid zero-padding'>" +
+                                    "<div class='row'>" +
+                                        "<div class='col-sm-10 col-10 col-md-10 col-lg-10'>" +
+                                            "<a href='/advisor/all_detail/"+seller_id+"'>" +
+                                                "<h4 class='c-19 f-19 f-w-bold' style='margin-top: -0.2vh'>{{model.title}}</h4>" +
+                                            "</a>" +
+                                            "<p class='f-11'>By {{model.first_name}} {{model.last_name}}</p>" +
+                                        "</div>" +
+                                        "{% if user.is_authenticated %}"
+                        +     "<div class='col-sm-2 col-2 col-md-2 col-lg-2'>"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                                         (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                                     " href='#my_modal'>"+
+             (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           +  "</div>"
+                           + "{% endif %}"  +
+                                    "</div>" +
+                                    "<div class='row mt--8'>" +
+                                        "<div class='col-sm-12'>" +
+                                            "<h2 class='f-11 ff-p f-w-bold'>About</h2>" +
+                                            "<p class='f-11 ff-p f-w-100'>{{model.about}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Domain Expertise</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.sub_category1}} | {{model.sub_category2}} | {{model.sub_category3}} </p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Preffered Locations</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.city1}} | {{model.city2}} | {{model.city3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Years of Experience</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.years_exp}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Core Skills</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.skill1}} | {{model.skill2}} | {{model.skill3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Fee / Hour</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.hour_fee}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='row pt-20'>" +
+                        "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>" +
+                        "<div class='col-1 col-sm-1 col-md-1 col-lg-1 bor-b'></div>" +
+                    "</div>" +
+                "</div>" +
+            "</div>"
+
+                );
+
+                for(var k=0; k<seller_arr.length; k++){
+                    var attr = 'cart_seller_'+seller_arr[k].seller_id;
+                    var cart_seller_id = seller_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+
+                for(var tt=0; tt<data.sellers[i].images.length; tt++){
+                      var file_name = data.sellers[i].images[tt].file_name ;
+                      if(tt==0){
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item active'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                      else{
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                  }
+                        break;
+
+                    case 'Accelerators':
+
+                    var seller_id = data.sellers[i].seller.business_id;
+
+                var lat = data.sellers[i].seller.lat;
+                var lng = data.sellers[i].seller.lngt;
+                var title = data.sellers[i].seller.title;
+                var about = data.sellers[i].business.about;
+                var rev_year= data.sellers[i].seller.rev_year;
+                var dcity = data.sellers[i].seller.city;
+                var dcountry = data.sellers[i].seller.country;
+                var reason = data.sellers[i].seller.reason_selling;
+                var investment = data.sellers[i].business.asking_price;
+                var profit_per = parseFloat(data.sellers[i].seller.year_17)/parseFloat(data.sellers[i].seller.rev_year);
+                var foundation = data.sellers[i].seller.name;
+                var dcategory = data.sellers[i].seller.category1;
+                console.log('first time');
+                $(appendto).append(
+                    "<div class='info col-sm-6 col-md-6 col-lg-6'>" +
+                "<div class='container-fluid pt-2 pb-2'>" +
+                    "<div class='row'>" +
+                            "<div class='col-sm-5 col-md-5 col-lg-5'>"+
+                                    "<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' data-ride='carousel' data-interval='false'>"
+                                            + "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
+                                            +"</div>"
+                                            + "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
+                                            +     "<span>"
+                                            +         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
+                                            +     "</span>"
+                                            + "</a>"
+                                            + "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
+                                          +       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
+                                           +  "</a>"
+                                     +"</div>"+
+                                "<div class='container-fluid zero-padding'>"+
+                                    "<div class='row pt-3'>"+
+                                        "<div class='col-sm-4 col-3'>"+
+                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"+
+                                            "<span class='f-12 pl-1'>8.5</span>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+
+
+
+                        "<div class='col-sm-7 col-md-7 col-lg-7'>" +
+                            "<div class='ff-p'>" +
+                                "<div class='container-fluid zero-padding'>" +
+                                    "<div class='row'>" +
+                                        "<div class='col-sm-10 col-10 col-md-10 col-lg-10'>" +
+                                            "<a href='/advisor/all_detail/"+seller_id+"'>" +
+                                                "<h4 class='c-19 f-19 f-w-bold' style='margin-top: -0.2vh'>{{model.title}}</h4>" +
+                                            "</a>" +
+                                            "<p class='f-11'>By {{model.first_name}} {{model.last_name}}</p>" +
+                                        "</div>" +
+                                        "{% if user.is_authenticated %}"
+                        +     "<div class='col-sm-2 col-2 col-md-2 col-lg-2'>"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                                         (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                                     " href='#my_modal'>"+
+             (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           +  "</div>"
+                           + "{% endif %}"  +
+                                    "</div>" +
+                                    "<div class='row mt--8'>" +
+                                        "<div class='col-sm-12'>" +
+                                            "<h2 class='f-11 ff-p f-w-bold'>About</h2>" +
+                                            "<p class='f-11 ff-p f-w-100'>{{model.about}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Domain Expertise</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.sub_category1}} | {{model.sub_category2}} | {{model.sub_category3}} </p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Preffered Locations</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.city1}} | {{model.city2}} | {{model.city3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Years of Experience</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.years_exp}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Core Skills</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.skill1}} | {{model.skill2}} | {{model.skill3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Fee / Hour</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.hour_fee}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='row pt-20'>" +
+                        "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>" +
+                        "<div class='col-1 col-sm-1 col-md-1 col-lg-1 bor-b'></div>" +
+                    "</div>" +
+                "</div>" +
+            "</div>"
+
+                );
+
+                for(var k=0; k<seller_arr.length; k++){
+                    var attr = 'cart_seller_'+seller_arr[k].seller_id;
+                    var cart_seller_id = seller_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+
+                for(var tt=0; tt<data.sellers[i].images.length; tt++){
+                      var file_name = data.sellers[i].images[tt].file_name ;
+                      if(tt==0){
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item active'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                      else{
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                  }
+                   break;
+
+
+
+                    case 'Mentors':
+
+                    var seller_id = data.sellers[i].seller.business_id;
+
+                var lat = data.sellers[i].seller.lat;
+                var lng = data.sellers[i].seller.lngt;
+                var title = data.sellers[i].seller.title;
+                console.log('first time');
+                $(appendto).append(
+                    "<div class='info col-sm-6 col-md-6 col-lg-6'>" +
+                "<div class='container-fluid pt-2 pb-2'>" +
+                    "<div class='row'>" +
+                            "<div class='col-sm-5 col-md-5 col-lg-5'>"+
+                                    "<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' data-ride='carousel' data-interval='false'>"
+                                            + "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
+                                            +"</div>"
+                                            + "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
+                                            +     "<span>"
+                                            +         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
+                                            +     "</span>"
+                                            + "</a>"
+                                            + "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
+                                          +       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
+                                           +  "</a>"
+                                     +"</div>"+
+                                "<div class='container-fluid zero-padding'>"+
+                                    "<div class='row pt-3'>"+
+                                        "<div class='col-sm-4 col-3'>"+
+                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"+
+                                            "<span class='f-12 pl-1'>8.5</span>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+
+
+
+                        "<div class='col-sm-7 col-md-7 col-lg-7'>" +
+                            "<div class='ff-p'>" +
+                                "<div class='container-fluid zero-padding'>" +
+                                    "<div class='row'>" +
+                                        "<div class='col-sm-10 col-10 col-md-10 col-lg-10'>" +
+                                            "<a href='/advisor/all_detail/"+seller_id+"'>" +
+                                                "<h4 class='c-19 f-19 f-w-bold' style='margin-top: -0.2vh'>{{model.title}}</h4>" +
+                                            "</a>" +
+                                            "<p class='f-11'>By {{model.first_name}} {{model.last_name}}</p>" +
+                                        "</div>" +
+                                        "{% if user.is_authenticated %}"
+                        +     "<div class='col-sm-2 col-2 col-md-2 col-lg-2'>"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                                         (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                                     " href='#my_modal'>"+
+             (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           +  "</div>"
+                           + "{% endif %}"  +
+                                    "</div>" +
+                                    "<div class='row mt--8'>" +
+                                        "<div class='col-sm-12'>" +
+                                            "<h2 class='f-11 ff-p f-w-bold'>About</h2>" +
+                                            "<p class='f-11 ff-p f-w-100'>{{model.about}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Domain Expertise</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.sub_category1}} | {{model.sub_category2}} | {{model.sub_category3}} </p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Preffered Locations</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.city1}} | {{model.city2}} | {{model.city3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Years of Experience</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.years_exp}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Core Skills</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.skill1}} | {{model.skill2}} | {{model.skill3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Fee / Hour</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.hour_fee}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='row pt-20'>" +
+                        "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>" +
+                        "<div class='col-1 col-sm-1 col-md-1 col-lg-1 bor-b'></div>" +
+                    "</div>" +
+                "</div>" +
+            "</div>"
+
+                );
+
+                for(var k=0; k<seller_arr.length; k++){
+                    var attr = 'cart_seller_'+seller_arr[k].seller_id;
+                    var cart_seller_id = seller_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+
+                for(var tt=0; tt<data.sellers[i].images.length; tt++){
+                      var file_name = data.sellers[i].images[tt].file_name ;
+                      if(tt==0){
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item active'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                      else{
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                  }
+                        break;
+
+                   case 'Institutions':
+
+                   var seller_id = data.sellers[i].seller.business_id;
+
+                var lat = data.sellers[i].seller.lat;
+                var lng = data.sellers[i].seller.lngt;
+                var title = data.sellers[i].seller.title;
+                console.log('first time');
+                $(appendto).append(
+                    "<div class='info col-sm-6 col-md-6 col-lg-6'>" +
+                "<div class='container-fluid pt-2 pb-2'>" +
+                    "<div class='row'>" +
+                            "<div class='col-sm-5 col-md-5 col-lg-5'>"+
+                                    "<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' data-ride='carousel' data-interval='false'>"
+                                            + "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
+                                            +"</div>"
+                                            + "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
+                                            +     "<span>"
+                                            +         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
+                                            +     "</span>"
+                                            + "</a>"
+                                            + "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
+                                          +       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
+                                           +  "</a>"
+                                     +"</div>"+
+                                "<div class='container-fluid zero-padding'>"+
+                                    "<div class='row pt-3'>"+
+                                        "<div class='col-sm-4 col-3'>"+
+                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"+
+                                            "<span class='f-12 pl-1'>8.5</span>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+
+
+
+                        "<div class='col-sm-7 col-md-7 col-lg-7'>" +
+                            "<div class='ff-p'>" +
+                                "<div class='container-fluid zero-padding'>" +
+                                    "<div class='row'>" +
+                                        "<div class='col-sm-10 col-10 col-md-10 col-lg-10'>" +
+                                            "<a href='/advisor/all_detail/"+seller_id+"'>" +
+                                                "<h4 class='c-19 f-19 f-w-bold' style='margin-top: -0.2vh'>{{model.title}}</h4>" +
+                                            "</a>" +
+                                            "<p class='f-11'>By {{model.first_name}} {{model.last_name}}</p>" +
+                                        "</div>" +
+                                        "{% if user.is_authenticated %}"
+                        +     "<div class='col-sm-2 col-2 col-md-2 col-lg-2'>"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                                         (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                                     " href='#my_modal'>"+
+             (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           +  "</div>"
+                           + "{% endif %}"  +
+                                    "</div>" +
+                                    "<div class='row mt--8'>" +
+                                        "<div class='col-sm-12'>" +
+                                            "<h2 class='f-11 ff-p f-w-bold'>About</h2>" +
+                                            "<p class='f-11 ff-p f-w-100'>{{model.about}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Domain Expertise</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.sub_category1}} | {{model.sub_category2}} | {{model.sub_category3}} </p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Preffered Locations</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.city1}} | {{model.city2}} | {{model.city3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Years of Experience</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.years_exp}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Core Skills</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.skill1}} | {{model.skill2}} | {{model.skill3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Fee / Hour</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.hour_fee}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='row pt-20'>" +
+                        "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>" +
+                        "<div class='col-1 col-sm-1 col-md-1 col-lg-1 bor-b'></div>" +
+                    "</div>" +
+                "</div>" +
+            "</div>"
+
+                );
+
+                for(var k=0; k<seller_arr.length; k++){
+                    var attr = 'cart_seller_'+seller_arr[k].seller_id;
+                    var cart_seller_id = seller_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+
+                for(var tt=0; tt<data.sellers[i].images.length; tt++){
+                      var file_name = data.sellers[i].images[tt].file_name ;
+                      if(tt==0){
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item active'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                      else{
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                  }
+                        break;
+
+
+                    case 'Legal_Advisor':
+
+                   var seller_id = data.sellers[i].seller.business_id;
+
+                var lat = data.sellers[i].seller.lat;
+                var lng = data.sellers[i].seller.lngt;
+                var title = data.sellers[i].seller.title;
+                console.log('first time');
+                $(appendto).append(
+                    "<div class='info col-sm-6 col-md-6 col-lg-6'>" +
+                "<div class='container-fluid pt-2 pb-2'>" +
+                    "<div class='row'>" +
+                            "<div class='col-sm-5 col-md-5 col-lg-5'>"+
+                                    "<div id='carouselExampleControls_"+seller_id+"' class='carousel slide' data-ride='carousel' data-interval='false'>"
+                                            + "<div id='carouselInner_"+seller_id+"' class='carousel-inner'>"
+                                            +"</div>"
+                                            + "<a class='carousel-control-prev' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='prev'>"
+
+                                            +     "<span>"
+                                            +         "<img src="+"{% static 'seller1/images/displayIcon-left.png'%}"+" alt=''>"
+                                            +     "</span>"
+                                            + "</a>"
+                                            + "<a class='carousel-control-next' href='#carouselExampleControls_"+seller_id+"' role='button' data-slide='next'>"
+
+                                          +       "<span><img src="+"{% static 'seller1/images/displayIcon-right.png'%}"+" alt=''></span>"
+                                           +  "</a>"
+                                     +"</div>"+
+                                "<div class='container-fluid zero-padding'>"+
+                                    "<div class='row pt-3'>"+
+                                        "<div class='col-sm-4 col-3'>"+
+                                            "<i class='fa fa-star-o c-d9 f-17' aria-hidden='true'></i>"+
+                                            "<span class='f-12 pl-1'>8.5</span>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+
+
+
+                        "<div class='col-sm-7 col-md-7 col-lg-7'>" +
+                            "<div class='ff-p'>" +
+                                "<div class='container-fluid zero-padding'>" +
+                                    "<div class='row'>" +
+                                        "<div class='col-sm-10 col-10 col-md-10 col-lg-10'>" +
+                                            "<a href='/advisor/all_detail/"+seller_id+"'>" +
+                                                "<h4 class='c-19 f-19 f-w-bold' style='margin-top: -0.2vh'>{{model.title}}</h4>" +
+                                            "</a>" +
+                                            "<p class='f-11'>By {{model.first_name}} {{model.last_name}}</p>" +
+                                        "</div>" +
+                                        "{% if user.is_authenticated %}"
+                        +     "<div class='col-sm-2 col-2 col-md-2 col-lg-2'>"
+                         +        "<a id='cart_"+seller_id+"' data-toggle='modal' data-seller_id='"+seller_id +"'"+
+
+                                         (in_invest ? "data-invest='True'" : "data-invest='False'")+
+                                         (in_just ? "data-just='True'" : "data-just='False'")+
+                                                                     " href='#my_modal'>"+
+             (in_some ? "<img src='/static/seller1/images/kartrename.png' alt='' class='pt-0'>" : "<img src='/static/seller1/images/kart.png' alt='' class='pt-0'>")+
+
+                                "</a>"
+                           +  "</div>"
+                           + "{% endif %}"  +
+                                    "</div>" +
+                                    "<div class='row mt--8'>" +
+                                        "<div class='col-sm-12'>" +
+                                            "<h2 class='f-11 ff-p f-w-bold'>About</h2>" +
+                                            "<p class='f-11 ff-p f-w-100'>{{model.about}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Domain Expertise</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.sub_category1}} | {{model.sub_category2}} | {{model.sub_category3}} </p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Preffered Locations</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.city1}} | {{model.city2}} | {{model.city3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Years of Experience</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.years_exp}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Core Skills</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.skill1}} | {{model.skill2}} | {{model.skill3}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='row pt-1'>" +
+                                        "<div class='col-sm-6 col-6 text-left'>" +
+                                            "<p class='f-12 mt--8'>Fee / Hour</p>" +
+                                        "</div>" +
+                                        "<div class='col-sm-6 col-6'>" +
+                                            "<p class='f-12 mt--8'>{{model.hour_fee}}</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='row pt-20'>" +
+                        "<div class='col-11 col-sm-11 col-md-11 col-lg-11 bor-b'></div>" +
+                        "<div class='col-1 col-sm-1 col-md-1 col-lg-1 bor-b'></div>" +
+                    "</div>" +
+                "</div>" +
+            "</div>"
+
+                );
+
+                for(var k=0; k<seller_arr.length; k++){
+                    var attr = 'cart_seller_'+seller_arr[k].seller_id;
+                    var cart_seller_id = seller_arr[k].found;
+                    console.log(cart_seller_id);
+                    if(cart_seller_id){
+                        $('#cart_'+seller_id).attr(attr, 'True');
+                    }
+                    else{
+                        $('#cart_'+seller_id).attr(attr, 'False');
+                    }
+                }
+
+                for(var tt=0; tt<data.sellers[i].images.length; tt++){
+                      var file_name = data.sellers[i].images[tt].file_name ;
+                      if(tt==0){
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item active'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                      else{
+                        $('#carouselInner_'+seller_id).append(
+                       "<div class='carousel-item'>"
+                          + "<div class='container-fluid'>"
+                             +  "<div class='row'>"
+                              +     "<div class='col-sm-12 text-center'>"
+                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +     "</div>"
+                              + "</div>"
+                      +     "</div>"
+                     + " </div>"
+                   );
+                      }
+                  }
+                        break;
+
+
+                    default:
+                        break;
+                }
+
+            }
+            $('#carousel').html('');
+            for(k=0; k<data.pages; k++){
+                       var pp = k+1;
+                       $('#carousel').append("<div  class='slide btn-sellers  ff-p mb-2'  >"+
+                        "<span id='page_"+pp+"' page='"+pp+"' onclick='get_sellers(this);' ><h6  style='width: 10%' >" + pp +"</h6></span>"+
+                    "</div>");
+                   }
+        },
+
+        async:false
+    })
+   }
+</script>
+
+
+<script>
+
+        $(document).ready(function(){
+               var a = screen.width;
+               console.log(a);
+               if(a<2000 && a>1500){
+                    $("body").css("zoom","90%");
+               }
+               else if(a<1500 && a>1400){
+                     $("body").css("zoom","80%");
+               }
+               else if(a<1400 && a>1100){
+                     $("body").css("zoom","65%");
+               }
+               else if(a<1100 && a>900){
+                     $("body").css("zoom","67%");
+               }
+               else{
+                    $("body").css("zoom","50%");
+               }
+
+        });
+
+
+</script>
+
+<script>
+
+    $(document).ready(function(){
+           var a = screen.width;
+           console.log(a);
+           if(a<2000 && a>1500){
+                $("body").css("zoom","90%");
+           }
+           else if(a<1500 && a>1400){
+                 $("body").css("zoom","80%");
+           }
+           else if(a<1400 && a>1100){
+                 $("body").css("zoom","65%");
+           }
+           else if(a<1100 && a>900){
+                 $("body").css("zoom","67%");
+           }
+           else{
+                $("body").css("zoom","50%");
+           }
+
+
+
+    });
+
+
+</script>
+
+
+{% if user.is_authenticated %}
+<script>
+    $(document).ready(function(){
+        $('#login_icon_b').css('display','none');
+        $('#loggedin_icon_b').css('display','block');
+        $('#login_icon_s').css('display','none');
+        $('#loggedin_icon_s').css('display','block');
+        // name="{{user.profile.photo.name}}";
+        // name = "/media/"+name;
+        if("{{user.profile.social}}"=="True"){
+            name = "{{user.profile.photo_url}}"
+        }else{
+            name = "/media/"+"{{user.profile.photo.name}}";
+        }
+        console.log(name)
+        console.log('{{user.profile.photo_url}}');
+        $('#prof_pic_b').attr('src',name);
+        $('#prof_pic_s').attr('src',name);
+    });
+</script>
+
+<script type="text/javascript">
+
+$('#noti_Container_b').click(function(){
+  var div = document.getElementById('notifications_b');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
+})
+$('#noti_Container_s').click(function(){
+  var div = document.getElementById('notifications_s');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
+})
+$('#noti_Button_b').click(function(){
+  $('#noti_Counter_s').html('');
+  $('#noti_Counter_b').html('');
+    $.ajax({
+        type:'GET',
+        url:'/clear_notif',
+        success:function(data){
+            $('#noti_Counter_b').html('');
+            $('#noti_Counter_s').html('');
+        }
+    })
+})
+$('#noti_Button_s').click(function(){
+  $('#noti_Counter_s').html('');
+   $('#noti_Counter_b').html('');
+    $.ajax({
+        type:'GET',
+        url:'/clear_notif',
+        success:function(data){
+            $('#noti_Counter_s').html('');
+            $('#noti_Counter_b').html('');
+        }
+    })
+})
+</script>
+{% endif %}
+
+</body>
+
+
+
+
+
+</html>

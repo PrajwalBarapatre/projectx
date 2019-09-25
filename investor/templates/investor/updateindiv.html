@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bverge || Individual Investor</title>
+    <link rel="stylesheet" href="{% static 'seller1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/w3.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'seller1/css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'investor/css/dropzone.css' %}">
+    <script src="{% static 'investor/js/dropzone.js' %}"></script>
+</head>
+
+<style>
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.content2 span{
+ width: 250px;
+}
+
+.dz-message{
+ text-align: center;
+ font-size: 28px;
+}
+
+#id_about_seller {
+    display: none;
+}
+</style>
+
+<style type="text/css">
+    #map {
+        height: 100%;
+      }
+    .valid {
+    border: 2px solid #71F2A9;
+    }
+    .invalid {
+        border: 2px solid #FD819E;
+    }
+    .off {
+        background-color: white !important;
+    }
+    .on {
+        display: block;
+    }
+    .offf{
+        display: none !important;
+    }
+    .file_drag_area{
+        border: 2px dashed #ccc;
+        text-align: center;
+        font-size: 2px;
+        height: 200px;
+    }
+    .file_drag_over{
+        color: #000;
+        border-color: #000;
+    }
+    .drop_image{
+        /* border: 2px dashed #ccc; */
+        /* text-align: center; */
+        font-size: 2px;
+        height: 200px;
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .cross{
+        z-index: 10;
+
+        font-size: 24px;
+        color: red;
+    }
+    .prof_pic{
+        z-index: 10;
+        top: 2px;
+        left: 2px;
+        font-size: 16px;
+    }
+    .drop_img{
+        padding: 5px;
+        width: 30%;
+    }
+    .remove{
+        font-size: 16px;
+        width:100%;
+    }
+    .tab_error{
+        background-color: #FE3C69 !important;
+    }
+    </style>
+<body>
+
+        {% include "seller1/topcontainer.html" %}
+
+    <div class="container-fluid bg-f2 ff-p">
+        <!-- Top container -->
+
+
+
+        <!-- form container -->
+        <form action="" method="POST" id="regForm" >
+            {% csrf_token %}
+
+            <div class="container">
+
+
+                    <div class="row ff-p f-17 pt-61" >
+                                    <div class="col-sm-12">
+                                <button type="button" onclick="displayTab(0)" class="btn-sellers  ff-p mb-2 off" disabled=true>Basic Information</button>
+                                 <button type="button" onclick="displayTab(1)" class="btn-sellers ff-p mb-2 off" disabled=true>Detailed Information</button>
+                                 <!-- <button type="button" onclick="displayTab(2)" class="btn-sellers ff-p mb-2 off" disabled=true>Business Financials</button>
+                                 <button type="button" onclick="displayTab(3)" class="btn-sellers ff-p off" disabled=true>Advanced Financials</button> -->
+                                    </div>
+                    </div>
+            </div>
+            <!-- your information -->
+
+
+
+
+
+            <div class="container">
+                <div class="custom_tab">
+                         <div class="row">
+                             <div class="col-sm-12 ff-p pt-30">
+                                 <h3 class="f-23 f-w-bold bg-transparent">List As Individual Investor
+                                     <span class="f-w-500"></span></h3>
+                             </div>
+                         </div>
+                         <div class="row pt-20">
+                             <div class="col-sm-6 col-12 ff-p pb-2">
+                                <label for="{{ business_form.first_name.id_for_label }}" class="f-16 pl-1">First name</label>
+                                {{ business_form.first_name|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:First name" }}
+                                <div class="errors" id="first_name_err" style="color: red">
+                                    {{ business_form.first_name.errors }}
+                                </div>
+                                <label for="{{ business_form.middle_name.id_for_label }}" class="f-16 pl-1 pt-15">Middle name</label>
+                                    {{ business_form.middle_name|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Middle name" }}
+                                 <div class="errors" id="middle_name_err" style="color: red">
+                                  {{ business_form.middle_name.errors }}
+                                  </div>
+
+                                <label for="{{ business_form.last_name.id_for_label }}" class="f-16 pl-1 pt-15">Last name</label>
+                                    {{ business_form.last_name|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Last name" }}
+                                 <div class="errors" id="last_name_err" style="color: red">
+                                  {{ business_form.last_name.errors }}
+                                  </div>
+
+                                 <div class="container-fluid zero-padding">
+                                        <div class="row">
+                                           <div class="col-sm-6">
+                                               <!-- <input type="text" name="pass" id="pass" class="form-control col-sm-12" maxlength="4" placeholder="Country Code"> -->
+                                               <label for="" class="f-16 pl-1 pt-10">Country Code</label>
+                                               <select class="form-control" name= "country_code_primary" id="country_code_primary">
+                                                        {% for x in code_data %}
+                                                        <option value="+{{x.dialing}}">{{x.code}}</option>
+                                                        {% endfor %}
+                                              </select>
+                                           </div>
+                                           <div class="col-sm-6">
+
+                                <label for="{{ business_form.phone_number_primary.id_for_label }}" class="f-16 pl-1 pt-15">Phone number</label>
+                                            {{ business_form.phone_number_primary|add_class:"form-control col-sm-12 ginput " |append_attr:"placeholder:Phone Number"}}
+                                            <div class="errors" id="email_err" style="color: red">
+                                                {{ business_form.phone_number_primary.errors }}
+                                            </div>
+
+                                           </div>
+                                        </div>
+                                    </div>
+
+
+                                            <label for="{{ business_form.email_adress.id_for_label }}" class="f-16 pl-1 pt-15">Email Id</label>
+                                            {{ business_form.email_adress|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Email" }}
+                                            <div class="errors" id="email_err" style="color: red">
+                                                {{ business_form.email_adress.errors }}
+                                            </div>
+                             </div>
+
+                             <div class="col-sm-6 col-12 ff-p">
+                                            <div>
+                                                    {{business_form.about_seller}}
+
+                                                            <!-- <input type="radio" checked="checked" name="about_seller" value="Owner" />
+                                                                Owner<br>
+                                                            <input type="radio" name="about_seller" value="Broker">
+                                                                Broker -->
+
+                                                    <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body mt-4">Select Currency for Listing</h3>
+                                                    <div class="f-16 about-seller-body about-seller bg-ff p-0">
+                                                            <select id='id_currency' name='currency' class="dropdown_custom w-100 ff-p">
+                                                            {% include "currencydetails.html" %}
+                                                            </select>
+                                                    </div>
+                                            </div>
+                                                    <br><br>
+                                            <div>
+                                            <!-- <div class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">Here to Sell ?
+                                            </div>
+                                            <div class="f-16 about-seller-body about-seller bg-ff">
+                                                        <input type="radio" name="seller_purpose"  checked="checked" value="0" />
+                                                            Sell Business<br>
+                                                            <input type="radio" name="seller_purpose" value="1" />
+                                                            Sell Asset<br>
+                                                            <input type="radio" name="seller_purpose" value="2" />
+                                                            Raise Loan<br>
+                                                            <input type="radio" name="seller_purpose" value="3" />
+                                                            Sell Equity<br>
+                                            </div> -->
+                             </div>
+                        </div>
+                        </div>
+
+                        <div id="dialog-confirm"> 
+                                <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
+                                <div class="buttons"> 
+                                    <a class="cancel" href="#">Cancel</a> 
+                                    <a class="ok" href="#">Ok</a> 
+                                </div> 
+                        </div> 
+            </div>
+
+            <!-- Business_Information-->
+
+            <div class="custom_tab">
+                <div class="row ff-p f-w-500">
+                       <div class="col-sm-12">
+                           <label for="" class="f-20 ff-p f-w-500 pt-19">Investment Bracket</label>
+                                   <select class="form-control col-sm-4 col-12 f-13 ff-p select-border" id="investment_bracket" name="investment_bracket">
+
+                                   </select>
+
+                        <p class="f-20 pt-3 mb-0">Interested sectors</p>
+                       </div>
+                       <div class="col-sm-4 col-12">
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 1</label>
+                           <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category1" name="category1">
+                               {% for x in sectors %}
+                               <option value="{{x.sectors}}">{{x.sectors}}</option>
+                               {% endfor %}
+                           </select>
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                           <select class="form-control f-13 ff-p" id="sub_category1" name="sub_category1">
+                               <option name="sub_category1" value="volvo">Select</option>
+                           </select>
+                       </div>
+                       <div class="col-sm-4 col-12">
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 2</label>
+                           <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category2" name="category2">
+                               {% for x in sectors %}
+                               <option value="{{x.sectors}}">{{x.sectors}}</option>
+                               {% endfor %}
+                           </select>
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                           <select class="form-control f-13 ff-p" id="sub_category2" name="sub_category2">
+                               <option name="sub_category2" value="volvo">Select</option>
+                           </select>
+                       </div>
+                       <div class="col-sm-4 col-12">
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 3</label>
+                           <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category3" name="category3">
+                               {% for x in sectors %}
+                               <option value="{{x.sectors}}">{{x.sectors}}</option>
+                               {% endfor %}
+                           </select>
+                           <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                           <select class="form-control f-13 ff-p" id="sub_category3" name="sub_category3">
+                               <option name="sub_category3" value="volvo">Select</option>
+                           </select>
+                       </div>
+                   </div>
+                   <style>
+                       .select-border{
+                       border: 1px solid #3F3F3F
+                   }
+                   .btn-add-more{
+                       font-size: 11px;
+                       padding:15px 40px 15px 40px;
+                       background: #F4F8FF;
+                       color: #192ED5;
+                       border-radius: 5px;
+                       border: 1px solid #ABB4FD;
+                       font-weight: 600
+                   }
+                    </style>
+
+<div class="row pt-3 ff-p f-w-500">
+    <div class="col-sm-12">
+        <p class="f-20 ff-p f-w-500">Preferred Locations</p>
+    </div>
+                    {{ invest_indiv.city1|attr:"hidden" }}
+                    {{ invest_indiv.state1|attr:"hidden" }}
+                    {{ invest_indiv.country1|attr:"hidden" }}
+                    {{ invest_indiv.city2|attr:"hidden" }}
+                    {{ invest_indiv.state2|attr:"hidden" }}
+                    {{ invest_indiv.country2|attr:"hidden" }}
+                    {{ invest_indiv.city3|attr:"hidden" }}
+                    {{ invest_indiv.state3|attr:"hidden" }}
+                    {{ invest_indiv.country3|attr:"hidden" }}
+
+    <div class="col-sm-4 col-12">
+            <div id="locationField">
+                {{ invest_indiv.address_line1|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9" }}
+            </div>
+    </div>
+    <div class="col-sm-4 col-12">
+            <div id="locationField">
+                {{ invest_indiv.address_line2|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9" }}
+            </div>
+    </div>
+    <div class="col-sm-4 col-12">
+            <div id="locationField">
+                {{ invest_indiv.address_line3|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9" }}
+            </div>
+    </div>
+</div>
+
+
+                   <div class="row">
+                       <div class="col-12 col-sm-12 col-lg-12 col-md-12">
+                           <label for="" class="f-16 pl-1 pt-3">Type of Capital</label>
+                           <select class="form-control f-13 ff-p col-12 col-sm-6 col-lg-6 col-md-6 select-border" id="capital_type" name="capital_type">
+                                   <option value="Equity Funding">Equity Funding</option>
+                                   <option value="Loan/Debt Funding">Loan/Debt Funding</option>
+                                   <option value="Hybrid(Equity+Debt) Funding">Hybrid(Equity+Debt) Funding</option>
+                               </select>
+                       </div>
+                       <div class="col-12 col-sm-12 col-lg-12 col-md-12">
+
+                            <label for="{{ business_form.title.id_for_label }}" class="f-16 pl-1 pt-30">Title of the Listing</label>
+                                    {{ business_form.title|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Enter the Title" }}
+                                    <div class="errors" id="email_err" style="color: red">
+                                    {{ business_form.title.errors }}
+                                    <i class="errors" id="myWordCount_3" style="color: red"></i>
+                                    </div>
+
+                           <label for="{{ invest_indiv.about.id_for_label }}" class="f-16 f-w-500 pt-30">About Me/Us</label>
+                           {{ invest_indiv.about|add_class:"form-control pt-9 ginput "|attr:"placeholder:About me"|attr:"rows:3"  }}
+                           <div class="errors" id="about_err" style="color: red">
+                               {{ invest_indiv.about.errors }}
+                               <i class="errors" id="myWordCount" style="color: red"></i>
+                           </div>
+
+
+
+
+                              <label for="{{ invest_indiv.looking_for.id_for_label }}" class="f-16 f-w-500 pt-30">What are you looking for.?</label>
+                           {{ invest_indiv.looking_for|add_class:"form-control pt-9 ginput "|attr:"placeholder:What am looking for?"|attr:"rows:3" }}
+                           <div class="errors" id="looking_for_err" style="color: red">
+                               {{ invest_indiv.about.errors }}
+                               <i class="errors" id="myWordCount_2" style="color: red"></i>
+                           </div>
+                   <label for="{{ invest_indiv.website.id_for_label }}" class="f-16 pl-1 pt-30">Website (optional)</label>
+                    {{ invest_indiv.website|add_class:"form-control pt-9 col-sm-4 ginput"|attr:"placeholder:www.google.com" }}
+                    <div class="errors" id="website_err" style="color: red">
+                        {{ invest_indiv.website.errors }}
+                    </div>
+                    <label for="{{ invest_indiv.website.id_for_label }}" class="f-16 pl-1 pt-30">Number of Companies Invested In</label>
+                    {{ business_form.total_invested|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Total Companies Invested"}}
+                    <div class="errors" id="website_err" style="color: red">
+                        {{ business_form.total_invested.errors }}
+                    </div>
+
+                    <div class="row">
+                            <div class="col-sm-12 col-12">
+                                    <input hidden name="type_companies" id="type_companies" />
+                                   <label for="" class="f-16 ff-p f-w-500 pt-19">Type of Companies to Invest</label>
+                                    <select class="form-control" id="type_companies_fake" name="type_companies_fake" multiple>
+                                        <option value="Idea Stage">Idea Stage</option>
+                                        <option value="Seed Stage">Seed Stage</option>
+                                        <option value="Early Stage">Early Stage</option>
+                                        <option value="Growth Stage">Growth Series A Stage</option>
+                                        <option value="Growth Stage">Growth Series B Stage</option>
+                                        <option value="Growth Stage">Growth Series C Stage</option>
+                                        <option value="Late Stage">Late Stage</option>
+                                   </select>
+                                   <span id="msg1"></span>
+                               </div>
+                    </div>
+
+                   <div class="row">
+                        <div class="col-sm-12 col-12">
+                                <input hidden name="expertise_area" id="expertise_area" />
+                               <label for="" class="f-16 ff-p f-w-500 pt-19">Area of Expertise</label>
+                                <select class="form-control f-13 ff-p" id="expertise_area_fake" name="expertise_area_fake" multiple>
+                                   <option value="Finance">Finance</option>
+                                    <option value="Legal">Legal</option>
+                                    <option value="Operations/Admin">Operations/Admin</option>
+                                    <option value="Marketing/Growth">Marketing/Growth</option>
+                                    <option value="Talent/Recruiting">Talent/Recruiting</option>
+                                    <option value="Sales/Business Development">Sales/Business Development</option>
+                               </select>
+                               <span id="msg2"></span>
+                              </div>
+                   </div>
+
+                       </div>
+
+                        <br>
+                    <div id="top_img" class="container-fluid pb-2">
+                      <label for="" class="f-16 pl-1 pt-30"> Upload Pictures
+                      </label>
+                       <div id="dropzonewidget" class="dropzone ginput ">
+                           <div class="dz-default dz-message"></div>
+                       </div>
+
+                    </div>
+                </div>
+                {{ business_form.album_id|attr:"hidden" }}
+                   </div>
+   </div>
+            <!-- Business_Sell_Business-->
+
+            <!-- Advanced Financials-->
+
+
+            </div>
+        </form>
+        <!-- Bottom next right container -->
+        <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-6 text-left pt-30 pb-100">
+                                <button type="button" class="btn-seller-next ff-p" id="prevBtn" onclick="nextPrev(-1)" >Previous</button>
+                            </div>
+                            <div class="col-sm-6 col-6 text-right pt-30 pb-100">
+                                <button type="button" class="btn-seller-next ff-p" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                            </div>
+                        </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="modal" id="otp_modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Modal header</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="otp_body" >
+                        <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
+                        <input type="text" class="form-control col-sm-4 " name="otp" id="otp" />
+                        <br/>
+                        <button id="otp_verify">Verify</button>
+                        <button id="resend_otp">Resend OTP</button>
+                        <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
+                    </div>
+                    <div id="otp_email_body" style="display: none">
+                            <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
+                            <input type="text" class="form-control col-sm-4 " name="otp_email" id="otp_email" />
+                            <br/>
+                            <button id="otp_email_verify">Verify</button>
+                            <button id="resend_otp_email">Resend OTP</button>
+                            <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include "seller1/endbodysection.html" %}
+
+    <script src="{% static 'investor/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'investor/js/jquery-ui.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script src="{% static 'investor/js/popper.min.js' %}"></script>
+    <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'investor/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".dz-image").children().addClass("dz-image");
+        $('#id_currency option[value="{{business_form.currency.value}}"]').attr("selected",true);
+        $("#id_currency").select2();
+         $("#country_code_primary").val("{{business_form.country_code_primary.value}}").attr("selected","selected");
+
+                $("#type_companies").val("{{business_form.type_companies.value}}");
+                var a = $("#type_companies").val().split("__")
+                for(var i =0;i<a.length;i++){
+                    console.log(a[i]);
+              $("#type_companies_fake").children("option[value='"+a[i]+"']").attr("selected","selected");
+                                   }
+
+                $("#expertise_area").val("{{business_form.expertise_area.value}}");
+                var a = $("#expertise_area").val().split("__")
+                for(var i =0;i<a.length;i++){
+                    console.log(a[i]);
+                  $("#expertise_area_fake").children("option[value='"+a[i]+"']").attr("selected","selected");
+                    }
+
+            $("#type_companies_fake").select2({
+                placeholder: "Investment Types",
+                allowClear: true
+            });
+            $('#type_companies_fake').change(function(){
+            var arr = $('#type_companies_fake').val()
+            var str_method=''
+            for(var i=0;i<arr.length;i++){
+                if(i==0){
+                    str_method=str_method+arr[i] 
+                }
+                else{
+                    str_method=str_method+'__'+arr[i]
+                }
+                
+            }
+            $('#type_companies').val(str_method)
+            })
+    
+    
+            $("#expertise_area_fake").select2({
+                placeholder: "Expertise Area",
+                allowClear: true
+            });
+            $('#expertise_area_fake').change(function(){
+            var arr = $('#expertise_area_fake').val()
+            var str_method=''
+            for(var i=0;i<arr.length;i++){
+                if(i==0){
+                    str_method=str_method+arr[i] 
+                }
+                else{
+                    str_method=str_method+'__'+arr[i]
+                }
+                
+            }
+              $('#expertise_area').val(str_method)
+            })
+    
+            jQuery(document).ready(function () {
+    
+            jQuery("#expertise_area_fake").on("change", function(){
+            var msg = $("#msg2");
+    
+            var count = 0;
+    
+            for (var i = 0; i < this.options.length; i++)
+            {
+                var option = this.options[i];
+                
+                option.selected ? count++ : null;
+                
+                if (count > 3)
+                {
+                    option.selected = false;
+                    option.disabled = true;
+                    msg.html("Please select only three options.");
+                }else{
+                    option.disabled = false;
+                    msg.html("");
+                }
+            }
+            });
+    
+            jQuery("#type_companies_fake").on("change", function(){
+            var msg = $("#msg1");
+    
+            var count = 0;
+    
+            for (var i = 0; i < this.options.length; i++)
+            {
+                var option = this.options[i];
+                
+                option.selected ? count++ : null;
+                
+                if (count > 3)
+                {
+                    option.selected = false;
+                    option.disabled = true;
+                    msg.html("Please select only three options.");
+                }else{
+                    option.disabled = false;
+                    msg.html("");
+                }
+            }
+            });
+            });
+    
+    
+        });
+    
+    </script>
+    <script>
+    $(document).ready(function(){
+
+      $("#id_about_seller_0").val("Individual_Investor");
+      $("#category1 option[value='None']").remove();
+       var dum = $("#id_currency").val().split("**");
+         var a = dum[3];
+       $("#investment_bracket").append(
+         "<option value='0 to 10,000 '>0 to 10,000 " + a +"</option>"+
+         "<option value='10,000 to 100,000'>10,000 to 100,000 " + a  +"</option>"+
+         "<option value='100,000 to 1 Million'>100,000 to 1 Million " + a  +"</option>"+
+         "<option value='1 Million to 10 Million'>1 Million to 10 Million " + a  +"</option>"+
+         "<option value='10 Million to 100 Million'>10 Million to 100 Million " + a  +"</option>"+
+         "<option value='Greater than 100 Million'>Greater than 100 Million " + a  +"</option>"
+       );
+
+        
+
+       $("#id_currency").change(function () {
+         var dum = $("#id_currency").val().split("**");
+         var a = dum[3];
+           $("#investment_bracket").empty()
+              .append(
+             "<option value='0 to 10,000'>0 to 10,000 " + a +"</option>"+
+             "<option value='10,000 to 100,000'>10,000 to 100,000 " + a +"</option>"+
+             "<option value='100,000 to 1 Million'>100,000 to 1 Million " + a +"</option>"+
+             "<option value='1 Million to 10 Million'>1 Million to 10 Million " + a +"</option>"+
+             "<option value='10 Million to 100 Million'>10 Million to 100 Million " + a +"</option>"+
+             "<option value='Greater than 100 Million'>Greater than 100 Million " + a +"</option>"
+           );
+       });
+
+
+    });
+    </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+
+
+<script>
+
+          $('#otp_verify').on('click', function(){
+                  var cnumber = localStorage.getItem('cnumber');
+                  var number = $('#id_phone_number_primary').val();
+                  var code = $('#country_code_primary').val()
+                      var fnumber = code+number;
+                  console.log(cnumber);
+                  if(fnumber==cnumber){
+                      var otp = localStorage.getItem('otp');
+                      console.log(otp);
+                      if($('#otp').val()==otp){
+                          localStorage.setItem('phone_verify','true');
+                          $('#otp_err').hide();
+                          if(localStorage.getItem('email_verify')=='true'){
+                              document.getElementById("regForm").submit();
+                              console.log(localStorage.getItem('email_verify'))
+                          }else{
+                              $('#otp_email_body').show();
+                          }
+
+                      }else{
+                          $('#otp_err').show();
+                      }
+                  }else{
+                      localStorage.setItem('phone_verify',false);
+                      $('#otp_modal').modal('hide');
+                      alert('Phone number changed');
+                  }
+              })
+
+              $('#otp_email_verify').on('click', function(){
+                  var cnumber = localStorage.getItem('cemail');
+                  var femail = $('#id_email_adress').val();
+                      // var fnumber = code+number;
+                  console.log(cnumber);
+                  if(femail==cnumber){
+                      var otp = localStorage.getItem('otp_email');
+                      console.log(otp);
+                      if($('#otp_email').val()==otp){
+                          localStorage.setItem('email_verify','true');
+                          $('#otp_email_err').hide();
+                          if(localStorage.getItem('phone_verify')=='true'){
+                              console.log(localStorage.getItem('phone_verify'))
+                              document.getElementById("regForm").submit();
+                          }else{
+                              $('#otp_body').show();
+                          }
+
+                      }else{
+                          $('#otp_email_err').show();
+                      }
+                  }else{
+                      localStorage.setItem('email_verify',false);
+                      $('#otp_modal').modal('hide');
+                      alert('Email Address changed');
+                  }
+              })
+
+              $('#resend_otp').on('click', function(){
+
+                  var number = $('#id_phone_number_primary').val()
+                      var code = $('#country_code_primary').val()
+                      var fnumber = code+number;
+                      var name = ""+ $('#id_first_name').val()
+                      console.log(name);
+                      console.log(fnumber);
+                      $.ajax({
+                          method:'GET',
+                          url : '/seller/ajax/otp',
+                          data: {
+                              number:fnumber,
+                              name: name
+                          },
+                          success: function(data){
+                              console.log(data)
+                              if(data.status=='success'){
+                                  localStorage.setItem('phone_verify', 'false');
+                                  localStorage.setItem('cnumber', data.number);
+                                  localStorage.setItem('otp', data.otp);
+
+                                  console.log('otp sent');
+                              }else{
+                                  alert('Invalid Phone Number')
+                              }
+                          }
+                      })
+
+              })
+
+              $('#resend_otp_email').on('click', function(){
+
+          var email = $('#id_email_adress').val()
+
+              var name = ""+ $('#id_first_name').val()
+              console.log(name);
+              console.log(email);
+              $.ajax({
+                  method:'GET',
+                  url : '/seller/ajax/email',
+                  data: {
+                      email:email,
+                      name: name
+                  },
+                  success: function(data){
+                      console.log(data)
+                      if(data.status=='success'){
+                          localStorage.setItem('email_verify', 'false');
+                          localStorage.setItem('cemail', data.email);
+                          localStorage.setItem('otp_email', data.otp);
+
+                          console.log('otp sent');
+                      }
+                  }
+              })
+
+          })
+
+
+          function nextPrev(n) {
+                    // This function will figure out which tab to display
+                    var x = document.getElementsByClassName("custom_tab");
+                    var y = document.getElementsByClassName("btn-sellers");
+                    var error=false;
+                    var z = x[currTab].getElementsByClassName("ginput");
+                      console.log(z);
+                      if(n==1){
+                          validateForm();
+                          for(var m=0;m<=currTab;m++){
+                              var check_prev = x[m].getElementsByClassName("ginput");
+                              if(error){
+                                  break;
+                              }
+                              for(var l=0; l<check_prev.length; l++){
+                              if(check_prev[l].classList.contains('invalid')||check_prev[l].classList.contains('kinvalid')){
+                                  error=true;
+                                  console.log(check_prev[l]);
+                                  break;
+                              }
+                          }
+                          }
+                          if(error){
+                              y[m-1].classList.add('tab_error');
+                              console.log(error);
+                              error=false;
+                              console.log(error);
+                              return false;
+                          }
+                      }
+
+                      if (currTab+n >= x.length) {
+                      // ... the form gets submitted:
+                      var number = $('#id_phone_number_primary').val()
+                      var code = $('#country_code_primary').val()
+                      var fnumber = code+number;
+                      var name = ""+ $('#id_first_name').val()
+                      console.log(name);
+                      console.log(fnumber)
+                      $.ajax({
+                          method:'GET',
+                          url : '/seller/ajax/otp',
+                          data: {
+                              number:fnumber,
+                              name:name
+                          },
+                          success: function(data){
+                              console.log(data)
+                              if(data.status=='success'){
+                                  localStorage.setItem('phone_verify', 'false');
+                                  localStorage.setItem('cnumber', data.number);
+                                  localStorage.setItem('otp', data.otp);
+
+
+                                  var email = $('#id_email_adress').val();
+                      $.ajax({
+                          method:'GET',
+                          url : '/seller/ajax/email',
+                          data: {
+                              email:email,
+                              name: name
+                          },
+                          success: function(data){
+                              console.log(data)
+                              if(data.status=='success'){
+                                  localStorage.setItem('email_verify', 'false');
+                                  localStorage.setItem('cemail', data.email);
+                                  localStorage.setItem('otp_email', data.otp);
+                                  $('#otp_modal').modal('show');
+                                  console.log('email sent');
+                              }
+                          }
+                      })
+
+                              }else{
+                                  alert('Invalid Phone Number')
+
+                              }
+                          }
+                      })
+
+                      // let headers = new Headers()
+                      // headers.append('Access-Control-Allow-Origin', '/seller');
+                      // headers.append('Access-Control-Allow-Credentials', 'true');
+                      // $.ajax({
+                      //     method:'POST',
+                      //     url : 'https://api.karix.io/message/',
+                      //     data: JSON.stringify({
+                      //         headers:headers,
+                      //             channel: "sms",
+                      //             source: "+919080120756",
+                      //             destination: [
+                      //                 +919167330324
+                      //             ],
+                      //             content: {
+                      //                 text: "Hey, Prajwal. It's Prajwal.",
+                      //             },
+
+                      //             }),
+                      //     success: function(data){
+                      //         console.log(data)
+                      //     }
+                      // })
+                      // document.getElementById("regForm").submit();
+                      return false;
+                    }
+                    x[currTab].style.display = "none";
+                    if(currTab+n<x.length){
+                      y[currTab + n].className=y[currTab + n].className.replace(" off", "on");
+                    }
+                    // Increase or decrease the current tab by 1:
+                    currTab = currTab + n;
+                    // if you have reached the end of the form...
+
+                    // Otherwise, display the correct tab:
+                    displayTab(currTab);
+                  }
+
+
+
+                 var currTab = 0;
+                  displayTab(currTab);
+                  function displayTab(n) {
+                    // This function will display the specified tab of the form...
+                    currTab=n;
+                    var i, x = document.getElementsByClassName("custom_tab");
+                    for(i=0; i<x.length; i++){
+                        x[i].style.display = "none";
+                    }
+                    x[n].style.display = "block";
+                    //... and fix the Previous/Next buttons:
+                    if (n == 0) {
+                      document.getElementById("prevBtn").style.display = "none";
+                    } else {
+                      document.getElementById("prevBtn").style.display = "inline";
+                    }
+                    if (n == (x.length - 1)) {
+                      document.getElementById("nextBtn").innerHTML = "Submit";
+                    } else {
+                      document.getElementById("nextBtn").innerHTML = "Next";
+                    }
+                    //... and run a function that will display the correct step indicator:
+                    fixTabIndicator(n)
+                  }
+
+                  function validateForm() {
+                    // This function deals with validation of the form fields
+                    var x, y, i, valid = true;
+                    x = document.getElementsByClassName("custom_tab");
+                    y = x[currTab].getElementsByClassName("ginput");
+                    // A loop that checks every input field in the current tab:
+                    for (i = 0; i < y.length; i++) {
+                      // If a field is empty...
+                      if (y[i].classList.contains('kinvalid')||y[i].classList.contains('begin_empty')) {
+                        // add an "invalid" class to the field:
+                        y[i].className += " invalid";
+                        // and set the current valid status to false
+                        valid = false;
+                      }
+                    }
+                    // If the valid status is true, mark the step as finished and valid:
+                    if (valid) {
+                      document.getElementsByClassName("btn-sellers")[currTab].className += " finish";
+                    }
+                    return valid; // return the valid status
+                  }
+
+                  function fixTabIndicator(n) {
+                    // This function removes the "active" class of all steps...
+                    var i, x = document.getElementsByClassName("btn-sellers");
+                    for (i = 0; i < x.length; i++) {
+                      x[i].className = x[i].className.replace(" btn-sellers-active", "");
+                      x[i].classList.remove('tab_error');
+                    }
+                    x[n].className=x[n].className.replace(" off", "on");
+                    //... and adds the "active" class on the current step:
+                    x[n].className += " btn-sellers-active";
+                    x[n].disabled = false;
+                  //   x[n].className.replace("off", "on");
+                  }
+</script>
+
+
+
+    {% for key in model_fields %}
+    {% block javascript %}
+
+    <script>
+        $(document).ready(function(){
+        var id="#id_" + "{{key}}";
+            $(id).on('change',function(){
+                var input = $(this);
+                var field_name = $(this).val();
+                console.log(field_name);
+                $.ajax({
+                                type: "GET",
+                                url: 'ajax/validate',
+                                data: {
+                                value: field_name,
+                                field: "{{key}}"
+                                },
+                                success: function (data) {
+                                if (data.error!="") {
+                                    console.log(data.error);
+                                    var err_id = "#" + "{{key}}" + "_err";
+                                    // $(err_id).html(data.error);
+                                    $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                    console.log(id);
+                                }
+                                else {
+                                    var err_id = "#" + "{{key}}" + "_err";
+                                    // $(err_id).html('');
+                                    $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                    console.log(data);
+                                }
+                                }
+                })
+
+            });
+});
+
+  </script>
+
+
+      {% endblock %}
+    {% endfor %}
+
+
+</script>
+{% for key in type_fields %}
+
+
+<script>
+    $(document).ready(function(){
+    var id="#id_" + "{{key}}";
+        $(id).on('change',function(){
+            var input = $(this);
+            var field_name = $(this).val();
+            console.log(field_name);
+            $.ajax({
+                            type: "GET",
+                            url: 'ajax/validate/indiv',
+                            data: {
+                            value: field_name,
+                            field: "{{key}}"
+                            },
+                            success: function (data) {
+                            if (data.error!="") {
+                                console.log(data.error);
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html(data.error);
+                                $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                console.log(id);
+                            }
+                            else {
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html('');
+                                $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                console.log(data);
+                            }
+                            },
+                            async:false
+            })
+
+        });
+});
+
+</script>
+
+
+
+{% endfor %}
+
+
+
+{% for key in revenue_fields %}
+
+
+<script>
+    $(document).ready(function(){
+    var id="#id_" + "{{key}}";
+        $(id).on('change',function(){
+            var input = $(this);
+            var field_name = $(this).val();
+            console.log(field_name);
+            $.ajax({
+                            type: "GET",
+                            url: 'ajax/validate/rev',
+                            data: {
+                            value: field_name,
+                            field: "{{key}}"
+                            },
+                            success: function (data) {
+                            if (data.error!="") {
+                                console.log(data.error);
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html(data.error);
+                                $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
+                                console.log(id);
+                            }
+                            else {
+                                var err_id = "#" + "{{key}}" + "_err";
+                                // $(err_id).html('');
+                                $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
+                                console.log(data);
+                            }
+                            },
+                            async:false
+            })
+
+        });
+});
+
+</script>
+
+
+
+{% endfor %}
+
+
+
+<script>
+$(document).ready(function(){
+
+var id="#id_about";
+  var max=300;
+  var min=5;
+  $(id).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+        // $('#myWordCount').text(max-words+" words left");
+        if(words<min){
+            var num = min-words;
+            var n = num.toString();
+            $('#myWordCount').text("Min "+ n +" Charectors needed");
+            console.log('invalid');
+            $(id).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=min){
+            $('#myWordCount').text(max-words+" Charectors left");
+            console.log('valid');
+            $(id).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == max + 1) {
+            e.preventDefault();
+            $('#myWordCount').text('no more than 300 Charectors, please!');
+        } else if (words > max + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, max);
+
+
+        }
+    });
+
+
+  var kid="#id_looking_for";
+  var kmax=300;
+  var kmin=5;
+  $(kid).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+
+        // $('#myWordCount_2').text(max-words+" words left");
+        if(words<kmin){
+            var num = kmin-words;
+            var n = num.toString();
+            $('#myWordCount_2').text("Min "+ n +" Charectors needed");
+            console.log('invalid');
+            $(kid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=kmin){
+            $('#myWordCount_2').text(kmax-words+" Charectors left");
+            console.log('kvalid');
+            $(kid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == kmax + 1) {
+            e.preventDefault();
+            $('#myWordCount_2').text('no more than 300 Charectors, please!');
+        } else if (words > kmax + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, kmax);
+
+
+        }
+    });
+
+
+
+  var tid="#id_title";
+  var tmax=50;
+  var tmin=5;
+  $(tid).keypress(function(e) {
+
+        if (e.which < 0x20) {
+            // e.which < 0x20, then it's not a printable character
+            // e.which === 0 - Not a character
+            return;     // Do nothing
+        }
+        var words = $(this).val().length;
+
+        // $('#myWordCount_2').text(max-words+" words left");
+        if(words<tmin){
+            var num = tmin-words;
+            var n = num.toString();
+            $('#myWordCount_3').text("Min "+ n +" Charectors needed");
+            console.log('invalid');
+            $(tid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
+        }
+        if(words>=tmin){
+            $('#myWordCount_3').text(tmax-words+" Charectors left");
+            console.log('kvalid');
+            $(tid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
+        }
+        if (words == tmax + 1) {
+            e.preventDefault();
+            $('#myWordCount_3').text('no more than 50 Charectors, please!');
+        } else if (words > tmax + 1) {
+            // Maximum exceeded
+
+            this.value = this.value.substring(0, tmax);
+
+
+        }
+    });
+});
+</script>
+
+
+<script>
+ // When the user scrolls down 20px from the top of the document, slide down the navbar
+ window.onscroll = function() {scrollFunction()};
+
+ function scrollFunction() {
+     if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+         $('#navbar').removeClass('bg-t');
+         $('#navbar').addClass('bg-change');
+
+     } else {
+         $('#navbar').removeClass('bg-change');
+         $('#navbar').addClass('bg-t');
+     }
+ }
+
+ if($("#city").length)
+    $("#city").autocomplete({
+        source: "/generic_info/get_city/",
+        minLength: 2,
+        });
+
+$('.dropdown-menu a').click(function(){
+    $('#selected').text($(this).text());
+    $('#sector1').val($(this).text());
+    });
+
+function get_sub_sectors(ele){
+    var id = ele.id;
+    $.ajax({
+        url: "/metadata/get_sub_sector/",
+        data: {
+            'sector': $('#' + id).val()
+        },
+        success: function(output){
+            var e = $('#sub_' + id);
+            e.html(output);
+        }
+    });
+}
+</script>
+
+
+    <script src="{% static 'investor/js/dropzone.js' %}"></script>
+
+<script>
+
+        Dropzone.autoDiscover = false;
+        var initialize=true;
+
+        var album_id;
+        $("#dropzonewidget").dropzone({
+        url: "{% url 'album:basic_upload'%}",
+        acceptedFiles: ".jpeg,.jpg,.png",
+        maxFilesize: 2,
+        maxFiles:5,
+        dictDefaultMessage: "Add Your Image here",
+            init: function() {
+                var files;
+            $.ajax({
+                type:'GET',
+                url:'/seller/ajax/update/files',
+                data:{
+                    seller_id:"{{seller_id}}"
+                },
+                success:function(data){
+                    files=JSON.parse(data);
+                    if(files.length>0){
+                        initialize=false;
+                        var album = document.querySelector("#id_album_id");
+                        album_id=album.value;
+                    }
+                },
+                async:false
+            });
+            console.log(files);
+                for(var k=0; k<files.length; k++){
+                    var name = files[k]['name'];
+                    name = name.replace('files/','');
+
+                    console.log(name);
+                    var url = "/media/files/"+name;
+                    var mockFile = { name: name, type: 'image/jpeg' };
+        this.options.addedfile.call(this, mockFile);
+        this.options.thumbnail.call(this, mockFile, url);
+        mockFile.previewElement.classList.add('dz-success');
+        mockFile.previewElement.classList.add('dz-complete');
+                }
+
+
+            this.on("addedfile", function(file) {
+            if (this.files.length) {
+                var img_ele = document.getElementById('dropzonewidget');
+                img_ele.className = img_ele.className.replace("ginput", "");
+                //    img_ele.className = img_ele.className.replace("begin_empty", "");
+                img_ele.className = img_ele.className.replace("invalid", "");
+                var _i, _len, _ref = this.files.slice();
+                for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) {
+                                    if (_ref[_i].name === file.name && _ref[_i].size === file.size) {
+                                        // var r = confirm("Overrite existing file");
+                                        // if (r == true) {
+                                        //     this.removeFile(_ref[_i]);
+                                        // }
+                                        alert('Overrite existing file');
+                                        this.removeFile(_ref[_i]);
+
+
+                                    }
+                                }
+                            }
+                        });
+
+                        this.on("removedfile", function(file){
+                            if(this.files.length == 0){
+                                console.log('inside remove if');
+                                var img_ele = document.getElementById('dropzonewidget');
+                //    img_ele.className = img_ele.className.replace("ginput begin_empty", "");
+                img_ele.className += " ginput";
+                img_ele.className += " invalid";
+
+                            }
+                        });
+
+                        this.on("success", function(file, response){
+                            console.log(response);
+                            console.log(response.name);
+                            var name = response.name;
+                            console.log(name);
+                            name = name.replace('files/', '');
+                            console.log(name);
+                            console.log(initialize);
+                            $.ajax({
+                    type: 'POST',
+                    url: '/album/add/',
+                    data: {
+                        initialize:initialize,
+                        name:name,
+                        album_id: album_id
+                    },
+                    success:function(data){
+                        console.log(initialize);
+                        album_id = data.album_id;
+                        album=document.querySelector("#id_album_id");
+                        album.value=album_id;
+                        initialize=false
+                        console.log(initialize);
+                    },
+                    async:false
+                });
+                        });
+            },
+
+
+        addRemoveLinks: true,
+            removedfile: function (file) {
+            $.ajax({
+            type: 'POST',
+            url: '{% url "album:remove"%}',
+            data: {name: file.name,reque:2},
+            success: function(data){
+                console.log('success: ' + data);
+            },
+                async:false
+        });
+                    var _ref;
+                    return(_ref = file.previewElement) != null
+                        ? _ref.parentNode.removeChild(file.previewElement)
+                        : void 0;
+            },
+
+        });
+</script>
+
+
+
+<script>
+
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+       var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
+    // address_auto = document.querySelector('#id_address_line');
+    city1 = document.querySelector('#id_city1');
+    region1 = document.querySelector('#id_state1');
+    country1 = document.querySelector('#id_country1');
+    city2 = document.querySelector('#id_city2');
+    region2 = document.querySelector('#id_state2');
+    country2 = document.querySelector('#id_country2');
+    city3 = document.querySelector('#id_city3');
+    region3 = document.querySelector('#id_state3');
+    country3 = document.querySelector('#id_country3');
+    function initMap() {
+                    var input1 = document.querySelector('#id_address_line1');
+                    var input2 = document.querySelector('#id_address_line2');
+                    var input3 = document.querySelector('#id_address_line3');
+                    var options = {
+                        types: ['(cities)'] //this should work !
+                    };
+                    var autocomplete1 = new google.maps.places.Autocomplete(input1,options);
+                    var autocomplete2 = new google.maps.places.Autocomplete(input2,options);
+                    var autocomplete3 = new google.maps.places.Autocomplete(input3,options);
+
+                autocomplete1.addListener('place_changed', function() {
+                    var place = autocomplete1.getPlace();
+                    console.log(place.address_components[1].long_name);
+                    console.log(place.address_components[2].long_name);
+                    console.log(place.address_components[3].long_name);
+                    city1.value=place.address_components[1].long_name;
+                    region1.value=place.address_components[2].long_name;
+                    country1.value=place.address_components[3].long_name;
+                });
+
+                autocomplete2.addListener('place_changed', function() {
+                    var place = autocomplete2.getPlace();
+                    console.log(place.address_components[1].long_name);
+                    console.log(place.address_components[2].long_name);
+                    console.log(place.address_components[3].long_name);
+                    city2.value=place.address_components[1].long_name;
+                    region2.value=place.address_components[2].long_name;
+                    country2.value=place.address_components[3].long_name;
+                });
+
+                autocomplete3.addListener('place_changed', function() {
+                    var place = autocomplete3.getPlace();
+                    console.log(place.address_components[1].long_name);
+                    console.log(place.address_components[2].long_name);
+                    console.log(place.address_components[3].long_name);
+                    city3.value=place.address_components[1].long_name;
+                    region3.value=place.address_components[2].long_name;
+                    country3.value=place.address_components[3].long_name;
+                });
+    }
+
+  </script>
+
+<!--<script>
+    $('#category1').ready(function(){
+
+        var ele = document.getElementById('category1');
+        get_sub_sectors(ele);
+    })
+    $('#category2').ready(function(){
+        var ele = document.getElementById('category2');
+        get_sub_sectors(ele);
+    })
+    $('#category3').ready(function(){
+        var ele = document.getElementById('category3');
+        get_sub_sectors(ele);
+    })
+</script>-->
+
+<script>
+
+$(function(){
+        $("#country_code_primary").val("{{business_form.country_code_primary.value}}").attr("selected","selected");
+        $("#investment_bracket").val("{{invest_indiv.investment_bracket.value}}").attr("selected","selected");
+        $("#capital_type").val("{{invest_indiv.capital_type.value}}").attr("selected","selected");
+
+        $("#category1").children("option[value='{{invest_indiv.category1.value}}']").attr("selected",true);
+        $("#category2").children("option[value='{{invest_indiv.category2.value}}']").attr("selected",true);
+        $("#category3").children("option[value='{{invest_indiv.category3.value}}']").attr("selected",true);
+
+        var ele = $("#category1");
+        var id = ele.attr('id');
+        console.log(id);
+        console.log($('#' + id).val())
+        $.ajax({
+            url: "/metadata/get_sub_sector/",
+            data: {
+                'sector': $('#' + id).val()
+            },
+            success: function(output){
+                var e = $('#sub_' + id);
+                e.html(output);
+            },
+            async:false
+        });
+
+        var ele2 = $("#category2");
+            var id2 = ele2.attr('id');
+            console.log(id2);
+            console.log($('#' + id2).val())
+        $.ajax({
+            url: "/metadata/get_sub_sector/",
+            data: {
+                'sector': $('#' + id2).val()
+            },
+            success: function(output){
+                var e = $('#sub_' + id2);
+                e.html(output);
+            },
+            async:false
+        });
+
+        var ele3 = $("#category3");
+            var id3 = ele3.attr('id');
+            console.log(id3);
+            console.log($('#' + id3).val())
+        $.ajax({
+            url: "/metadata/get_sub_sector/",
+            data: {
+                'sector': $('#' + id3).val()
+            },
+            success: function(output){
+                var e = $('#sub_' + id3);
+                e.html(output);
+            },
+            async:false
+        });
+        });
+
+
+
+    $(function(){
+    $("#sub_category1").children("option[value='{{invest_indiv.sub_category1.value}}']").attr("selected",true);
+    });
+
+    $(function(){
+    $("#sub_category3").children("option[value='{{invest_indiv.sub_category3.value}}']").attr("selected",true);
+    });
+
+    $(function(){
+    $("#sub_category2").children("option[value='{{invest_indiv.sub_category2.value}}']").attr("selected",true);
+    });
+
+
+
+
+</script>
+
+ {% for key in text_fields %}
+
+
+
+
+
+    {% endfor %}
+
+    <script>
+
+            $(document).ready(function(){
+                   var a = screen.width;
+                   console.log(a);
+                   if(a<2000 && a>1500){
+                        $("body").css("zoom","90%");
+                   }
+                   else if(a<1500 && a>1400){
+                         $("body").css("zoom","80%");
+                   }
+                   else if(a<1400 && a>1100){
+                         $("body").css("zoom","65%");
+                   }
+                   else if(a<1100 && a>900){
+                         $("body").css("zoom","67%");
+                   }
+                   else{
+                        $("body").css("zoom","50%");
+                   }
+
+            });
+
+
+    </script>
+
+
+</body>
+
+</html>

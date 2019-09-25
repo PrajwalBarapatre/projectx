@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    {% load widget_tweaks %}
+    {% load mathfilters %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Merge || Dashboard</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.carousel.min.css">
+
+    <style>
+        #modal_edit_profile .close{
+        position: absolute;
+        right: 16px;
+        top: 18px;
+        padding: 8px;
+        }
+        #modal_change_password .close{
+        position: absolute;
+        right: 16px;
+        top: 18px;
+        padding: 8px;
+        }
+        #signup .profile_section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+        .f-40{
+        font-size: 40px;
+        }
+        .h-170{
+        height: 170px;
+        }
+        .modal-content{
+        box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+        }
+
+        .pac-container {
+            z-index:20000;
+        }
+        .lodal {
+            display:    none;
+            position:   fixed;
+            z-index:    1000000000000000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+                        url('http://i.stack.imgur.com/FhHRx.gif')
+                        50% 50%
+                        no-repeat;
+        }
+        #mlodal {
+
+            position:   fixed;
+            z-index:    10000000000000000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+                        url('http://i.stack.imgur.com/FhHRx.gif')
+                        50% 50%
+                        no-repeat;
+        }
+
+        /* When the body has the loading class, we turn
+        the scrollbar off with overflow:hidden */
+        body.loading .lodal {
+            overflow: hidden;
+        }
+
+        /* Anytime the body has the loading class, our
+        modal element will be visible */
+        body.loading .lodal {
+            display: block;
+        }
+        .h-51{
+        height: 51px !important;
+        }
+        .border-r-0{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        .border-r-all{
+        border-radius: 0;
+        }
+        .location_fields{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .avatar {
+            margin: auto;
+            /* width: 50%; */
+            border: 3px solid #22B683;
+            padding: 0;
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            top: -1px;
+            left: -2px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+    </style>
+
+
+
+
+
+<style media="screen">
+    .owl_card{
+      text-align: center;
+      box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+          border: 1px solid #d2d2d2;
+          min-height: 212px;
+    }
+    .owl_card .owl_card_image{
+      text-align: center;
+      object-fit: contain;
+      height: 150px;
+    }
+    .owl_card .owl_card_image a img.img-fluid{
+      text-align: center;
+      object-fit: cover;
+    }
+    .owl-carousel .owl-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      width: 430.333px;
+    margin-right: 20px;
+    }
+    dots.disabled, .owl-carousel .owl-nav.disabled {
+        display: block;
+    }
+    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      border: none;
+      font: inherit;
+      position: absolute;
+      top: 39%;
+      text-align: center;
+      line-height: 0px;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    button.owl-dot.active {
+        background: rgba(0,0,0,0.2);
+        color: #fff;
+    }
+    button.owl-dot.active:hover {
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+    }
+    .owl-carousel .owl-nav button.owl-next span, .owl-carousel .owl-nav button.owl-prev span{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .owl-carousel .owl-nav button.owl-next{
+      right: -15px;
+    }
+    .owl-carousel .owl-nav button.owl-next:hover,
+    .owl-carousel .owl-nav button.owl-prev:hover,
+    .owl-carousel .owl-nav button.owl-prev:active,
+    .owl-carousel .owl-nav button.owl-next:active{
+        background: rgba(0,0,0,0.5);
+    }
+    .owl-carousel .owl-nav button.owl-prev{
+      left: -15px;
+    }
+    .card .img_box{
+      height: 200px;
+      background: #3f3f3f38;
+    }
+    .card .img_box .card-img-top{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card .img_box .card-img-top.img_contain{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .your_cart.card p{
+      margin: 0;
+      padding: 0;
+    }
+    .your_cart.card .card-body{
+      min-height: 260px;
+    }
+    .your_cart.card .card-footer {
+        background: #fff;
+        border-top: 0;
+    }
+
+    /* .owl1 .owl-item {
+        width: 8.75%!important;
+        margin-right: .94%!important;
+        left: .70%!important;
+    }
+    .owl1 .owl-stage {
+            transform: translate3d(0px, 0px, 0px);
+            transition: all 0s ease 0s;
+            width: 255%!important;
+    }
+
+        .owl2 .owl-stage {
+            transform: translate3d(0px, 0px, 0px);
+            transition: all 0s ease 0s;
+            width: 105%!important;
+    }
+
+    .owl2 .owl-item {
+        width: 30.63%!important;
+        margin-right: 1.05%!important;
+        left: .60%!important;
+    }  */
+</style>
+
+</head>
+
+<body>
+
+<div id="result"></div>
+
+{% include "seller1/sidecontainer.html" %}
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            {% include "seller1/topcontainer1.html" %}
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mt-80" style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-sm-8 col-lg-8 col-12 col-md-8 py-3">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                        <img id='prof_pic' src="" class="img-fluid h-170" alt="">
+                                    </div>
+                                    <div class="col-sm-9 pt-55">
+                                        <span class="f-15 ff-p f-w-bold c-f">{{user.profile.first_name}} {{user.profile.last_name}}<br>
+                                            <span class="f-w-100 f-14">
+                                                {{user.email}}
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f">
+                          <a href="/seller/fetch-detail/{{user.profile.profile_id}}">
+                            <button class="btn-dashboard-banner">View Profile</button>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--start body section -->
+
+    <div class="container-fluid bg-f6">
+        <div class="row">
+            <div class="col-sm-9 col-12 col-md-9 col-lg-9">
+                <div class="container-fluid">
+                    <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                        {% if list %}
+                      <div class="col-sm-12 pt-36">
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Seller Dashboards</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="owl-carousel owl1 owl-theme">
+                              {% for seller in list %}
+                                  {% if seller.seller.base_type == 'Seller' %}
+                                    <div class="item">
+                                          <div class="owl_card">
+                                            <div class="owl_card_image">
+                                              <!-- <a href=""> -->
+                                                <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                              <!-- </a>   -->
+                                            </div>
+                                            <div class="owl_card_footer">
+                                              <a href="/seller/user_detail/{{seller.seller.business_id}}">
+                                                  <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.title}}</h4>
+                                                  
+                                              </a>
+                                              <h4 class="f-14 f-w-bold">{{seller.seller.type}} Listing</h4>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    {% endif %}
+                              {% endfor %}
+                        </div>
+                      </div>
+    
+                      {% endif %}
+
+                        {% if list %}
+                      <div class="col-sm-12 pt-36">
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Investor Dashboards</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="owl-carousel owl1 owl-theme">
+                              {% for seller in list %}
+                                    {% if seller.seller.base_type == 'Investor' %}
+                                    <div class="item">
+                                      <div class="owl_card">
+                                        <div class="owl_card_image">
+                                          <!-- <a href=""> -->
+                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid pl-1 pr-2">
+                                          <!-- </a> -->
+                                        </div>
+                                        <div class="owl_card_footer">
+                                          <a href="/investor/user_detail/{{seller.seller.investor_id}}">
+                                              <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
+
+                                          </a>
+                                  <h4 class="f-14 f-w-bold">{{seller.seller.about_seller}} Listing</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    {% endif %}
+                              {% endfor %}
+                        </div>
+                      </div>
+    
+                      {% endif %}
+
+                        {% if list %}
+                      <div class="col-sm-12 pt-36">
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Advisor Dashboards</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="owl-carousel owl1 owl-theme">
+                              {% for seller in list %}
+                                    {% if seller.seller.base_type == 'Advisor' %}
+                                    <div class="item">
+                                      <div class="owl_card">
+                                        <div class="owl_card_image">
+                                          <!-- <a href=""> -->
+                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid pl-1 pr-2">
+                                          <!-- </a> -->
+                                        </div>
+                                        <div class="owl_card_footer">
+                                          <a href="/advisor/user_detail/{{seller.seller.advisor_id}}">
+                                              <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
+
+                                          </a>
+                                        <h4 class="f-14 f-w-bold">{{seller.seller.type}}  Listing</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    {% endif %}
+                              {% endfor %}
+                        </div>
+                      </div>
+    
+                      {% endif %}
+
+                  </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row pt-60">
+                        <div class="col-sm-7 col-12 col-lg-7 col-md-7">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">Your Cart</h3>
+                        </div>
+                    </div>
+
+                    <div class="row pt-36">
+                            <div class="col-md-12">
+                              <div class="owl-carousel owl2">
+                                      {% for seller in cart %}
+                                      {%if seller.seller.base_type == 'Seller' %}
+                                      {% if seller.seller.type == 'Business' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 col-3">
+                                                                  <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">8.5</span>
+                                                              </div>
+                                                              <div class="col-sm-9 col-9">
+                                                                  <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">Bangalore, India</span>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-md-7 col-7 text-left">
+                                                                  <p class=""> Run Rate Sales :  </p>
+                                                              </div>
+                                                              <div class="col-md-5 col-5 text-right">
+                                                                <p>
+                                                                  {{seller.seller.rev_year}}
+                                                                </p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-6 text-left">
+                                                                  <p>Category :</p>
+                                                              </div>
+                                                              <div class="col-sm-6 col-6 text-right">
+                                                                  <p class="m-0">{{seller.seller.category1}}</p>
+                                                                  <p class="m-0">{{seller.seller.category2}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Investment</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                  <p>{{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Profit Percent</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                      <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Business
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Equity' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 col-3">
+                                                                  <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">8.5</span>
+                                                              </div>
+                                                              <div class="col-sm-9 col-9">
+                                                                  <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">Bangalore, India</span>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-12 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Run Rate Sales :  </p>
+                                                              </div>
+                                                              <div class="col-sm-6 col-5 text-right">
+                                                                  <p class=""> {{seller.seller.rev_year}} </p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p>Category : </p>
+                                                              </div>
+                                                              <div class="col-sm-6 col-5 text-right">
+                                                                  <p class="m-0"> {{seller.seller.category1}} </p>
+                                                                  <p class="m-0"> {{seller.seller.category2}} </p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Investment</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                  <p>{{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Profit Percent</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                  <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>% Stake For Sale</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                      <p>{{ seller.business.stake |floatformat }}</p>
+                                                              </div>
+                                                          </div>
+
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Seller
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Asset' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 col-3">
+                                                                  <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">8.5</span>
+                                                              </div>
+                                                              <div class="col-sm-9 col-9">
+                                                                  <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">Bangalore, India</span>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Asking Price : </p>
+                                                              </div>
+                                                              <div class="col-md-6 text-right">
+                                                                  <p>{{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-12 col-7 text-left">
+                                                                  <p>Category : {{seller.seller.category1}} | {{seller.seller.category2}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Purchase Year</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                  <p>{{seller.business.purchase_year}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-7 col-7 text-left">
+                                                                  <p>Asset Type</p>
+                                                              </div>
+                                                              <div class="col-sm-5 col-5 text-right">
+                                                                  <p>{{ seller.business.asset_type }}</p>
+                                                              </div>
+                                                          </div>
+
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Seller
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Loan' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top"  src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 col-3">
+                                                                  <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">8.5</span>
+                                                              </div>
+                                                              <div class="col-sm-9 col-9">
+                                                                  <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                  <span class="f-11 pl-1">Bangalore, India</span>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Run Rate Sales : </p>
+                                                              </div>
+                                                              <div class="col-md-6 col-7 text-right">
+                                                                <p> {{seller.seller.rev_year}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p>Category : </p>
+                                                              </div>
+                                                              <div class="col-md-6 col-7 text-right">
+                                                                <p class="m-0"> {{seller.seller.category1}}</p>
+                                                                <p class="m-0">  {{seller.seller.category2}}</p>
+                                                              </div>
+                                                          </div>
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-7 col-7 text-left">
+                                                                          <p>Loan Amount</p>
+                                                                      </div>
+                                                                      <div class="col-sm-5 col-5 text-right">
+                                                                          <p>INR {{seller.business.loan_amount}}</p>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="row f-11 pt-10">
+                                                                          <div class="col-sm-7 col-7 text-left">
+                                                                              <p>Loan Term</p>
+                                                                      </div>
+                                                                          <div class="col-sm-5 col-5 text-right">
+                                                                              <p>{{ seller.business.year_established }} yrs</p>
+                                                                          </div>
+                                                                      </div>
+                                                                      <div class="row f-11 pt-10">
+                                                                              <div class="col-sm-7 col-7 text-left">
+                                                                                  <p>Loan Interest %</p>
+                                                                          </div>
+                                                                              <div class="col-sm-5 col-5 text-right">
+                                                                                      <p>{{ seller.business.sought_interest|floatformat }} %</p>
+                                                                              </div>
+                                                                          </div>
+
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Lender
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Startup' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                                  <div class="col-sm-6 col-7 text-left">
+                                                                      <p>Startup Domain : </p>
+                                                                  </div>
+                                                                  <div class="col-md-6 col-5 text-right">
+                                                                    <p class="m-0"> {{seller.seller.category1}}</p>
+                                                                    <p class="m-0">{{seller.seller.category2}}</p>
+                                                                  </div>
+                                                              </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Asking Price :  </p>
+                                                              </div>
+                                                              <div class="col-md-6 col-5 text-right">
+                                                                <p class=""> {{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-7 col-7 text-left">
+                                                                          <p>Equity For Sale</p>
+                                                                      </div>
+                                                                      <div class="col-sm-5 col-5 text-right">
+                                                                          <p>INR {{seller.business.sought_equity|floatformat}}</p>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="row f-11 pt-10">
+                                                                          <div class="col-sm-7 col-7 text-left">
+                                                                              <p>Year of Start</p>
+                                                                      </div>
+                                                                          <div class="col-sm-5 col-5 text-right">
+                                                                              <p>{{ seller.business.year_established }} yrs</p>
+                                                                          </div>
+                                                                      </div>
+
+
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Startup
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Ipcode' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top"  src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                                  <div class="col-sm-6 col-7 text-left">
+                                                                      <p>Category :  </p>
+                                                                  </div>
+                                                                  <div class="col-md-6 col-5 text-right">
+                                                                    <p class="m-0">{{seller.seller.category1}}</p>
+                                                                    <p class="m-0">{{seller.seller.category2}}</p>
+                                                                  </div>
+                                                              </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Asking Price :  </p>
+                                                              </div>
+                                                              <div class="col-md-6 col-5 text-right">
+                                                                <p class="">{{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-7 col-7 text-left">
+                                                                          <p>Type</p>
+                                                                      </div>
+                                                                      <div class="col-sm-5 col-5 text-right">
+                                                                          <p>{{seller.business.startup_type}}</p>
+                                                                      </div>
+                                                                  </div>
+
+                                                                  {% if seller.business.website %}
+                                                                  <div class="row f-11 pt-10">
+                                                                          <div class="col-sm-7 col-7 text-left">
+                                                                              <p>Link</p>
+                                                                          </div>
+                                                                          <div class="col-sm-5 col-5 text-right">
+                                                                              <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                          </div>
+                                                                      </div>
+                                                                  {% endif %}
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Seller
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+                                          {% if seller.seller.type == 'Application' %}
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                                  <div class="col-sm-6 col-7 text-left">
+                                                                      <p>Category : </p>
+                                                                  </div>
+                                                                  <div class="col-md-6 col-5 text-right">
+                                                                    <p class="m-0">{{seller.seller.category1}}</p>
+                                                                    <p class="m-0">{{seller.seller.category2}}</p>
+                                                                  </div>
+                                                              </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-6 col-7 text-left">
+                                                                  <p class=""> Asking Price :  </p>
+                                                              </div>
+                                                              <div class="col-md-6 col-5 text-right">
+                                                                <p>{{seller.business.asking_price}}</p>
+                                                              </div>
+                                                          </div>
+
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-7 col-7 text-left">
+                                                                          <p>Type</p>
+                                                                      </div>
+                                                                      <div class="col-sm-5 col-5 text-right">
+                                                                          <p>{{seller.business.startup_type}}</p>
+                                                                      </div>
+                                                                  </div>
+
+                                                              {% if seller.business.website %}
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-7 col-7 text-left">
+                                                                          <p>Link</p>
+                                                                      </div>
+                                                                      <div class="col-sm-5 col-5 text-right">
+                                                                          <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                      </div>
+                                                                  </div>
+                                                              {% endif %}
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Seller
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                          {% endif %}
+
+
+
+
+
+                                      {% endif %}
+
+                                      {%if seller.seller.base_type == 'Advisor' %}
+                                            <div class="your_cart card">
+                                                    <a href="" class="img_box">
+                                                        <img class="card-img-top img-contain" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p py-0">
+                                                        <a href="/advisor/all_detail/{{seller.seller.advisor_id}}">
+                                                            <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                        </a>
+                                                        <p class="f-11">{{seller.seller.type}} Advisor</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p class="">Domain Expertise :  </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                    <p class="m-0">{{seller.business.category1}}</p>
+                                                                    <p class="m-0"> {{seller.business.category2}}</p>
+                                                                    <p class="m-0">{{seller.business.category3}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-12 col-7 text-left">
+                                                                        <p>Preffered Locations : </p>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-5 text-right">
+                                                                        <p class="m-0">{{seller.business.city1}}</p>
+                                                                        <p class="m-0">{{seller.business.city2}}</p>
+                                                                        <p class="m-0">{{seller.business.city3}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Years Of Experience</p>
+                                                                        </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p>{{seller.business.year_exp}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row f-12 pt-10">
+                                                                            <div class="col-sm-7 col-7 text-left">
+                                                                                <p>Core Skills</p>
+                                                                        </div>
+                                                                            <div class="col-sm-5 col-5 text-right">
+                                                                                <p class="m-0">{{seller.business.skill1}}</p>
+                                                                                <p class="m-0"> {{seller.business.skill2}}</p>
+                                                                                <p class="m-0">{{seller.business.skill3}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row f-12 pt-10">
+                                                                                <div class="col-sm-7 col-7 text-left">
+                                                                                    <p>Fee/Hour</p>
+                                                                                </div>
+                                                                                <div class="col-sm-5 col-5 text-right">
+                                                                                    <p class="price" data-currency-type="{{seller.business.currency}}" data-value="{{seller.business.hour_fee}}"></p>
+                                                                                </div>
+
+                                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <button class="btn-startup-cart w-100">Contact Advisor
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                      {% endif %}
+                                      {%if seller.seller.base_type == 'Investor' %}
+
+                                          <div class="your_cart card">
+                                                  <a href="" class="img_box">
+                                                      <img class="card-img-top img_contain"  src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                  </a>
+                                                  <div class="card-body ff-p py-0">
+                                                      <a href="/investor/all_detail/{{seller.seller.investor_id}}">
+                                                          <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                      </a>
+                                                      <p class="f-11">{{seller.seller.about_seller}}</p>
+                                                      <div class="container-fluid zero-padding pt-2 ff-p">
+                                                          <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-11 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                              <div class="col-sm-3 col-7 text-left">
+                                                                  <p class="">Interested Sectors</p>
+                                                              </div>
+                                                              <div class="col-sm-9 col-5 text-right">
+                                                                  <p class="m-0">{{seller.business.sub_category1}} </p>
+                                                                  <p class="m-0">{{seller.business.sub_category2}}</p>
+                                                                  <p class="m-0">{{seller.business.sub_category3}}</p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="row f-11 pt-10">
+                                                                  <div class="col-sm-3 col-7 text-left">
+                                                                      <p>Prefered Locations</p>
+                                                                  </div>
+                                                                  <div class="col-sm-9 col-5 text-right">
+                                                                      <p class="m-0">{{seller.business.city1}}</p>
+                                                                      <p class="m-0">{{seller.business.city2}}</p>
+                                                                      <p class="m-0">{{seller.business.city3}}</p>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row f-11 pt-10">
+                                                                      <div class="col-sm-3 col-7 text-left">
+                                                                          <p>Type of Capital</p>
+                                                                      </div>
+                                                                      <div class="col-sm-9 col-5 text-right">
+                                                                          <p>{{seller.business.capital_type}}</p>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="row f-11 pt-10">
+                                                                          <div class="col-sm-3 col-7 text-left">
+                                                                              <p>Investment Bracket</p>
+                                                                          </div>
+                                                                          <div class="col-sm-9 col-5 text-right">
+                                                                              <p>{{seller.business.investment_bracket}}</p>
+                                                                          </div>
+
+                                                                      </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-footer">
+                                                    <div class="row">
+                                                      <div class="col-sm-12">
+                                                        <a href="/investor/all_detail/{{seller.seller.investor_id}}">
+                                                          <button class="btn-startup-cart w-100">Chat with Investor
+                                                          </button>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                          </div>
+                                      {% endif %}
+                                      {% endfor %}
+                                  </div>
+                            </div>
+                    </div>
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-12 col-12 col-lg-12 col-md-12 pt-15">
+                            <h3 class="f-26 ff-p f-w-bold c-3f pl-2">Your Information
+                            </h3>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-7 col-12 col-md-7 col-lg-7 pt-30">
+                                  <div class="container-fluid">
+                                      <div class="row">
+                                          <div class="col-sm-5">
+                                              <h2 class="f-12 ff-p f-w-bold">Name</h2>
+                                              <h2 class="f-12 ff-p f-w-bold">Email</h2>
+                                              <h2 class="f-12 ff-p f-w-bold">Phone Number</h2>
+                                          </div>
+                                          <div class="col-sm-7">
+                                              <h2 class="f-12 ff-p">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
+                                              <h2 class="f-12 ff-p">{{user.email}}</h2>
+                                              <h2 class="f-12 ff-p">{{user.profile.contact_number}}</h2>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <a data-toggle="modal" data-target="#modal_edit_profile">
+                            <button class="btn-startup-cart m-3">Edit Profile
+                            </button>
+                            </a>
+                            <button class="btn-startup-cart m-3">Decativate Account
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                        <div class="col-sm-5">
+                            <img src="/static/seller1/images/pic1.jpg" class="img-fluid pt-10" alt="">
+                        </div>
+                        <div class="col-sm-7 text-center">
+                            <h2 class="f-32 ff-p f-w-bold pt-73 pb-36">Explore Our Advanced Dashboard </h2>
+                            <button class="btn-bv mr-2 mb-2">Click Here to Unlock</button>
+                            <button class="btn-bv mr-2 mb-2">View Video Trailer</button>
+                        </div>
+                    </div>
+                    <div class="row pt-40">
+                        <div class="col-sm-7 col-12 col-lg-7 col-md-7">
+                            <h3 class="f-26 ff-p f-w-bold c-3f">You Maybe Interestred in</h3>
+                        </div>
+                    </div>
+                    <div class="row pt-36">
+                        <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                    <div class="card">
+                                                        <a href="">
+                                                            <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                        </a>
+                                                        <div class="card-body ff-p">
+                                                            <a href="">
+                                                                <h4 class="c-19 f-14 f-w-bold">Ankur Palm Springs</h4>
+                                                            </a>
+                                                            <p class="f-11">By Ankur Foundation</p>
+                                                            <div class="container-fluid zero-padding pt-2 ff-p">
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-3">
+                                                                        <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                    </div>
+                                                                    <div class="col-sm-9 col-9">
+                                                                        <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p class="">Run Rate Sales</p>
+                                                                        <p>EBITDA Margin</p>
+                                                                        <p>Financial Investment</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>INR 300 crore</p>
+                                                                        <p>0 - 10 %</p>
+                                                                        <p>INR 200 crore</p>
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Chat with Business</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                    <div class="card">
+                                                        <a href="">
+                                                            <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                        </a>
+                                                        <div class="card-body ff-p">
+                                                            <a href="">
+                                                                <h4 class="c-19 f-14 f-w-bold">Mother Earth Hosts Our Travels</h4>
+                                                            </a>
+                                                            <p class="f-11">By Ankur Foundation</p>
+                                                            <div class="container-fluid zero-padding pt-2 ff-p">
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-3">
+                                                                        <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                    </div>
+                                                                    <div class="col-sm-9 col-9">
+                                                                        <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p class="">Run Rate Sales</p>
+                                                                        <p>EBITDA Margin</p>
+                                                                        <p>Financial Investment</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>INR 300 crore</p>
+                                                                        <p>0 - 10 %</p>
+                                                                        <p>INR 200 crore</p>
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Contact Business</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                    <div class="card">
+                                                        <a href="">
+                                                            <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                        </a>
+                                                        <div class="card-body ff-p">
+                                                            <a href="">
+                                                                <h4 class="c-19 f-14 f-w-bold">Live Poker How To Win Tournament…</h4>
+                                                            </a>
+                                                            <p class="f-11">By Ankur Foundation</p>
+                                                            <div class="container-fluid zero-padding pt-2 ff-p">
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-3">
+                                                                        <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                    </div>
+                                                                    <div class="col-sm-9 col-9">
+                                                                        <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p class="">Run Rate Sales</p>
+                                                                        <p>EBITDA Margin</p>
+                                                                        <p>Financial Investment</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>INR 300 crore</p>
+                                                                        <p>0 - 10 %</p>
+                                                                        <p>INR 200 crore</p>
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Contact Business</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="carousel-item">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Ankur Palm Springs</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Contact Business</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Mother Earth Hosts Our Travels</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Contact Business</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4 col-12 col-lg-4 pb-3">
+                                                <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top" src="/static/seller1/images/img-4.png" alt="Card image cap img-fluid">
+                                                    </a>
+                                                    <div class="card-body ff-p">
+                                                        <a href="">
+                                                            <h4 class="c-19 f-14 f-w-bold">Live Poker How To Win Tournament…</h4>
+                                                        </a>
+                                                        <p class="f-11">By Ankur Foundation</p>
+                                                        <div class="container-fluid zero-padding pt-2 ff-p">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-3">
+                                                                    <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                </div>
+                                                                <div class="col-sm-9 col-9">
+                                                                    <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                <div class="col-sm-7 col-7 text-left">
+                                                                    <p class="">Run Rate Sales</p>
+                                                                    <p>EBITDA Margin</p>
+                                                                    <p>Financial Investment</p>
+                                                                </div>
+                                                                <div class="col-sm-5 col-5 text-right">
+                                                                    <p>INR 300 crore</p>
+                                                                    <p>0 - 10 %</p>
+                                                                    <p>INR 200 crore</p>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                        <button class="btn-startup-cart">Contact Business</button>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+                                <span>
+                                    <img src="/static/seller1/images/left-arrow-icon.png" alt="">
+                                </span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+                                <span><img src="/static/seller1/images/right-arrow-icon.png" alt=""></span>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
+                <div class="onlineChatBox height-scroller">
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <button class="btn-sideBox ff-p">  Learn About Advanced Valuation
+                        </button>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end body section -->
+    <div class="container-fluid bg-ea sticky-fixed">
+        <div class="row pt-53 ff-p">
+            <div class="col-sm-2-custo">
+                <h4 class="f-16 f-w-bold c-3f pl-5">
+                    Businesses across
+                </h4>
+                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
+                <p class="f-14 pl-5">Bangalore</p>
+                <p class="f-14 pl-5">Chennai</p>
+                <p class="f-14 pl-5">Delhi</p>
+                <p class="f-14 pl-5">Hyderabad</p>
+                <p class="f-14 pl-5">Indore</p>
+                <p class="f-14 pl-5">Kolkata</p>
+                <p class="f-14 pl-5">Lucknow</p>
+                <p class="f-14 pl-5">Mumbai</p>
+                <p class="f-14 pl-5">Nagpur</p>
+                <p class="f-14 pl-5">Pune</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Business Products
+                </h4>
+                <p class="f-14 pt-2">Buy a Business</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Lend-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">Sell Business</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Our Startup Products
+                </h4>
+                <p class="f-14 pt-2">Buy Startup</p>
+                <p class="f-14">Buy stake</p>
+                <p class="f-14">Connect-to</p>
+                <p class="f-14">Advisors</p>
+                <p class="f-14">List Startup</p>
+                <p class="f-14">Investors</p>
+            </div>
+            <div class="col-sm-2-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    COMPANY
+                </h4>
+                <p class="f-14 pt-2">About Us</p>
+                <p class="f-14">Contact Us</p>
+                <p class="f-14">Career with Us</p>
+                <p class="f-14">Term of Use</p>
+                <p class="f-14">Report a Problem</p>
+                <p class="f-14">Our Blog</p>
+                <p class="f-14">Feedback</p>
+                <p class="f-14">FAQs</p>
+                <p class="f-14">Press Room</p>
+                <p class="f-14">Help</p>
+            </div>
+            <div class="col-sm-3-custo fp">
+                <h4 class="f-16 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        function myFunction() {
+            document.getElementById("myDIV").style.display = "none";
+            document.getElementById('img').className = 'selected-side-map';
+        }
+    </script>
+    <style>
+        .carousel-control-next, .carousel-control-prev
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 4%;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+    }
+    .btn-startup-cart{
+        background: #192ED5;
+        color: #ffffff;
+        padding: 6px 60px 8px 50px;
+        font-size: 17px;
+        font-weight: 500;
+        border: none;
+        border-radius: 5px;
+        font-family: Poppins;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-startup-cart:hover{
+        color: #192ED5;
+        background: #ffffff;
+        cursor: pointer;
+        border: 1px solid #192ED5;
+        padding: 6px 57px 8px 50px;
+    }
+    .btn-bv{
+        background: #22B683;
+        color: #ffffff;
+        padding: 8px 12px 8px 17px;
+        border: none;
+        font-family: Poppins;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-bv:hover{
+        color: #22B683;
+        background: #ffffff;
+        cursor: pointer;
+        border: 1px solid #22B683
+    }
+
+    .btn-sideBox{
+        padding: 9px 22px 9px 22px;
+        background: #28a745;
+        color: #ffffff;
+        border: none;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out
+    }
+
+        .btn-sideBox:hover{
+            color: #28a745;
+        background: #ffffff;
+        border: 1px solid #28a745;
+        cursor: pointer;
+    }
+    </style>
+    
+    <script src="/static/profiles/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/profiles/js/jquery-ui.min.js"></script>
+    <script src="/static/seller1/js/bootstrap.min.js"></script>
+    <script src="/static/seller1/js/custom.js"></script>
+    <script src="/static/seller1/js/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    <script src="/static/profiles/js/notification.js"></script>
+    <script src="/static/seller1/js/sidebarloader.js"></script>
+
+    <script>
+
+
+               var a = screen.width;
+               console.log(a);
+               if(a<2000 && a>1500){
+                    $("body").css("zoom","90%");
+                    // $(".owl-carousel").css("zoom","110%");
+               }
+               else if(a<1500 && a>1400){
+                     $("body").css("zoom","80%");
+                    //  $(".owl-carousel").css("zoom","100%");
+               }
+               else if(a<1400 && a>1100){
+                     $("body").css("zoom","65%");
+                    //  $(".owl-carousel").css("zoom","85%");
+               }
+               else if(a<1100 && a>900){
+                     $("body").css("zoom","67%");
+               }
+               else{
+                    $("body").css("zoom","50%");
+               }
+
+
+
+
+    </script>
+
+    <script>
+
+      var owl1 = $('.owl1');
+      var owl2 = $('.owl2');
+      owl1.owlCarousel({
+          items:4,
+          loop:false,
+          margin:5,
+          autoplay:false,
+          autoplayTimeout:6000,
+          autoplayHoverPause:true
+      });
+      $('.play').on('click',function(){
+          owl1.trigger('play.owl.autoplay',[1000])
+      })
+      $('.stop').on('click',function(){
+          owl1.trigger('stop.owl.autoplay')
+      })
+
+
+      owl2.owlCarousel({
+          items:3,
+          loop:false,
+          margin:5,
+          autoplay:false,
+          autoplayTimeout:6000,
+          autoplayHoverPause:true
+      });
+      $('.play').on('click',function(){
+          owl2.trigger('play.owl.autoplay',[1000])
+      })
+      $('.stop').on('click',function(){
+          owl2.trigger('stop.owl.autoplay')
+      })
+
+    </script>
+    {% if user.is_authenticated %}
+    <script>
+        $(document).ready(function(){
+
+            if("{{user.profile.social}}"=="True"){
+                name = "{{user.profile.photo_url}}"
+            }else{
+                name = "/media/"+"{{user.profile.photo.name}}";
+            }
+
+            $('#prof_pic').attr('src',name);
+
+        });
+    </script>
+    {% endif %}
+
+
+
+
+
+    {% if user.is_authenticated %}
+    <script>
+        $(document).ready(function(){
+            $('#login_icon_b').css('display','none');
+            $('#loggedin_icon_b').css('display','block');
+            $('#login_icon_s').css('display','none');
+            $('#loggedin_icon_s').css('display','block');
+            // name="{{user.profile.photo.name}}";
+            // name = "/media/"+name;
+            if("{{user.profile.social}}"=="True"){
+                name = "{{user.profile.photo_url}}"
+            }else{
+                name = "/media/"+"{{user.profile.photo.name}}";
+            }
+            console.log(name)
+            console.log('{{user.profile.photo_url}}');
+            $('#prof_pic_b').attr('src',name);
+            $('#prof_pic_s').attr('src',name);
+        });
+    </script>
+
+
+    {% endif %}
+
+
+ <!-- <script>
+
+var a = sessionStorage.getItem("currency");
+$('#id_currency').val(a).change();
+console.log(a);
+var b = a.split("**");
+$("#select2-id_currency-container").html(b[3]);
+console.log(b[3]);
+</script>  -->
+
+
+</body>
+
+</html>

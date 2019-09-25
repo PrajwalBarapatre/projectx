@@ -1,0 +1,302 @@
+1,Automotive ,Auto & Truck
+2,Manufacturing,Chemical (Basic)
+3,Utility,Utility (Water)
+4,Financial Services ,Brokerage & Investment Banking
+5,Financial Services ,Bank (Money Center)
+6,Electronics ,Electronics (Consumer & Office)
+7,Retail,Retail (Building Supply)
+8,Manufacturing,Shipbuilding & Marine
+9,Manufacturing,Metals & Mining
+10,Retail,Retail (Online)
+11,Aerospace,Aerospace/Defense
+12,Manufacturing,Machinery
+13,IT,Software (Entertainment)
+14,Education,Knowledge Mangement
+15,Retail,Apparel
+16,Manufacturing,Building Materials
+17,Realestate&Construction,Homebuilding
+18,Media & Broadcasting,Cable TV
+19,Aerospace,Aerospace
+20,Agriculture,Agriculture
+21,Emerging Technology,Analytics
+22,Website & Applications,Android
+23,Website & Applications,Apps
+24,Non-classifiable Establishments,Art
+25,Emerging Technology,Artificial Intelligence
+26,Non-classifiable Establishments,Association
+27,Automotive ,Automotive
+28,Non-classifiable Establishments,B2B
+29,Financial Services ,Banking
+30,Consumer,Beauty
+31,Emerging Technology,Big Data
+32,Pharma & Healthcare,Biotechnology
+33,Emerging Technology,Blockchain
+34,Social Media,Blogging Platforms
+35,Business Services ,Brand Marketing
+36,Business Services ,Business Development
+37,Business Services ,Business Intelligence
+38,Website & Applications,Cloud Computing
+39,Non-classifiable Establishments,Communities
+40,IT,Computer
+41,Realestate&Construction,Construction
+42,Business Services ,Consulting
+43,Electronics ,Consumer Electronics
+44,Retail,Consumer
+45,Social Media,Content
+46,Business Services ,Customer Service
+47,Emerging Technology,Cyber Security
+48,Business Services ,Data Visualization
+49,Business Services ,Database
+50,Transaporation & Logistics,Delivery
+51,Website & Applications,Developer APIs
+52,Website & Applications,Developer Platform
+53,Website & Applications,Developer Tools
+54,Media & Broadcasting,Digital Entertainment
+55,Business Services ,Digital Marketing
+56,Media & Broadcasting,Digital Media
+57,Emerging Technology,Drones
+58,Transaporation & Logistics,E-Commerce
+59,Education,EdTech
+60,Education,Education
+61,Education,E-Learning
+62,Electronics ,Electronics
+63,Business Services ,Employment
+64,Energy,Energy
+65,IT,Enterprise Software
+66,Non-classifiable Establishments,Event Management
+67,Non-classifiable Establishments,Events
+68,Consumer,Fashion
+69,Media & Broadcasting,Film
+70,Financial Services ,Finance
+71,Financial Services ,Financial Services
+72,Financial Services ,FinTech
+73,Pharma & Healthcare,Fitness
+74,Food & Beverage,Food and Beverage
+75,Food & Beverage,Food Delivery
+76,Food & Beverage,Food Processing
+77,Non-classifiable Establishments,Furniture
+78,Non-classifiable Establishments,Gambling
+79,Non-classifiable Establishments,Gamification
+80,Non-classifiable Establishments,Generation Y
+81,Pharma & Healthcare,Genetics
+82,Non-classifiable Establishments,Geospatial
+83,Business Services ,Gift Card
+84,Consumer,Gift
+85,Government,Government
+86,Website & Applications,Graphic Design
+87,Energy,GreenTech
+88,IT,Hardware
+89,Pharma & Healthcare,Health Care
+90,Pharma & Healthcare,Health Diagnostics
+91,Education,Higher Education
+92,Non-classifiable Establishments,Home Decor
+93,Non-classifiable Establishments,Home Services
+94,Pharma & Healthcare,Hospital
+95,"Travel,Hotel&Hospitality",Hospitality
+96,"Travel,Hotel&Hospitality",Hotel
+97,Manufacturing,Industrial Engineering
+98,Manufacturing,Industrial
+99,IT,Information Services
+100,IT,Information Technology
+101,IT,Infrastructure
+102,Non-classifiable Establishments,Innovation Management
+103,Financial Services ,Insurance
+104,Emerging Technology,Internet of Things
+105,Emerging Technology,Internet
+106,Website & Applications,iOS
+107,Non-classifiable Establishments,Janitorial Service
+108,Consumer,Jewelry
+109,Media & Broadcasting,Journalism
+110,Education,Language Learning
+111,Business Services ,Lead Generation
+112,Business Services ,Legal
+113,"Travel,Hotel&Hospitality",Leisure
+114,Financial Services ,Lending
+115,Pharma & Healthcare,Life Science
+116,Consumer,Lifestyle
+117,Non-classifiable Establishments,Local
+118,Non-classifiable Establishments,Location Based Services
+119,Transaporation & Logistics,Logistics
+120,Emerging Technology,Machine Learning
+121,Manufacturing,Manufacturing
+122,Business Services ,Marketing
+123,Website & Applications,Marketplace
+124,Media & Broadcasting,Media and Entertainment
+125,Pharma & Healthcare,Medical Device
+126,Pharma & Healthcare,Medical
+127,Website & Applications,Mobile Apps
+128,Consumer,Mobile
+129,Entertainment,Music
+130,Emerging Technology,Nanotechnology
+131,Government,National Security
+132,Emerging Technology,Natural Language Processing
+133,Non-classifiable Establishments,Natural Resources
+134,Non-classifiable Establishments,Navigation
+135,IT,Network Hardware
+136,Website & Applications,Network Security
+137,Media & Broadcasting,News
+138,Non-classifiable Establishments,Non Profit
+139,Food & Beverage,Nutrition
+140,Energy,Oil and Gas
+141,Website & Applications,Online Auctions
+142,Non-classifiable Establishments,Online Games
+143,Non-classifiable Establishments,Online Portals
+144,Non-classifiable Establishments,Open Source
+145,Non-classifiable Establishments,Optical Communication
+146,Food & Beverage,Organic Food
+147,Food & Beverage,Organic
+148,Non-classifiable Establishments,Outdoors
+149,Non-classifiable Establishments,Outsourcing
+150,Financial Services ,Payments
+151,Pharma & Healthcare,Pharmaceutical
+152,Media & Broadcasting,Photography
+153,Non-classifiable Establishments,Printing
+154,Manufacturing,Product Design
+155,Business Services ,Professional Services
+156,Business Services ,Project Management
+157,Realestate&Construction,Property Management
+158,Media & Broadcasting,Public Relations
+159,Media & Broadcasting,Publishing
+160,Non-classifiable Establishments,Q&A
+161,Non-classifiable Establishments,QR Codes
+162,Business Services ,Quality Assurance
+163,Non-classifiable Establishments,Quantified Self
+164,Emerging Technology,Quantum Computing
+165,Realestate&Construction,Real Estate Investment
+166,Realestate&Construction,Real Estate
+167,Non-classifiable Establishments,Real Time
+168,Non-classifiable Establishments,Recruiting
+169,Energy,Renewable Energy
+170,"Travel,Hotel&Hospitality",Restaurants
+171,Retail,Retail Technology
+172,Retail,Retail
+173,Financial Services ,Risk Management
+174,Emerging Technology,Robotics
+175,IT,SaaS
+176,Website & Applications,Search Engine
+177,Website & Applications,Security
+178,Website & Applications,SEO
+179,"Travel,Hotel&Hospitality",Service Industry
+180,Consumer,Shopping
+181,Social Media,Social Media
+182,Social Media,Social Network
+183,IT,Software
+184,Non-classifiable Establishments,Sports
+185,Telecommunications,Telecommunications
+186,Non-classifiable Establishments,Test and Measurement
+187,Consumer,Textiles
+188,Pharma & Healthcare,Therapeutics
+189,Non-classifiable Establishments,Ticketing
+190,"Travel,Hotel&Hospitality",Tourism
+191,Financial Services ,Trading Platform
+192,Education,Training
+193,"Travel,Hotel&Hospitality",Transportation
+194,"Travel,Hotel&Hospitality",Travel
+195,Non-classifiable Establishments,Ultimate Frisbee
+196,Non-classifiable Establishments,Underserved Children
+197,Non-classifiable Establishments,Unified Communications
+198,Education,Universities
+199,IT,Usability Testing
+200,Website & Applications,UX Design
+201,Non-classifiable Establishments,Venture Capital
+202,Pharma & Healthcare,Veterinary
+203,Media & Broadcasting,Video Advertising
+204,Non-classifiable Establishments,Video Games
+205,Media & Broadcasting,Video on Demand
+206,Media & Broadcasting,Video Streaming
+207,Media & Broadcasting,Video
+208,Emerging Technology,Virtual Reality
+209,Emerging Technology,Virtualization
+210,Telecommunications,VoIP
+211,Utility,Water
+212,Emerging Technology,Wearables
+213,Website & Applications,Web Apps
+214,Website & Applications,Web Design
+215,Website & Applications,Web Development
+216,Website & Applications,Web Hosting
+217,Pharma & Healthcare,Wellness
+218,Consumer,Wholesale
+219,Food & Beverage,Wine And Spirits
+220,Telecommunications,Wireless
+221,Consumer,Young Adults
+222,Non-classifiable Establishments,Gaming
+223,Pharma & Healthcare,Heathcare Information and Technology
+224,Pharma & Healthcare,Hospitals/Healthcare Facilities
+225,Food & Beverage,Beverage (Alcoholic)
+226,Entertainment,Recreation
+227,Energy,Coal & Related Energy
+228,Media & Broadcasting,Broadcasting
+229,Education,Education
+230,Financial Services ,Insurance (Life)
+231,Food & Beverage,Beverage (Soft)
+232,Energy,Green & Renewable Energy
+233,Manufacturing,Chemical (Specialty)
+234,Financial Services ,Banks (Regional)
+235,Energy,Oil/Gas (Integrated)
+236,Non-classifiable Establishments,Diversified
+237,Media & Broadcasting,Advertising
+238,Realestate&Construction,Real Estate (Operations & Services)
+239,Pharma & Healthcare,Drugs (Pharmaceutical)
+240,Electronics ,Electronics (General)
+241,Financial Services ,Insurance (General)
+242,Retail,Retail (General)
+243,Utility,Utility (General)
+244,Pharma & Healthcare,Drugs (Biotechnology)
+245,Retail,Retail (Distributors)
+246,IT,Software (System & Application)
+247,Agriculture,Farming/Agriculture
+248,Transaporation & Logistics,Transportation (Railroads)
+249,IT,Computers/Peripherals
+250,Telecommunications,Telecom (Wireless)
+251,Retail,Retail (Special Lines)
+252,Non-classifiable Establishments,Hotel/Gaming
+253,Food & Beverage,Food Wholesalers
+254,Realestate&Construction,Real Estate (Development)
+255,Financial Services ,Investments & Asset Management
+256,Retail,Retail (Grocery and Food)
+257,Consumer,Furn/Home Furnishings
+258,Financial Services ,Reinsurance
+259,IT,Software (Internet)
+260,Food & Beverage,Food Processing
+261,Retail,Retail (Automotive)
+262,Electronics ,Semiconductor
+263,Manufacturing,Packaging & Container
+264,Financial Services ,Insurance (Prop/Cas.)
+265,Electronics ,Semiconductor Equip
+266,Energy,Oil/Gas (Production and Exploration)
+267,Transaporation & Logistics,Transportation
+268,Business Services ,Human ResourcesCategory 
+269,Energy,Power
+270,Pharma & Healthcare,Healthcare Products
+271,Consumer,Household Products
+272,Non-classifiable Establishments,Paper/Forest Products
+273,Electronics ,Electrical Equipment
+274,Telecommunications,Telecom. Equipment
+275,Manufacturing,Rubber& Tires
+276,Realestate&Construction,R.E.I.T.
+277,Aerospace,Air Transport
+278,Emerging Technology,Generation Z
+279,Energy,Oil/Gas Distribution
+280,Manufacturing,Chemical (Diversified)
+281,Realestate&Construction,Real Estate (General/Diversified)
+282,Non-classifiable Establishments,Precious Metals
+283,Energy,Oilfield Svcs/Equip.
+284,Business Services ,Business & Consumer Services
+285,IT,Computer Services
+286,Non-classifiable Establishments,Environmental & Waste Services
+287,Pharma & Healthcare,Healthcare Support Services
+288,IT,Information Services
+289,Business Services ,Office Equipment & Services
+290,Telecommunications,Telecom. Services
+291,Consumer,Shoe
+292,Realestate&Construction,Steel
+293,Realestate&Construction,Construction Supplies
+294,Financial Services ,Financial Svcs. (Non-bank & Insurance)
+295,"Travel,Hotel&Hospitality",Restaurant/Dining
+296,Entertainment,Entertainment
+297,Automotive ,Auto Parts
+298,Non-classifiable Establishments,Tobacco
+299,Transaporation & Logistics,Trucking
+300,Realestate&Construction,Engineering/Construction
+301,Media & Broadcasting,Publishing & Newspapers
+302,Non-classifiable Establishments,Xbox
