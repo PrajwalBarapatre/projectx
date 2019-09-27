@@ -4,8 +4,8 @@
 <html lang="en">
 
 <head>
-        {% load staticfiles %}
-        {% load widget_tweaks %}
+    {% load staticfiles %}
+    {% load widget_tweaks %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{% static 'seller1/css/w3.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/jquery-ui.min.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/style.css' %}">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/static/profiles/images/icon1.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
@@ -345,7 +344,8 @@ list-style-type: none;
                     <div class="col-sm-4">
                             <h4 class="f-16 f-w-500 pt-30">Loan amount</h4>
                             <div class="input-group">
-                                    {{ sell_loan.loan_amount|add_class:"form-control col-sm-6 ginput begin_empty" }}
+                                    {{ sell_loan.loan_amount|add_class:"usdtagger1 form-control col-sm-6 ginput" }}
+                                    {{ sell_loan.loan_amount_usd|attr:"hidden" }}
                                     <div class="errors" id="loan_amount_err" style="color: red">
                                         {{ sell_loan.loan_amount.errors }}
                                     </div>
@@ -531,7 +531,7 @@ list-style-type: none;
 
                                                                                       <option value="1941">1941</option>
 
-                                                                                  </select>
+                              </select>
                             </div>
                     </div>
 
@@ -1707,6 +1707,102 @@ preventDuplicates: true,
 
         });
 
+
+</script>
+
+<script>
+    $( ".usdtagger1" ).change(function() {
+            
+                var new_id= "#"+$(this).attr('id')+"_usd";
+                var a =$("#id_currency").val().split("**");
+                var number = parseFloat(a[4]);
+                var d=parseFloat($(this).val())/number;
+                var d = d.toFixed(4);
+                $(new_id).val(d);
+                console.log(d);
+            
+    });
+
+    $( ".usdtagger2" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger3" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger4" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger5" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+
+$( ".usdtagger6" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger7" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger8" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+
+    
 
 </script>
 

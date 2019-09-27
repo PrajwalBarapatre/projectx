@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{% static 'seller1/css/w3.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/jquery-ui.min.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/style.css' %}">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/static/profiles/images/icon1.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
@@ -358,7 +357,8 @@ list-style-type: none;
 
                         <h4 class="f-16 f-w-500 pt-30">Asking Price for the asset</h4>
                             <div class="input-group">
-                                    {{ sell_asset.asking_price|add_class:"form-control col-sm-2 ginput " }}
+                                    {{ sell_asset.asking_price|add_class:"usdtagger1 form-control col-sm-2 ginput " }}
+                                    {{ sell_asset.asking_price_usd|attr:"hidden" }}
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-ff">INR</span>
                                     </div>
@@ -369,7 +369,8 @@ list-style-type: none;
 
                         <h4 class="f-16 f-w-500 pt-30">Purchase Price for the asset</h4>
                             <div class="input-group">
-                                {{ sell_asset.purchase_price|add_class:"form-control col-sm-2 ginput " }}
+                                {{ sell_asset.purchase_price|add_class:"usdtagger2 form-control col-sm-2 ginput " }}
+                                {{ sell_asset.purchase_price_usd|attr:"hidden" }}
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-ff">INR</span>
                                 </div>
@@ -408,7 +409,8 @@ list-style-type: none;
                                       <div class="col-sm-2">
                                         <label for="{{ rev_form.rev_year.id_for_label }}" class="f-16 f-w-500">Lease Revenues/Year:</label>
                                                 <div class="input-group">
-                                                        {{ rev_form.rev_year|add_class:"form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.rev_year|add_class:"usdtagger3 form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.rev_year_usd|attr:"hidden" }}
                                                     <div class="errors" id="rev_year" style="color: red">
                                                     </div>
                                                     <div class="input-group-append">
@@ -424,7 +426,8 @@ list-style-type: none;
                                       <div class="col-sm-2">
                                                 <h4 class="f-16 f-w-500">2016 <span class="f-w-100"> (Optional) </span></h4>
                                                 <div class="input-group">
-                                                        {{ rev_form.year_16|add_class:"form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_16|add_class:"usdtagger4 form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_16_usd|attr:"hidden" }}
                                                     <div class="errors" id="year_16" style="color: red">
                                                     </div>
                                                     <div class="input-group-append">
@@ -440,7 +443,8 @@ list-style-type: none;
                                             <div class="col-sm-2">
                                                 <h4 class="f-16 f-w-500">2015 <span class="f-w-100"> (Optional) </span></h4>
                                                 <div class="input-group">
-                                                        {{ rev_form.year_15|add_class:"form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_15|add_class:"usdtagger5 form-control ginput"|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_15_usd|attr:"hidden" }}
                                                     <div class="errors" id="year_16" style="color: red">
                                                     </div>
                                                     <div class="input-group-append">
@@ -455,7 +459,8 @@ list-style-type: none;
                                             <div class="col-sm-2">
                                                 <h4 class="f-16 f-w-500">2014 <span class="f-w-100"> (Optional) </span></h4>
                                                 <div class="input-group">
-                                                        {{ rev_form.year_14|add_class:"form-control ginput "|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_14|add_class:"usdtagger6 form-control ginput "|attr:"placeholder:0" }}
+                                                        {{ rev_form.year_14_usd|attr:"hidden" }}
                                                     <div class="errors" id="year_16" style="color: red">
                                                     </div>
                                                     <div class="input-group-append">
@@ -470,7 +475,8 @@ list-style-type: none;
                                             <div class="col-sm-2">
                                                 <h4 class="f-16 f-w-500">2013 <span class="f-w-100"> (Optional) </span></h4>
                                              <div class="input-group">
-                                                     {{ rev_form.year_13|add_class:"form-control ginput "|attr:"placeholder:0" }}
+                                                     {{ rev_form.year_13|add_class:"usdtagger7 form-control ginput "|attr:"placeholder:0" }}
+                                                     {{ rev_form.year_13_usd|attr:"hidden" }}
                                                  <div class="errors" id="year_16" style="color: red">
                                                  </div>
                                                  <div class="input-group-append">
@@ -488,7 +494,8 @@ list-style-type: none;
                                             <div class="col-sm-12">
                                                 <h4 class="f-16 f-w-500 pt-30">Annual Maintainance Cost(Approximate) </h4>
                                                     <div class="input-group">
-                                                             {{ rev_form.year_17|add_class:"form-control col-sm-3 ginput "|attr:"placeholder:0" }}
+                                                             {{ rev_form.year_17|add_class:"usdtagger8 form-control col-sm-3 ginput "|attr:"placeholder:0" }}
+                                                             {{ rev_form.year_17_usd|attr:"hidden" }}
                                                             <div class="errors" id="email_err" style="color: red">
                                                             {{ rev_form.year_17.errors }}
                                                             </div>
@@ -505,7 +512,8 @@ list-style-type: none;
                                         {{ rev_form.no_emp.errors }}
                                         </div>
                                         <h4 class="f-16 f-w-500 pt-30">Number of Useful Years of Asset </h4>
-                                         {{ rev_form.cp_emp|add_class:"form-control col-sm-4 ginput"|attr:"oninput:javascript: if (this.value > 100) this.value = this.value.slice(0, 2);" }}
+                                         {{ rev_form.cp_emp|add_class:"usdtagger9 form-control col-sm-4 ginput"|attr:"oninput:javascript: if (this.value > 100) this.value = this.value.slice(0, 2);" }}
+                                         {{ rev_form.cp_emp_usd|attr:"hidden" }}
                                         <div class="errors" id="email_err" style="color: red">
                                         {{ rev_form.cp_emp.errors }}
                                         </div>
@@ -1584,8 +1592,6 @@ $(function(){
 </script>
 
 <script>
-
-    $(document).ready(function(){
            var a = screen.width;
            console.log(a);
            if(a<2000 && a>1500){
@@ -1604,9 +1610,6 @@ $(function(){
                 $("body").css("zoom","50%");
            }
 
-    });
-
-
 </script>
 
 <script>
@@ -1624,7 +1627,112 @@ $(function(){
 </script>
 
 
+<script>
+    $( ".usdtagger1" ).change(function() {
+            
+                var new_id= "#"+$(this).attr('id')+"_usd";
+                var a =$("#id_currency").val().split("**");
+                var number = parseFloat(a[4]);
+                var d=parseFloat($(this).val())/number;
+                var d = d.toFixed(4);
+                $(new_id).val(d);
+                console.log(d);
+            
+    });
 
+    $( ".usdtagger2" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger3" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger4" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger5" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+
+$( ".usdtagger6" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger7" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger8" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+
+    
+$( ".usdtagger9" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+
+</script>
 
 </body>
 

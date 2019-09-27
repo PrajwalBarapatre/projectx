@@ -355,7 +355,7 @@ list-style-type: none;
                     <div class="col-sm-4">
                             <h4 class="f-16 f-w-500 pt-30">Asking price for Equity</h4>
                             <div class="input-group">
-                                {{ sell_equity.asking_price|add_class:"usdtagger1 form-control pt-9 col-sm-2 ginput begin_empty" }}
+                                {{ sell_equity.asking_price|add_class:"usdtagger1 form-control pt-9 col-sm-2 ginput" }}
                                 {{ sell_equity.asking_price_usd|attr:"hidden" }}
                                 <div class="errors" id="asking_price_err" style="color: red">
                                     {{ sell_equity.asking_price.errors }}
@@ -410,7 +410,7 @@ list-style-type: none;
                       <div class="col-sm-2">
                         <label for="{{ rev_form.rev_year.id_for_label }}" class="f-16 f-w-500">Revenues/Year:</label>
                                 <div class="input-group">
-                                        {{ rev_form.rev_year|add_class:"usdtagger2 form-control ginput begin_empty"|attr:"placeholder:0" }}
+                                        {{ rev_form.rev_year|add_class:"usdtagger2 form-control ginput"|attr:"placeholder:0" }}
                                         {{ rev_form.rev_year_usd|attr:"hidden" }}
                                     <div class="errors" id="rev_year" style="color: red">
                                     </div>
@@ -495,7 +495,7 @@ list-style-type: none;
                             <div class="col-sm-12">
                                 <h4 class="f-16 f-w-500 pt-30">Final profit for 2017 </h4>
                                     <div class="input-group">
-                                            {{ rev_form.year_17|add_class:"usdtagger7 form-control col-sm-3 ginput begin_empty"|attr:"placeholder:0" }}
+                                            {{ rev_form.year_17|add_class:"usdtagger7 form-control col-sm-3 ginput"|attr:"placeholder:0" }}
                                             {{ rev_form.year_17_usd|attr:"hidden" }}
                                             <div class="errors" id="email_err" style="color: red">
                                             {{ rev_form.year_17.errors }}
@@ -508,12 +508,12 @@ list-style-type: none;
                                     <span id="currency_message_7"></span>
 
                                 <h4 class="f-16 f-w-500 pt-30">No of employees </h4>
-                        {{ rev_form.no_emp|add_class:"form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
+                        {{ rev_form.no_emp|add_class:"form-control col-sm-4 ginput "|attr:"placeholder:0" }}
                         <div class="errors" id="email_err" style="color: red">
                         {{ rev_form.no_emp.errors }}
                         </div>
                         <h4 class="f-16 f-w-500 pt-30">Cost per employee </h4>
-                        {{ rev_form.cp_emp|add_class:"usdtagger8 form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
+                        {{ rev_form.cp_emp|add_class:"usdtagger8 form-control col-sm-4 ginput"|attr:"placeholder:0" }}
                         {{ rev_form.cp_emp_usd|attr:"hidden" }}
                         <div class="errors" id="email_err" style="color: red">
                         {{ rev_form.cp_emp.errors }}

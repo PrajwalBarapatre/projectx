@@ -122,27 +122,27 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': 'bvergedatabase',
-#             'USER': 'root',
-#             'PASSWORD': 'Merge2019',
-#             'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com',
-#             'PORT': '3306',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newdb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': ''
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'bvergedatabase',
+            'USER': 'root',
+            'PASSWORD': 'Merge2019',
+            'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com',
+            'PORT': '3306',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'newdb',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': ''
+#     }
+# }
 
 
 
