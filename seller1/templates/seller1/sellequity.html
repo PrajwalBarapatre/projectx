@@ -706,6 +706,7 @@ list-style-type: none;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber);
+                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -725,7 +726,8 @@ list-style-type: none;
                               alert('Invalid Phone Number')
                           }
                       }
-                  })
+                  });
+                   $("#overlay").fadeOut();
 
           })
 
@@ -736,6 +738,7 @@ list-style-type: none;
           var name = ""+ $('#id_first_name').val()
           console.log(name);
           console.log(email);
+           $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
               url : 'ajax/email',
@@ -753,7 +756,8 @@ list-style-type: none;
                       console.log('otp sent');
                   }
               }
-          })
+          });
+           $("#overlay").fadeOut();
 
       })
 
@@ -821,7 +825,8 @@ list-style-type: none;
                   var fnumber = code+number;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
-                  console.log(fnumber)
+                  console.log(fnumber);
+                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -838,6 +843,7 @@ list-style-type: none;
 
 
                               var email = $('#id_email_adress').val();
+                               $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/email',
@@ -855,14 +861,16 @@ list-style-type: none;
                               console.log('email sent');
                           }
                       }
-                  })
+                  });
+                   $("#overlay").fadeOut();
 
                           }else{
                               alert('Invalid Phone Number')
 
                           }
                       }
-                  })
+                  });
+                   $("#overlay").fadeOut();
 
                   // let headers = new Headers()
                   // headers.append('Access-Control-Allow-Origin', '/seller');
@@ -1306,24 +1314,26 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                     $("#overlay").fadeIn();
                     $.ajax({
-            type: 'POST',
-            url: '/album/add/',
-            data: {
-                initialize:initialize,
-                name:name,
-                album_id: album_id
-            },
-            success:function(data){
-                console.log(initialize);
-                album_id = data.album_id;
-                var album=document.querySelector("#id_album_id");
-                album.value=album_id;
-                initialize=false
-                console.log(initialize);
-            },
-            async:false
-         });
+                        type: 'POST',
+                        url: '/album/add/',
+                        data: {
+                            initialize:initialize,
+                            name:name,
+                            album_id: album_id
+                        },
+                        success:function(data){
+                            console.log(initialize);
+                            album_id = data.album_id;
+                            var album=document.querySelector("#id_album_id");
+                            album.value=album_id;
+                            initialize=false
+                            console.log(initialize);
+                        },
+                        async:false
+                    });
+                     $("#overlay").fadeOut();
                 });
     },
 
@@ -1331,7 +1341,7 @@ preventDuplicates: true,
  addRemoveLinks: true,
     removedfile: function (file) {
 
-
+ $("#overlay").fadeIn();
        $.ajax({
      type: 'POST',
      url: '{% url "album:remove"%}',
@@ -1340,6 +1350,7 @@ preventDuplicates: true,
         console.log('success: ' + data);
      }
    });
+    $("#overlay").fadeOut();
 
 //    if(this.files.length == 0){
 //        console.log('inside remove if');

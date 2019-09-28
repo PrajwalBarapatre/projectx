@@ -927,7 +927,8 @@ $(document).ready(function(){
                   var fnumber = code+number;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
-                  console.log(fnumber)
+                  console.log(fnumber);
+                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -944,6 +945,7 @@ $(document).ready(function(){
 
 
                               var email = $('#id_email_adress').val();
+                               $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/email',
@@ -969,7 +971,7 @@ $(document).ready(function(){
                           }
                       }
                   })
-
+                   $("#overlay").fadeOut();
                   // let headers = new Headers()
                   // headers.append('Access-Control-Allow-Origin', '/seller');
                   // headers.append('Access-Control-Allow-Credentials', 'true');
@@ -1435,7 +1437,7 @@ preventDuplicates: true,
  addRemoveLinks: true,
     removedfile: function (file) {
 
-
+ $("#overlay").fadeIn();
        $.ajax({
      type: 'POST',
      url: '{% url "album:remove"%}',
@@ -1444,6 +1446,7 @@ preventDuplicates: true,
         console.log('success: ' + data);
      }
    });
+    $("#overlay").fadeOut();
 
 //    if(this.files.length == 0){
 //        console.log('inside remove if');

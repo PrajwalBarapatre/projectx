@@ -789,7 +789,7 @@ list-style-type: none;
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
 
 
-<!-- <script>
+ <script>
       $('#otp_verify').on('click', function(){
               var cnumber = localStorage.getItem('cnumber');
               var number = $('#id_phone_number_primary').val();
@@ -855,6 +855,7 @@ list-style-type: none;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber);
+                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -875,6 +876,7 @@ list-style-type: none;
                           }
                       }
                   })
+                   $("#overlay").fadeOut();
 
           })
 
@@ -885,6 +887,7 @@ list-style-type: none;
           var name = ""+ $('#id_first_name').val()
           console.log(name);
           console.log(email);
+           $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
               url : 'ajax/email',
@@ -903,6 +906,7 @@ list-style-type: none;
                   }
               }
           })
+           $("#overlay").fadeOut();
 
       })
 
@@ -946,6 +950,7 @@ list-style-type: none;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber)
+                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -962,24 +967,26 @@ list-style-type: none;
 
 
                               var email = $('#id_email_adress').val();
-                  $.ajax({
-                      method:'GET',
-                      url : 'ajax/email',
-                      data: {
-                          email:email,
-                          name: name
-                      },
-                      success: function(data){
-                          console.log(data)
-                          if(data.status=='success'){
-                              localStorage.setItem('email_verify', 'false');
-                              localStorage.setItem('cemail', data.email);
-                              localStorage.setItem('otp_email', data.otp);
-                              $('#otp_modal').modal('show');
-                              console.log('email sent');
-                          }
-                      }
-                  })
+                               $("#overlay").fadeIn();
+                                $.ajax({
+                                    method:'GET',
+                                    url : 'ajax/email',
+                                    data: {
+                                        email:email,
+                                        name: name
+                                    },
+                                    success: function(data){
+                                        console.log(data)
+                                        if(data.status=='success'){
+                                            localStorage.setItem('email_verify', 'false');
+                                            localStorage.setItem('cemail', data.email);
+                                            localStorage.setItem('otp_email', data.otp);
+                                            $('#otp_modal').modal('show');
+                                            console.log('email sent');
+                                        }
+                                    }
+                                })
+                                 $("#overlay").fadeOut();
 
                           }else{
                               alert('Invalid Phone Number')
@@ -987,6 +994,7 @@ list-style-type: none;
                           }
                       }
                   })
+                   $("#overlay").fadeOut();
 
                   // let headers = new Headers()
                   // headers.append('Access-Control-Allow-Origin', '/seller');
@@ -1090,7 +1098,7 @@ list-style-type: none;
               //   x[n].className.replace("off", "on");
               }
 </script>
- -->
+
 
     {% for key in model_fields %}
     {% block javascript %}
@@ -1459,6 +1467,7 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                     $("#overlay").fadeIn();
                     $.ajax({
             type: 'POST',
             url: '/album/add/',
@@ -1477,13 +1486,14 @@ preventDuplicates: true,
             },
             async:false
          });
+          $("#overlay").fadeOut();
                 });
     },
 
 
  addRemoveLinks: true,
     removedfile: function (file) {
-
+ $("#overlay").fadeIn();
 
        $.ajax({
      type: 'POST',
@@ -1494,6 +1504,7 @@ preventDuplicates: true,
      }
    });
 
+ $("#overlay").fadeOut();
 //    if(this.files.length == 0){
 //        console.log('inside remove if');
 //                         var img_ele = document.getElementById('dropzonewidget');
