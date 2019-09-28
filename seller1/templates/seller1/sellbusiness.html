@@ -116,8 +116,51 @@ list-style-type: none;
     .tab_error{
         background-color: #FE3C69 !important;
     }
+
+    #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
+
+
     </style>
 <body>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
     {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
       <!-- Top container -->
@@ -766,6 +809,7 @@ $(document).ready(function(){
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber);
+                  $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -786,6 +830,7 @@ $(document).ready(function(){
                           }
                       }
                   })
+                  $("#overlay").fadeOut();
 
           })
 
@@ -796,6 +841,7 @@ $(document).ready(function(){
           var name = ""+ $('#id_first_name').val()
           console.log(name);
           console.log(email);
+          $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
               url : 'ajax/email',
@@ -814,6 +860,7 @@ $(document).ready(function(){
                   }
               }
           })
+          $("#overlay").fadeOut();
 
       })
 
@@ -1361,24 +1408,26 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                    $("#overlay").fadeIn();
                     $.ajax({
-            type: 'POST',
-            url: '/album/add/',
-            data: {
-                initialize:initialize,
-                name:name,
-                album_id: album_id
-            },
-            success:function(data){
-                console.log(initialize);
-                album_id = data.album_id;
-                var album=document.querySelector("#id_album_id");
-                album.value=album_id;
-                initialize=false
-                console.log(initialize);
-            },
-            async:false
-         });
+                            type: 'POST',
+                            url: '/album/add/',
+                            data: {
+                                initialize:initialize,
+                                name:name,
+                                album_id: album_id
+                            },
+                            success:function(data){
+                                console.log(initialize);
+                                album_id = data.album_id;
+                                var album=document.querySelector("#id_album_id");
+                                album.value=album_id;
+                                initialize=false
+                                console.log(initialize);
+                            },
+                            async:false
+                        });
+                    $("#overlay").fadeOut();
                 });
     },
 

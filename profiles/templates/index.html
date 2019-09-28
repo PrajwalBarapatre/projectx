@@ -33,119 +33,150 @@
     <meta property="og:image:width" content="958">
     <meta property="og:image:height" content="698">
     <meta property="og:image:type" content="image/png"/>
-
-
-
-
-
-
-
-
 </head>
 
 
 
 <style>
-
-          #feeback_modal .close{
-            position: absolute;
-            right: 16px;
-            top: 18px;
-            padding: 8px;
-          }
-          #modal_edit_profile .close{
-            position: absolute;
-            right: 16px;
-            top: 18px;
-            padding: 8px;
-          }
-          #modal_change_password .close{
-            position: absolute;
-            right: 16px;
-            top: 18px;
-            padding: 8px;
-          }
-           #signup .profile_section{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-.f-40{
-  font-size: 40px;
-}
-.modal-content{
-  box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
-}
-
-.pac-container {
-    z-index:20000;
-}
-.lodal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000000000000000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-                url('http://i.stack.imgur.com/FhHRx.gif')
-                50% 50%
-                no-repeat;
-}
-#mlodal {
-
-    position:   fixed;
-    z-index:    10000000000000000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-                url('http://i.stack.imgur.com/FhHRx.gif')
-                50% 50%
-                no-repeat;
-}
-
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading .lodal {
-    overflow: hidden;
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .lodal {
-    display: block;
-}
-.h-51{
-  height: 51px !important;
-}
-.border-r-0{
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.border-r-all{
-  border-radius: 0;
-}
-.location_fields{
-      display: flex;
+    #feeback_modal .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_edit_profile .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_change_password .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #signup .profile_section{
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-  }
+    justify-content: space-between;
+    }
+    .f-40{
+    font-size: 40px;
+    }
+    .modal-content{
+    box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+    }
+
+    .pac-container {
+        z-index:20000;
+    }
+    .lodal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #mlodal {
+
+        position:   fixed;
+        z-index:    10000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+
+    /* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+    body.loading .lodal {
+        overflow: hidden;
+    }
+
+    /* Anytime the body has the loading class, our
+    modal element will be visible */
+    body.loading .lodal {
+        display: block;
+    }
+    .h-51{
+    height: 51px !important;
+    }
+    .border-r-0{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    }
+    .border-r-all{
+    border-radius: 0;
+    }
+    .location_fields{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
 
 </style>
 
 <!-- side bar style start-->
-  <style>
+<style>
     .bg-white{
         background: #fff;
         color: #000;
     }
-  </style>
+</style>
 <!-- side bar style end -->
 
 <body>
+
+        <div id="overlay">
+                <div class="cv-spinner">
+                    <span class="spinner"></span>
+                </div>
+            </div>
 
     <!-- <p>You have visited this page {{ num_visits }}</p> -->
     
@@ -4147,6 +4178,7 @@ switch (type) {
     <script>
 
         $(document).ready(function(){
+            $("#overlay").fadeIn();
 
             $.ajax({
                 type:'GET',
@@ -4182,6 +4214,7 @@ switch (type) {
                     }
                 }
             })
+            $("#overlay").fadeOut();
 
         });
 
