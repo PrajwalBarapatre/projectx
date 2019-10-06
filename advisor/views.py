@@ -141,6 +141,8 @@ def BusinessUpdate(request, business_id):
         'about': 'about',
         'years_exp': 'years_exp',
         'hour_fee': 'hour_fee',
+        'total_advised':'total_advised',
+
     }
     revenue_fields = {
         'rev_year': 'rev_year',
@@ -247,6 +249,7 @@ def advisor_busi(request):
 
             else:
                 print(seller.errors)
+                print(business.errors)
 
         sectors = business_sector()
         types_companies = companies()
@@ -258,6 +261,7 @@ def advisor_busi(request):
             'about': 'about',
             'years_exp': 'years_exp',
             'hour_fee': 'hour_fee',
+            'total_advised':'total_advised',
 
         }
         context = {
@@ -469,6 +473,7 @@ def StartupUpdate(request, business_id):
         'about': 'about',
         'years_exp': 'years_exp',
         'hour_fee': 'hour_fee',
+        'total_advised':'total_advised',
     }
     revenue_fields = {
         'rev_year': 'rev_year',
@@ -573,6 +578,7 @@ def advisor_startup(request):
 
             else:
                 print(seller.errors)
+                print(business.errors)
 
         sectors = business_sector()
         types_companies = companies()
@@ -584,6 +590,7 @@ def advisor_startup(request):
             'about': 'about',
             'years_exp': 'years_exp',
             'hour_fee': 'hour_fee',
+            'total_advised':'total_advised',
 
         }
         context = {

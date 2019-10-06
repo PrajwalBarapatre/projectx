@@ -127,7 +127,7 @@ DATABASES = {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'bvergedatabase',
             'USER': 'root',
-            'PASSWORD': 'Merge2019',
+            'PASSWORD': 'BvergeProject',
             'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com',
             'PORT': '3306',
     }

@@ -108,8 +108,48 @@ list-style-type: none;
     .tab_error{
         background-color: #FE3C69 !important;
     }
+        #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
     </style>
 <body>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
 
     {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
@@ -315,7 +355,8 @@ list-style-type: none;
                                                         </div>
                                                     <h4 class="f-16 f-w-500 pt-15">Asking price </h4>
                                                     <div class="input-group">
-                                                    {{ sell_app.asking_price|attr:"type=month"|add_class:"form-control col-sm-5 ginput begin_empty" }}
+                                                    {{ sell_app.asking_price|add_class:"usdtagger1 form-control col-sm-5 ginput begin_empty" }}
+                                                    {{ sell_app.asking_price_usd|attr:"hidden" }}
                                                                  <div class="errors" id="asking_price_err" style="color: red">
                                                                     {{ sell_app.asking_price.errors }}
                                                                  </div>
@@ -407,7 +448,8 @@ list-style-type: none;
                                        <h4 class="f-16 f-w-500">Average Monthly Revenue
                                        </h4>
                                        <div class="input-group">
-                                           {{ sell_app.average_monthly_revenue|attr:"type=month"|add_class:"form-control ginput begin_empty" }}
+                                           {{ sell_app.average_monthly_revenue|add_class:"usdtagger2 form-control ginput begin_empty" }}
+                                           {{ sell_app.average_monthly_revenue_usd|attr:"hidden" }}
                                            <div class="errors" id="asking_price_err" style="color: red">
 
                                            </div>
@@ -424,7 +466,8 @@ list-style-type: none;
                                        <h4 class="f-16 f-w-500">Average Monthly Expenses
                                        </h4>
                                        <div class="input-group">
-                                           {{ sell_app.average_monthly_expense|attr:"type=month"|add_class:"form-control ginput begin_empty" }}
+                                           {{ sell_app.average_monthly_expense|attr:"type=month"|add_class:"usdtagger3 form-control ginput begin_empty" }}
+                                           {{ sell_app.average_monthly_expense_usd|attr:"hidden" }}
                                            <div class="errors" id="asking_price_err" style="color: red">
 
                                            </div>
@@ -477,19 +520,14 @@ list-style-type: none;
 
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="mb-0" for="">Month 1</label>
+                                                <label class="mb-0" for="">Month 1 (Latest)</label>
                                                 {{ sell_app.y3_users|add_class:"w-100" }}
 
                                             </div>
-                                        </div>
-                                            
-                                            
-                                            
-
-
+                                        </div>                                                                                  
                                     </div>
                                     <div class="col-sm-12 col-12 col-md-12 col-lg-12 pt-20">
-                                        <h4 class="f-16 f-w-500">Average Monthly Expenses (Last 3 months)
+                                        <h4 class="f-16 f-w-500">Average Monthly Users (Last 3 months)
                                         </h4>
                                         <div class="row pt-2">
                                             <div class="col-md-4">
@@ -501,7 +539,7 @@ list-style-type: none;
                                                 {{ sell_app.y2_users|add_class:"w-100" }}
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="mb-0" for="">Month 1</label>
+                                                <label class="mb-0" for="">Month 1 (Latest)</label>
                                                 {{ sell_app.y3_users|add_class:"w-100" }} 
                                             </div>
                                         </div>
@@ -765,6 +803,7 @@ list-style-type: none;
                       var name = ""+ $('#id_first_name').val()
                       console.log(name);
                       console.log(fnumber);
+                      $("#overlay").fadeIn();
                       $.ajax({
                           method:'GET',
                           url : 'ajax/otp',
@@ -784,7 +823,8 @@ list-style-type: none;
                                   alert('Invalid Phone Number')
                               }
                           }
-                      })
+                      });
+                      $("#overlay").fadeOut();
 
               })
 
@@ -795,6 +835,7 @@ list-style-type: none;
               var name = ""+ $('#id_first_name').val()
               console.log(name);
               console.log(email);
+              $("#overlay").fadeIn();
               $.ajax({
                   method:'GET',
                   url : 'ajax/email',
@@ -812,7 +853,8 @@ list-style-type: none;
                           console.log('otp sent');
                       }
                   }
-              })
+              });
+              $("#overlay").fadeOut();
 
           })
 
@@ -850,12 +892,14 @@ list-style-type: none;
 
                       if (currTab+n >= x.length) {
                       // ... the form gets submitted:
+                    //   $("#overlay").fadeIn();
                       var number = $('#id_phone_number_primary').val()
                       var code = $('#country_code_primary').val()
                       var fnumber = code+number;
                       var name = ""+ $('#id_first_name').val()
                       console.log(name);
-                      console.log(fnumber)
+                      console.log(fnumber);
+                      
                       $.ajax({
                           method:'GET',
                           url : 'ajax/otp',
@@ -872,6 +916,7 @@ list-style-type: none;
 
 
                                   var email = $('#id_email_adress').val();
+                                  $("#overlay").fadeIn();
                       $.ajax({
                           method:'GET',
                           url : 'ajax/email',
@@ -889,14 +934,16 @@ list-style-type: none;
                                   console.log('email sent');
                               }
                           }
-                      })
+                      });
+                      $("#overlay").fadeOut();
 
                               }else{
                                   alert('Invalid Phone Number')
 
                               }
                           }
-                      })
+                      });
+                      
 
                       // let headers = new Headers()
                       // headers.append('Access-Control-Allow-Origin', '/seller');
@@ -933,6 +980,7 @@ list-style-type: none;
 
                     // Otherwise, display the correct tab:
                     displayTab(currTab);
+                    // $("#overlay").fadeOut();
                   }
 
 
@@ -1278,6 +1326,7 @@ $('.dropdown-menu a').click(function(){
 
 function get_sub_sectors(ele){
     var id = ele.id;
+    $("#overlay").fadeIn();
     $.ajax({
         url: "/metadata/get_sub_sector/",
         data: {
@@ -1288,6 +1337,7 @@ function get_sub_sectors(ele){
             e.html(output);
         }
     });
+    $("#overlay").fadeOut();
 }
 </script>
 
@@ -1367,6 +1417,7 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                    $("#overlay").fadeIn();
                     $.ajax({
             type: 'POST',
             url: '/album/add/',
@@ -1385,6 +1436,7 @@ preventDuplicates: true,
             },
             async:false
          });
+         $("#overlay").fadeOut();
                 });
     },
 
@@ -1392,7 +1444,7 @@ preventDuplicates: true,
  addRemoveLinks: true,
     removedfile: function (file) {
 
-
+    $("#overlay").fadeIn();
        $.ajax({
      type: 'POST',
      url: '{% url "album:remove"%}',
@@ -1401,6 +1453,7 @@ preventDuplicates: true,
         console.log('success: ' + data);
      }
    });
+   $("#overlay").fadeOut();
 
 //    if(this.files.length == 0){
 //        console.log('inside remove if');
@@ -1529,19 +1582,12 @@ preventDuplicates: true,
     })
 </script>
 
- {% for key in text_fields %}
 
-
-
-
-
-    {% endfor %}
 
 
     <script>
 
-        $(document).ready(function(){
-               var a = screen.width;
+               var a = $(window).width();
                console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
@@ -1559,10 +1605,107 @@ preventDuplicates: true,
                     $("body").css("zoom","50%");
                }
 
-        });
+
 
 
 </script>
+
+<script>
+                $( ".usdtagger1" ).change(function() {
+                        
+                            var new_id= "#"+$(this).attr('id')+"_usd";
+                            var a =$("#id_currency").val().split("**");
+                            var number = parseFloat(a[4]);
+                            var d=parseFloat($(this).val())/number;
+                            var d = d.toFixed(4);
+                            $(new_id).val(d);
+                            console.log(d);
+                        
+                });
+
+                $( ".usdtagger2" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger3" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger4" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger5" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            
+            $( ".usdtagger6" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger7" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger8" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+
+                
+
+</script>
+
 
 </body>
 

@@ -1736,10 +1736,8 @@ preventDuplicates: true,
     {% endfor %}
 
 
-    <script>
-
-        $(document).ready(function(){
-               var a = screen.width;
+<script>
+               var a = $(window).width();
                console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
@@ -1756,9 +1754,6 @@ preventDuplicates: true,
                else{
                     $("body").css("zoom","50%");
                }
-
-        });
-
 
 </script>
 

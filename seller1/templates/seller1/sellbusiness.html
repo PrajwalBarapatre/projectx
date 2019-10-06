@@ -152,8 +152,6 @@ list-style-type: none;
 	display:none;
 }
 
-
-
     </style>
 <body>
     <div id="overlay">
@@ -1321,6 +1319,7 @@ $('.dropdown-menu a').click(function(){
 
 function get_sub_sectors(ele){
     var id = ele.id;
+    $("#overlay").fadeIn();
     $.ajax({
         url: "/metadata/get_sub_sector/",
         data: {
@@ -1331,6 +1330,7 @@ function get_sub_sectors(ele){
             e.html(output);
         }
     });
+    $("#overlay").fadeOut();
 }
 </script>
 

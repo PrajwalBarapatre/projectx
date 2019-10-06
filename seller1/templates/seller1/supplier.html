@@ -109,8 +109,48 @@ list-style-type: none;
     .tab_error{
         background-color: red !important;
     }
+        #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
     </style>
 <body>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
 {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
         <form action="" method="POST" id="regForm" >
@@ -494,6 +534,7 @@ list-style-type: none;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber);
+                  $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -513,7 +554,8 @@ list-style-type: none;
                               alert('Invalid Phone Number')
                           }
                       }
-                  })
+                  });
+                  $("#overlay").fadeOut();
 
           })
 
@@ -524,6 +566,7 @@ list-style-type: none;
           var name = ""+ $('#id_first_name').val()
           console.log(name);
           console.log(email);
+          $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
               url : 'ajax/email',
@@ -541,7 +584,8 @@ list-style-type: none;
                       console.log('otp sent');
                   }
               }
-          })
+          });
+          $("#overlay").fadeOut();
 
       })
 
@@ -1007,6 +1051,7 @@ $('.dropdown-menu a').click(function(){
 
 function get_sub_sectors(ele){
     var id = ele.id;
+    $("#overlay").fadeIn();
     $.ajax({
         url: "/metadata/get_sub_sector/",
         data: {
@@ -1017,6 +1062,7 @@ function get_sub_sectors(ele){
             e.html(output);
         }
     });
+    $("#overlay").fadeOut();
 }
 </script>
 
@@ -1096,6 +1142,7 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                    $("#overlay").fadeIn();
                     $.ajax({
             type: 'POST',
             url: '/album/add/',
@@ -1114,6 +1161,7 @@ preventDuplicates: true,
             },
             async:false
          });
+         $("#overlay").fadeOut();
                 });
     },
 
@@ -1121,7 +1169,7 @@ preventDuplicates: true,
  addRemoveLinks: true,
     removedfile: function (file) {
 
-
+$("#overlay").fadeIn();
        $.ajax({
      type: 'POST',
      url: '{% url "album:remove"%}',
@@ -1130,6 +1178,7 @@ preventDuplicates: true,
         console.log('success: ' + data);
      }
    });
+   $("#overlay").fadeOut();
 
 //    if(this.files.length == 0){
 //        console.log('inside remove if');
@@ -1352,18 +1401,11 @@ preventDuplicates: true,
     })
 </script>
 
- {% for key in text_fields %}
-
-
-
-
-
-    {% endfor %}
 
 <script>
 
-        $(document).ready(function(){
-               var a = screen.width;
+
+               var a = $(window).width();
                console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
@@ -1381,11 +1423,103 @@ preventDuplicates: true,
                     $("body").css("zoom","50%");
                }
 
-        });
-
-
 </script>
 
+<script>
+                $( ".usdtagger1" ).change(function() {
+                        
+                            var new_id= "#"+$(this).attr('id')+"_usd";
+                            var a =$("#id_currency").val().split("**");
+                            var number = parseFloat(a[4]);
+                            var d=parseFloat($(this).val())/number;
+                            var d = d.toFixed(4);
+                            $(new_id).val(d);
+                            console.log(d);
+                        
+                });
+
+                $( ".usdtagger2" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger3" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger4" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger5" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            
+            $( ".usdtagger6" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger7" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger8" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+
+                
+
+</script>
 
 </body>
 

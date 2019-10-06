@@ -7,13 +7,13 @@ Incubators = 'Incubators'
 Accelerators = 'Accelerators'
 Mentors = 'Mentors'
 Institutions = 'Institutions'
-Legal_Advisor = 'StartUp Legal Advisor'
+Legal_Advisor = 'Legal_Advisor'
 SELLER_CHOICES = (
 	(Incubators, 'Incubators'),
 	(Accelerators, 'Accelerators'),
 	(Mentors, 'Mentors'),
 	(Institutions, 'Institutions'),
-	(Legal_Advisor, 'StartUp Legal Advisor'),
+	(Legal_Advisor, 'Legal_Advisor'),
 )
 
 
