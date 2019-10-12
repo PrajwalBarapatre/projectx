@@ -233,11 +233,6 @@ input::-webkit-inner-spin-button {
                     </div>
             </div>
             <!-- your information -->
-
-
-
-
-
             <div class="container">
                 <div class="custom_tab">
                          <div class="row">
@@ -1768,38 +1763,27 @@ preventDuplicates: true,
     })
 </script>
 
- {% for key in text_fields %}
 
 
-
-
-
-    {% endfor %}
-
-
-    <script>
-
-                   var a = $(window).width();
-                   console.log(a);
-                   if(a<2000 && a>1500){
-                        $("body").css("zoom","90%");
-                   }
-                   else if(a<1500 && a>1400){
-                         $("body").css("zoom","80%");
-                   }
-                   else if(a<1400 && a>1100){
-                         $("body").css("zoom","65%");
-                   }
-                   else if(a<1100 && a>900){
-                         $("body").css("zoom","67%");
-                   }
-                   else{
-                        $("body").css("zoom","50%");
-                   }
-
-
-
-    </script>
+<script>
+    var a = $(window).width();
+    console.log(a);
+    if(a<2000 && a>1500){
+        $("body").css("zoom","90%");
+    }
+    else if(a<1500 && a>1400){
+            $("body").css("zoom","80%");
+    }
+    else if(a<1400 && a>1100){
+            $("body").css("zoom","65%");
+    }
+    else if(a<1100 && a>900){
+            $("body").css("zoom","67%");
+    }
+    else{
+        $("body").css("zoom","50%");
+    }
+</script>
 
 <script>
     $( ".usdtagger1" ).change(function() {

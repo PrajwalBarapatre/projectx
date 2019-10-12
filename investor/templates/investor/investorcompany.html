@@ -343,9 +343,12 @@ input::-webkit-inner-spin-button {
                 <div class="row pt-3 ff-p f-w-500">
                        <div class="col-sm-12">
                            <label for="" class="f-20 ff-p f-w-500 pt-19">Investment Bracket</label>
-                                   <select class="form-control col-sm-4 col-12 f-13 ff-p select-border" id="investment_bracket" name="investment_bracket">
+                                   <select class="usdtagger1 form-control col-sm-4 col-12 f-13 ff-p select-border" id="investment_bracket" name="investment_bracket">
 
                                    </select>
+
+                                   {{ invest_company.investment_min_usd|attr:"hidden"}}
+                                   {{ invest_company.investment_max_usd|attr:"hidden"}}
 
                         <p class="f-20 pt-3 mb-0">Interested sectors</p>
                        </div>
@@ -699,17 +702,29 @@ input::-webkit-inner-spin-button {
             $(document).ready(function(){
 
 
-            $("#category1 option[value='None']").remove();
-            $("#investment_bracket").append(
-            "<option value='0 to 10,000 '>0 to 10,000 " + "AFN" +"</option>"+
-            "<option value='10,000 to 100,000'>10,000 to 100,000 " + "AFN"  +"</option>"+
-            "<option value='100,000 to 1 Million'>100,000 to 1 Million " + "AFN"  +"</option>"+
-            "<option value='1 Million to 10 Million'>1 Million to 10 Million " + "AFN"  +"</option>"+
-            "<option value='10 Million to 100 Million'>10 Million to 100 Million " + "AFN"  +"</option>"+
-            "<option value='Greater than 100 Million'>Greater than 100 Million " + "AFN"  +"</option>"
-            );
+            // $("#category1 option[value='None']").remove();
+            // $("#investment_bracket").append(
+            // "<option value='0 to 10,000'>0 to 10,000 " + "AFN" +"</option>"+
+            // "<option value='10,000 to 100,000'>10,000 to 100,000 " + "AFN"  +"</option>"+
+            // "<option value='100,000 to 1 Million'>100,000 to 1 Million " + "AFN"  +"</option>"+
+            // "<option value='1 Million to 10 Million'>1 Million to 10 Million " + "AFN"  +"</option>"+
+            // "<option value='10 Million to 100 Million'>10 Million to 100 Million " + "AFN"  +"</option>"+
+            // "<option value='Greater than 100 Million'>Greater than 100 Million " + "AFN"  +"</option>"
+            // );
 
+            var dum = $("#id_currency").val().split("**");
+                var a = dum[3];
+                $("#investment_bracket").empty()
+                    .append(
+                "<option value='0 to 10,000'>0 to 10,000 " + a +"</option>"+
+                "<option value='10,000 to 100,000'>10,000 to 100,000 " + a +"</option>"+
+                "<option value='100,000 to 1 Million'>100,000 to 1 Million " + a +"</option>"+
+                "<option value='1 Million to 10 Million'>1 Million to 10 Million " + a +"</option>"+
+                "<option value='10 Million to 100 Million'>10 Million to 100 Million " + a +"</option>"+
+                "<option value='Greater than 100 Million'>Greater than 100 Million " + a +"</option>"
+                );
 
+                
             $("#id_currency").change(function () {
                 var dum = $("#id_currency").val().split("**");
                 var a = dum[3];
@@ -1534,17 +1549,9 @@ preventDuplicates: true,
     })
 </script>
 
- {% for key in text_fields %}
 
-
-
-
-
-    {% endfor %}
 
     <script>
-
-            $(document).ready(function(){
                    var a = screen.width;
                    console.log(a);
                    if(a<2000 && a>1500){
@@ -1562,12 +1569,90 @@ preventDuplicates: true,
                    else{
                         $("body").css("zoom","50%");
                    }
-
-            });
-
-
     </script>
 
+<script>
+    var a =$("#id_currency").val().split("**");
+    var fut_value = parseFloat(a[4]);
+    var min=0
+    var max=(10000)/fut_value;
+    min=min.toFixed(4);
+    max=max.toFixed(4);
+    $("#id_investment_min_usd").val(min);
+    $("#id_investment_max_usd").val(max);
+    console.log(min);
+    console.log(max);
+    console.log("gefefefefefef")
+
+    $( ".usdtagger1" ).change(function() {
+                var a =$("#id_currency").val().split("**");
+                var fut_value = parseFloat(a[4]);
+                var cur_fut= $(this).val();
+                console.log(cur_fut);
+                if(cur_fut=="0 to 10,000"){
+                    min=0
+                    max=(10000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+                else if(cur_fut=="10,000 to 100,000"){
+                    min=(10000)/fut_value;   
+                    max=(100000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+                else if(cur_fut=="100,000 to 1 Million"){
+                    min=(100000)/fut_value;
+                    max=(1000000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+                else if(cur_fut=="1 Million to 10 Million"){
+                    min=(1000000)/fut_value;
+                    max=(10000000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+                else if(cur_fut=="10 Million to 100 Million"){
+                    min=(10000000)/fut_value;
+                    max=(100000000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+                else if(cur_fut=="Greater than 100 Million"){
+                    min=(100000000)/fut_value;
+                    max=(1000000000)/fut_value;
+                    min=min.toFixed(4);
+                    max=max.toFixed(4);
+                    $("#id_investment_min_usd").val(min);
+                    $("#id_investment_max_usd").val(max);
+                    console.log(min);
+                    console.log(max);
+                }
+            
+    }); 
+
+</script>
 
 </body>
 
