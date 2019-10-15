@@ -541,14 +541,16 @@
     <!-- Page Content -->
     <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-
+<div class="sideDashboardArrow" onclick="w3_open()">
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+</div>
 <!--business start-->
 <div class="tab">
     <div class="container-fluid">
                 <div class="row" style="background: url('static/profiles/images/homepage-banner.png');height: 533px;background-size: cover">
                     <div class="col-sm-12 text-center">
                         <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20" style="z-index: 1;" id="navbar-2">
-                            <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()"></i>
+                            <i class="fa fa-bars f-36" aria-hidden="true" title="Dashboard" onclick="w3_open()"></i>
                             <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">Business Verge</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
