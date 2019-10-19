@@ -3828,8 +3828,9 @@ switch (type) {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ latLng: pos}, function(result, status){
             if(status == google.maps.GeocoderStatus.OK){
-                content = result[0].formatted_address;
-                
+                content = result[5].formatted_address;
+                console.log(result);
+                console.log(content);
           input1.value = content;
           input2.value = content;
           

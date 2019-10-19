@@ -179,8 +179,49 @@ input::-webkit-inner-spin-button {
     ul{
       list-style-type: none;
     }
+
+        #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
 
         {% include "seller1/topcontainer.html" %}
 
@@ -264,7 +305,7 @@ input::-webkit-inner-spin-button {
                                                <label for="" class="f-16 pl-1 pt-10">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
                                                         {% for x in code_data %}
-                                                        <option value="+{{x.dialing}}">{{x.code}}</option>
+                                                        <option data-iso="{{x.iso}}" value="+{{x.dialing}}">{{x.code}}</option>
 
                                                         {% endfor %}
                                               </select>
@@ -336,12 +377,8 @@ input::-webkit-inner-spin-button {
                         <div id="dialog-confirm"> 
                                 <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
                                 <div class="buttons"> 
-                                        <a href="#">
-                                            <button class="btn-cancel">Cancel</button>
-                                        </a> 
-                                        <a  href="http://127.0.0.1:8000/" target="_top">
-                                            <button class="btn-ok">Ok</button>
-                                        </a> 
+                                        <a class="cancel" href="#"><button class="btn-cancel">Cancel</button></a> 
+                                        <a class="ok" href="#"><button class="btn-ok" >Ok</button></a>
                                     </div> 
                         </div> 
             </div>
@@ -609,7 +646,15 @@ input::-webkit-inner-spin-button {
     <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'investor/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
-
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
     <script>
         $(document).ready(function(){
     
@@ -1660,6 +1705,35 @@ preventDuplicates: true,
                 }
             
     }); 
+
+</script>
+
+<script>
+
+
+
+
+        $.getJSON('https://ipapi.co/json/', function(data) {
+
+            $("#country_code_primary option[data-iso='"+data.country+"']").attr("selected", "selected");
+                        myList = [];
+                        $('#id_currency option').each(function() {
+                            myList.push($(this).val())
+                        });
+
+                        console.log(data.country);
+                        for (i = 0; i < myList.length; i++) {
+                                var b = myList[i].split("**");
+                                if(b[1]==data.country){
+                                $('#id_currency').val(myList[i]).change();
+                                console.log(myList[i]);
+
+                            }
+                        }
+
+            });
+
+ 
 
 </script>
 

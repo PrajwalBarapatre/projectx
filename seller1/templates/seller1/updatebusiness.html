@@ -189,7 +189,7 @@ list-style-type: none;
         background-color: #FE3C69 !important;
     }
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
     {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
       <!-- Top container -->
@@ -689,7 +689,15 @@ list-style-type: none;
     <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
-
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
 <!-- <script>
 
 $(document).ready(function(){

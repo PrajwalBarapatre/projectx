@@ -120,7 +120,7 @@ input::-webkit-inner-spin-button {
         background-color: #FE3C69 !important;
     }
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
 
         {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
@@ -574,6 +574,16 @@ input::-webkit-inner-spin-button {
     <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'investor/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
+
+        <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
 
 
     <script>

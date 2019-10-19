@@ -219,7 +219,7 @@ list-style-type: none;
 
 
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
 
     <div id="overlay">
         <div class="cv-spinner">
@@ -289,7 +289,7 @@ list-style-type: none;
                                                <label for="" class="f-16 pl-1 pt-15">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
                                                         {% for x in code_data %}
-                                                        <option value="+{{x.dialing}}">{{x.code}}</option>
+                                                        <option data-iso="{{x.iso}}" value="+{{x.dialing}}">{{x.code}}</option>
 
                                                         {% endfor %}
                                               </select>
@@ -863,7 +863,15 @@ list-style-type: none;
     <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
-
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
     <script>
     $(document).ready(function(){
 
@@ -1938,6 +1946,35 @@ $( ".usdtagger8" ).change(function() {
 });
 
     
+
+</script>
+
+<script>
+
+    $(document).ready(function(){
+
+
+        $.getJSON('https://ipapi.co/json/', function(data) {
+
+            $("#country_code_primary option[data-iso='"+data.country+"']").attr("selected", "selected");
+                        myList = [];
+                        $('#id_currency option').each(function() {
+                            myList.push($(this).val())
+                        });
+
+                        console.log(data.country);
+                        for (i = 0; i < myList.length; i++) {
+                                var b = myList[i].split("**");
+                                if(b[1]==data.country){
+                                $('#id_currency').val(myList[i]).change();
+                                console.log(myList[i]);
+
+                            }
+                        }
+
+            });
+
+    });
 
 </script>
 

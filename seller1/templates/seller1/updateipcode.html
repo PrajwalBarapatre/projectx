@@ -218,7 +218,7 @@ list-style-type: none;
 }
 
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
     <div id="overlay">
         <div class="cv-spinner">
             <span class="spinner"></span>
@@ -563,7 +563,15 @@ list-style-type: none;
     <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
-
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
     <script>
         $(document).ready(function(){
             $('#product_type_fake').empty().append('<option value="Licence">Licence</option>'+ 
