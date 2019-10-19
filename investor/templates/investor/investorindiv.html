@@ -20,6 +20,15 @@
     <script src="{% static 'investor/js/dropzone.js' %}"></script>
 </head>
 <style>
+    span.select2.select2-container.select2-container--default.select2-container {
+        min-width: 75%;
+    }
+    .m-w-24{
+        min-width: 24.5%;
+    }
+</style>
+
+<style>
         .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.ui-resizable {
             min-width: 600px;
             text-align: center;
@@ -463,7 +472,7 @@ input::-webkit-inner-spin-button {
                     <div class="row">
                             <div class="col-sm-12 col-12">
                                     <input hidden name="type_companies" id="type_companies" />
-                                   <label for="" class="f-16 ff-p f-w-500 pt-19">Type of Companies to Invest</label>
+                                   <label for="" class="f-16 ff-p f-w-500 pt-19 m-w-24">Type of Companies to Invest</label>
                                     <select class="form-control" id="type_companies_fake" name="type_companies_fake" multiple>
                                         <option value="Idea Stage">Idea Stage</option>
                                         <option value="Seed Stage">Seed Stage</option>
@@ -480,7 +489,7 @@ input::-webkit-inner-spin-button {
                    <div class="row">
                         <div class="col-sm-12 col-12">
                                 <input hidden name="expertise_area" id="expertise_area" />
-                               <label for="" class="f-16 ff-p f-w-500 pt-19">Area of Expertise</label>
+                               <label for="" class="f-16 ff-p f-w-500 pt-19 m-w-24">Area of Expertise</label>
                                 <select class="form-control f-13 ff-p" id="expertise_area_fake" name="expertise_area_fake" multiple>
                                    <option value="Finance">Finance</option>
                                     <option value="Legal">Legal</option>

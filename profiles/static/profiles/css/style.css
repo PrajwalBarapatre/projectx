@@ -1542,7 +1542,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: #FFFFFF;
     color: #ABB4FD;
     border: 1px solid #ABB4FD;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-radius: 0px 5px 5px 0;
     margin-right: 1%;
 }
 .btn-sellers:hover{
@@ -1904,18 +1905,19 @@ transition: all 0.3s ease-in-out
 }
 
 #noti_Counter_b {
-    display:block;
-    position:absolute;
-    background:#E1141E;
-    color:#FFF;
-    font-size:12px;
-    font-weight:normal;
-    padding:1px 3px;
-    margin:-8px 0 0 25px;
-    border-radius:2px;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    z-index:1;
+    display: block;
+    position: absolute;
+    color: #E1141E;
+    background: transparent;
+    top: -13px;
+    right: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1px 3px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    z-index: 1;
 }
 
 /* THE NOTIFICAIONS WINDOW. THIS REMAINS HIDDEN WHEN THE PAGE LOADS. */

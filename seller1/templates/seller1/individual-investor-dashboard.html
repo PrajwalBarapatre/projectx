@@ -140,12 +140,13 @@
       object-fit: cover;
     }
     .owl-carousel .owl-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-
-      width: 430.333px;
-    margin-right: 20px;
+        object-position: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        width: 430.333px;
+        margin-right: 20px;
+        object-fit: cover;
     }
     dots.disabled, .owl-carousel .owl-nav.disabled {
         display: block;
@@ -491,7 +492,7 @@
                                                                   <span class="f-11 pl-1">Bangalore, India</span>
                                                               </div>
                                                           </div>
-                                                          <div class="row f-12 pt-10">
+                                                          <div class="row f-11 pt-10">
                                                               <div class="col-sm-6 col-7 text-left">
                                                                   <p class=""> Run Rate Sales :  </p>
                                                               </div>
@@ -941,14 +942,14 @@
                                                             <div class="row">
                                                                 <div class="col-sm-3 col-3">
                                                                     <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                    <span class="f-11 pl-1">8.5</span>
                                                                 </div>
                                                                 <div class="col-sm-9 col-9">
                                                                     <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    <span class="f-11 pl-1">Bangalore, India</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="row f-12 pt-10">
+                                                            <div class="row f-11 pt-10">
                                                                 <div class="col-sm-6 col-7 text-left">
                                                                     <p class="">Domain Expertise :  </p>
                                                                 </div>
@@ -958,8 +959,8 @@
                                                                     <p class="m-0">{{seller.business.category3}}</p>
                                                                 </div>
                                                             </div>
-                                                            <div class="row f-12 pt-10">
-                                                                    <div class="col-sm-12 col-7 text-left">
+                                                            <div class="row f-11 pt-10">
+                                                                    <div class="col-sm-6 col-7 text-left">
                                                                         <p>Preffered Locations : </p>
                                                                     </div>
                                                                     <div class="col-sm-6 col-5 text-right">
@@ -968,7 +969,7 @@
                                                                         <p class="m-0">{{seller.business.city3}}</p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row f-12 pt-10">
+                                                                <div class="row f-11 pt-10">
                                                                         <div class="col-sm-7 col-7 text-left">
                                                                             <p>Years Of Experience</p>
                                                                         </div>
@@ -976,17 +977,7 @@
                                                                             <p>{{seller.business.year_exp}}</p>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row f-12 pt-10">
-                                                                            <div class="col-sm-7 col-7 text-left">
-                                                                                <p>Core Skills</p>
-                                                                        </div>
-                                                                            <div class="col-sm-5 col-5 text-right">
-                                                                                <p class="m-0">{{seller.business.skill1}}</p>
-                                                                                <p class="m-0"> {{seller.business.skill2}}</p>
-                                                                                <p class="m-0">{{seller.business.skill3}}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row f-12 pt-10">
+                                                                        <div class="row f-11 pt-10">
                                                                                 <div class="col-sm-7 col-7 text-left">
                                                                                     <p>Fee/Hour</p>
                                                                                 </div>
@@ -1058,10 +1049,10 @@
                                                                       </div>
                                                                   </div>
                                                                   <div class="row f-11 pt-10">
-                                                                          <div class="col-sm-3 col-7 text-left">
+                                                                          <div class="col-sm-5 col-7 text-left">
                                                                               <p>Investment Bracket</p>
                                                                           </div>
-                                                                          <div class="col-sm-9 col-5 text-right">
+                                                                          <div class="col-sm-7 col-5 text-right">
                                                                               <p>{{seller.business.investment_bracket}}</p>
                                                                           </div>
 
@@ -1095,14 +1086,14 @@
                                   <div class="container-fluid">
                                       <div class="row">
                                           <div class="col-sm-5">
-                                              <h2 class="f-12 ff-p f-w-bold">Name</h2>
-                                              <h2 class="f-12 ff-p f-w-bold">Email</h2>
-                                              <h2 class="f-12 ff-p f-w-bold">Phone Number</h2>
+                                              <h2 class="f-11 ff-p f-w-bold">Name</h2>
+                                              <h2 class="f-11 ff-p f-w-bold">Email</h2>
+                                              <h2 class="f-11 ff-p f-w-bold">Phone Number</h2>
                                           </div>
                                           <div class="col-sm-7">
-                                              <h2 class="f-12 ff-p">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
-                                              <h2 class="f-12 ff-p">{{user.email}}</h2>
-                                              <h2 class="f-12 ff-p">{{user.profile.contact_number}}</h2>
+                                              <h2 class="f-11 ff-p">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
+                                              <h2 class="f-11 ff-p">{{user.email}}</h2>
+                                              <h2 class="f-11 ff-p">{{user.profile.contact_number}}</h2>
                                           </div>
                                       </div>
                                   </div>
@@ -1153,14 +1144,14 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-3 col-3">
                                                                         <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                        <span class="f-11 pl-1">8.5</span>
                                                                     </div>
                                                                     <div class="col-sm-9 col-9">
                                                                         <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                        <span class="f-11 pl-1">Bangalore, India</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row f-12 pt-10">
+                                                                <div class="row f-11 pt-10">
                                                                     <div class="col-sm-7 col-7 text-left">
                                                                         <p class="">Run Rate Sales</p>
                                                                         <p>EBITDA Margin</p>
@@ -1193,14 +1184,14 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-3 col-3">
                                                                         <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                        <span class="f-11 pl-1">8.5</span>
                                                                     </div>
                                                                     <div class="col-sm-9 col-9">
                                                                         <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                        <span class="f-11 pl-1">Bangalore, India</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row f-12 pt-10">
+                                                                <div class="row f-11 pt-10">
                                                                     <div class="col-sm-7 col-7 text-left">
                                                                         <p class="">Run Rate Sales</p>
                                                                         <p>EBITDA Margin</p>
@@ -1233,14 +1224,14 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-3 col-3">
                                                                         <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">8.5</span>
+                                                                        <span class="f-11 pl-1">8.5</span>
                                                                     </div>
                                                                     <div class="col-sm-9 col-9">
                                                                         <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                        <span class="f-12 pl-1">Bangalore, India</span>
+                                                                        <span class="f-11 pl-1">Bangalore, India</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row f-12 pt-10">
+                                                                <div class="row f-11 pt-10">
                                                                     <div class="col-sm-7 col-7 text-left">
                                                                         <p class="">Run Rate Sales</p>
                                                                         <p>EBITDA Margin</p>
@@ -1279,14 +1270,14 @@
                                                             <div class="row">
                                                                 <div class="col-sm-3 col-3">
                                                                     <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                    <span class="f-11 pl-1">8.5</span>
                                                                 </div>
                                                                 <div class="col-sm-9 col-9">
                                                                     <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    <span class="f-11 pl-1">Bangalore, India</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="row f-12 pt-10">
+                                                            <div class="row f-11 pt-10">
                                                                 <div class="col-sm-7 col-7 text-left">
                                                                     <p class="">Run Rate Sales</p>
                                                                     <p>EBITDA Margin</p>
@@ -1319,14 +1310,14 @@
                                                             <div class="row">
                                                                 <div class="col-sm-3 col-3">
                                                                     <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                    <span class="f-11 pl-1">8.5</span>
                                                                 </div>
                                                                 <div class="col-sm-9 col-9">
                                                                     <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    <span class="f-11 pl-1">Bangalore, India</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="row f-12 pt-10">
+                                                            <div class="row f-11 pt-10">
                                                                 <div class="col-sm-7 col-7 text-left">
                                                                     <p class="">Run Rate Sales</p>
                                                                     <p>EBITDA Margin</p>
@@ -1359,14 +1350,14 @@
                                                             <div class="row">
                                                                 <div class="col-sm-3 col-3">
                                                                     <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">8.5</span>
+                                                                    <span class="f-11 pl-1">8.5</span>
                                                                 </div>
                                                                 <div class="col-sm-9 col-9">
                                                                     <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
-                                                                    <span class="f-12 pl-1">Bangalore, India</span>
+                                                                    <span class="f-11 pl-1">Bangalore, India</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="row f-12 pt-10">
+                                                            <div class="row f-11 pt-10">
                                                                 <div class="col-sm-7 col-7 text-left">
                                                                     <p class="">Run Rate Sales</p>
                                                                     <p>EBITDA Margin</p>
