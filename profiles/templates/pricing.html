@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bverge Pricing</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+            dl, ol, ul {
+                margin-top: 0;
+                margin-bottom: 1rem;
+                padding-left: 4em;
+            }
+            .card-header {
+                padding: .75rem 1.25rem;
+                margin-bottom: 0;
+                background-color: #6F42C1;
+                border-bottom: none;
+            }
+        
+            .card {
+                border: none;
+                font-family: 'Poppins', sans-serif;
+            }
+        
+            .card-header ul li.nav-item a.nav-link {
+                color: rgba(255,255,255,0.7);
+                font-size: 20px;
+                font-weight: 300;
+                text-decoration: none;
+                background-color: transparent;
+            }
+        
+            .card-header ul li.nav-item a.nav-link.active {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                text-decoration: none;
+                background-color: transparent;
+                border: none;
+            }
+        
+            .card-header ul li.nav-item a.nav-link:hover {
+                cursor: pointer;
+                color: #ffffffd5;
+                border: none;
+            }
+        
+            ul#myTab {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin: 0;
+            }
+        
+            ul#pills-tab {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 1rem 0;
+            }
+        
+            .nav-pills .nav-link.active,
+            .nav-pills .show>.nav-link {
+                color: #fff;
+                background-color: #6f42c1;
+                width: 220px;
+                text-align: center;
+            }
+        
+            .nav-pills .nav-link {
+                border-radius: .25rem;
+                width: 220px;
+                background: #C4C4C4;
+                text-align: center;
+                color: #000;
+                transition: all 0.3s ease-in-out;
+            }
+        
+            .nav-pills .nav-link:hover {
+                cursor: pointer;
+                color: #fff;
+                background-color: #6f42c1;
+            }
+        
+            #myTabContent #Value {
+                padding: 4rem 0 0;
+            }
+        
+            #myTabContent #Value .invstor_wrapper {
+                padding: 4rem 0;
+            }
+        
+            #myTabContent #Value .invstor_wrapper h2 {
+                font-family: 'Playfair Display', serif;
+                font-weight: normal;
+                font-size: 40px;
+                color: #3F3F3F;
+            }
+        
+            #myTabContent #Value .invstor_wrapper h6 {
+                padding-top: 3rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: normal;
+                font-size: 24px;
+                color: #3F3F3F;
+            }
+        
+            #myTabContent #Value .invstor_wrapper .paragraph {
+                padding: 2rem 0 1rem;
+            }
+        
+            #myTabContent #Value .invstor_wrapper .paragraph h5 {
+                font-weight: bold;
+                font-size: 20px;
+            }
+        
+            #myTabContent #Value .invstor_wrapper .paragraph p {
+                font-weight: normal;
+                font-size: 20px;
+            }
+        
+            #myTabContent #Value .invstor_wrapper ul.business {
+                list-style-type: none;
+                padding: 2rem 3rem;
+            }
+        
+            #myTabContent #Value .invstor_wrapper ul.business li {
+                font-size: 18px;
+                padding-bottom: 1.5rem;
+            }
+        
+            .h-18rem {
+                height: 18rem;
+            }
+            .h-22rem {
+                height: 22rem;
+            }
+            .h-30rem {
+                height: 30rem;
+            }
+            .h-40rem {
+                height: 40rem;
+            }
+            .h-50rem {
+                height: 50rem;
+            }
+        
+            .pb-5 {
+                padding: 5rem 0;
+            }
+        
+            #footer {
+                background: url('img/discover_bg.png');
+                background-size: cover;
+                padding: 5rem 0;
+                text-align: center;
+            }
+            #header {
+                background: url('img/discover_bg.png');
+                background-size: cover;
+                padding: 3rem 0;
+                text-align: center;
+            }
+        
+            #footer .footer_content ,
+            #header .header_content {
+                width: 90%;
+                margin: 0 auto;
+                color: #fff;
+            }
+        
+            #footer .footer_content h1{
+                font-size: 30px;
+                font-weight: bold;
+            }
+            #header .header_content h1{
+                font-size: 30px;
+                font-weight: bold;
+                padding-bottom: 1rem;
+                text-align: center;
+            }
+        
+            #footer .footer_content p ,
+            #header .header_content{
+                padding-top: 1rem;
+                font-size: 22px;
+                font-weight: normal;
+                text-align: left;
+            }
+            .business-services {
+                padding: 3rem 0;
+            }
+            .business-services h2 {
+                font-size: 2rem;
+                text-align: center;
+                padding: 2rem 0;
+                font-family: 'Poppins', sans-serif;
+            }
+            .business-services ul{
+                list-style-type: none;
+            }
+            .business-services ul li{
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.1rem;
+                width: 70%;
+                margin: 0 auto;
+                font-weight: normal;
+            }
+            .pricing-selection select.form-control {
+                font-size: 1rem;
+                padding: 0;
+                height: 2rem !important;
+            }
+            .pricing-selection .Pricing{
+                padding-top: 2rem;
+            }
+            .pricing-selection .Pricing p{
+                font-size: 3rem;
+                font-weight: 500;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+            }
+            .btn-get-info{
+                background: #00BFA5;
+                color: #fff;
+                padding: 0.5rem 4rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                border: 1px solid #00BFA5;
+                transition: all 0.3s ease-in-out;
+            }
+            .btn-get-info:hover{
+                color: #00BFA5;
+                background: #fff;
+                transition: all 0.3s ease-in-out;
+            }
+            .links-btns {
+                padding: 3rem 0 4rem;
+                text-align: center;
+            }
+            .links-btns button{
+                margin: 0 1rem;
+            }
+            #Current-Subscriptions{
+                padding: 4rem 0;
+            }
+            #Current-Subscriptions h2 {
+                font-size: 1.6rem;
+                padding: 2rem 0;
+                font-family: 'Poppins', sans-serif;
+            }
+            .btn-business{
+                background: #00BFA5;
+                color: #fff;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                border: 1px solid #00BFA5;
+                transition: all 0.3s ease-in-out;
+                text-align: left;
+            }            
+            .btn-business:hover{
+                color: #00BFA5;
+                background: #fff;
+                transition: all 0.3s ease-in-out;
+            }
+            #Current-Subscriptions .border-business{
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                border-radius: 15px;
+                padding: 1rem;
+            }
+            .border-business p {
+                font-size: 0.9rem;
+                margin: 0 0 0.2rem;
+            }
+            .border-business select{
+                padding: 0 !important;
+                font-size: 1rem;
+                margin: 1rem 0;
+            }
+            #dashboard-business{
+                min-height: 80vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #dashboard-business h2{
+                font-size: 3rem;
+                font-family: 'Poppins', sans-serif;
+            }
+    </style>
+            
+    <div class="container-fluid">
+        <div class="row">      
+            <div class="col-md-12 p-0">
+                <div class="card mt-3 tab-card">
+                    <div class="card-header tab-card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="Subcription-tab" data-toggle="tab" href="#Subcription" role="tab" aria-controls="Subcription"
+                                aria-selected="true">Subcription Pricing </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="Dashboard-tab" data-toggle="tab" href="#Dashboard" role="tab"
+                                aria-controls="Dashboard" aria-selected="false">Bverge Dashboard Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="Current-tab" data-toggle="tab" href="#Current" role="tab" aria-controls="Current"
+                                aria-selected="false">Current  Subscriptions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content pt-5" id="myTabContent">
+                    <div class="tab-pane fade show active" id="Subcription" role="tabpanel" aria-labelledby="one-tab">    
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="Startup-Pricing-tab" data-toggle="pill" href="#Startup-Pricing" role="tab"
+                                            aria-controls="Startup-Pricing" aria-selected="true">Seller / Startup Pricing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Investor-Pricing-tab" data-toggle="pill" href="#Investor-Pricing" role="tab"
+                                            aria-controls="Investor-Pricing" aria-selected="false">Investor Pricing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Advisor-Pricing-tab" data-toggle="pill" href="#Advisor-Pricing" role="tab"
+                                            aria-controls="Advisor-Pricing" aria-selected="false">Advisor Pricing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Franchise-Pricing-tab" data-toggle="pill" href="#Franchise-Pricing" role="tab"
+                                            aria-controls="Franchise-Pricing" aria-selected="false">Franchise Pricing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Supplier-Pricing-tab" data-toggle="pill" href="#Supplier-Pricing" role="tab"
+                                            aria-controls="Supplier-Pricing" aria-selected="false">Supplier Pricing</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="Startup-Pricing" role="tabpanel" aria-labelledby="Startup-Pricing">
+                                            <div class="business-services">
+                                                <h2>
+                                                    Services offered for Business / Startup Seller:
+                                                </h2>
+                                                <ul>
+                                                    <li>
+                                                            - Add your Listing with validity of upto 6 months
+                                                    </li>
+                                                    <li>
+                                                            - Connect and send messages upto 10 other Listings
+                                                    </li>
+                                                    <li>
+                                                            - Boosts the visibility of the profile in the searches
+                                                    </li>
+                                                    <li>
+                                                            - Increased visibility in the recommendations based on relevance
+                                                    </li>
+                                                    <li>
+                                                            - Email Support
+                                                    </li>
+                                                    <li>
+                                                            - Accelerated Marketing
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-selection">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-2 offset-md-9">
+                                                            <select name="" id="" class="form-control">
+                                                                <option value="">India</option>
+                                                                <option value="">Delhi</option>
+                                                                <option value="">Lucknow</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="Pricing">
+                                                    <p>
+                                                        199 $
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="links-btns">
+                                                <button class="btn btn-get-info">
+                                                        List a Business Now
+                                                </button>
+                                                <button class="btn btn-get-info">
+                                                        List a Startup Now
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="Investor-Pricing" role="tabpanel" aria-labelledby="Investor-Pricing">
+                                            <div class="business-services">
+                                                    <h2>
+                                                            Services offered for Individual / Company Investor:
+                                                    </h2>
+                                                    <ul>
+                                                        <li>
+                                                                - Add your Listing with validity of upto 6 months
+                                                        </li>
+                                                        <li>
+                                                                - Connect and send messages upto 10 other Listings
+                                                        </li>
+                                                        <li>
+                                                                - Boosts the visibility of the profile in the searches
+                                                        </li>
+                                                        <li>
+                                                                - Increased visibility in the recommendations based on relevance
+                                                        </li>
+                                                        <li>
+                                                                - Email Support
+                                                        </li>
+                                                        <li>
+                                                                - Accelerated Marketing
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="pricing-selection">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-2 offset-md-9">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="">India</option>
+                                                                    <option value="">Delhi</option>
+                                                                    <option value="">Lucknow</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Pricing">
+                                                        <p>
+                                                            199 $
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="links-btns">
+                                                    <button class="btn btn-get-info">
+                                                            List a Individual Investor
+                                                    </button>
+                                                    <button class="btn btn-get-info">
+                                                            List a Company Investor
+                                                    </button>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="Advisor-Pricing" role="tabpanel" aria-labelledby="Advisor-Pricing">
+                                            <div class="business-services">
+                                                    <h2>
+                                                            Services offered for Business / Startup Advisor:
+                                                    </h2>
+                                                    <ul>
+                                                        <li>
+                                                                - Add your Listing with validity of upto 6 months
+                                                        </li>
+                                                        <li>
+                                                                - Connect and send messages upto 10 other Listings
+                                                        </li>
+                                                        <li>
+                                                                - Boosts the visibility of the profile in the searches
+                                                        </li>
+                                                        <li>
+                                                                - Increased visibility in the recommendations based on relevance
+                                                        </li>
+                                                        <li>
+                                                                - Email Support
+                                                        </li>
+                                                        <li>
+                                                                - Accelerated Marketing
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="pricing-selection">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-2 offset-md-9">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="">India</option>
+                                                                    <option value="">Delhi</option>
+                                                                    <option value="">Lucknow</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Pricing">
+                                                        <p>
+                                                            199 $
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="links-btns">
+                                                    <button class="btn btn-get-info">
+                                                            List a Business Advisor
+                                                    </button>
+                                                    <button class="btn btn-get-info">
+                                                            List a Startup Advisor
+                                                    </button>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="Franchise-Pricing" role="tabpanel" aria-labelledby="Franchise-Pricing">
+                                            <div class="business-services">
+                                                    <h2>
+                                                            Services offered for Franchise Listings:
+                                                    </h2>
+                                                    <ul>
+                                                        <li>
+                                                                - Add your Listing with validity of upto 6 months
+                                                        </li>
+                                                        <li>
+                                                                - Connect and send messages upto 10 other Listings
+                                                        </li>
+                                                        <li>
+                                                                - Boosts the visibility of the profile in the searches
+                                                        </li>
+                                                        <li>
+                                                                - Increased visibility in the recommendations based on relevance
+                                                        </li>
+                                                        <li>
+                                                                - Email Support
+                                                        </li>
+                                                        <li>
+                                                                - Accelerated Marketing
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="pricing-selection">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-2 offset-md-9">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="">India</option>
+                                                                    <option value="">Delhi</option>
+                                                                    <option value="">Lucknow</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Pricing">
+                                                        <p>
+                                                            199 $
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="links-btns">
+                                                    <button class="btn btn-get-info">
+                                                            List your Franchise Now
+                                                    </button>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="Supplier-Pricing" role="tabpanel" aria-labelledby="Supplier-Pricing">
+                                            <div class="business-services">
+                                                    <h2>
+                                                            Services offered for Supplier Listings:
+                                                    </h2>
+                                                    <ul>
+                                                        <li>
+                                                                - Add your Listing with validity of upto 6 months
+                                                        </li>
+                                                        <li>
+                                                                - Connect and send messages upto 10 other Listings
+                                                        </li>
+                                                        <li>
+                                                                - Boosts the visibility of the profile in the searches
+                                                        </li>
+                                                        <li>
+                                                                - Increased visibility in the recommendations based on relevance
+                                                        </li>
+                                                        <li>
+                                                                - Email Support
+                                                        </li>
+                                                        <li>
+                                                                - Accelerated Marketing
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="pricing-selection">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-2 offset-md-9">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="">India</option>
+                                                                    <option value="">Delhi</option>
+                                                                    <option value="">Lucknow</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Pricing">
+                                                        <p>
+                                                            199 $
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="links-btns">
+                                                    <button class="btn btn-get-info">
+                                                            List your Supplier Now
+                                                    </button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section id="footer">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="footer_content">
+                                        <h1>Discover quality alternative investment opportunities</h1>
+                                        <p>
+                                          BVerge is a next generation AI enabled marketplace platform that connects business /
+                                          startups with quality investors and advsiors all around the world. We create
+                                          opportunity through a combination of advanced algorithms, economic insights, and
+                                          relevant information, meet the right people, and make the deals that are critical to
+                                          your success.
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="Dashboard" role="tabpanel" aria-labelledby="two-tab">
+                        <section id="dashboard-business">
+                            <h2>Coming Soon</h2>
+                        </section>
+                        <section id="footer">
+                                <div class="container">
+                                    <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="footer_content">
+                                        <h1>Discover quality alternative investment opportunities</h1>
+                                        <p>
+                                            BVerge is a next generation AI enabled marketplace platform that connects business /
+                                            startups with quality investors and advsiors all around the world. We create
+                                            opportunity through a combination of advanced algorithms, economic insights, and
+                                            relevant information, meet the right people, and make the deals that are critical to
+                                            your success.
+                                        </p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="Current" role="tabpanel" aria-labelledby="three-tab">
+                        <section id="Current-Subscriptions">
+                            <div class="container">
+                                <div class="col-md-8 offset-md-2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>
+                                                Current Active Subsciptions :
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-business mb-3">Business  / Startup Subscription</button>
+                                            <button class="btn btn-business">Investor Subscription</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="border-business">
+                                                <p>
+                                                        No of Active Listings : 7
+                                                </p>
+                                                <p>
+                                                        No of Total Listings so far : 12
+                                                </p>
+                                               <select name="" id="" class="form-control">
+                                                    <option value="">Select Listing</option>
+                                                    <option value="">Select Block</option>
+                                                    <option value="">Select None</option>
+                                               </select>
+                                                <p>
+                                                        No of message connects left : 8
+                                                </p>
+                                                <p>
+                                                        Date of Expiry of Listing : 20th May 2020
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="footer">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="footer_content">
+                                        <h1>Discover quality alternative investment opportunities</h1>
+                                        <p>
+                                          BVerge is a next generation AI enabled marketplace platform that connects business /
+                                          startups with quality investors and advsiors all around the world. We create
+                                          opportunity through a combination of advanced algorithms, economic insights, and
+                                          relevant information, meet the right people, and make the deals that are critical to
+                                          your success.
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                        </section>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+  <script src="/static/profiles/js/custom.js"></script>
+</body>
+</html>

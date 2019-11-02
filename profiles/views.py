@@ -455,6 +455,14 @@ def payment_done(request):
 def payment_canceled(request):
     return render(request, 'payment_cancelled.html')
 
+@csrf_exempt
+def terms(request):
+    return render(request, 'terms.html')
+
+@csrf_exempt
+def pricing(request):
+    return render(request, 'pricing.html')
+
 def process_subscription(request):
     subscription_plan = request.session.get('subscription_plan')
     host = request.get_host()
