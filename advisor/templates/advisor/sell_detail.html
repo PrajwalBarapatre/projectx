@@ -996,7 +996,7 @@
                                                     <h2 class="f-12 ff-p f-w-bold">Core Skills</h2>
                                                 </div>
                                                 <div class="col-sm-7">
-                                                    <h2 class="f-12 ff-p">{{seller.skill1}} | {{seller.skill2}} | {{seller.skill3}}</h2>
+                                                    <h2 data-value="{{business.skill1}}" class="spliter f-12 ff-p"> </h2>
                                                 </div>
                                             </div>
 
@@ -1110,7 +1110,7 @@
                                     <h2 class="f-12 ff-p f-w-bold">Core Skills</h2>
                                 </div>
                                 <div class="col-sm-7">
-                                    <h2 class="f-12 ff-p wildspliter1">{{business.skill1}}</h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter f-12 ff-p"> </h2>
                                 </div>
                             </div>
 
@@ -2602,6 +2602,7 @@
             font-weight: bold;
         }
     </style>
+    
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -2679,12 +2680,18 @@ $(document).ready(function(){
 </script>
 
 <script>
+                $(".spliter").each(function(){
+                    var cur_fut= $(this).data("value");
+                    cur_fut=cur_fut.replace(/\__/g, ' | ');
+                    $(this).html(cur_fut);
+                });
 
-var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
-$(".wildspliter1").html(a);
 
-var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
-$(".wildspliter2").html(b);
+// var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
+// $(".wildspliter1").html(a);
+
+// var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
+// $(".wildspliter2").html(b);
 
 
 

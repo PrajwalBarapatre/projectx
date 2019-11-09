@@ -330,8 +330,7 @@
                                     </h2>
                                 </div>
                                 <div class="col-sm-6 col-12 col-md-6 col-lg-6">
-                                    <h2 class="ff-p f-18 wildspliter1">{{business.skill1}}
-                                    </h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter ff-p f-18"> </h2>
                                 </div>
                             </div>
                             <div class="row">
@@ -445,8 +444,7 @@
                                     </h2>
                                 </div>
                                 <div class="col-sm-6 col-12 col-md-6 col-lg-6">
-                                    <h2 class="ff-p f-18 wildspliter3">{{business.skill1}} 
-                                    </h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter ff-p f-18" > </h2>
                                 </div>
                             </div>
                             <div class="row">
@@ -587,8 +585,8 @@
                                                         <div class="col-sm-7 col-7 text-left">
                                                             <p>Core Skills</p>
                                                     </div>
-                                                        <div class="wildspliter2 col-sm-5 col-5 text-right">
-                                                            {{business.skill1}}
+                                                        <div class="col-sm-5 col-5 text-right">
+                                                            <h2 data-value="{{business.skill1}}" class="spliter ff-p f-18"> </h2>
                                                         </div>
                                                     </div>
                                                     <div class="row f-12 pt-20">
@@ -1579,9 +1577,13 @@ $(window).on('unload',function(){
 
 
 <script>
-
-var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
-$(".wildspliter1").html(a);
+ $(".spliter").each(function(){
+                    var cur_fut= $(this).data("value");
+                    cur_fut=cur_fut.replace(/\__/g, ' | ');
+                    $(this).html(cur_fut);
+                });
+//var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
+//$(".wildspliter1").html(a);
 
 // var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
 // $(".wildspliter2").html(b);
