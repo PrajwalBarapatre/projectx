@@ -1580,7 +1580,7 @@
 
     <script>
 
-
+               toggle_chat();
                var a = screen.width;
                console.log(a);
                if(a<2000 && a>1500){
@@ -1606,6 +1606,15 @@
 
 
     </script>
+
+    <script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+        // alert("gtgtg"); 
+    })
+    
+</script>
 
     <script>
 
@@ -1697,6 +1706,8 @@ var b = a.split("**");
 $("#select2-id_currency-container").html(b[3]);
 console.log(b[3]);
 </script>  -->
+
+
 
 
 </body>

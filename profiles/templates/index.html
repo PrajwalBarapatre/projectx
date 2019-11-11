@@ -2925,6 +2925,7 @@
         });
 </script> -->
 
+
 {% if user.is_authenticated %}
 <script>
 $(document).on({
@@ -4159,14 +4160,14 @@ switch (type) {
              c_toggle_w.style.width = '30px';
              c_drop.style.width = '30px';
                           $("#selUser").select2({    placeholder: 'C',
- dropdownParent: $('.selectdropdown'),width: '30px'});
+             dropdownParent: $('.selectdropdown'),width: '30px'});
              document.getElementById("chat_btn").innerHTML = "C";
          }
          else {
              c_toggle_w.style.width = '150px';
              c_drop.style.width = '150px';
-          $("#selUser").select2({    placeholder: 'Currency',
- dropdownParent: $('.selectdropdown'),width: '150px'});
+             $("#selUser").select2({    placeholder: 'Currency',
+                dropdownParent: $('.selectdropdown'),width: '150px'});
              document.getElementById("chat_btn").innerHTML = "Chat";
          }
          if (r_icon.style.transform !== 'rotate(180deg)') {
@@ -4250,7 +4251,13 @@ switch (type) {
 </script>
 
 
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 
 </body>
 

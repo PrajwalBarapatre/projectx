@@ -3011,6 +3011,7 @@
 
 
     <script>
+        toggle_chat();
         function w3_open() {
             document.getElementById("mySidebar").style.display = "block";
             document.getElementById("myOverlay").style.display = "block";
@@ -3142,6 +3143,7 @@
     <script src="/static/seller1/js/wow.min.js"></script>
     <script src="/static/profiles/js/notification.js"></script>
     <script src="/static/seller1/js/sidebarloader.js"></script>
+
 
 
 
@@ -5113,6 +5115,14 @@ console.log("{{business}}");
             myCurrency();
         });      
 
+</script>
+
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
 </script>
 
 </body>
