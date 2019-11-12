@@ -610,7 +610,7 @@
                     {% if seller.type == 'Asset' %}
                     <!--asset start -->
                         <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
-                            <div class="container-fluid">
+                            <div class="container-fluid genral-h2-margin">
                                 <div class="row">
                                     <div class="col-sm-12 col-12 col-lg-12 col-md-12">
                                         <h3 class="f-26 ff-p f-w-bold c-3f pb-5">General Details
@@ -642,14 +642,6 @@
                                                 <h2 class="ff-p f-18">{{seller.category2}}
                                                 </h2>
                                             </div>
-                                            <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                                    <h2 class="f-w-bold f-18 ff-p">Reason for Selling
-                                                    </h2>
-                                                </div>
-                                                <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                                    <h2 class="ff-p f-18">{{business.reason_selling}}
-                                                    </h2>
-                                                </div>
                                     <div class="col-sm-3 col-6 col-md-3 col-lg-3">
                                         <h2 class="f-w-bold f-18 ff-p">Cost of Sale
                                         </h2>
@@ -664,6 +656,16 @@
                                         </div>
                                         <div class="col-sm-3 col-6 col-md-3 col-lg-3">
                                             <h2 class="ff-p f-18">{{business.asset_type}}
+                                            </h2>
+                                        </div>
+                                </div>
+                                <div class="row">                                
+                                    <div class="col-sm-3 col-6 col-md-3 col-lg-3">
+                                            <h2 class="f-w-bold f-18 ff-p">Reason for Selling
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-9 col-6 col-md-9 col-lg-9">
+                                            <h2 class="ff-p f-18">{{business.reason_selling}}
                                             </h2>
                                         </div>
                                 </div>
@@ -1044,63 +1046,112 @@
                     {% if seller.type == 'Equity' %}
                     <!--equity end -->
                         <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
-                            <div class="container-fluid">
+                            <div class="container-fluid genral-h2-margin">
                                 <div class="row">
-                                <div class="col-sm-12 col-12 col-lg-12 col-md-12">
-                                    <h3 class="f-26 ff-p f-w-bold c-3f pb-5">General Details
-                                    </h3>
-                                </div>
+                                    <div class="col-sm-12 col-12 col-lg-12 col-md-12">
+                                        <h3 class="f-26 ff-p f-w-bold c-3f pb-5">General Details
+                                        </h3>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                        <h2 class="f-w-bold f-18 ff-p">Annual Revenue
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">Location
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">% Stake for Sale
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">Reason for Sale
-                                        </h2>
+                                    <div class="col-md-6 col-lg-6 col-6">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 class="f-w-bold f-18 ff-p">Annual Revenue</h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h2 data-currency-type="{{seller.currency}}" data-value="{{seller.rev_year}}" class="price ff-p f-18 mPB-4"></h2>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 class="f-w-bold f-18 ff-p">Location</h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h2 class="ff-p f-18 mb-0">{{seller.city}} </h2>
+                                                    <h2 class="ff-p f-18 m-0"> {{seller.region}}</h2>
+                                                    <h2 class="ff-p f-18 mt-0">{{seller.country}}</h2>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 class="f-w-bold f-18 ff-p">% Stake for Sale</h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h2 class="equitystake ff-p f-18">
+                                                        </h2>
+                                                        <script>
+                                                                var a = {{business.stake}};
+                                                                a=a.toFixed(2);
+                                                                $(".equitystake").text(a+"%");                                 
+                                                        </script>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                        <h2 data-currency-type="{{seller.currency}}" data-value="{{seller.rev_year}}" class="price ff-p f-18 mPB-4">
-                                        </h2>
-                                        <h2 class="ff-p f-18">{{seller.city}} | {{seller.region}} | {{seller.country}}
-                                        </h2>
-                                        <h2 class="equitystake ff-p f-18">
-                                        </h2>
-                                        <script>
-                                                var a = {{business.stake}};
-                                                a=a.toFixed(2);
-                                                $(".equitystake").text(a+"%");                                 
-                                        </script>
-                                        <h2 class="ff-p f-18">{{business.reason}}
-                                        </h2>
+                                    <div class="col-md-6 col-6 col-lg-6">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <h2 class="f-w-bold f-18 ff-p">Cost of Sale
+                                                            </h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="price ff-p f-18 mPB-4">
+                                                            </h2>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <h2 class="f-w-bold f-18 ff-p">Profit Percent
+                                                            </h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <h2 class="equityprofit ff-p f-18">
+                                                            </h2>
+                                                            <script>
+                                                                    var a = ({{seller.year_17}}/{{seller.rev_year}})*100;
+                                                                    a=a.toFixed(2);
+                                                                    $(".equityprofit").text(a+"%");                                 
+                                                            </script>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <h2 class="f-w-bold f-18 ff-p">Category
+                                                            </h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <h2 class="ff-p f-18">{{seller.category1}} 
+                                                            </h2>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <h2 class="f-w-bold f-18 ff-p">Sub Category
+                                                            </h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <h2 class="ff-p f-18">{{seller.category2}}
+                                                            </h2>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                        <h2 class="f-w-bold f-18 ff-p">Cost of Sale
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">Profit Percent
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">Category
-                                        </h2>
-                                        <h2 class="f-w-bold f-18 ff-p">Sub Category
-                                        </h2>
-                                    </div>
-                                    <div class="col-sm-3 col-6 col-md-3 col-lg-3">
-                                        <h2 data-currency-type="{{seller.currency}}" data-value="{{business.asking_price}}" class="price ff-p f-18 mPB-4">
-                                        </h2>
-                                        <h2 class="equityprofit ff-p f-18">
-                                        </h2>
-                                        <script>
-                                                var a = ({{seller.year_17}}/{{seller.rev_year}})*100;
-                                                a=a.toFixed(2);
-                                                $(".equityprofit").text(a+"%");                                 
-                                        </script>
-                                        <h2 class="ff-p f-18">{{seller.category1}} 
-                                        </h2>
-                                        <h2 class="ff-p f-18">{{seller.category2}}
-                                        </h2>
+                                    <div class="col-md-12 col-lg-12 col-12">
+                                        <div class="container-fluid">                                            
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                        <h2 class="f-w-bold f-18 ff-p">Reason for Sale
+                                                            </h2>
+                                                </div>
+                                                <div class="col-md-9 pl-1">
+                                                        <h2 class="ff-p f-18">{{business.reason}}
+                                                            </h2>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2917,8 +2968,14 @@
                         <img id ="master_tagger1" src=" " class="img-fluid img_box_val" alt="">
                     </span>
                 </div>
-              <h2 id ="master_tagger2" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2> 
-                <h2 id ="master_tagger3" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2>
+                <div class="nameFlieds d-flex justify-content-center">
+                    <h2 class="f-18 ff-pd text-left f-w-bold m-0">Name : &nbsp; </h2>
+                    <h2 id ="master_tagger2" class="f-18 ff-pd text-left f-w-bold m-0"></h2>
+                </div> 
+                <div class="locationFlieds d-flex justify-content-center">
+                    <h2 class="f-18 ff-pd text-left f-w-bold mt-0">Location : &nbsp; </h2>
+                    <h2 id ="master_tagger3" class="f-18 ff-pd text-left f-w-bold mt-0"></h2>
+                </div>
                 <!-- <h2 id ="master_tagger4" class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
 
 
