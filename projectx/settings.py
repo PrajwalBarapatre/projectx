@@ -21,12 +21,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2$v%o)#av9y$+gq93i5o$tlkf_-v(930j(y!52(yd$9l9st-0('
+# SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+# print(os.getenv('DJANGO_SECRET_KEY'))
+# print(os.getenv('DJANGO_DB_HOST'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['*']
-
+assert SECRET_KEY is not None, (
+    'Please provide DJANGO_SECRET_KEY '
+    'environment variable with a value')
+# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = [os.getenv('DJANGO_ALLOWED_HOSTS')]
+ALLOWED_HOSTS=['localhost', '127.0.0.1', '[::1]', 'django', 'daphne', 'ec2-13-232-117-88.ap-south-1.compute.amazonaws.com', '13.232.117.88']
 DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520
 
@@ -62,7 +68,7 @@ INSTALLED_APPS = [
     'pdf2image',
     'storages',
     'paypal.standard.ipn',
-
+    # 'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +98,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',  # <--
                 'social_django.context_processors.login_redirect', # <--
-                                'django.template.context_processors.media',
+                'django.template.context_processors.media',
+                'projectx.context_processors.all_media',
             ],
         },
     },
@@ -122,25 +129,54 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': '',
+#             'USER': 'root',
+#             'PASSWORD': '',
+#             'HOST': '',
+#             'PORT': '3306',
+#     }
+# }
+# print(os.getenv('DJANGO_DB_NAME'))
+
+# DJANGO_DB_NAME = os.getenv('DJANGO_DB_NAME')
+# DJANGO_DB_USER = os.getenv('DJANGO_DB_USER')
+# DJANGO_DB_PASSWORD = os.getenv('DJANGO_DB_PASSWORD')
+# DJANGO_DB_HOST = os.getenv('DJANGO_DB_HOST')
+# print(DJANGO_DB_HOST)
+# print(SECRET_KEY)
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': os.environ.get('DJANGO_DB_NAME') ,
+#             'USER': os.environ.get('DJANGO_DB_USER') ,
+#             'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD') ,
+#             'HOST': os.environ.get('DJANGO_DB_HOST') ,
+#             'PORT': 3306,
+#     }
+# }
+
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'bvergedatabase',
-            'USER': 'root',
-            'PASSWORD': 'Merge2019',
-            'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com',
-            'PORT': '3306',
+            'NAME': 'bvergedatabase' ,
+            'USER': 'root' ,
+            'PASSWORD': 'BvergeProject' ,
+            'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com' ,
+            'PORT': 3306,
     }
 }
 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'newdb',
+#         'NAME': 'projectx',
 #         'USER': 'root',
 #         'PASSWORD': '',
 #         'HOST': 'localhost',
-#         'PORT': ''
+#         'PORT': '3306'
 #     }
 # }
 
@@ -191,11 +227,20 @@ SOCIAL_AUTH_PIPELINE = (
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
+# SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
+# SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+# #
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY')
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET')
+
 SOCIAL_AUTH_GITHUB_KEY = '6068d78b58903e4302e6'
 SOCIAL_AUTH_GITHUB_SECRET = '6d7457d61c5482aa576e324ead130f464ee1ebf5'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='525491482451-tbhth56o4usmjf1beuca21n4jj2de515.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uYdpgAjU5hPMwlhgarAUZZmk' #Paste Secret Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='525491482451-tbhth56o4usmjf1beuca21n4jj2de515.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uYdpgAjU5hPMwlhgarAUZZmk'
 #
 SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '81wmsl0nipfegt'
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'Y4BXLqOUgLXzor2S'
@@ -230,11 +275,17 @@ USE_TZ = True
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # DEFAULT_FROM_EMAIL = 'prajwalbarapatre13@gmail.com' # this is the sendgrid email
 
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = 25
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'businessmerge@gmail.com'
 EMAIL_HOST_PASSWORD = 'Verge@2019'
-EMAIL_PORT = 587
+EMAIL_PORT = 25
 
 
 # Static files (CSS, JavaScript, Images)
@@ -246,14 +297,20 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'gathered_static_files')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6DL46EYBO'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_ACCESS_KEY_ID = 'AKIAJRK7EBW2ZZUA45AQ'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'bverge-media'
+## AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6DL46EYBO'
+## AWS_SECRET_ACCESS_KEY = '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'
+
+# AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
+# AWS_SECRET_ACCESS_KEY = '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'
+
+
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # # AWS_DEFAULT_ACL = None
 # AWS_S3_OBJECT_PARAMETERS = {
@@ -264,7 +321,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 #
-# DEFAULT_FILE_STORAGE = 'projectx.storage_backends.MediaStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY_ID')
+# AWS_STORAGE_BUCKET_NAME = os.getenv('DJANGO_UPLOAD_S3_BUCKET')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bverge'
+
+INTERNAL_IPS = [
+    '127.0.0.1'
+]
 
 
 PAYPAL_RECEIVER_EMAIL = 'businessmerge-facilitator@gmail.com'

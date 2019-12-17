@@ -181,7 +181,7 @@ $.ajax({
            $(".notification_container").append(
                 "<div class='notify_box'>"
                         +"<div class='img_box'>"
-                            +"<img src='/media/files/advisor-img2.png' alt='img' class='avatar'>"
+                            +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
                         +"</div>"
                         +"<div class='content_box'>"
                             +"<a href='/chat' ><p>"+data.notifications[i].notif_statement+"</p></a>"
@@ -197,7 +197,7 @@ $.ajax({
            $(".notification_container").append(
                 "<div class='notify_box'>"
                         +"<div class='img_box'>"
-                            +"<img src='/media/files/advisor-img2.png' alt='img' class='avatar'>"
+                            +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
                         +"</div>"
                         +"<div class='content_box'>"
                             +"<a href='/" +data.notifications[i].notif_on+"/"+"user_detail"+"/"+data.notifications[i].notif_on_id+"' ><p>"+data.notifications[i].notif_statement+"</p></a>"

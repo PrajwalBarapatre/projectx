@@ -697,7 +697,7 @@ body.loading .lodal {
 
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
@@ -712,7 +712,7 @@ body.loading .lodal {
                                             {% if notif.notif_type == 'Cart' %}
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
@@ -726,7 +726,7 @@ body.loading .lodal {
                                             {% endfor %}
                                                 <!-- <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from rakesh</p></a>
@@ -738,7 +738,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -750,7 +750,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -762,7 +762,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -774,7 +774,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -786,7 +786,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -798,7 +798,7 @@ body.loading .lodal {
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -2754,11 +2754,11 @@ $(document).on({
             $('#login_icon_s').css('display','none');
             $('#loggedin_icon_s').css('display','block');
             // name="{{user.profile.photo.name}}";
-            // name = "/media/"+name;
+            // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
             }else{
-                name = "/media/"+"{{user.profile.photo.name}}";
+                name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
             }
             console.log(name)
             console.log('{{user.profile.photo_url}}');
@@ -3176,7 +3176,7 @@ $(document).on({
                                         $('#login_icon_s').css('display','none');
                                         $('#loggedin_icon_s').css('display','block');
                                         name=data.img_name;
-                                        name = "/media/"+name;
+                                        name = "{{MEDIA_PREFIX}}/"+name;
                                         $('#prof_pic_b').attr('src',name);
                                         $('#prof_pic_s').attr('src',name);
                                         location.reload();
@@ -3359,7 +3359,7 @@ $(document).on({
                                                     $('#login_icon_b').css('display','none');
                                                     $('#loggedin_icon_b').css('display','block');
                                                     name=data.img_name;
-                                                    name = "/media/"+name;
+                                                    name = "{{MEDIA_PREFIX}}/"+name;
                                                     $('#prof_pic_s').attr('src',name);
                                                     $('#prof_pic_b').attr('src',name);
                                                     location.reload();

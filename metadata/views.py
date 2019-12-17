@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 # Create your views here.
 def business_sector():
     data = BusinessSectors.objects.values('sectors').distinct()
+    print(data)
     # print("yolo")
     # print(data)
     return data

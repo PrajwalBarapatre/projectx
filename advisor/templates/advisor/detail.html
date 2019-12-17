@@ -245,7 +245,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-12 text-center">
                                                                         <div class="img_slider_box">
-                                                                          <img  src="/media/{{name.file_name}}" alt="" class="img-fluid">
+                                                                          <img  src="{{MEDIA_PREFIX}}/{{name.file_name}}" alt="" class="img-fluid">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -547,7 +547,7 @@
                         {%if seller.base_type == 'Advisor' %}
                         <div class="card">
                                 <a href="">
-                                    <img class="card-img-top" style="height:150px;width:100%" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid">
+                                    <img class="card-img-top" style="height:150px;width:100%" src="{{MEDIA_PREFIX}}/{{seller.file_name}}" alt="Card image cap img-fluid">
                                 </a>
                                 <div class="card-body ff-p">
                                     <a href="">
@@ -1450,11 +1450,11 @@ var in_seller = $(e.relatedTarget).attr(attr);
                 $('#login_icon_s').css('display','none');
                 $('#loggedin_icon_s').css('display','block');
                 // name="{{user.profile.photo.name}}";
-                // name = "/media/"+name;
+                // name = "{{MEDIA_PREFIX}}/"+name;
                 if("{{user.profile.social}}"=="True"){
                     name = "{{user.profile.photo_url}}"
                 }else{
-                    name = "/media/"+"{{user.profile.photo.name}}";
+                    name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
                 }
                 console.log(name)
                 console.log('{{user.profile.photo_url}}');
@@ -1473,7 +1473,7 @@ var in_seller = $(e.relatedTarget).attr(attr);
                 url:'/seller/fetch-advise/{{seller.advisor_id}}',
                 success:function(data){
                      console.log(data.contact_number);
-                     name="/media/"+data.photo_link;
+                     name="{{MEDIA_PREFIX}}/"+data.photo_link;
                      $('#master_tagger1').attr('src',name);
                      namer=data.first_name+" "+data.last_name
                      $('#master_tagger2').html(namer);

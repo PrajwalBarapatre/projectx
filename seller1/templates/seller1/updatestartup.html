@@ -1266,7 +1266,7 @@ $("#dropzonewidget").dropzone({
               name = name.replace('files/','');
 
               console.log(name);
-              var url = "/media/files/"+name;
+              var url = "{{MEDIA_PREFIX}}/files/"+name;
             var mockFile = { name: name, type: 'image/jpeg' };
    this.options.addedfile.call(this, mockFile);
    this.options.thumbnail.call(this, mockFile, url);

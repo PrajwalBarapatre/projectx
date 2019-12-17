@@ -176,6 +176,7 @@ def home_view(request):
     profile_form = ProfileForm()
     code_data = codedata()
     sectors = business_sector()
+    print(sectors)
     notifications=None
     notif_number = None
     try:
@@ -192,7 +193,7 @@ def home_view(request):
 
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
-
+    
     context ={
         'log_form': log_form,
         'reg_form': reg_form,
@@ -259,6 +260,7 @@ class getUser(APIView):
         w['other_name']=''+arr[0].user.profile.first_name + ' ' +arr[0].user.profile.last_name
         w['other_id']=arr[0].contact_id
         w['blocked']=''
+        w['photo_name']=user.profile.photo.name
         if curr_chat in arr[0].blocked_chats.all():
             w['blocked']='true'
         contact = get_user_contact(user.username)

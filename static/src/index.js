@@ -98,8 +98,8 @@ class WebSocketService {
     }
   
     connect(chatUrl) {
-      // const path = 'ws://127.0.0.1:8000/ws/chat/test/';
-      const path = `ws://127.0.0.1:8000/ws/chat/${chatUrl}/`;
+      // const path = 'ws://127.0.0.1:80/ws/chat/test/';
+      const path = `ws://127.0.0.1:80/ws/chat/${chatUrl}/`;
       this.socketRef = new WebSocket(path);
       this.socketRef.onopen = () => {
         console.log('WebSocket open in '+ chatUrl);
@@ -283,7 +283,7 @@ class Sidepanel extends React.Component{
   
   getUserChats = (username) => {
     console.log(username);
-    fetch(`http://127.0.0.1:8000/chat/api/${username}`,{
+    fetch(`http://127.0.0.1:80/chat/api/${username}`,{
             method: 'GET',
             headers: {
                  Accept: 'application/json',
@@ -303,7 +303,7 @@ class Sidepanel extends React.Component{
             }
             this.setState({
                 chats:responseJson.chats,
-                other_profile_url: '/media/'+responseJson.curr.other_profile_url,
+                other_profile_url: 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.curr.other_profile_url,
                 other_name : responseJson.curr.other_name,
                 other_id : responseJson.curr.other_id,
                 blocked : blocked
@@ -340,7 +340,7 @@ handleClick=(chat_id, notif_id)=>{
         }
       }
       title = c.business_name + '-' + person;
-      var photo = 'http://127.0.0.1:8000/media/'+url;
+      var photo = 'https://bverge.s3.ap-south-1.amazonaws.com/'+url;
       return (
           <Contact 
               key={c.chat_id}
@@ -433,7 +433,7 @@ function getCookie(name) {
 
 function pdf_view(file_name){
   console.log(file_name)
-  fetch(`http://127.0.0.1:8000/chat/pdf_view/${file_name}`,{
+  fetch(`http://127.0.0.1:80/chat/pdf_view/${file_name}`,{
     method: 'GET'
   })
 }
@@ -487,7 +487,7 @@ class Chat extends React.Component{
 
     componentDidMount(){
       console.log('inside didMount of chat');
-      fetch('http://127.0.0.1:8000/get_user',{
+      fetch('http://127.0.0.1:80/get_user',{
             method: 'GET',
             headers: {
                  Accept: 'application/json',
@@ -502,7 +502,7 @@ class Chat extends React.Component{
             console.log(responseJson);
             console.log(responseJson.username);
             var fullname = responseJson.first_name + responseJson.last_name;
-            var url = ''+responseJson.photo ;
+            var url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.photo_name ;
             console.log(responseJson.curr_chat)
             var blocked=0;
             if(responseJson.blocked){
@@ -514,7 +514,7 @@ class Chat extends React.Component{
                 full_name : fullname,
                 chatId: responseJson.curr_chat,
                 notif_id: responseJson.notify_id,
-                other_profile_url: '/media/'+responseJson.other_profile_url,
+                other_profile_url: 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.other_profile_url,
                 other_name : responseJson.other_name,
                 other_id : responseJson.other_id,
                 blocked : blocked,
@@ -615,7 +615,7 @@ class Chat extends React.Component{
             </li>
       )
     }else{
-      var url = 'http://127.0.0.1:8000/media/'+ message.content;
+      var url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+ message.content;
       var content = ''+message.content;
       var file_name = content
       content=content.replace('message/','');
@@ -715,7 +715,7 @@ class Chat extends React.Component{
             this.setState({
               chatId : chat_id,
               notif_id:notif_id,
-              other_profile_url:'/media/'+arr[i].other_profile_url,
+              other_profile_url:'https://bverge.s3.ap-south-1.amazonaws.com/'+arr[i].other_profile_url,
               other_name:arr[i].other_name,
               other_id:arr[i].other_id,
               blocked:blocked_,
@@ -878,129 +878,129 @@ class App extends React.Component{
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-const isLocalhost = Boolean(
-    window.location.hostname === 'localhost' ||
-      // [::1] is the IPv6 localhost address.
-      window.location.hostname === '[::1]' ||
-      // 127.0.0.1/8 is considered localhost for IPv4.
-      window.location.hostname.match(
-        /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-      )
-  );
+// const isLocalhost = Boolean(
+//     window.location.hostname === 'localhost' ||
+//       // [::1] is the IPv6 localhost address.
+//       window.location.hostname === '[::1]' ||
+//       // 127.0.0.1/8 is considered localhost for IPv4.
+//       window.location.hostname.match(
+//         /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+//       )
+//   );
   
-  function register(config) {
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      // The URL constructor is available in all browsers that support SW.
-      const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
-      if (publicUrl.origin !== window.location.origin) {
-        // Our service worker won't work if PUBLIC_URL is on a different origin
-        // from what our page is served on. This might happen if a CDN is used to
-        // serve assets; see https://github.com/facebook/create-react-app/issues/2374
-        return;
-      }
+//   function register(config) {
+//     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+//       // The URL constructor is available in all browsers that support SW.
+//       const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+//       if (publicUrl.origin !== window.location.origin) {
+//         // Our service worker won't work if PUBLIC_URL is on a different origin
+//         // from what our page is served on. This might happen if a CDN is used to
+//         // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+//         return;
+//       }
   
-      window.addEventListener('load', () => {
-        const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+//       window.addEventListener('load', () => {
+//         const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
   
-        if (isLocalhost) {
-          // This is running on localhost. Let's check if a service worker still exists or not.
-          checkValidServiceWorker(swUrl, config);
+//         if (isLocalhost) {
+//           // This is running on localhost. Let's check if a service worker still exists or not.
+//           checkValidServiceWorker(swUrl, config);
   
-          // Add some additional logging to localhost, pointing developers to the
-          // service worker/PWA documentation.
-          navigator.serviceWorker.ready.then(() => {
-            console.log(
-              'This web app is being served cache-first by a service ' +
-                'worker. To learn more, visit https://bit.ly/CRA-PWA'
-            );
-          });
-        } else {
-          // Is not localhost. Just register service worker
-          registerValidSW(swUrl, config);
-        }
-      });
-    }
-  }
+//           // Add some additional logging to localhost, pointing developers to the
+//           // service worker/PWA documentation.
+//           navigator.serviceWorker.ready.then(() => {
+//             console.log(
+//               'This web app is being served cache-first by a service ' +
+//                 'worker. To learn more, visit https://bit.ly/CRA-PWA'
+//             );
+//           });
+//         } else {
+//           // Is not localhost. Just register service worker
+//           registerValidSW(swUrl, config);
+//         }
+//       });
+//     }
+//   }
   
-  function registerValidSW(swUrl, config) {
-    navigator.serviceWorker
-      .register(swUrl)
-      .then(registration => {
-        registration.onupdatefound = () => {
-          const installingWorker = registration.installing;
-          if (installingWorker == null) {
-            return;
-          }
-          installingWorker.onstatechange = () => {
-            if (installingWorker.state === 'installed') {
-              if (navigator.serviceWorker.controller) {
-                // At this point, the updated precached content has been fetched,
-                // but the previous service worker will still serve the older
-                // content until all client tabs are closed.
-                console.log(
-                  'New content is available and will be used when all ' +
-                    'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
-                );
+//   function registerValidSW(swUrl, config) {
+//     navigator.serviceWorker
+//       .register(swUrl)
+//       .then(registration => {
+//         registration.onupdatefound = () => {
+//           const installingWorker = registration.installing;
+//           if (installingWorker == null) {
+//             return;
+//           }
+//           installingWorker.onstatechange = () => {
+//             if (installingWorker.state === 'installed') {
+//               if (navigator.serviceWorker.controller) {
+//                 // At this point, the updated precached content has been fetched,
+//                 // but the previous service worker will still serve the older
+//                 // content until all client tabs are closed.
+//                 console.log(
+//                   'New content is available and will be used when all ' +
+//                     'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
+//                 );
   
-                // Execute callback
-                if (config && config.onUpdate) {
-                  config.onUpdate(registration);
-                }
-              } else {
-                // At this point, everything has been precached.
-                // It's the perfect time to display a
-                // "Content is cached for offline use." message.
-                console.log('Content is cached for offline use.');
+//                 // Execute callback
+//                 if (config && config.onUpdate) {
+//                   config.onUpdate(registration);
+//                 }
+//               } else {
+//                 // At this point, everything has been precached.
+//                 // It's the perfect time to display a
+//                 // "Content is cached for offline use." message.
+//                 console.log('Content is cached for offline use.');
   
-                // Execute callback
-                if (config && config.onSuccess) {
-                  config.onSuccess(registration);
-                }
-              }
-            }
-          };
-        };
-      })
-      .catch(error => {
-        console.error('Error during service worker registration:', error);
-      });
-  }
+//                 // Execute callback
+//                 if (config && config.onSuccess) {
+//                   config.onSuccess(registration);
+//                 }
+//               }
+//             }
+//           };
+//         };
+//       })
+//       .catch(error => {
+//         console.error('Error during service worker registration:', error);
+//       });
+//   }
   
-  function checkValidServiceWorker(swUrl, config) {
-    // Check if the service worker can be found. If it can't reload the page.
-    fetch(swUrl)
-      .then(response => {
-        // Ensure service worker exists, and that we really are getting a JS file.
-        const contentType = response.headers.get('content-type');
-        if (
-          response.status === 404 ||
-          (contentType != null && contentType.indexOf('javascript') === -1)
-        ) {
-          // No service worker found. Probably a different app. Reload the page.
-          navigator.serviceWorker.ready.then(registration => {
-            registration.unregister().then(() => {
-              window.location.reload();
-            });
-          });
-        } else {
-          // Service worker found. Proceed as normal.
-          registerValidSW(swUrl, config);
-        }
-      })
-      .catch(() => {
-        console.log(
-          'No internet connection found. App is running in offline mode.'
-        );
-      });
-  }
+//   function checkValidServiceWorker(swUrl, config) {
+//     // Check if the service worker can be found. If it can't reload the page.
+//     fetch(swUrl)
+//       .then(response => {
+//         // Ensure service worker exists, and that we really are getting a JS file.
+//         const contentType = response.headers.get('content-type');
+//         if (
+//           response.status === 404 ||
+//           (contentType != null && contentType.indexOf('javascript') === -1)
+//         ) {
+//           // No service worker found. Probably a different app. Reload the page.
+//           navigator.serviceWorker.ready.then(registration => {
+//             registration.unregister().then(() => {
+//               window.location.reload();
+//             });
+//           });
+//         } else {
+//           // Service worker found. Proceed as normal.
+//           registerValidSW(swUrl, config);
+//         }
+//       })
+//       .catch(() => {
+//         console.log(
+//           'No internet connection found. App is running in offline mode.'
+//         );
+//       });
+//   }
   
-  function unregister() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.ready.then(registration => {
-        registration.unregister();
-      });
-    }
-  }
+//   function unregister() {
+//     if ('serviceWorker' in navigator) {
+//       navigator.serviceWorker.ready.then(registration => {
+//         registration.unregister();
+//       });
+//     }
+//   }
   
 
 

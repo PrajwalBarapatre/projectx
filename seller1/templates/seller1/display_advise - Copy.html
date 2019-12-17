@@ -1292,7 +1292,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1305,7 +1305,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1480,7 +1480,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1493,7 +1493,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1660,7 +1660,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1673,7 +1673,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1838,7 +1838,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -1851,7 +1851,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -2017,7 +2017,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -2030,7 +2030,7 @@ success: function(data){
                   + "<div class='container-fluid'>"
                      +  "<div class='row'>"
                       +     "<div class='col-sm-12 text-center'>"
-                      +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                      +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                       +     "</div>"
                       + "</div>"
               +     "</div>"
@@ -2124,11 +2124,11 @@ $('#loggedin_icon_b').css('display','block');
 $('#login_icon_s').css('display','none');
 $('#loggedin_icon_s').css('display','block');
 // name="{{user.profile.photo.name}}";
-// name = "/media/"+name;
+// name = "{{MEDIA_PREFIX}}/"+name;
 if("{{user.profile.social}}"=="True"){
     name = "{{user.profile.photo_url}}"
 }else{
-    name = "/media/"+"{{user.profile.photo.name}}";
+    name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
 }
 console.log(name)
 console.log('{{user.profile.photo_url}}');

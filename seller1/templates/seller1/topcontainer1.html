@@ -207,7 +207,7 @@
 
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
@@ -222,7 +222,7 @@
                                             {% if notif.notif_type == 'Cart' %}
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>

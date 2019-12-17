@@ -497,7 +497,7 @@
                                         $(element).find('.carousel-inner').find('.carousel-item').each(function(imdex, ielement){
                                             var src=$(ielement).find('img').attr('src');
                                             console.log(src);
-                                             file_name=src.replace('/media/', '');
+                                             file_name=src.replace('{{MEDIA_PREFIX}}/', '');
                                             console.log(file_name)
                                             t++;
                                             // if(t==1){
@@ -531,7 +531,7 @@
                        "<div style='width:500px;height:100px'>"
       +                 "<div class='row'>"
        +                      "<div class='col-sm-3'>"
-       +                                         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid'>"
+       +                                         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid'>"
        +                     "</div>"
        +                     "<div class='col-sm-9 pl-0'>"
        +                                         "<a href=''>"
@@ -1349,7 +1349,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1362,7 +1362,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1507,7 +1507,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1520,7 +1520,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1678,7 +1678,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1691,7 +1691,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1850,7 +1850,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1863,7 +1863,7 @@ marker.addListener('mouseout', () => infoWindow.close())
                           + "<div class='container-fluid'>"
                              +  "<div class='row'>"
                               +     "<div class='col-sm-12 text-center'>"
-                              +         "<img class='sizer' src='/media/"+file_name+"' alt='' class='img-fluid pt-3'>"
+                              +         "<img class='sizer' src='{{MEDIA_PREFIX}}/"+file_name+"' alt='' class='img-fluid pt-3'>"
                               +     "</div>"
                               + "</div>"
                       +     "</div>"
@@ -1927,11 +1927,11 @@ marker.addListener('mouseout', () => infoWindow.close())
         $('#login_icon_s').css('display','none');
         $('#loggedin_icon_s').css('display','block');
         // name="{{user.profile.photo.name}}";
-        // name = "/media/"+name;
+        // name = "{{MEDIA_PREFIX}}/"+name;
         if("{{user.profile.social}}"=="True"){
             name = "{{user.profile.photo_url}}"
         }else{
-            name = "/media/"+"{{user.profile.photo.name}}";
+            name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
         }
         console.log(name)
         console.log('{{user.profile.photo_url}}');

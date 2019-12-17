@@ -149,7 +149,7 @@
                                 <div class="row">
                                     <div class="col-sm-5 offset-2">
                                     {% if photo_link %}
-                                        <img  src="/media/{{cart.0.photo_link}}" class="img-fluid sizer" alt="">
+                                        <img  src="{{MEDIA_PREFIX}}/{{cart.0.photo_link}}" class="img-fluid sizer" alt="">
                                     {% else %}
                                         <img  src="{{cart.0.photo_url}}" class="img-fluid sizer" alt="">
                                     {% endif %}
@@ -193,7 +193,7 @@
                                                 <div class="cards_listing">
                                                     <div class="img_box">        
                                                         <span>
-                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                            <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid">
                                                         </span>                        
                                                     </div>
                                                     <div class="content">
@@ -216,7 +216,7 @@
                                                 <div class="cards_listing">                                                                   
                                                     <div class="img_box">        
                                                         <span>
-                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                            <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid">
                                                         </span>                        
                                                     </div>
                                                     <div class="content">
@@ -239,7 +239,7 @@
                                                 <div class="cards_listing">        
                                                     <div class="img_box">        
                                                         <span>
-                                                            <img src="/media/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                            <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid">
                                                         </span>                        
                                                     </div>
                                                     <div class="content">
@@ -562,7 +562,7 @@
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
             }else{
-                name = "/media/"+"{{user.profile.photo.name}}";
+                name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
             }
 
             $('#prof_pic').attr('src',name);
@@ -580,11 +580,11 @@
             $('#login_icon_s').css('display','none');
             $('#loggedin_icon_s').css('display','block');
             // name="{{user.profile.photo.name}}";
-            // name = "/media/"+name;
+            // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
             }else{
-                name = "/media/"+"{{user.profile.photo.name}}";
+                name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
             }
             console.log(name)
             console.log('{{user.profile.photo_url}}');

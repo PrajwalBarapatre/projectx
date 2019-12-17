@@ -764,7 +764,7 @@
 
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
@@ -779,7 +779,7 @@
                                             {% if notif.notif_type == 'Cart' %}
                                             <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
@@ -793,7 +793,7 @@
                                             {% endfor %}
                                                 <!-- <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from rakesh</p></a>
@@ -805,7 +805,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -817,7 +817,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -829,7 +829,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -841,7 +841,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -853,7 +853,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -865,7 +865,7 @@
                                                 </div>
                                                 <div class="notify_box">
                                                     <div class="img_box">
-                                                        <img src="/media/files/advisor-img2.png" alt="img" class="avatar">
+                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
                                                     </div>
                                                     <div class="content_box">
                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>you have message from anurag</p></a>
@@ -2979,13 +2979,13 @@ $(document).on({
             $('#login_icon_s').css('display','none');
             $('#loggedin_icon_s').css('display','block');
             // name="{{user.profile.photo.name}}";
-            // name = "/media/"+name;
+            // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
             }
             
             else{
-                name = "{{user.profile.photo.url}}";
+                name = "https://bverge.s3.ap-south-1.amazonaws.com/{{user.profile.photo}}";
                 //console.log('{{user.profile.photo.url}}')
             }
 
@@ -3399,7 +3399,7 @@ $(document).on({
                                 $('#login_icon_s').css('display','none');
                                 $('#loggedin_icon_s').css('display','block');
                                 name=data.img_name;
-                                name = "/media/"+name;
+                                name = "{{MEDIA_PREFIX}}/"+name;
                                 $('#prof_pic_b').attr('src',name);
                                 $('#prof_pic_s').attr('src',name);
                                 location.reload();
@@ -3580,7 +3580,7 @@ $(document).on({
                                             $('#login_icon_b').css('display','none');
                                             $('#loggedin_icon_b').css('display','block');
                                             name=data.img_name;
-                                            name = "/media/"+name;
+                                            name = "{{MEDIA_PREFIX}}/"+name;
                                             $('#prof_pic_s').attr('src',name);
                                             $('#prof_pic_b').attr('src',name);
                                             location.reload();

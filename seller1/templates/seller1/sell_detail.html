@@ -302,7 +302,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-12 text-center">
                                                                       <div class="img_slider_box">
-                                                                          <img  src="/media/{{name.file_name}}" alt="" class="img-fluid pt-3">
+                                                                          <img  src="{{MEDIA_PREFIX}}/{{name.file_name}}" alt="" class="img-fluid pt-3">
                                                                       </div>
                                                                     </div>
                                                                 </div>
@@ -1819,7 +1819,7 @@
                                             {% if seller.seller.type == 'Business' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -1889,7 +1889,7 @@
                                                 {% if seller.seller.type == 'Equity' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -1967,7 +1967,7 @@
                                                 {% if seller.seller.type == 'Asset' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -2036,7 +2036,7 @@
                                                 {% if seller.seller.type == 'Loan' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -2113,7 +2113,7 @@
                                                 {% if seller.seller.type == 'Startup' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -2184,7 +2184,7 @@
                                                 {% if seller.seller.type == 'Ipcode' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -2259,7 +2259,7 @@
                                                 {% if seller.seller.type == 'Application' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
-                                                            <img class="card-img-top" src="/media/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                            <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
                                                         </a>
                                                         <div class="card-body ff-p py-0">
                                                             <a href="">
@@ -2359,7 +2359,7 @@
                 {% if seller.type == 'Business' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p py-0">
                                 <a href="">
@@ -2428,7 +2428,7 @@
                     {% if seller.type == 'Equity' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p py-0">
                                 <a href="">
@@ -2505,7 +2505,7 @@
                     {% if seller.type == 'Asset' %}
                     <div class="your_cart card" id="bcard">
 
-                                <!-- <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid"> -->
+                                <!-- <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid"> -->
 
                             <div class="card-body ff-p py-0">
                                 <a href="">
@@ -2575,7 +2575,7 @@
                     {% if seller.type == 'Loan' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p">
                                 <a href="">
@@ -2652,7 +2652,7 @@
                     {% if seller.type == 'Startup' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p">
                                 <a href="">
@@ -2723,7 +2723,7 @@
                     {% if seller.type == 'Ipcode' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p">
                                 <a href="">
@@ -2798,7 +2798,7 @@
                     {% if seller.type == 'Application' %}
                     <div class="your_cart card" id="bcard">
                             <a href="" class="img_box">
-                                <img class="card-img-top" src="/media/{{first_image}}" alt="Card image cap img-fluid">
+                                <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{first_image}}" alt="Card image cap img-fluid">
                             </a>
                             <div class="card-body ff-p">
                                 <a href="">
@@ -4169,11 +4169,11 @@ for(var k=0; k<data_advisors.length; k++){
             $('#login_icon_s').css('display','none');
             $('#loggedin_icon_s').css('display','block');
             // name="{{user.profile.photo.name}}";
-            // name = "/media/"+name;
+            // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
             }else{
-                name = "/media/"+"{{user.profile.photo.name}}";
+                name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
             }
             console.log(name)
             console.log('{{user.profile.photo_url}}');
@@ -4194,7 +4194,7 @@ $(document).ready(function(){
         success:function(data){
              console.log(data.contact_number);
              if(data.photo_link != ''){
-                name="/media/"+data.photo_link;
+                name="{{MEDIA_PREFIX}}/"+data.photo_link;
                 console.log(data.photo_link);
                 console.log(data.photo_url);
 
