@@ -11,6 +11,12 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/topcontainerstyle.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
 </head>
 
 <body>
@@ -377,6 +383,134 @@
   </style>
 
   <div class="container-fluid">
+    <div class="row">
+            <div class="col-sm-12 text-center">
+              <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-5" style="z-index: 100;background:#fff" id="navbar">
+                  <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()"></i>
+                  <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">Business Verge</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+
+
+
+                  <div class="collapse navbar-collapse m-a pt-1" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto pr-4 c-3f ff-p f-17 f-w-500 text-center ">
+                          
+                          <li class="nav-item dropdown pr-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Buy Business
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="">
+                                      <a href="/seller/display/business?type=Business" class="dropdown-item">Verified Business</a>
+                                      <a href="/seller/display/business?type=Asset" class="dropdown-item">Asset for Sale</a>
+                                      <a href="/seller/display/business?type=Equity" class="dropdown-item">View Stake for sale</a>
+                                      <a href="/seller/display/business?type=Loan" class="dropdown-item">Business seeking Loan</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <!-- <a class="nav-link" href="#">Investors </a> -->
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Investors
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="/seller/display/investors?type=Individual_Investor">View Investors / Buyer</a>
+                                      <a class="dropdown-item" href="/investor/individual">List as Individual Investor</a>
+                                      <a class="dropdown-item" href="/investor/company">List as Company Investor</a>
+                                      <a class="dropdown-item" href="/seller/display/investors?type=Financier">View Financiers </a>
+                                      <a class="dropdown-item" href="/seller/display/investors?type=Investment_Bank">View Investment Bank</a>
+                                      <a class="dropdown-item" href="/seller/display/investors?type=Private_Equity">View Private Equity</a>
+                                      <a class="dropdown-item" href="/seller/display/investors?type=VC">View Venture Capital</a>
+                                      <a class="dropdown-item" href="/seller/display/investors?type=Banks">View Banks</a>
+                                      <a class="dropdown-item" href="/investor/company">List as PE / IB / VC</a>
+                                      <a class="dropdown-item" href="/investor/company">List as Financier / Bank</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Tools &amp;Resources
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a href="" class="dropdown-item">Basic Valuation</a>
+                                      <a href="" class="dropdown-item">Advanced Valuation</a>
+                                      <a href="" class="dropdown-item">Biz Insights</a>
+                                      <a href="" class="dropdown-item">B-Plan Template</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Business Advisors
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a href="/seller/display/advisors?type=Incubators" class="dropdown-item">View Advisors</a>
+                                      <a href="/seller/display/advisors?type=Accelerators" class="dropdown-item">View Consultants</a>
+                                      <a href="/seller/display/advisors?type=Mentors" class="dropdown-item">View Business Mentors</a>
+                                      <a href="/seller/display/advisors?type=Institutions" class="dropdown-item">View Market Researchers</a>
+                                      <a href="/seller/display/advisors?type=Legal_Advisor" class="dropdown-item">View Business Legal Advisor / CA</a>
+                                      <a href="/advisor/business" class="dropdown-item">List as an Advisor</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sell-Business
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a href="/seller" class="dropdown-item">Sell Business</a>
+                                      <a href="#" class="dropdown-item">Value your business </a>
+                                      <a href="#" class="dropdown-item">How to sell ? </a>
+                                      <a href="seller/equity" class="dropdown-item">Sell Stake in Business</a>
+                                      <a href="seller/asset" class="dropdown-item">Sell Asset</a>
+                                      <a href="seller/loan" class="dropdown-item">Seek Loan</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Franchise
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a href="/seller/display/franchise" class="dropdown-item">View Franchise</a>
+                                      <a href="/seller/franchise" class="dropdown-item">List Franchise </a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown pr-2 pl-2">
+                                  <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Suppliers
+                                  </a>
+                                  <div class="dropdown-menu">
+                                      <a href="/seller/display/supplier" class="dropdown-item">View Suppliers</a>
+                                      <a href="/seller/supplier" class="dropdown-item">List Suppliers </a>
+                                  </div>
+                              </li>
+                          
+
+                      
+                                              <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_s">
+                                                      <div id="noti_Counter_s"></div>   <!--SHOW NOTIFICATIONS COUNT.-->
+
+                                                      <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
+                                                      <div id="noti_Button_s"><input type="image" src="/static/seller1/images/bell.png" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
+
+                                                      <!--THE NOTIFICAIONS DROPDOWN BOX.-->
+                                                      <div id="notifications_s">
+                                                          <h3><b>Notifications</b></h3>
+
+                                                          <hr class="m-0">
+                                                          <div class="notification_container">
+
+
+                                                          
+
+                                                          <div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/investor/user_detail/12"><p>sadfs dsfsdfwer werwefdsf sdfsdfsfsad asdas, is interested in your investing</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/8"><p>James Webb, is interested in Sugar Factory Available for Sale at mumbai</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/8"><p>James Webb, is interested in Sugar Factory Available for Sale at mumbai</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>sadsa asdsad, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/26"><p>Good for business available for sale in pondy, is interested in your listing abd v dv dv sv s dv</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/26"><p>Good for business available for sale in pondy, is interested in your listing abd v dv dv sv s dv</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>dsfsdf sdfgdsfg, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>sadsa asdsad, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>sadsa asdsad, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>sjdhfgh sjdhfsdh, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>sjdhfgh sjdhfsdh, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>Arjun Pandian, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/8"><p>Arjun Pandian, is interested in Sugar Factory Available for Sale at mumbai</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/8"><p>sjdhfgh sjdhfsdh, is interested in Sugar Factory Available for Sale at mumbai</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>PRITHVIRAJ RADHAKRISHNAN, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>PRITHVIRAJ RADHAKRISHNAN, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/1"><p>PRITHVIRAJ RADHAKRISHNAN, is interested in Corporate titles or business titles are given to company</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/seller/user_detail/8"><p>Arjun Pandian, is interested in Sugar Factory Available for Sale at mumbai</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div><div class="notify_box"><div class="img_box"><img src="/media/files/advisor-img2.png" alt="img" class="avatar"></div><div class="content_box"><a href="/chat"><p>You have a new message fromproject x</p></a><div class="date_time"><span class="day">Fri</span> at<span class="time">18:00</span></div></div></div></div>
+                                                      </div>
+                                              </li>
+                      
+                      </ul>
+
+
+                  </div>
+              </nav>
+            </div>
+    </div>
     <div class="row">
       <div class="col-md-12 p-0">
         <div class="card tab-card">
