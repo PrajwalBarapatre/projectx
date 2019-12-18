@@ -504,7 +504,7 @@
     <script src="/static/profiles/js/notification.js"></script>
     <script src="/static/seller1/js/sidebarloader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
-    
+
     <script>
                 function myFunctions() {
                 var x = document.getElementById("Specifications");
@@ -2455,6 +2455,7 @@ $.ajax({
 </script>
 
 <script>
+   toggle_chat();
 
     $("#overlay").fadeIn();
    
@@ -2773,6 +2774,13 @@ myCurrency();
 });      
 
 </script> 
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 </body>
 
 

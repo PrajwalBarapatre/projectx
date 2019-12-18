@@ -7,6 +7,8 @@ import seller1.sms as sms
 urlpatterns = [
     path('', views.home_view, name='index'),
     path('subscribe', views.subscription, name='subscription'),
+    path('pricing', views.pricing, name='pricing'),
+    path('terms', views.terms, name='terms'),
     path('process_subscription', views.process_subscription, name='process_subscription'),
     path('payment-done/', views.payment_done, name='payment_done'),
     path('payment-cancelled/', views.payment_canceled, name='payment_canceled'),

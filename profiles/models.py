@@ -77,8 +77,18 @@ class Profile(models.Model):
     searches = models.ManyToManyField(Search_log, blank=True, null=True)
     views = models.ManyToManyField(View_log, blank=True, null=True)
 
-
-
+    # class Paypal_Order(models.Model):
+    #     order_id = models.AutoField(primary_key=True)
+    #     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    #     subcription_plan = models.CharField(max_length=255, blank=True, null=True)
+    #     listing_type = models.CharField(max_length=255, blank=True, null=True)
+    #     listing_id = models.CharField(max_length=255, blank=True, null=True)
+    #     currency_code = models.CharField(max_length=255, blank=True, null=True)
+    #     price = models.CharField(max_length=255, blank=True, null=True)
+    #     order_time = models.DateTimeField(default=timezone.now, editable=False)
+    #     trial = models.BooleanField(default=False)
+    #     duration = models.IntegerField(blank=True, null=True)  
+    
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:

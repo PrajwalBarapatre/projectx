@@ -274,7 +274,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-6 col-12 col-md-6 c-f pb-3">
                             <h2 class="f-26 ff-pd f-w-bold">About the {{seller.type}} Advisor </h2>
-                            <address class="f-16 pt-20 pb-5">
+                            <address class="f-16 pt-10 pb-5">
                                 {{business.about}}
                             </address>
                             <!-- <div id="button_cart" class="btn-dashboard-banner">
@@ -315,8 +315,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 col-12 col-md-6 col-lg-6">
-                                    <h2 class="f-w-bold f-18 ff-p">Interested Sectors
+                                <div class="col-sm-6 col-12 col-md-6 col-lg-6 ">
+                                    <h2 class="f-w-bold f-12 ff-p">Interested Sectors
                                     </h2>
                                 </div>
                                 <div class="col-sm-6 col-12 col-md-6 col-lg-6">
@@ -330,8 +330,7 @@
                                     </h2>
                                 </div>
                                 <div class="col-sm-6 col-12 col-md-6 col-lg-6">
-                                    <h2 class="ff-p f-18 wildspliter1">{{business.skill1}}
-                                    </h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter ff-p f-18"> </h2>
                                 </div>
                             </div>
                             <div class="row">
@@ -445,8 +444,7 @@
                                     </h2>
                                 </div>
                                 <div class="col-sm-6 col-12 col-md-6 col-lg-6">
-                                    <h2 class="ff-p f-18 wildspliter3">{{business.skill1}} 
-                                    </h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter ff-p f-18" > </h2>
                                 </div>
                             </div>
                             <div class="row">
@@ -534,22 +532,42 @@
                         </div>
                     </div>
 {% endif %}
-                    <div class="row pt-20">
+                    <div class="row pt-10">
                         <div class="col-sm-7 col-12 col-lg-7 col-md-7">
                             <h3 class="f-26 ff-p f-w-bold c-3f">Similar Advisors
                             </h3>
                         </div>
                     </div>
-
+<style>
+ .your_cart.card .card-footer {
+            background: #fff;
+            border-top: 0;
+        }
+        .your_cart.card p {
+            margin: 0;
+            padding: 0;
+        }
+        .card .img_box .card-img-top.img-contain {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+</style>
                     <div class="row pt-36">
                             <div class="owl-carousel">
                             {% for seller in similar_seller %}
                         {%if seller.base_type == 'Advisor' %}
+
                         <div class="card">
                                 <a href="">
                                     <img class="card-img-top" style="height:150px;width:100%" src="{{MEDIA_PREFIX}}/{{seller.file_name}}" alt="Card image cap img-fluid">
+
+                        <!-- <div class="your_cart card card">
+                                <a href="" class="img_box">
+                                    <img class="card-img-top img-contain" src="/media/{{seller.file_name}}" alt="Card image cap img-fluid"> -->
+
                                 </a>
-                                <div class="card-body ff-p">
+                                <div class="card-body ff-p py-0">
                                     <a href="">
                                         <h4 class="c-19 f-14 f-w-bold">{{seller.title}}</h4>
                                     </a>
@@ -561,48 +579,57 @@
                                                 <span class="f-12 pl-1">8.5</span>
                                             </div>
                                             <div class="col-sm-9 col-9">
-
                                                 <span class="f-12 pl-1"></span>
                                             </div>
                                         </div>
-                                        <div class="row f-12 pt-20">
-                                            <div class="col-sm-12 col-7 text-left">
-                                                <p class="">Domain Expertise : {{seller.category1}} | {{seller.category2}} | {{seller.category3}} </p>
+                                        <div class="row f-12 pt-10">
+                                            <div class="col-sm-3 col-7 text-left">
+                                                <p class="">Domain Expertise :   </p>
+                                            </div>
+                                            <div class="col-sm-9 col-5 text-right">
+                                                <p>{{seller.category1}}</p>
+                                                <p>{{seller.category2}}</p>
+                                                <p>{{seller.category3}} </p>
                                             </div>
                                         </div>
-                                        <div class="row f-12 pt-20">
-                                                <div class="col-sm-12 col-7 text-left">
-                                                    <p>Preffered Locations : {{seller.city1}} | {{seller.city2}} | {{seller.city3}}</p>
-                                                </div>
+                                        <div class="row f-12 pt-10">
+                                            <div class="col-sm-3 col-7 text-left">
+                                                <p class="">Preffered Locations :   </p>
                                             </div>
-                                            <div class="row f-12 pt-20">
-                                                    <div class="col-sm-7 col-7 text-left">
-                                                        <p>Years Of Experience</p>
-                                                    </div>
-                                                    <div class="col-sm-5 col-5 text-right">
-                                                        <p>{{seller.years_exp}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row f-12 pt-20">
-                                                        <div class="col-sm-7 col-7 text-left">
-                                                            <p>Core Skills</p>
-                                                    </div>
-                                                        <div class="wildspliter2 col-sm-5 col-5 text-right">
-                                                            {{business.skill1}}
-                                                        </div>
-                                                    </div>
-                                                    <div class="row f-12 pt-20">
-                                                            <div class="col-sm-7 col-7 text-left">
-                                                                <p>Fee/Hour</p>
-                                                            </div>
-                                                            <div class="col-sm-5 col-5 text-right">
-                                                                <p>{{seller.hour_fee}}</p>
-                                                            </div>
-                                                            <!-- <div class="col-sm-12">
-                                                                <button class="btn-startup-cart">Contact Advisor
-                                                                </button>
-                                                            </div> -->
-                                                        </div>
+                                            <div class="col-sm-9 col-5 text-right">
+                                                <p>{{seller.city1}}</p>
+                                                <p>{{seller.city2}}</p>
+                                                <p>{{seller.city3}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row f-12 pt-10">
+                                            <div class="col-sm-7 col-7 text-left">
+                                                <p>Years Of Experience</p>
+                                            </div>
+                                            <div class="col-sm-5 col-5 text-right">
+                                                <p>{{seller.years_exp}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row f-12 pt-10">
+                                            <div class="col-sm-7 col-7 text-left">
+                                                <p>Core Skills</p>
+                                            </div>
+                                            <div class="col-sm-5 col-5 text-right">
+                                                <h2 data-value="{{business.skill1}}" class="spliter ff-p f-12"> </h2>
+                                            </div>
+                                        </div>
+                                        <div class="row f-12 pt-10">
+                                            <div class="col-sm-7 col-7 text-left">
+                                                <p>Fee/Hour</p>
+                                            </div>
+                                            <div class="col-sm-5 col-5 text-right">
+                                                <p>{{seller.hour_fee}}</p>
+                                            </div>
+                                            <!-- <div class="col-sm-12">
+                                                <button class="btn-startup-cart">Contact Advisor
+                                                </button>
+                                            </div> -->
+                                        </div>
                                     </div>
                                 </div>
                         </div>
@@ -628,8 +655,14 @@
                                     <img id ="master_tagger1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0lsWrDfVqy5D3fsJGcSvu7xOWDNFlmUmrSv4GUs52IoCczg9eQ" class="img-fluid img_box_val" alt="">
                                 </span>
                             </div>
-                          <h2 id ="master_tagger2" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2> 
-                            <h2 id ="master_tagger3" class="f-18 ff-pd text-left pt-3 f-w-bold"></h2>
+                            <div class="d-flex justify-content-center">
+                                <h2 class="f-18 ff-pd text-left m-0 f-w-bold">Name : &nbsp;</h2>
+                                <h2 id ="master_tagger2" class="f-18 ff-pd m-0 text-left f-w-bold"></h2> 
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h2 class="f-18 ff-pd text-left  mt-0 f-w-bold">Location : &nbsp;</h2>
+                                <h2 id ="master_tagger3" class="f-18 ff-pd mt-0 text-left f-w-bold"></h2>
+                            </div>
                             <!-- <h2 id ="master_tagger4" class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
 
 
@@ -1579,9 +1612,13 @@ $(window).on('unload',function(){
 
 
 <script>
-
-var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
-$(".wildspliter1").html(a);
+ $(".spliter").each(function(){
+                    var cur_fut= $(this).data("value");
+                    cur_fut=cur_fut.replace(/\__/g, ' | ');
+                    $(this).html(cur_fut);
+                });
+//var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
+//$(".wildspliter1").html(a);
 
 // var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
 // $(".wildspliter2").html(b);
@@ -1591,7 +1628,13 @@ $(".wildspliter1").html(a);
 
 
 </script>
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 </body>
 
 </html>

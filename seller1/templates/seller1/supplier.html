@@ -23,6 +23,81 @@
 </head>
 
 <style>
+        .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.ui-resizable {
+            min-width: 600px;
+            text-align: center;
+            padding: 0;
+        }
+        .ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            background: url('../../static/seller1/images/homepage-banner.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: Playfair Display;
+        }
+        .ui-dialog .ui-dialog-titlebar-close {
+            position: absolute;
+            right: .3em;
+            top: 20px;
+            width: 20px;
+            margin: -10px 0 0 0;
+            padding: 1px;
+            height: 20px;
+            background: transparent;
+            border: none;
+        }
+        .ui-dialog .ui-dialog-titlebar-close::after {
+            content: "\f00d";
+            font-family: "FontAwesome";
+            position: absolute;
+            top: -12px;
+            right: -1px;
+            font-size: 29px;
+            color: #999;
+            font-weight: 300;
+            transition: all 0.3s ease-in-out;
+        }
+        .ui-dialog .ui-dialog-titlebar-close:hover:after{
+            cursor: pointer;
+            color: #000;
+        }
+        div#dialog-confirm {
+            padding: 2rem 0;
+            font-size: 18px;
+        }
+        div#dialog-confirm .message {
+            margin-bottom: 2rem;
+        }
+        .btn-cancel,
+        .btn-ok{
+            width: 101.94px;
+            height: 49px;
+            font-size: 17px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            font-weight: 500;
+            color: #192ED5;
+            background: #FFFFFF;
+            border: 1px solid #192ED5;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .btn-cancel:hover,
+        .btn-ok:hover{
+            background: #192ED5;
+            color: #fff
+        }
+</style>
+
+<style>
 
 input[type='number'] {
     -moz-appearance:textfield;
@@ -109,8 +184,48 @@ list-style-type: none;
     .tab_error{
         background-color: red !important;
     }
+        #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
 {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
         <form action="" method="POST" id="regForm" >
@@ -167,7 +282,7 @@ list-style-type: none;
                                                <label for="" class="f-16 pl-1 pt-10">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
                                                         {% for x in code_data %}
-                                                        <option value="+{{x.dialing}}">{{x.code}}</option>
+                                                        <option data-iso="{{x.iso}}" value="+{{x.dialing}}">{{x.code}}</option>
 
                                                         {% endfor %}
                                               </select>
@@ -233,8 +348,8 @@ list-style-type: none;
                         <div id="dialog-confirm"> 
                                 <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
                                 <div class="buttons"> 
-                                    <a class="cancel" href="#">Cancel</a> 
-                                    <a class="ok" href="#">Ok</a> 
+                                        <a class="cancel" href="#"><button class="btn-cancel">Cancel</button></a> 
+                                        <a class="ok" href="#"><button class="btn-ok" >Ok</button></a>
                                 </div> 
                         </div> 
             </div>
@@ -415,7 +530,15 @@ list-style-type: none;
     <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
-
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
     <script>
     $(document).ready(function(){
 
@@ -494,6 +617,7 @@ list-style-type: none;
                   var name = ""+ $('#id_first_name').val()
                   console.log(name);
                   console.log(fnumber);
+                  $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
                       url : 'ajax/otp',
@@ -513,7 +637,8 @@ list-style-type: none;
                               alert('Invalid Phone Number')
                           }
                       }
-                  })
+                  });
+                  $("#overlay").fadeOut();
 
           })
 
@@ -524,6 +649,7 @@ list-style-type: none;
           var name = ""+ $('#id_first_name').val()
           console.log(name);
           console.log(email);
+          $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
               url : 'ajax/email',
@@ -541,7 +667,8 @@ list-style-type: none;
                       console.log('otp sent');
                   }
               }
-          })
+          });
+          $("#overlay").fadeOut();
 
       })
 
@@ -1007,6 +1134,7 @@ $('.dropdown-menu a').click(function(){
 
 function get_sub_sectors(ele){
     var id = ele.id;
+    $("#overlay").fadeIn();
     $.ajax({
         url: "/metadata/get_sub_sector/",
         data: {
@@ -1017,6 +1145,7 @@ function get_sub_sectors(ele){
             e.html(output);
         }
     });
+    $("#overlay").fadeOut();
 }
 </script>
 
@@ -1096,6 +1225,7 @@ preventDuplicates: true,
                     name = name.replace('files/', '');
                     console.log(name);
                     console.log(initialize);
+                    $("#overlay").fadeIn();
                     $.ajax({
             type: 'POST',
             url: '/album/add/',
@@ -1114,6 +1244,7 @@ preventDuplicates: true,
             },
             async:false
          });
+         $("#overlay").fadeOut();
                 });
     },
 
@@ -1121,7 +1252,7 @@ preventDuplicates: true,
  addRemoveLinks: true,
     removedfile: function (file) {
 
-
+$("#overlay").fadeIn();
        $.ajax({
      type: 'POST',
      url: '{% url "album:remove"%}',
@@ -1130,6 +1261,7 @@ preventDuplicates: true,
         console.log('success: ' + data);
      }
    });
+   $("#overlay").fadeOut();
 
 //    if(this.files.length == 0){
 //        console.log('inside remove if');
@@ -1352,18 +1484,11 @@ preventDuplicates: true,
     })
 </script>
 
- {% for key in text_fields %}
-
-
-
-
-
-    {% endfor %}
 
 <script>
 
-        $(document).ready(function(){
-               var a = screen.width;
+
+               var a = $(window).width();
                console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
@@ -1381,11 +1506,132 @@ preventDuplicates: true,
                     $("body").css("zoom","50%");
                }
 
-        });
+</script>
 
+<script>
+                $( ".usdtagger1" ).change(function() {
+                        
+                            var new_id= "#"+$(this).attr('id')+"_usd";
+                            var a =$("#id_currency").val().split("**");
+                            var number = parseFloat(a[4]);
+                            var d=parseFloat($(this).val())/number;
+                            var d = d.toFixed(4);
+                            $(new_id).val(d);
+                            console.log(d);
+                        
+                });
+
+                $( ".usdtagger2" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger3" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger4" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger5" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            
+            $( ".usdtagger6" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger7" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+            $( ".usdtagger8" ).change(function() {
+                        
+                        var new_id= "#"+$(this).attr('id')+"_usd";
+                        var a =$("#id_currency").val().split("**");
+                        var number = parseFloat(a[4]);
+                        var d=parseFloat($(this).val())/number;
+                        var d = d.toFixed(4);
+                        $(new_id).val(d);
+                        console.log(d);
+                    
+            });
+
+                
 
 </script>
 
+<script>
+
+    $(document).ready(function(){
+
+
+        $.getJSON('https://ipapi.co/json/', function(data) {
+
+            $("#country_code_primary option[data-iso='"+data.country+"']").attr("selected", "selected");
+                        myList = [];
+                        $('#id_currency option').each(function() {
+                            myList.push($(this).val())
+                        });
+
+                        console.log(data.country);
+                        for (i = 0; i < myList.length; i++) {
+                                var b = myList[i].split("**");
+                                if(b[1]==data.country){
+                                $('#id_currency').val(myList[i]).change();
+                                console.log(myList[i]);
+
+                            }
+                        }
+
+            });
+
+    });
+
+</script>
 
 </body>
 

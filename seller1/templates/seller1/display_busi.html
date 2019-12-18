@@ -492,7 +492,6 @@
 
 
 
-
     <script>
                 function myFunctions() {
                 var x = document.getElementById("Specifications");
@@ -2733,7 +2732,7 @@ $( document ).ajaxStop(function() {
 
 
 
-       var a = screen.width;
+       var a = $(window).width();
        console.log(a);
        if(a<2000 && a>1500){
             $("body").css("zoom","90%");
@@ -3368,6 +3367,14 @@ myCurrency();
 });      
 
 </script> 
+
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 
 
 

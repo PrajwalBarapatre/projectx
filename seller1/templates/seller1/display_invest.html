@@ -459,6 +459,7 @@
         </div>
     </div>
 
+
     <script>
         function w3_open() {
             document.getElementById("mySidebar").style.display = "block";
@@ -1390,7 +1391,7 @@ success: function(data){
         $('#type_empty').show()
         setTimeout(function(){
             $('#type_empty').hide()
-        }, 5000)
+        }, 100000)
     }
     else if(data.sellers[0].investor.category1!=category_global && data.sellers[0].investor.category2!=category_global && data.sellers[0].investor.category3!=category_global){
         if(category_global==''){
@@ -3428,6 +3429,12 @@ myCurrency();
 });      
 
 </script> 
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 
 </html>

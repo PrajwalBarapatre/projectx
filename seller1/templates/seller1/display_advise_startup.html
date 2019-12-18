@@ -519,6 +519,11 @@
     <script src="/static/profiles/js/notification.js"></script>
     <script src="/static/seller1/js/sidebarloader.js"></script>
     <script>
+jQuery(function(){
+   jQuery('.arrow_toggle').click();
+});
+</script>
+    <script>
                 function myFunctions() {
                 var x = document.getElementById("Specifications");
                 if (x.style.display === "none") {
@@ -2698,7 +2703,13 @@ success:function(data){
         });      
 
 </script>
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 </body>
 
 

@@ -541,14 +541,16 @@
     <!-- Page Content -->
     <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-
+<div class="sideDashboardArrow" onclick="w3_open()">
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+</div>
 <!--business start-->
 <div class="tab">
     <div class="container-fluid">
                 <div class="row" style="background: url('static/profiles/images/homepage-banner.png');height: 533px;background-size: cover">
                     <div class="col-sm-12 text-center">
                         <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20" style="z-index: 1;" id="navbar-2">
-                            <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()"></i>
+                            <i class="fa fa-bars f-36" aria-hidden="true" title="Dashboard" onclick="w3_open()"></i>
                             <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">Business Verge</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -1146,9 +1148,9 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="background: linear-gradient(to bottom,#761DA9,#9191EC)">
+    <div class="container-fluid " style="background: linear-gradient(to bottom,#761DA9,#9191EC)">
         <div class="row">
-            <div class="col-sm-12 text-center ls-1 pt-64 pb-64">
+            <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow">
                 <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Business</h3>
                 <p class="f-17 ff-p f-w-500 c-f pt-2 pb-36">
                     If you are looking for great ways to decorate your home or office, then you know <br>
@@ -1163,7 +1165,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-f2">
+    <!-- <div class="container-fluid bg-f2">
         <div class="row">
             <div class="col-sm-12 text-center pt-55 pb-32">
                 <h2 class="f-26 ff-p f-w-bold c-3f">Top Category</h2>
@@ -1344,7 +1346,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <!--businssss nd-->
 
@@ -1830,7 +1832,7 @@
     </div>
     <div class="container-fluid" style="background: linear-gradient(to bottom,#761DA9,#9191EC)">
         <div class="row">
-            <div class="col-sm-12 text-center ls-1 pt-64 pb-64">
+            <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow">
                 <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Startup</h3>
                 <p class="f-17 ff-p f-w-500 c-f pt-2 pb-36">
                     If you are looking for great ways to decorate your home or office, then you know <br>
@@ -1841,7 +1843,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-f2">
+    <!-- <div class="container-fluid bg-f2">
         <div class="row">
             <div class="col-sm-12 text-center pt-55 pb-32">
                 <h2 class="f-26 ff-p f-w-bold c-3f">Top Category</h2>
@@ -2022,7 +2024,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 
@@ -2079,30 +2081,32 @@
 </script>
 
 <!--startup end-->
-    <div class="container-fluid bg-ea">
+    <div class="container-fluid bg-ea pt-35">
+
+        <div class="row bg-black c-f container-shadow-1">
+            <div class="col-sm-4">
+                <img src="/static/profiles/images/Bitmap.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-sm-8 ff-p text-center">
+                <h2 class="robo-header">Sell Your Business </h2>
+                <p class="robo-body pb-3">Extend your reach to interested investors to invest in your idea. <br>
+                 connect - Express - Interact and understand the ideal people to <br>
+                partner with
+                </p>
+                <!-- <a href="">
+                    <button class="btn-ba ff-p mr-4 mb-2">Basic Valuation</button>
+                </a> -->
+                <a href="">
+                    <button class="btn-ba ff-p mb-2">Sell Business</button>
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 text-center pt-50 pb-55">
                 <h2 class="c-3f ff-p f-w-bold f-26">Process Step in with our Service</h2>
                 <img src="/static/profiles/images/iPad.png" alt="" class="pt-55 img-fluid">
             </div>
         </div>
-        <div class="row bg-black c-f">
-            <div class="col-sm-6">
-                <img src="/static/profiles/images/Bitmap.png" alt="" class="img-fluid">
-            </div>
-            <div class="col-sm-6 ff-p">
-                <h2 class="robo-header">Provides the best possible <br> solution for your future </h2>
-                <p class="robo-body pb-3">Ground Breaking algorithms designed to evolve and take in real-time <br>
-                    Global data for Real-time Valuation of business</p>
-                <a href="">
-                    <button class="btn-ba ff-p mr-4 mb-2">Basic Valuation</button>
-                </a>
-                <a href="">
-                    <button class="btn-ba ff-p mb-2">Advanced Valuation</button>
-                </a>
-            </div>
-        </div>
-
         <div class="row pt-53 ff-p">
             <div class="col-sm-2-custo">
                 <h4 class="f-16 f-w-bold c-3f pl-5">
@@ -2922,6 +2926,7 @@
           });
         });
 </script> -->
+
 
 {% if user.is_authenticated %}
 <script>
@@ -3826,8 +3831,9 @@ switch (type) {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ latLng: pos}, function(result, status){
             if(status == google.maps.GeocoderStatus.OK){
-                content = result[0].formatted_address;
-                
+                content = result[5].formatted_address;
+                console.log(result);
+                console.log(content);
           input1.value = content;
           input2.value = content;
           
@@ -4156,14 +4162,14 @@ switch (type) {
              c_toggle_w.style.width = '30px';
              c_drop.style.width = '30px';
                           $("#selUser").select2({    placeholder: 'C',
- dropdownParent: $('.selectdropdown'),width: '30px'});
+             dropdownParent: $('.selectdropdown'),width: '30px'});
              document.getElementById("chat_btn").innerHTML = "C";
          }
          else {
              c_toggle_w.style.width = '150px';
              c_drop.style.width = '150px';
-          $("#selUser").select2({    placeholder: 'Currency',
- dropdownParent: $('.selectdropdown'),width: '150px'});
+             $("#selUser").select2({    placeholder: 'Currency',
+                dropdownParent: $('.selectdropdown'),width: '150px'});
              document.getElementById("chat_btn").innerHTML = "Chat";
          }
          if (r_icon.style.transform !== 'rotate(180deg)') {
@@ -4247,7 +4253,13 @@ switch (type) {
 </script>
 
 
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 
 </body>
 

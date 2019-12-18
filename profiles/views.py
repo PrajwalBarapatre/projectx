@@ -436,7 +436,13 @@ def subscription(request):
     if request.method == 'POST':
         f = SubscriptionForm(request.POST)
         if f.is_valid():
-            request.session['subscription_plan'] = request.POST.get('plans')
+            # request.session['subscription_plan'] = request.POST.get('plans')
+            request.session['subscription_plan'] = f.cleaned_data.get('plans')
+            # request.session['type']=f.cleaned_data.get('listing_types')
+            # request.session['listing_id']=f.cleaned_data.get('listing_id')
+            # request.session['currency_code']=f.cleaned_data.get('currency_code')
+            # request.session['price']=f.cleaned_data.get('price')
+            # request.session['trial']=f.cleaned_data.get('trial')
             return redirect('profiles:process_subscription')
         else:
             print(f.errors)
@@ -457,55 +463,87 @@ def payment_done(request):
 def payment_canceled(request):
     return render(request, 'payment_cancelled.html')
 
+@csrf_exempt
+def terms(request):
+    return render(request, 'terms.html')
+
+@csrf_exempt
+def pricing(request):
+    return render(request, 'pricing.html')
+
 def process_subscription(request):
     subscription_plan = request.session.get('subscription_plan')
+    # listing_type = request.session.get('type')
+    # listing_id = request.session.get('listing_id')
+    # currency_code = request.session.get('currency_code')
+    
+    
     host = request.get_host()
     user = request.user
-    if subscription_plan == 'trial':
-        if user.profile.trial:
-            paypal_dict = {
-                "cmd": "_xclick-subscriptions",
-                'business': settings.PAYPAL_RECEIVER_EMAIL,
-                "a1": "0",  # monthly price
-                "p1": "1",  # duration of each unit (depends on unit)
-                # "t3": billing_cycle_unit,  # duration unit ("M for Month")
-                "src": "1",  # make payments recur
-                "sra": "1",  # reattempt payment on payment error
-                "no_note": "1",  # remove extra notes (optional)
-                'item_name': 'Bverge Subscription',
-                'custom': {
-                    'trial':True,
-                    'username': user.username
-                },  # custom data, pass something meaningful here
-                'currency_code': 'INR',
-                'notify_url': 'http://{}{}'.format(host,
-                                                   reverse('paypal-ipn')),
-                'return_url': 'http://{}{}'.format(host,
-                                                   reverse('profiles:payment_done')),
-                'cancel_return': 'http://{}{}'.format(host,
-                                                      reverse('profiles:payment_canceled')),
-            }
+    # order = Paypal_Order()
+    # order.user = user
+    # order.subscription_plan = subscription_plan
+    # order.listing_type = listing_type
+    # order.listing_id = listing_id
+    # order.currency_code = currency_code
+    # order.save()
+    # if subscription_plan == 'trial':
+    #     if user.profile.trial:
+            # order.trial = True
+            # order.price = '0'
+            # order.save()
+            # user.profile.trial = False
+            # user.save()
+            # paypal_dict = {
+            #     "cmd": "_xclick-subscriptions",
+            #     'business': settings.PAYPAL_RECEIVER_EMAIL,
+            #     "a1": "0",  # monthly price
+            #     "p1": "1",  # duration of each unit (depends on unit)
+            #     # "t3": billing_cycle_unit,  # duration unit ("M for Month")
+            #     "src": "1",  # make payments recur
+            #     "sra": "1",  # reattempt payment on payment error
+            #     "no_note": "1",  # remove extra notes (optional)
+            #     'item_name': 'Bverge Subscription',
+            #     'custom': {
+            #         'trial':True,
+            #         'username': user.username
+            #     },  # custom data, pass something meaningful here
+            #     'currency_code': 'INR',
+            #     'notify_url': 'http://{}{}'.format(host,
+            #                                        reverse('paypal-ipn')),
+            #     'return_url': 'http://{}{}'.format(host,
+            #                                        reverse('profiles:payment_done')),
+            #     'cancel_return': 'http://{}{}'.format(host,
+            #                                           reverse('profiles:payment_canceled')),
+            # }
 
-            form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
-            context = {
-                'form': form
-            }
-            return render(request, 'process_subscription.html', context)
+            # form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
+            # context = {
+            #     'form': form
+            # }
+            # return render(request, 'process_subscription.html', context)
     price = ""
     billing_cycle = None
     billing_cycle_unit = ""
+    duration = 30
     if subscription_plan == '1-month':
         price = "10"
+        duration = 31
         billing_cycle = 1
         billing_cycle_unit = "M"
     elif subscription_plan == '6-month':
         price = "50"
+        duration = 187
         billing_cycle = 6
         billing_cycle_unit = "M"
     else:
         price = "90"
+        duration = 373
         billing_cycle = 1
         billing_cycle_unit = "Y"
+    # order.price = price
+    # order.duration = duration
+    # order.save()
 
     paypal_dict = {
         "cmd": "_xclick-subscriptions",
@@ -517,7 +555,7 @@ def process_subscription(request):
         "sra": "1",  # reattempt payment on payment error
         "no_note": "1",  # remove extra notes (optional)
         'item_name': 'Bverge Subscription',
-        'custom': user.username,  # custom data, pass something meaningful here
+        # 'custom': order.order_id,  # custom data, pass something meaningful here
         'currency_code': 'INR',
         'notify_url': 'http://{}{}'.format(host,
                                            reverse('paypal-ipn')),

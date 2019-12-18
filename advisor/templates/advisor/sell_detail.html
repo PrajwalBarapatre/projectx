@@ -21,48 +21,7 @@
     <link rel="stylesheet" href="/static/profiles/css/notification.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style media="screen">
-      .img_slider_box{
-        width: auto;
-        height: 220px
-      }
-      .img_slider_box img{
-        object-fit: contain;
-        height: 220px
-      }
-      .cust_slider .carousel-control-next, .carousel-control-prev {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        width: 35% !important;
-        color: #fff;
-        text-align: center;
-        opacity: .5;
-    }
-    .btn-sideBox {
-        padding: 9px 22px 9px 22px;
-        background: #28a745;
-        color: #ffffff;
-        border: 1px solid #28a745;
-        font-size: 16px;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-    }
-    .btn-sideBox:hover{
-      cursor: pointer;
-      background: #fff;
-      color: #28a745;
-    }
-    </style>
+
     <style media="screen">
       .owl_card{
         text-align: center;
@@ -1037,7 +996,7 @@
                                                     <h2 class="f-12 ff-p f-w-bold">Core Skills</h2>
                                                 </div>
                                                 <div class="col-sm-7">
-                                                    <h2 class="f-12 ff-p">{{seller.skill1}} | {{seller.skill2}} | {{seller.skill3}}</h2>
+                                                    <h2 data-value="{{business.skill1}}" class="spliter f-12 ff-p"> </h2>
                                                 </div>
                                             </div>
 
@@ -1151,7 +1110,7 @@
                                     <h2 class="f-12 ff-p f-w-bold">Core Skills</h2>
                                 </div>
                                 <div class="col-sm-7">
-                                    <h2 class="f-12 ff-p wildspliter1">{{business.skill1}}</h2>
+                                    <h2 data-value="{{business.skill1}}" class="spliter f-12 ff-p"> </h2>
                                 </div>
                             </div>
 
@@ -2643,6 +2602,7 @@
             font-weight: bold;
         }
     </style>
+    
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -2720,18 +2680,30 @@ $(document).ready(function(){
 </script>
 
 <script>
+                $(".spliter").each(function(){
+                    var cur_fut= $(this).data("value");
+                    cur_fut=cur_fut.replace(/\__/g, ' | ');
+                    $(this).html(cur_fut);
+                });
 
-var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
-$(".wildspliter1").html(a);
 
-var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
-$(".wildspliter2").html(b);
+// var a = $(".wildspliter1").text().replace(/\__/g, ' | ');
+// $(".wildspliter1").html(a);
+
+// var b = $(".wildspliter2").text().replace(/\__/g, ' | ');
+// $(".wildspliter2").html(b);
 
 
 
 </script>
 
 {% endif %}
-
+<script>
+        $(".chat_container").ready(function(){
+        //your code here;
+        $('.arrow_toggle').click();
+    })
+    
+</script>
 
 </html>

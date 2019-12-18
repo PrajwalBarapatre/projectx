@@ -120,7 +120,7 @@ input::-webkit-inner-spin-button {
         background-color: #FE3C69 !important;
     }
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
 
         {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
@@ -488,7 +488,8 @@ input::-webkit-inner-spin-button {
                        </div>
                        <div class="col-sm-4 col-12">
                                <label for="{{ advisor_busi.hour_fee.id_for_label }}" class="f-16 f-w-500">Fee/Hour</label>
-                               {{ advisor_busi.hour_fee|attr:"type=month"|add_class:"form-control ginput"|append_attr:"placeholder:Enter your Fee per hour" }}
+                               {{ advisor_busi.hour_fee|attr:"type=month"|add_class:"usdtagger1 form-control ginput"|append_attr:"placeholder:Enter your Fee per hour" }}
+                               {{ advisor_busi.hour_fee_usd|attr:"hidden"}}
                                <div class="errors" id="hour_fee_err" style="color: red">
                                    {{ advisor_busi.hour_fee.errors }}
                                </div>
@@ -573,6 +574,16 @@ input::-webkit-inner-spin-button {
     <script src="{% static 'investor/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'investor/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
+
+        <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
 
 
     <script>
@@ -1761,40 +1772,125 @@ $(function(){
 
 
 
- {% for key in text_fields %}
 
 
+<script>
 
+        var a = $(window).width();
+        console.log(a);
+        if(a<2000 && a>1500){
+            $("body").css("zoom","90%");
+        }
+        else if(a<1500 && a>1400){
+                $("body").css("zoom","80%");
+        }
+        else if(a<1400 && a>1100){
+                $("body").css("zoom","65%");
+        }
+        else if(a<1100 && a>900){
+                $("body").css("zoom","67%");
+        }
+        else{
+            $("body").css("zoom","50%");
+        }
 
+</script>
 
-    {% endfor %}
+<script>
+    $( ".usdtagger1" ).change(function() {
+            
+                var new_id= "#"+$(this).attr('id')+"_usd";
+                var a =$("#id_currency").val().split("**");
+                var number = parseFloat(a[4]);
+                var d=parseFloat($(this).val())/number;
+                var d = d.toFixed(4);
+                $(new_id).val(d);
+                console.log(d);
+            
+    });
 
+    $( ".usdtagger2" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger3" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger4" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger5" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
 
-    <script>
+$( ".usdtagger6" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger7" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
+$( ".usdtagger8" ).change(function() {
+            
+            var new_id= "#"+$(this).attr('id')+"_usd";
+            var a =$("#id_currency").val().split("**");
+            var number = parseFloat(a[4]);
+            var d=parseFloat($(this).val())/number;
+            var d = d.toFixed(4);
+            $(new_id).val(d);
+            console.log(d);
+        
+});
 
-            $(document).ready(function(){
-                   var a = screen.width;
-                   console.log(a);
-                   if(a<2000 && a>1500){
-                        $("body").css("zoom","90%");
-                   }
-                   else if(a<1500 && a>1400){
-                         $("body").css("zoom","80%");
-                   }
-                   else if(a<1400 && a>1100){
-                         $("body").css("zoom","65%");
-                   }
-                   else if(a<1100 && a>900){
-                         $("body").css("zoom","67%");
-                   }
-                   else{
-                        $("body").css("zoom","50%");
-                   }
+    
 
-            });
-
-
-    </script>
+</script>
 
 </body>
 

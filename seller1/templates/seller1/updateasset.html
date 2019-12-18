@@ -18,6 +18,80 @@
     <link rel="stylesheet" href="{% static 'seller1/css/dropzone.css' %}">
     <script src="{% static 'seller1/js/dropzone.js' %}"></script>
 </head>
+<style>
+        .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.ui-resizable {
+            min-width: 600px;
+            text-align: center;
+            padding: 0;
+        }
+        .ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            background: url('../../static/seller1/images/homepage-banner.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: Playfair Display;
+        }
+        .ui-dialog .ui-dialog-titlebar-close {
+            position: absolute;
+            right: .3em;
+            top: 20px;
+            width: 20px;
+            margin: -10px 0 0 0;
+            padding: 1px;
+            height: 20px;
+            background: transparent;
+            border: none;
+        }
+        .ui-dialog .ui-dialog-titlebar-close::after {
+            content: "\f00d";
+            font-family: "FontAwesome";
+            position: absolute;
+            top: -12px;
+            right: -1px;
+            font-size: 29px;
+            color: #999;
+            font-weight: 300;
+            transition: all 0.3s ease-in-out;
+        }
+        .ui-dialog .ui-dialog-titlebar-close:hover:after{
+            cursor: pointer;
+            color: #000;
+        }
+        div#dialog-confirm {
+            padding: 2rem 0;
+            font-size: 18px;
+        }
+        div#dialog-confirm .message {
+            margin-bottom: 2rem;
+        }
+        .btn-cancel,
+        .btn-ok{
+            width: 101.94px;
+            height: 49px;
+            font-size: 17px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            font-weight: 500;
+            color: #192ED5;
+            background: #FFFFFF;
+            border: 1px solid #192ED5;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .btn-cancel:hover,
+        .btn-ok:hover{
+            background: #192ED5;
+            color: #fff
+        }
+</style>
 
 <style>
 html, body, {
@@ -113,7 +187,7 @@ list-style-type: none;
         background-color: #FE3C69 !important;
     }
     </style>
-<body>
+<body onbeforeunload="return myFunction()">
     {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
       <!-- Top container -->
@@ -232,8 +306,8 @@ list-style-type: none;
             <div id="dialog-confirm"> 
                     <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
                     <div class="buttons"> 
-                        <a class="cancel" href="#">Cancel</a> 
-                        <a class="ok" href="#">Ok</a> 
+                                        <a class="cancel" href="#"><button class="btn-cancel">Cancel</button></a> 
+                                        <a class="ok" href="#"><button class="btn-ok" >Ok</button></a>
                     </div> 
             </div> 
 
@@ -581,6 +655,15 @@ list-style-type: none;
     <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
 
+    <script>
+        function myFunction() {
+        return "Write something clever here...";
+        }
+        $("#overlay").fadeIn();
+        $(document).ready(function(){
+        $("#overlay").fadeOut();
+        });
+    </script>
 
     <script>
     $(document).ready(function(){

@@ -246,6 +246,7 @@ class SellFranchise(models.Model):
     asking_price = models.IntegerField(blank=True, default=0, null=True)
     asking_price_usd = models.DecimalField(max_digits=30, decimal_places=4, null=True, blank=True)
     cap_req = models.IntegerField(blank=True, default=0, null=True)
+    cap_req_usd = models.DecimalField(max_digits=30, decimal_places=4, null=True, blank=True)
     exp_ret = models.DecimalField(blank=True, null=True, decimal_places=20, max_digits=30)
     website = models.URLField(max_length=500, blank=True, null=True)
 
