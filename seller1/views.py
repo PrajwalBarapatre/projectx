@@ -3308,10 +3308,13 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
-    print(fdata)
+    fdata['seller_trial']=seller.trial
     if seller.trial:
+        fdata['seller_trial']=True
         seller.trial = False
         seller.save()
+    print(fdata)
+
 
     return render(request, 'seller1/sell_detail.html', fdata)
 
