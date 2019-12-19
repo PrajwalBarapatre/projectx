@@ -53,7 +53,7 @@ class Seller1(models.Model):
     type = models.CharField(max_length=100, blank=True, null=True)
 
     viewers = models.ManyToManyField(User, blank=True, null=True)
-
+    trial = models.BooleanField(default=True)
     # def save(self, *args, **kwargs):
     #     if(self.lat and self.lngt):
     #         self.geo_cord = Point(self.lngt, self.lat)

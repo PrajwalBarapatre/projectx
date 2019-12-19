@@ -98,8 +98,8 @@ class WebSocketService {
     }
   
     connect(chatUrl) {
-      // const path = 'ws://127.0.0.1:80/ws/chat/test/';
-      const path = `ws://127.0.0.1:80/ws/chat/${chatUrl}/`;
+      // const path = 'ws://www.bverge.com/ws/chat/test/';
+      const path = `ws://www.bverge.com/ws/chat/${chatUrl}/`;
       this.socketRef = new WebSocket(path);
       this.socketRef.onopen = () => {
         console.log('WebSocket open in '+ chatUrl);
@@ -283,7 +283,7 @@ class Sidepanel extends React.Component{
   
   getUserChats = (username) => {
     console.log(username);
-    fetch(`http://127.0.0.1:80/chat/api/${username}`,{
+    fetch(`http://www.bverge.com/chat/api/${username}`,{
             method: 'GET',
             headers: {
                  Accept: 'application/json',
@@ -433,7 +433,7 @@ function getCookie(name) {
 
 function pdf_view(file_name){
   console.log(file_name)
-  fetch(`http://127.0.0.1:80/chat/pdf_view/${file_name}`,{
+  fetch(`http://www.bverge.com/chat/pdf_view/${file_name}`,{
     method: 'GET'
   })
 }
@@ -487,7 +487,7 @@ class Chat extends React.Component{
 
     componentDidMount(){
       console.log('inside didMount of chat');
-      fetch('http://127.0.0.1:80/get_user',{
+      fetch('http://www.bverge.com/get_user',{
             method: 'GET',
             headers: {
                  Accept: 'application/json',

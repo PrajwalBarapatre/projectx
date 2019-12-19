@@ -3106,6 +3106,9 @@ def just_sell_type(request, business_id):
     serializer = SellerSerializer(seller)
     data = serializer.data
     cdata = data.copy()
+    if seller.trial:
+        seller.trial = False
+        seller.save()
     # cdata.update(sdata)
     main_album_id = seller.album_id
     main_album = KAlbumForFile(album_id=main_album_id)
