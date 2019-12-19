@@ -3072,7 +3072,7 @@
             </div>
         </div>
     </div>
-    {% if seller_trial == 'True'%}
+    {% if seller_trial %}
     <div class="publish_back">
         <div class="modal" id="publish_modal">
             <button id="publish_btn" onclick="publish()" >Publish</button>
@@ -5197,6 +5197,7 @@ console.log("{{business}}");
         //your code here;
         $('.arrow_toggle').click();
     })
+    console.log('{{seller_trial}}')
     
 </script>
 <script>

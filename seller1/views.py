@@ -3308,7 +3308,7 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
-    fdata['seller_trial']=seller.trial
+    fdata['seller_trial']=False
     if seller.trial:
         fdata['seller_trial']=True
         seller.trial = False
