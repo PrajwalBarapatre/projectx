@@ -25,6 +25,7 @@ class Investor(models.Model):
     type = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(max_length=255)
     currency = models.CharField(max_length=255, blank=True, null=True)
+    trial = models.BooleanField(default=True)
     # usd_askprice = models.DecimalField(max_digits=22, decimal_places=16, null=True, blank=True)
 
 

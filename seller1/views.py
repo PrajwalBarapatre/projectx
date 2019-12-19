@@ -2816,6 +2816,10 @@ def detail_sell_type(request, business_id):
     except:
         print('no revenue')
     # jdata = json.load(cdata)
+
+    if seller.trial:
+        seller.trial = False
+        seller.save()
     fdata = {}
     fdata['seller'] = cdata
     fdata['business'] = sdata
@@ -3308,11 +3312,7 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
-    fdata['seller_trial']=False
-    if seller.trial:
-        fdata['seller_trial']=True
-        seller.trial = False
-        seller.save()
+
     print(fdata)
 
 

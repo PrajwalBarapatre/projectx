@@ -829,6 +829,9 @@ def detail_invest_type(request, business_id):
     # except:
     #     print('no revenue')
     # jdata = json.load(cdata)
+    if seller.trial:
+        seller.trial = False
+        seller.save()
     fdata = {}
     fdata['seller'] = cdata
     fdata['business'] = sdata
