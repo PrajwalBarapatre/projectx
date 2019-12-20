@@ -3274,8 +3274,10 @@ def just_sell_type(request, business_id):
     fdata['my_sellers']= json.dumps(all_hsell)
     fdata['similar_seller']=[]
     # similar_seller = Seller1.objects.filter(category1=category, category2=sub_category, type=stype)
-    similar_seller = []
-    for investor in similar_seller:
+    similar_sell = Sell.objects.all()
+    # similar_seller = []
+    for similar_seller in similar_sell:
+        investor = similar_seller.seller
         serializer = SellerSerializer(investor)
         x = serializer.data
         album_id = investor.album_id

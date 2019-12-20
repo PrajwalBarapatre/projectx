@@ -991,8 +991,10 @@ def just_advise_type(request, business_id):
     fdata['my_sellers']= json.dumps(all_hsell)
     fdata['sellers_advisors']= json.dumps(all_hsell_advisor)
     fdata['similar_seller']=[]
-    similar_seller = Advisor.objects.filter(type=stype)
-    for advisor in similar_seller:
+    # similar_seller = Advisor.objects.filter(type=stype)
+    similar_sell = Advise.objects.all()
+    for similar_seller in similar_sell:
+        advisor = similar_seller.advisor
         serializer = AdvisorSerializer(advisor)
         x = serializer.data
         album_id = advisor.album_id
