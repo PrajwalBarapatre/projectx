@@ -742,7 +742,16 @@ def SellBusinessDelete(request, business_id):
     bsn = SellBusiness.objects.get(business_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller=Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -763,7 +772,16 @@ def SellAssetDelete(request, business_id):
     bsn = SellAsset.objects.get(asset_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -784,7 +802,16 @@ def RaiseLoanDelete(request, business_id):
     bsn = RaiseLoan.objects.get(loan_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -805,7 +832,16 @@ def SellEquityDelete(request, business_id):
     bsn = SellEquity.objects.get(equity_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -826,7 +862,16 @@ def SellAppDelete(request, business_id):
     bsn = SellApp.objects.get(app_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -846,7 +891,16 @@ def SellIpcodeDelete(request, business_id):
     bsn = SellIpcode.objects.get(ipcode_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -869,7 +923,16 @@ def SellStartupDelete(request, business_id):
     bsn = SellStartup.objects.get(startup_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -892,7 +955,16 @@ def SellFranchiseDelete(request, business_id):
     bsn = SellFranchise.objects.get(ipcode_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -912,7 +984,16 @@ def SellSupplierDelete(request, business_id):
     bsn = Supplier.objects.get(ipcode_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
-
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():

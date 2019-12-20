@@ -618,7 +618,16 @@ def AdvisorBusiDelete(request, business_id):
     bsn = BusinessAdvisor.objects.get(business_id=bsn_id)
     seller_id = bsn.advisor.advisor_id
     seller = Advisor.objects.get(advisor_id=seller_id)
-
+    sell = Advise.objects.get(advisor=seller)
+    user = request.user
+    user_sells = user.profile.user_advise.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -637,7 +646,16 @@ def AdvisorStartupDelete(request, business_id):
     bsn = StartupAdvisor.objects.get(startup_id=bsn_id)
     seller_id = bsn.advisor.advisor_id
     seller = Advisor.objects.get(advisor_id=seller_id)
-
+    sell = Advise.objects.get(advisor=seller)
+    user = request.user
+    user_sells = user.profile.user_advise.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():

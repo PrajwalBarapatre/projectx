@@ -4,6 +4,7 @@ from django.contrib.auth import (
     login,
     logout
 )
+from django.urls import reverse
 import json
 from django.http import Http404
 from rest_framework.views import APIView
@@ -19,7 +20,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile, Notification
-from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm
+from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm, SubscriptionForm
 from django.http import JsonResponse
 from metadata.views import business_sector, companies,codedata,yeardata
 from .serializers import UserSerializer, ProfileSerializer
@@ -27,6 +28,7 @@ from chat.models import Chat, Contact, Notify
 from chat.views import get_user_contact, get_chat
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
+from projectx import settings
 from django.core import serializers
 
 

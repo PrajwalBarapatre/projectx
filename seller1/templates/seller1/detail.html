@@ -704,10 +704,51 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/delete/{{business.business_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" id="delete_profile" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/delete/{{business.business_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 <!--business end -->
 {% endif %}
 
@@ -808,10 +849,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/asset/delete/{{business.asset_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/asset/delete/{{business.asset_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 <!--Asset end -->
 {% endif %}
 
@@ -927,10 +1010,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/equity/delete/{{business.equity_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/equity/delete/{{business.equity_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--Equity end -->
 {% endif %}
@@ -1040,10 +1165,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/loan/delete/{{business.loan_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/loan/delete/{{business.loan_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 
 <!--Loan end -->
@@ -1148,10 +1315,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/startup/delete/{{business.startup_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/startup/delete/{{business.startup_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--startup end -->
 {% endif %}
@@ -1252,10 +1461,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/app/delete/{{business.app_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/app/delete/{{business.app_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--application end -->
 {% endif %}
@@ -1346,10 +1597,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/ipcode/delete/{{business.ipcode_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/ipcode/delete/{{business.ipcode_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--Ipcode end -->
 {% endif %}
@@ -1441,10 +1734,52 @@
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/franchise/delete/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/franchise/delete/{{business.franchise_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--Ipcode end -->
 {% endif %}
@@ -1539,14 +1874,56 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <a href="/seller/franchise_update/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                            <a href="/seller/supplier_update/{{business.supplier_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
                             <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
                             </button></a>
-                            <a href="/seller/franchise/delete/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Delete Profile
-                            </button></a>
+                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
+                            </button>
                         </div>
                     </div>
+
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">Confirm Password</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    <script>
+                        function delete_modal(){
+                            $('#delete_profile_modal').modal('show');
+                        }
+
+                        function delete_profile(){
+                            var con_password = $('#delete_password').val();
+                            $.ajax({
+                                method:'GET',
+                                url:"{% url 'profiles:con-password' %}",
+                                data:{
+                                    password:con_password
+                                },
+                                success:function(data){
+                                    if(data.status==''){
+                                        $('#incorrect_delete').hide();
+                                        window.location.replace('/seller/supplier/delete/{{business.supplier_id}}')
+                                    }else{
+                                        $('#incorrect_delete').show();
+                                    }
+                                }
+                            })
+                        }
+                    </script>
 
 <!--Ipcode end -->
 {% endif %}

@@ -599,7 +599,16 @@ def InvestorIndivDelete(request, business_id):
     bsn = IndividualInvestor.objects.get(individual_id=bsn_id)
     seller_id = bsn.investor.investor_id
     seller = Investor.objects.get(investor_id=seller_id)
-
+    sell = Invest.objects.get(investor=seller)
+    user = request.user
+    user_sells = user.profile.user_invest.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():

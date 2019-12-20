@@ -31,6 +31,7 @@ urlpatterns = [
     path('ipcode/delete/<business_id>', views.SellIpcodeDelete, name='ipcode-delete'),
     path('franchise/delete/<business_id>', views.SellFranchiseDelete, name='franchise-delete'),
     path('startup/delete/<business_id>', views.SellStartupDelete, name='startup-delete'),
+    path('supplier/delete/<business_id>', views.SellSupplierDelete, name='supplier-delete'),
     url('ajax/validate/$', views.validate, name='business-validate'),
     re_path(r'^$', views.seller, name='seller'),
     path('asset', views.seller_asset, name='asset'),
