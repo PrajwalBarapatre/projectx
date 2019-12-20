@@ -1885,7 +1885,7 @@
                                     <div class="col-sm-12 col-12 pt-50">
                                     <div class="owl-carousel">
                                             {% for seller in similar_seller %}
-                                            {%if seller.seller.base_type == 'Seller' %}
+                                            {% if seller.seller.base_type == 'Seller' %}
                                             {% if seller.seller.type == 'Business' %}
                                                 <div class="your_cart card">
                                                         <a href="" class="img_box">
@@ -4079,7 +4079,7 @@ return same;
 
     )
     $('#make_contact').append(
-        "<a href='/chat/make-sell?business_id='"+"{{seller.business_id}}"+"' ><button class='btn-cart-contact' >Contact the Seller</button></a>"
+        "<a href='/chat/make-sell?business_id="+"{{seller.business_id}}"+"' ><button class='btn-cart-contact' >Contact the Seller</button></a>"
     )
     for(var k=0; k<investor_arr.length; k++){
                     var attr = 'cart_investor_'+investor_arr[k].investor_id;

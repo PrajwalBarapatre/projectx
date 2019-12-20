@@ -779,6 +779,8 @@ def just_invest_type(request, business_id):
     fdata['similar_seller']=[]
     for similar_seller in similar_sell:
         investor = similar_seller.investor
+        if seller == investor:
+            continue
         serializer = InvestorSerializer(investor)
         x = serializer.data
         album_id = investor.album_id

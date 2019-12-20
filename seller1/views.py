@@ -3278,6 +3278,8 @@ def just_sell_type(request, business_id):
     # similar_seller = []
     for similar_seller in similar_sell:
         investor = similar_seller.seller
+        if seller == investor:
+            continue
         serializer = SellerSerializer(investor)
         x = serializer.data
         album_id = investor.album_id

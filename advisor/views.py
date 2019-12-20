@@ -995,6 +995,8 @@ def just_advise_type(request, business_id):
     similar_sell = Advise.objects.all()
     for similar_seller in similar_sell:
         advisor = similar_seller.advisor
+        if seller == advisor:
+            continue
         serializer = AdvisorSerializer(advisor)
         x = serializer.data
         album_id = advisor.album_id
