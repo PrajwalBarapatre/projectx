@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 var initial_noti = true;
 
 
@@ -77,7 +77,7 @@ $('#noti_Container_s').click(function(){
 })
 
 
-});
+
 
   
 function toggle_chat() {
@@ -165,56 +165,56 @@ $(document).ready(function(){
 });
 
 
-$.ajax({
-    type:'GET',
-    url:'/retive_notif',
-    success:function(data){
-        console.log("notification retrived");
-        console.log(data.notif_number);
+// $.ajax({
+//     type:'GET',
+//     url:'/retive_notif',
+//     success:function(data){
+//         console.log("notification retrived");
+//         console.log(data.notif_number);
         
-        for(var i=0;i<data.notifications.length;i++)
-        {
-            console.log(data.notifications[1].notif_statement);
-            console.log(data.notifications[i].notif_type);
-            if(data.notifications[i].notif_type=="Chat")
-            {
-           $(".notification_container").append(
-                "<div class='notify_box'>"
-                        +"<div class='img_box'>"
-                            +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
-                        +"</div>"
-                        +"<div class='content_box'>"
-                            +"<a href='/chat' ><p>"+data.notifications[i].notif_statement+"</p></a>"
-                            +"<div class='date_time'>"
-                                +"<span class='day'>Fri</span> at"
-                                +"<span class='time'>18:00</span>"
-                            +"</div>"
-                        +"</div>"
-                    +"</div>");
-            }
-        if(data.notifications[i].notif_type=="Cart")
-            {
-           $(".notification_container").append(
-                "<div class='notify_box'>"
-                        +"<div class='img_box'>"
-                            +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
-                        +"</div>"
-                        +"<div class='content_box'>"
-                            +"<a href='/" +data.notifications[i].notif_on+"/"+"user_detail"+"/"+data.notifications[i].notif_on_id+"' ><p>"+data.notifications[i].notif_statement+"</p></a>"
-                            +"<div class='date_time'>"
-                                +"<span class='day'>Fri</span> at"
-                                +"<span class='time'>18:00</span>"
-                            +"</div>"
-                        +"</div>"
-                    +"</div>");
-            }
+//         for(var i=0;i<data.notifications.length;i++)
+//         {
+//             console.log(data.notifications[1].notif_statement);
+//             console.log(data.notifications[i].notif_type);
+//             if(data.notifications[i].notif_type=="Chat")
+//             {
+//            $(".notification_container").append(
+//                 "<div class='notify_box'>"
+//                         +"<div class='img_box'>"
+//                             +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
+//                         +"</div>"
+//                         +"<div class='content_box'>"
+//                             +"<a href='/chat' ><p>"+data.notifications[i].notif_statement+"</p></a>"
+//                             +"<div class='date_time'>"
+//                                 +"<span class='day'>Fri</span> at"
+//                                 +"<span class='time'>18:00</span>"
+//                             +"</div>"
+//                         +"</div>"
+//                     +"</div>");
+//             }
+//         if(data.notifications[i].notif_type=="Cart")
+//             {
+//            $(".notification_container").append(
+//                 "<div class='notify_box'>"
+//                         +"<div class='img_box'>"
+//                             +"<img src='{{MEDIA_PREFIX}}/files/advisor-img2.png' alt='img' class='avatar'>"
+//                         +"</div>"
+//                         +"<div class='content_box'>"
+//                             +"<a href='/" +data.notifications[i].notif_on+"/"+"user_detail"+"/"+data.notifications[i].notif_on_id+"' ><p>"+data.notifications[i].notif_statement+"</p></a>"
+//                             +"<div class='date_time'>"
+//                                 +"<span class='day'>Fri</span> at"
+//                                 +"<span class='time'>18:00</span>"
+//                             +"</div>"
+//                         +"</div>"
+//                     +"</div>");
+//             }
 
 
 
 
 
-        }
+//         }
 
-        }
+//         }
     
-})
+// })
