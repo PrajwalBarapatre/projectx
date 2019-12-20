@@ -27,5 +27,6 @@ urlpatterns = [
     path('con_password', views.password_confirm, name='con-password'),
     path('chng_password', views.password_change, name='chng-password'),
     path('retive_notif', views.notif_data, name='retive_notif'),
+    path('delete_profile', views.delete_profile, name='delete_profile'),
 
 ]

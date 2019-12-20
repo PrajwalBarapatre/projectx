@@ -56,6 +56,11 @@ def login_view(request):
                 print(data)
                 # return redirect('seller1:seller')
                 return JsonResponse(data, safe=False)
+            # user = User.objects.get(username=username)
+            # if not user.profile.active:
+            #     data = {}
+            #     data['status'] = 'invalid'
+            #     return JsonResponse(data, safe=False)
             try:
                 user = authenticate(username=username, password=password)
             except:
@@ -573,6 +578,27 @@ def process_subscription(request):
     }
     return render(request, 'process_subscription.html', context)
 
-
+def delete_profile(request):
+    # if request.method == 'GET':
+    try:
+        user = request.user
+        user_sells = user.profile.user_sell.all()
+        user_advises = user.profile.user_advise.all()
+        user_invests = user.profile.user_invest.all()
+        for sell in user_sells:
+            seller = sell.seller
+            seller.delete()
+        for invest in user_invests:
+            investor = invest.investor
+            investor.delete()
+        for advise in user_advises:
+            advisor = advise.advisor
+            advisor.delete()
+        # user.profile.active=False
+        username = user.username
+        User.objects.get(username=username).delete()
+        return redirect('profiles:index')
+    except:
+        return redirect('profiles:index')
 
 

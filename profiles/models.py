@@ -73,6 +73,7 @@ class Profile(models.Model):
     premium = models.BooleanField(default=False)
     trial = models.BooleanField(default=True)
     otp = models.CharField(blank=True, null=True, max_length=255)
+    # active = models.BooleanField(default=True)
     # otp_valid = models.BooleanField(default=False)
     searches = models.ManyToManyField(Search_log, blank=True, null=True)
     views = models.ManyToManyField(View_log, blank=True, null=True)
