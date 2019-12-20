@@ -24,7 +24,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Bverge"/>
 
-    <meta property="og:description" content="Index Page"/>
+    <!-- <meta property="og:description" content="Index Page"/>
     <meta property='og:url' content='http://13.127.153.254/' />
     <meta property="og:site_name" content="Bverge"/>
     <meta property="og:updated_time" content="2018-01-09T00:01:51+05:30" />
@@ -32,7 +32,7 @@
     <meta property="og:image:secure_url" itemprop="image"  content="http://13.127.153.254/static/seller1/images/Bitmap.png"/>
     <meta property="og:image:width" content="958">
     <meta property="og:image:height" content="698">
-    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:type" content="image/png"/> -->
 </head>
 
 
@@ -80,7 +80,7 @@
         height:     100%;
         width:      100%;
         background: rgba( 255, 255, 255, .8 )
-                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    url('https://i.stack.imgur.com/FhHRx.gif')
                     50% 50%
                     no-repeat;
     }
@@ -93,7 +93,7 @@
         height:     100%;
         width:      100%;
         background: rgba( 255, 255, 255, .8 )
-                    url('http://i.stack.imgur.com/FhHRx.gif')
+                    url('https://i.stack.imgur.com/FhHRx.gif')
                     50% 50%
                     no-repeat;
     }
@@ -180,9 +180,9 @@
 
     <!-- <p>You have visited this page {{ num_visits }}</p> -->
     
-        <link itemprop="thumbnailUrl" href="http://13.127.153.254/static/seller1/images/Bitmap.png">
-        <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
-          <link itemprop="url" href="http://13.127.153.254/static/seller1/images/Bitmap.png">
+        <link itemprop="thumbnailUrl" href="https://www.bverge.com/static/seller1/images/Bitmap.png">
+        <span itemprop="thumbnail" itemscope itemtype="https://schema.org/ImageObject">
+          <link itemprop="url" href="https://bverge.com/static/seller1/images/Bitmap.png">
         </span>
 
     <!-- Sidebar -->
@@ -2990,7 +2990,7 @@ $(document).on({
             }
             
             else{
-                name = "https://bverge.s3.ap-south-1.amazonaws.com/{{user.profile.photo}}";
+                name = "{{MEDIA_PREFIX}}/{{user.profile.photo}}";
                 //console.log('{{user.profile.photo.url}}')
             }
 

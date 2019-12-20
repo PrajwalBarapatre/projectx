@@ -66,7 +66,7 @@ inv_serializer_list = {
 
 
 
-
+@login_required(login_url='profiles:index')
 def IndividualUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -88,6 +88,16 @@ def IndividualUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.investor.investor_id
     seller_instance = get_object_or_404(Investor, investor_id=seller_id)
+    sell = Invest.objects.get(investor=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_invest.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = InvestorUpdateForm(request.POST or None, instance=seller_instance)
     invest_indiv = IndividualUpdateForm(request.POST or None, instance=business_instance)
@@ -162,7 +172,7 @@ def IndividualUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def investor_indiv(request):
     model_fields = {
         'first_name': 'first_name',
@@ -390,6 +400,7 @@ def UpdateFiles(request):
     print(serializer.data)
     return JsonResponse(json.dumps(serializer.data), safe=False)
 
+@login_required(login_url='profiles:index')
 def CompanyUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -412,6 +423,16 @@ def CompanyUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.investor.investor_id
     seller_instance = get_object_or_404(Investor, investor_id=seller_id)
+    sell = Invest.objects.get(investor=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_invest.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = InvestorUpdateForm(request.POST or None, instance=seller_instance)
     invest_company = CompanyUpdateForm(request.POST or None, instance=business_instance)
@@ -487,7 +508,7 @@ def CompanyUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def investor_company(request):
     model_fields = {
         'first_name': 'first_name',
@@ -593,7 +614,7 @@ def investor_company(request):
     else:
         return redirect('seller1/sellapp.html')
 
-
+@login_required(login_url='profiles:index')
 def InvestorIndivDelete(request, business_id):
     bsn_id = business_id
     bsn = IndividualInvestor.objects.get(individual_id=bsn_id)
@@ -622,12 +643,22 @@ def InvestorIndivDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def InvestorCompanyDelete(request, business_id):
     bsn_id = business_id
     bsn = CompanyInvestor.objects.get(company_id=bsn_id)
     seller_id = bsn.investor.investor_id
     seller = Investor.objects.get(investor_id=seller_id)
-
+    sell = Invest.objects.get(investor=seller)
+    user = request.user
+    user_sells = user.profile.user_invest.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     album_id = seller.album_id
     album = KAlbumForFile.objects.get(album_id=album_id)
     for file in album.files.all():
@@ -641,7 +672,7 @@ def InvestorCompanyDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
-
+@login_required(login_url='profiles:index')
 def just_invest_type(request, business_id):
     seller = Investor.objects.get(investor_id=business_id)
     sell = Invest.objects.get(investor=seller)
@@ -816,9 +847,19 @@ def just_invest_type(request, business_id):
     print(fdata)
     return render(request, 'investor/detail.html', fdata)
 
-
+@login_required(login_url='profiles:index')
 def detail_invest_type(request, business_id):
     seller = Investor.objects.get(investor_id=business_id)
+    sell = Invest.objects.get(investor=seller)
+    user = request.user
+    user_sells = user.profile.user_invest.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     sell = Invest.objects.get(investor=seller)
     print(sell)
     stype = sell.type

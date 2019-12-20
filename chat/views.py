@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -30,12 +30,18 @@ from advisor.models import Advisor, StartupAdvisor, BusinessAdvisor
 from .models import Chat, Contact, Message, Malbum, Notify
 import json
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
+@login_required(login_url='profiles:index')
 def index(request):
     context={}
-    # user = request.user
+    user = request.user
+    try:
+        contact = Contact.objects.get(user=user)
+    except:
+        return redirect('profiles:index')
     # curr_username=user.username
     # photo = user.profile.photo
     # full_name = user.profile.first_name + user.profile.last_name

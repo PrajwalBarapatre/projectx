@@ -82,7 +82,7 @@ model_list = {
 
 
 
-@login_required(login_url='profiles:login')
+@login_required(login_url='profiles:index')
 def seller(request):
     model_fields = {
         'first_name': 'first_name',
@@ -207,7 +207,7 @@ def seller(request):
     else:
         return redirect('seller1/sellbusiness.html')
 
-
+@login_required(login_url='profiles:index')
 def SellerUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -229,6 +229,16 @@ def SellerUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_bsn = BusinessUpdateForm(request.POST or None, instance=business_instance)
@@ -721,6 +731,7 @@ def BusinessDetail(request, business_id):
     }
     return render(request, 'seller1/sellbusiness-profile.html', context)
 
+@login_required(login_url='profiles:index')
 def UpdateFiles(request):
     seller_id = request.GET['seller_id']
     seller=Seller1.objects.get(business_id=seller_id)
@@ -737,6 +748,7 @@ def UpdateFiles(request):
     print(serializer.data)
     return JsonResponse(json.dumps(serializer.data), safe=False)
 
+@login_required(login_url='profiles:index')
 def SellBusinessDelete(request, business_id):
     bsn_id = business_id
     bsn = SellBusiness.objects.get(business_id=bsn_id)
@@ -767,6 +779,7 @@ def SellBusinessDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def SellAssetDelete(request, business_id):
     bsn_id = business_id
     bsn = SellAsset.objects.get(asset_id=bsn_id)
@@ -797,6 +810,7 @@ def SellAssetDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def RaiseLoanDelete(request, business_id):
     bsn_id = business_id
     bsn = RaiseLoan.objects.get(loan_id=bsn_id)
@@ -827,6 +841,7 @@ def RaiseLoanDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def SellEquityDelete(request, business_id):
     bsn_id = business_id
     bsn = SellEquity.objects.get(equity_id=bsn_id)
@@ -857,6 +872,7 @@ def SellEquityDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def SellAppDelete(request, business_id):
     bsn_id = business_id
     bsn = SellApp.objects.get(app_id=bsn_id)
@@ -886,6 +902,7 @@ def SellAppDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def SellIpcodeDelete(request, business_id):
     bsn_id = business_id
     bsn = SellIpcode.objects.get(ipcode_id=bsn_id)
@@ -917,7 +934,7 @@ def SellIpcodeDelete(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def SellStartupDelete(request, business_id):
     bsn_id = business_id
     bsn = SellStartup.objects.get(startup_id=bsn_id)
@@ -949,7 +966,7 @@ def SellStartupDelete(request, business_id):
     return redirect('profiles:index')
 
 
-
+@login_required(login_url='profiles:index')
 def SellFranchiseDelete(request, business_id):
     bsn_id = business_id
     bsn = SellFranchise.objects.get(ipcode_id=bsn_id)
@@ -979,6 +996,7 @@ def SellFranchiseDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def SellSupplierDelete(request, business_id):
     bsn_id = business_id
     bsn = Supplier.objects.get(ipcode_id=bsn_id)
@@ -1012,7 +1030,7 @@ def SellSupplierDelete(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def seller_asset(request):
     model_fields = {
         'first_name': 'first_name',
@@ -1139,7 +1157,7 @@ def seller_asset(request):
     else:
         return redirect('seller1/sellasset.html')
 
-
+@login_required(login_url='profiles:index')
 def AssetUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -1161,6 +1179,16 @@ def AssetUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_asset = AssetUpdateForm(request.POST or None, instance=business_instance)
@@ -1252,7 +1280,7 @@ def AssetUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def seller_equity(request):
     model_fields = {
         'first_name': 'first_name',
@@ -1375,7 +1403,7 @@ def seller_equity(request):
     else:
         return redirect('seller1/sellequity.html')
 
-
+@login_required(login_url='profiles:index')
 def EquityUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -1397,6 +1425,26 @@ def EquityUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_equity = EquityUpdateForm(request.POST or None, instance=business_instance)
@@ -1486,7 +1534,7 @@ def EquityUpdate(request, business_id):
     return render(request, 'seller1/updatequity.html', context)
 
 
-
+@login_required(login_url='profiles:index')
 def seller_loan(request):
     model_fields = {
         'first_name': 'first_name',
@@ -1609,7 +1657,7 @@ def seller_loan(request):
     else:
         return redirect('seller1/selloan.html')
 
-
+@login_required(login_url='profiles:index')
 def LoanUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -1631,6 +1679,16 @@ def LoanUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_loan = LoanUpdateForm(request.POST or None, instance=business_instance)
@@ -1721,7 +1779,7 @@ def LoanUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def seller_startup(request):
     model_fields = {
         'first_name': 'first_name',
@@ -1845,7 +1903,7 @@ def seller_startup(request):
     else:
         return redirect('seller1/sellstartup.html')
 
-
+@login_required(login_url='profiles:index')
 def StartupUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -1867,6 +1925,16 @@ def StartupUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_startup = StartupUpdateForm(request.POST or None, instance=business_instance)
@@ -1956,7 +2024,7 @@ def StartupUpdate(request, business_id):
     }
     return render(request, 'seller1/updatestartup.html', context)
 
-
+@login_required(login_url='profiles:index')
 def AppUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -1978,6 +2046,16 @@ def AppUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_app = AppUpdateForm(request.POST or None, instance=business_instance)
@@ -2070,7 +2148,7 @@ def AppUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def seller_app(request):
     model_fields = {
         'first_name': 'first_name',
@@ -2195,7 +2273,7 @@ def seller_app(request):
     else:
         return redirect('seller1/sellapp.html')
 
-
+@login_required(login_url='profiles:index')
 def IpcodeUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -2217,6 +2295,16 @@ def IpcodeUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_ipcode = IpcodeUpdateForm(request.POST or None, instance=business_instance)
@@ -2305,7 +2393,7 @@ def IpcodeUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def seller_ipcode(request):
     model_fields = {
         'first_name': 'first_name',
@@ -2427,7 +2515,7 @@ def seller_ipcode(request):
     else:
         return redirect('seller1/sellipcode.html')
 
-
+@login_required(login_url='profiles:index')
 def seller_franchise(request):
     model_fields = {
         'first_name': 'first_name',
@@ -2543,7 +2631,7 @@ def seller_franchise(request):
     else:
         return redirect('seller1/sellipcode.html')
 
-
+@login_required(login_url='profiles:index')
 def FranchiseUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -2563,6 +2651,16 @@ def FranchiseUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_franchise = FranchiseUpdateForm(request.POST or None, instance=business_instance)
@@ -2652,7 +2750,7 @@ def FranchiseUpdate(request, business_id):
     }
     return render(request, 'seller1/updatefranchise.html', context)
 
-
+@login_required(login_url='profiles:index')
 def seller_supplier(request):
     model_fields = {
         'first_name': 'first_name',
@@ -2759,7 +2857,7 @@ def seller_supplier(request):
     }
     return render(request, 'seller1/supplier.html', context)
 
-
+@login_required(login_url='profiles:index')
 def SupplierUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -2779,6 +2877,16 @@ def SupplierUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.seller.business_id
     seller_instance = get_object_or_404(Seller1, business_id=seller_id)
+    sell = Sell.objects.get(seller=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = SellerUpdateForm(request.POST or None, instance=seller_instance)
     sell_franchise = SupplierUpdateForm(request.POST or None, instance=business_instance)
@@ -2871,9 +2979,19 @@ def SupplierUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def detail_sell_type(request, business_id):
     seller = Seller1.objects.get(business_id=business_id)
+    sell = Sell.objects.get(seller=seller)
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     sell = Sell.objects.get(seller=seller)
     print(sell)
     stype = sell.type
@@ -3172,6 +3290,7 @@ def detail_sell_type(request, business_id):
     print(fdata['inst'])
     return render(request, 'seller1/detail.html', fdata)
 
+@login_required(login_url='profiles:index')
 def just_sell_type(request, business_id):
     seller = Seller1.objects.get(business_id=business_id)
     category=seller.category1
@@ -4909,7 +5028,7 @@ def search_dict_invest(request, business_id):
     print(fdata)
     return fdata
 
-
+@login_required(login_url='profiles:index')
 def show_sellers(request):
     if request.method == 'GET':
         # print(request.GET)
@@ -4986,6 +5105,7 @@ def show_sellers(request):
         # jdata = json.dumps(ffdata)
         return JsonResponse(ffdata, safe=False)
 
+@login_required(login_url='profiles:index')
 def show_advisors(request):
     if request.method == 'GET':
         print(request.GET)
@@ -5044,7 +5164,7 @@ def show_advisors(request):
         # jdata = json.dumps(ffdata)
         return JsonResponse(ffdata, safe=False)
 
-
+@login_required(login_url='profiles:index')
 def show_advisors_startup(request):
     if request.method == 'GET':
         print(request.GET)
@@ -5097,7 +5217,7 @@ def show_advisors_startup(request):
         # jdata = json.dumps(ffdata)
         return JsonResponse(ffdata, safe=False)
 
-
+@login_required(login_url='profiles:index')
 def show_investors(request):
     if request.method == 'GET':
         print(request.GET)
@@ -5151,7 +5271,7 @@ def show_investors(request):
         # jdata = json.dumps(ffdata)
         return JsonResponse(ffdata, safe=False)
 
-
+@login_required(login_url='profiles:index')
 def display_busi(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5294,7 +5414,7 @@ def display_busi(request):
     # print(context['my_sellers'])
     return render(request, 'seller1/display_busi.html', context)
 
-
+@login_required(login_url='profiles:index')
 def display_web(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5425,6 +5545,7 @@ def display_web(request):
     print(context['my_sellers'])
     return render(request, 'seller1/display_web.html', context)
 
+@login_required(login_url='profiles:index')
 def display_advise(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5547,7 +5668,7 @@ def display_advise(request):
     return render(request, 'seller1/display_advise.html', context)
 
 
-
+@login_required(login_url='profiles:index')
 def display_advise_startup(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5665,7 +5786,7 @@ def display_advise_startup(request):
     print(context['my_sellers'])
     return render(request, 'seller1/display_advise_startup.html', context)
 
-
+@login_required(login_url='profiles:index')
 def display_invest(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5798,6 +5919,7 @@ def display_invest(request):
     print(context['my_sellers'])
     return render(request, 'seller1/display_invest.html', context)
 
+@login_required(login_url='profiles:index')
 def display_franchise(request):
     sectors = business_sector()
     types_companies = companies()
@@ -5924,7 +6046,7 @@ def display_franchise(request):
     return render(request, 'seller1/display_franchise.html', context)
 
 
-
+@login_required(login_url='profiles:index')
 def display_supplier(request):
     sectors = business_sector()
     types_companies = companies()
@@ -6052,6 +6174,7 @@ def display_supplier(request):
     print(context['my_sellers'])
     return render(request, 'seller1/display_supplier.html', context)
 
+@login_required(login_url='profiles:index')
 def display_startup(request):
     sectors = business_sector()
     types_companies = companies()
@@ -6179,7 +6302,7 @@ def display_startup(request):
     return render(request, 'seller1/display_startup.html', context)
 
 
-@csrf_exempt
+@login_required(login_url='profiles:index')
 def just_add_cart(request):
     if request.method=='POST':
         user = request.user
@@ -6203,6 +6326,7 @@ def just_add_cart(request):
             return JsonResponse({'title':seller.first_name, 'status':'success'})
         return JsonResponse({'status':'fail'}, safe=False)
 
+@login_required(login_url='profiles:index')
 def just_remove_cart(request):
     if request.method=='POST':
         user = request.user
@@ -6226,14 +6350,14 @@ def just_remove_cart(request):
         return JsonResponse({'status':'fail'}, safe=False)
 
 
-@csrf_exempt
+@login_required(login_url='profiles:index')
 def add_invest_cart(request):
     if request.method=='POST':
         user = request.user
 
         base_type=request.POST['base_type']
-
-        investor = user.profile.user_invest.all()[0].investor
+        investor_id = request.POST['investor_id']
+        investor = Investor.objects.get(investor_id=investor_id)
         if base_type=='Seller':
             seller_id = request.POST['seller_id']
             seller = Seller1.objects.get(business_id=seller_id)
@@ -6283,13 +6407,14 @@ def add_invest_cart(request):
         #     return Response({'title':seller.first_name, 'status':'success'})
         return Response({'status':'fail'})
 
+@login_required(login_url='profiles:index')
 def remove_invest_cart(request):
     if request.method=='POST':
         user = request.user
 
         base_type=request.POST['base_type']
-
-        investor = user.profile.user_invest.all()[0].investor
+        investor_id = request.POST['investor_id']
+        investor = Investor.objects.get(investor_id=investor_id)
         if base_type=='Seller':
             seller_id = request.POST['seller_id']
             seller = Seller1.objects.get(business_id=seller_id)
@@ -6323,7 +6448,7 @@ def remove_invest_cart(request):
         #     return Response({'title':seller.first_name, 'status':'success'})
         return Response({'status':'fail'})
 
-@csrf_exempt
+@login_required(login_url='profiles:index')
 def add_advise_cart(request):
     if request.method == 'POST':
         user = request.user
@@ -6381,7 +6506,7 @@ def add_advise_cart(request):
         #     return Response({'title':seller.first_name, 'status':'success'})
         return Response({'status': 'fail'})
 
-
+@login_required(login_url='profiles:index')
 def remove_advise_cart(request):
     if request.method == 'POST':
         user = request.user
@@ -6422,7 +6547,7 @@ def remove_advise_cart(request):
         #     return Response({'title':seller.first_name, 'status':'success'})
         return Response({'status': 'fail'})
 
-@csrf_exempt
+@login_required(login_url='profiles:index')
 def add_sell_cart(request):
     if request.method == 'POST':
         user = request.user
@@ -6521,7 +6646,8 @@ def add_sell_cart(request):
         #     user.save()
         #     return Response({'title':seller.first_name, 'status':'success'})
         return Response({'status': 'fail'})
-@csrf_exempt
+
+@login_required(login_url='profiles:index')
 def remove_sell_cart(request):
     if request.method == 'POST':
         user = request.user
@@ -6679,6 +6805,7 @@ def seller_render_to_pdf(request,business_id):
         # image.save(response, "png")
         return response
 
+@login_required(login_url='profiles:index')
 def indiv_dash(request):
     user = request.user
     just_sell = user.profile.just_sell.all()
@@ -6850,7 +6977,7 @@ def indiv_dash(request):
 def user_profile(request):
     return render(request, 'seller1/buyer-profile.html', {})
 
-
+@login_required(login_url='profiles:index')
 def add_viewer(request):
     user = request.user
     seller_id = request.GET['seller_id']
@@ -7396,6 +7523,7 @@ def fetch_detail_id(request,business_id):
 
     return render(request, 'seller1/buyer-profile.html', fdata)
 
+@login_required(login_url='profiles:index')
 def save_view(request):
     if request.method=='GET':
         user = request.user

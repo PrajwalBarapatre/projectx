@@ -77,7 +77,7 @@ adv_serializer_list = {
     'Startup': StartupSerializer
 }
 
-
+@login_required(login_url='profiles:index')
 def BusinessUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -100,6 +100,16 @@ def BusinessUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.advisor.advisor_id
     seller_instance = get_object_or_404(Advisor, advisor_id=seller_id)
+    sell = Advise.objects.get(advisor=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_advise.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = AdvisorUpdateForm(request.POST or None, instance=seller_instance)
     advisor_busi = BusinessUpdateForm(request.POST or None, instance=business_instance)
@@ -175,7 +185,7 @@ def BusinessUpdate(request, business_id):
 
 
 
-
+@login_required(login_url='profiles:index')
 def advisor_busi(request):
     model_fields = {
         'first_name': 'first_name',
@@ -409,7 +419,7 @@ def UpdateFiles(request):
 
 
 
-
+@login_required(login_url='profiles:index')
 def StartupUpdate(request, business_id):
     model_fields = {
         'first_name': 'first_name',
@@ -432,6 +442,16 @@ def StartupUpdate(request, business_id):
     # ktype='Business'
     seller_id = business_instance.advisor.advisor_id
     seller_instance = get_object_or_404(Advisor, advisor_id=seller_id)
+    sell = Advise.objects.get(advisor=seller_instance)
+    user = request.user
+    user_sells = user.profile.user_advise.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     # revenue_instance = get_object_or_404(RevenueModel, seller=seller_instance)
     business_form = AdvisorUpdateForm(request.POST or None, instance=seller_instance)
     advisor_startup = StartupUpdateForm(request.POST or None, instance=business_instance)
@@ -504,7 +524,7 @@ def StartupUpdate(request, business_id):
     }
     return render(request, 'advisor/updatestartup.html', context)
 
-
+@login_required(login_url='profiles:index')
 def advisor_startup(request):
     model_fields = {
         'first_name': 'first_name',
@@ -612,7 +632,7 @@ def advisor_startup(request):
     else:
         return redirect('seller1/sellapp.html')
 
-
+@login_required(login_url='profiles:index')
 def AdvisorBusiDelete(request, business_id):
     bsn_id = business_id
     bsn = BusinessAdvisor.objects.get(business_id=bsn_id)
@@ -641,6 +661,7 @@ def AdvisorBusiDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
+@login_required(login_url='profiles:index')
 def AdvisorStartupDelete(request, business_id):
     bsn_id = business_id
     bsn = StartupAdvisor.objects.get(startup_id=bsn_id)
@@ -669,9 +690,19 @@ def AdvisorStartupDelete(request, business_id):
     print('below redirect')
     return redirect('profiles:index')
 
-
+@login_required(login_url='profiles:index')
 def detail_advise_type(request, business_id):
     seller = Advisor.objects.get(advisor_id=business_id)
+    sell = Advise.objects.get(advisor=seller)
+    user = request.user
+    user_sells = user.profile.user_advise.all()
+    found = False
+    for each_sell in user_sells:
+        if each_sell == sell:
+            found = True
+            break
+    if not found:
+        return redirect('profiles:index')
     sell = Advise.objects.get(advisor=seller)
     print(sell)
     stype = sell.type
@@ -867,7 +898,7 @@ def detail_advise_type(request, business_id):
     print(cart_seller)
     return render(request, 'advisor/sell_detail.html', fdata)
 
-
+@login_required(login_url='profiles:index')
 def just_advise_type(request, business_id):
     seller = Advisor.objects.get(advisor_id=business_id)
     sell = Advise.objects.get(advisor=seller)
