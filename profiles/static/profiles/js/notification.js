@@ -27,7 +27,7 @@ var initial_noti = true;
 // }
 
 
-$('#noti_Container_b').click(function(){
+$('#noti_Container_b').on('click',function(){
     var div = document.getElementById('notifications_b');
     if (div.style.display !== 'none') {
         div.style.display = 'none';
@@ -53,7 +53,7 @@ $('#noti_Container_b').click(function(){
     }
     
 })
-$('#noti_Container_s').click(function(){
+$('#noti_Container_s').on('click',function(){
   var div = document.getElementById('notifications_s');
     if (div.style.display !== 'none') {
         div.style.display = 'none';              
