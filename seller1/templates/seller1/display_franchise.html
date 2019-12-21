@@ -134,7 +134,8 @@
                   <input hidden type="text" id="country">
                 </div>
                 <div class="col-md-3">
-                  <select id="category" onchange="get_sub_sectors(this);" class="col-sm-12 h-35px form-control f-13 ff-p">
+                        <!-- onchange="get_sub_sectors(this);" -->
+                  <select id="category" class="col-sm-12 h-35px form-control f-13 ff-p">
                       <option value="">All categories</option>  
                       {% for x in sectors %}
                           <option value="{{x.sectors}}">{{x.sectors}}</option>
