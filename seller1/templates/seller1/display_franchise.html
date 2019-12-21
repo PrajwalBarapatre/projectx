@@ -414,6 +414,8 @@
     <script src="/static/seller1/js/sidebarloader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
 
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
     <script>
             function myFunctions() {
             var x = document.getElementById("Specifications");
@@ -433,9 +435,23 @@
             }
         }
 
+        function get_sub_sectors(ele){
+            var id = ele.id;
+            $.ajax({
+            type: 'GET',
+            url: "/metadata/get_sub_sector/",
+            data: {
+                'sector': $('#' + id).val()
+            },
+            success: function(output){
+                var e = $('#sub_' + id);
+                e.html(output);
+            }
+            });
+        }
 
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+
 <script>
 
     // Note: This example requires that you consent to location sharing when
@@ -444,9 +460,9 @@
     // locate you.
        var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
     // address_auto = document.querySelector('#id_address_line');
-    city1 = document.querySelector('#city');
-    state1 = document.querySelector('#state');
-    country1 = document.querySelector('#country');
+    city1 = $('#city');
+    state1 = $('#state');
+    country1 = $('#country');
 
     function initMap() {
 
@@ -605,7 +621,7 @@ city1.val('{{city}}');
 
     console.log($('#sub_category').val());
 
-    get_sellers($('#Search'), initial=true);
+    
 
 
 }
@@ -2256,6 +2272,8 @@ async:false
 
 
 <script>
+
+get_sellers($('#Search'), initial=true);
 
     $("#overlay").fadeIn();
    

@@ -525,6 +525,9 @@ jQuery(function(){
    jQuery('.arrow_toggle').click();
 });
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+
     <script>
                 function myFunctions() {
                 var x = document.getElementById("Specifications");
@@ -544,10 +547,26 @@ jQuery(function(){
                 }
             }
 
-
+            function get_sub_sectors(ele){
+            var id = ele.id;
+            $.ajax({
+            type: 'GET',
+            url: "/metadata/get_sub_sector/",
+            data: {
+                'sector': $('#' + id).val()
+            },
+            success: function(output){
+                var e = $('#sub_' + id);
+                e.html(output);
+            }
+            });
+        }
+        
     </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+
+
+
 <!-- <script src="https://github.com/warent/markerwithlabel/blob/master/src/markerwithlabel.js"></script> -->
 <script>
 
@@ -558,9 +577,9 @@ jQuery(function(){
     // locate you.
        var map, infoWindow, searchbox, address_auto, mapOptions, marker, city, country, region, lat, long;
     // address_auto = document.querySelector('#id_address_line');
-    city1 = document.querySelector('#city');
-    state1 = document.querySelector('#state');
-    country1 = document.querySelector('#country');
+    city1 = $('#city');
+    state1 = $('#state');
+    country1 = $('#country');
 
     function initMap() {
 
@@ -631,7 +650,7 @@ city1.val('{{city}}');
 
     console.log($('#sub_category').val());
 
-    get_sellers($('#Search'), initial=true);
+    
 
 
     }
@@ -2396,6 +2415,9 @@ async:false
 
 
 <script>
+
+
+get_sellers($('#Search'), initial=true);
 
     $("#overlay").fadeIn();
    
