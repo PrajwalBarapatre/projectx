@@ -910,6 +910,7 @@ function initialTab(n) {
 function get_sub_sectors(ele){
 var id = ele.id;
 $.ajax({
+type: 'GET',
 url: "/metadata/get_sub_sector/",
 data: {
     'sector': $('#' + id).val()
@@ -3377,7 +3378,7 @@ myCurrency();
     
 </script>
 
-<script>
+<!-- <script>
 if (window.DOMParser){ // Firefox, Chrome, Opera, etc.
         parser=new DOMParser();
         xmlDoc=parser.parseFromString(xml,"text/xml");
@@ -3387,7 +3388,7 @@ else {
     xmlDoc.async=false;
     xmlDoc.loadXML(xml); 
 } 
-</script>
+</script> -->
 
 </body>
 
