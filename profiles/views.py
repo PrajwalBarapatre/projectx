@@ -19,6 +19,16 @@ from django import forms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
+from advisor.serializers import AdvisorSerializer
+from advisor.views import adv_model_list, adv_serializer_list
+from album.models import KAlbumForFile
+from investor.serializers import InvestorSerializer
+from investor.views import inv_model_list, inv_serializer_list
+from seller1.models import RevenueModel
+from seller1.serializers import SellerSerializer, RevenueModelSerializer, serializer_list
+from seller1.views import model_list
+from user_seller.models import Sell, Advise, Invest
 from .models import Profile, Notification
 from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm, SubscriptionForm
 from django.http import JsonResponse
@@ -200,7 +210,103 @@ def home_view(request):
 
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
-    
+    similar_sellers = []
+    similar_sell = Sell.objects.all()
+    for similar_seller in similar_sell:
+        investor = similar_seller.seller
+        # if seller == investor:
+        #     continue
+        serializer = SellerSerializer(investor)
+        x = serializer.data
+        album_id = investor.album_id
+        album = KAlbumForFile.objects.get(album_id=album_id)
+        file = album.files.all()[0]
+        file_name = file.name
+        y = {
+            'file_name': file_name,
+            'base_type': 'Seller'
+        }
+        itype = investor.type
+        seller_id = investor.business_id
+        r = None
+        try:
+            srevenue = RevenueModel.objects.get(seller=investor)
+            rserializer = RevenueModelSerializer(srevenue)
+            r = rserializer.data
+        except:
+            r = {}
+            print('no revenue')
+        imodel = model_list[itype].objects.get(seller=investor)
+        iserializer = serializer_list[itype](imodel)
+        z = iserializer.data
+        cx = x.copy()
+        k = {
+            'seller_id': seller_id
+        }
+        cx.update(y)
+        # cx.update(z)
+        cx.update(r)
+        data = {}
+        data['seller'] = cx
+        data['business'] = z
+        similar_sellers.append(data)
+
+    similar_advisors = []
+    similar_sell = Advise.objects.all()
+    for similar_seller in similar_sell:
+        advisor = similar_seller.advisor
+        # if seller == advisor:
+        #     continue
+        serializer = AdvisorSerializer(advisor)
+        x = serializer.data
+        album_id = advisor.album_id
+        album = KAlbumForFile.objects.get(album_id=album_id)
+        file = album.files.all()[0]
+        file_name = file.name
+        y = {
+            'file_name': file_name,
+            'base_type': 'Advisor'
+        }
+        itype = advisor.type
+
+        imodel = adv_model_list[itype].objects.get(advisor=advisor)
+        iserializer = adv_serializer_list[itype](imodel)
+        z = iserializer.data
+        cx = x.copy()
+        cx.update(y)
+        cx.update(z)
+        similar_advisors.append(cx)
+
+    similar_investors = []
+    similar_sell = Invest.objects.all()
+
+    for similar_seller in similar_sell:
+        investor = similar_seller.investor
+        # if seller == investor:
+        #     continue
+        serializer = InvestorSerializer(investor)
+        x = serializer.data
+        album_id = investor.album_id
+        album = KAlbumForFile.objects.get(album_id=album_id)
+        file = album.files.all()[0]
+        file_name = file.name
+        y = {
+            'file_name': file_name,
+            'base_type': 'Investor'
+        }
+        itype = investor.type
+
+        imodel = inv_model_list[itype].objects.get(investor=investor)
+        iserializer = inv_serializer_list[itype](imodel)
+        z = iserializer.data
+        cx = x.copy()
+        cx.update(y)
+        # cx.update(z)
+        data = {}
+        data['seller'] = cx
+        data['business'] = z
+        similar_investors.append(data)
+
     context ={
         'log_form': log_form,
         'reg_form': reg_form,
@@ -209,7 +315,9 @@ def home_view(request):
         'sectors': sectors,
         'notifications':notifications,
         'notif_number':notif_number,
-        # 'num_visits': num_visits,
+        'similar_sellers': similar_sellers,
+        'similar_advisors': similar_advisors,
+        'similar_investors': similar_investors,
     }
     return render(request, "index.html", context)
 
