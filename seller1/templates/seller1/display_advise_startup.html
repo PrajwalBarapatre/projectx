@@ -626,7 +626,7 @@ city1.val('{{city}}');
 
     console.log($('#sub_category').val());
 
-    get_sellers($('#Search'), initial=true);
+    
 
 
     }
@@ -2416,7 +2416,7 @@ async:false
 
 <script>
 
-get_sellers($('#Search'), initial=true);
+
 
     $("#overlay").fadeIn();
    
@@ -2428,6 +2428,9 @@ get_sellers($('#Search'), initial=true);
      $("#overlay").fadeOut();
    });
    
+   $(document).ready(function(){
+    get_sellers($('#Search'), initial=true);
+ })
    
           var a = screen.width;
           console.log(a);

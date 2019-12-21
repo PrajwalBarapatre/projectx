@@ -2585,7 +2585,7 @@ async:false
 
 <script>
 
-get_sellers($('#Search'), initial=true);
+
 
 
  $("#overlay").fadeIn();
@@ -2597,6 +2597,10 @@ $( document ).ajaxStart(function() {
 $( document ).ajaxStop(function() {
   $("#overlay").fadeOut();
 });
+
+$(document).ready(function(){
+    get_sellers($('#Search'), initial=true);
+ })
 
 
        var a = $(window).width();

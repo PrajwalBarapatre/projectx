@@ -2469,7 +2469,6 @@ $.ajax({
 
 <script>
 
-get_sellers($('#Search'), initial=true);
 
    toggle_chat();
 
@@ -2482,6 +2481,10 @@ get_sellers($('#Search'), initial=true);
    $( document ).ajaxStop(function() {
      $("#overlay").fadeOut();
    });
+
+   $(document).ready(function(){
+    get_sellers($('#Search'), initial=true);
+ })
    
    
           var a = screen.width;
