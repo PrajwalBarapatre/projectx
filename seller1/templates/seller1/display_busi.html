@@ -514,14 +514,7 @@
                 }
             }
 
-
-    </script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
-<!-- <script src="https://github.com/warent/markerwithlabel/blob/master/src/markerwithlabel.js"></script> -->
-<script>
-
-function get_sub_sectors(ele){
+    function get_sub_sectors(ele){
             var id = ele.id;
             $.ajax({
             type: 'GET',
@@ -535,6 +528,13 @@ function get_sub_sectors(ele){
             }
             });
         }
+    </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
+<!-- <script src="https://github.com/warent/markerwithlabel/blob/master/src/markerwithlabel.js"></script> -->
+<script>
+
+
 
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
@@ -717,7 +717,7 @@ city1.val('{{city}}');
 
     //console.log($('#sub_category').val());
 
-    get_sellers($('#Search'), initial=true);
+    
 
 
     }
@@ -2721,9 +2721,10 @@ async:false
 </script>
 
 
+
 <script>
 
- 
+ get_sellers($('#Search'), initial=true);
 
 $( document ).ajaxStart(function() {
   $("#overlay").fadeIn();
