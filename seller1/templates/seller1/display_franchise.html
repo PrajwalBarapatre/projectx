@@ -134,8 +134,7 @@
                   <input hidden type="text" id="country">
                 </div>
                 <div class="col-md-3">
-                        <!-- onchange="get_sub_sectors(this);" -->
-                  <select id="category" class="col-sm-12 h-35px form-control f-13 ff-p">
+                  <select id="category" onchange="get_sub_sectors(this);" class="col-sm-12 h-35px form-control f-13 ff-p">
                       <option value="">All categories</option>  
                       {% for x in sectors %}
                           <option value="{{x.sectors}}">{{x.sectors}}</option>
@@ -437,7 +436,7 @@
 
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
-<script src="text/javascript" >
+<script>
 
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
