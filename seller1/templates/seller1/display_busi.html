@@ -944,7 +944,8 @@ $('#cart_'+seller_id).attr('data-just', 'True');
 var in_seller='False';
         var in_advisor='False';
         var in_investor='False';
-        var check_arr = check_for_seller(seller_id);
+        var 
+        _arr = check_for_seller(seller_id);
 for(var p=0; p< check_arr.length; p++){
     if(check_arr[p].found){
         in_seller='True'
@@ -3376,7 +3377,17 @@ myCurrency();
     
 </script>
 
-
+<script>
+if (window.DOMParser){ // Firefox, Chrome, Opera, etc.
+        parser=new DOMParser();
+        xmlDoc=parser.parseFromString(xml,"text/xml");
+        }
+else {
+    xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+    xmlDoc.async=false;
+    xmlDoc.loadXML(xml); 
+} 
+</script>
 
 </body>
 
