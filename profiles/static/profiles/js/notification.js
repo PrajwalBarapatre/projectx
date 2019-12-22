@@ -67,6 +67,7 @@ $('#noti_Bell_s').on('click',function(){
         type:'GET',
         url:'/clear_notif',
         success:function(data){
+            console.log('ajax notif done')
             $('#noti_Counter_s').html('0');
             $('#noti_Counter_b').html('0');
         }
