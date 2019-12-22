@@ -251,7 +251,7 @@ class Header extends React.Component{
           <img src={this.state.other_profile_url} alt="" />
           <p > {this.state.other_name} </p>
         </div>
-        <p className="msgShow"> {self_block} </p>
+        <p className="pl-4 bm-size f-w-bold c-3f ff-pd"> Business Verge </p>
         <div className="social-media">
           <button className="submit btn btn-block-unblock" onClick={this.clickBlock.bind(this)} >
             <h5>{block_name}</h5>
