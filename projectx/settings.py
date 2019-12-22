@@ -281,11 +281,17 @@ USE_TZ = True
 # EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # EMAIL_PORT = 25
 
-EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'admin@bverge.com'
+# EMAIL_HOST_PASSWORD = 'Merge@2019'
+# EMAIL_PORT = 25
+
+EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'admin@bverge.com'
 EMAIL_HOST_PASSWORD = 'Merge@2019'
-EMAIL_PORT = 25
+EMAIL_PORT = 465
 
 
 # Static files (CSS, JavaScript, Images)
