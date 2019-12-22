@@ -27,7 +27,37 @@ var initial_noti = true;
 // }
 
 
-$('#noti_Container_b').on('click',function(){
+
+
+// $('#noti_Container_b').on('click',function(e){
+//     e.preventDefault();
+//     var div = document.getElementById('notifications_b');
+//     if (div.style.display !== 'none') {
+//         div.style.display = 'none';
+        
+//     }
+//     else {
+        
+//         if(initial_noti){
+//         $('#noti_Counter_s').html('0');
+//         $('#noti_Counter_b').html('0');
+//             $.ajax({
+//                 type:'GET',
+//                 url:'/profiles/clear_notif',
+//                 success:function(data){
+//                     $('#noti_Counter_s').html('0');
+//                     $('#noti_Counter_b').html('0');
+//                 }
+//             })
+//                 }
+//                 initial_noti=false;           
+//                 div.style.display = 'block';              
+//     }
+    
+// })
+
+function notification_start(){
+    // e.preventDefault();
     var div = document.getElementById('notifications_b');
     if (div.style.display !== 'none') {
         div.style.display = 'none';
@@ -40,20 +70,20 @@ $('#noti_Container_b').on('click',function(){
         $('#noti_Counter_b').html('0');
             $.ajax({
                 type:'GET',
-                url:'/profiles/clear_notif',
+                url:'clear_notif',
                 success:function(data){
                     $('#noti_Counter_s').html('0');
                     $('#noti_Counter_b').html('0');
                 }
             })
                 }
-                initial_noti=false;
-            
+                initial_noti=false;           
                 div.style.display = 'block';              
     }
     
-})
-$('#noti_Bell_s').on('click',function(){
+}
+function  notification_busi(){
+    
   var div = document.getElementById('notifications_s');
     if (div.style.display !== 'none') {
         div.style.display = 'none';              
@@ -75,7 +105,7 @@ $('#noti_Bell_s').on('click',function(){
         }
         initial_noti=false;
     }         
-})
+}
 
 
 
