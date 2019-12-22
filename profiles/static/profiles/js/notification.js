@@ -97,6 +97,10 @@ function notification_busi(){
     $.ajax({
         type:'GET',
         url:'/clear_notif',
+        beforeSend: function(){
+            $(document).removeClass('loading');
+            $('.notif_loader').addClass('loading');
+        },
         success:function(data){
             console.log('ajax notif done')
             $('#noti_Counter_s').html('0');

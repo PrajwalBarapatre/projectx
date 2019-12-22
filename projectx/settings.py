@@ -283,8 +283,8 @@ USE_TZ = True
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'businessmerge@gmail.com'
-EMAIL_HOST_PASSWORD = 'Verge@2019'
+EMAIL_HOST_USER = 'admin@bverge.com'
+EMAIL_HOST_PASSWORD = 'Merge@2019'
 EMAIL_PORT = 25
 
 

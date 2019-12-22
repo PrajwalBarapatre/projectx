@@ -66,7 +66,7 @@ def email_message(request):
         hbody = '<p>Hii ' + ', verify your business email address using this <strong>' + str(otp) + '</strong></p>'
 
     # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
-    msg = EmailMultiAlternatives(subject, body, 'businessmerge@gmail.com', [email])
+    msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
     msg.attach_alternative(hbody, "text/html")
     msg.send()
     # print(message.sid)
@@ -109,7 +109,7 @@ def email_forgot(request):
 
 
             # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
-            msg = EmailMultiAlternatives(subject, body, 'businessmerge@gmail.com', [email])
+            msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
             msg.attach_alternative(hbody, "text/html")
             msg.send()
             user.profile.otp=otp
@@ -198,7 +198,7 @@ def check_email_otp(request):
 
     # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
 
-    msg = EmailMultiAlternatives(subject, body, 'businessmerge@gmail.com', [email])
+    msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
     msg.attach_alternative(hbody, "text/html")
     msg.send()
     # print(message.sid)
