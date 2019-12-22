@@ -82,7 +82,7 @@ function notification_start(){
     }
     
 }
-function  notification_busi(){
+function notification_busi(){
     
   var div = document.getElementById('notifications_s');
     if (div.style.display !== 'none') {

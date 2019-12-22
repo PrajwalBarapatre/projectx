@@ -749,11 +749,11 @@
                                     {% endif %}
 
                                 {% if user.is_authenticated %}
-                                <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_s" >
+                                <li class="nav-item pr-2 pl-2 pb-2" onclick="notification_busi();" id="noti_Container_s" >
                                         <div id="noti_Counter_s">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
 
                                         <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
-                                         <div id="noti_Button_s"><input id="noti_Bell_s" onclick="notification_busi();" type="image" src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
+                                         <div id="noti_Button_s"><input id="noti_Bell_s"  type="image" src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
 
                                          <!--THE NOTIFICAIONS DROPDOWN BOX.-->
                                          <div id="notifications_s">
