@@ -85,7 +85,8 @@ function notification_start(){
 function notification_busi(){
     
   var div = document.getElementById('notifications_s');
-    if (div.style.display !== 'none') {
+  console.log(div.style.display);
+    if (div.style.display != 'none') {
         div.style.display = 'none';              
     }
     else {
