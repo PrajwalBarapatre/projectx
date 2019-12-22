@@ -65,7 +65,7 @@ $('#noti_Bell_s').on('click',function(){
    $('#noti_Counter_b').html('0');
     $.ajax({
         type:'GET',
-        url:'/profiles/clear_notif',
+        url:'/clear_notif',
         success:function(data){
             $('#noti_Counter_s').html('0');
             $('#noti_Counter_b').html('0');
