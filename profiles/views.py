@@ -540,7 +540,8 @@ def edit_profile(request):
         return JsonResponse(data, safe=False)
 
 def clear_notif(request):
-    notifs = Notification.objects.filter(notif_seen=False)
+    user = request.user
+    notifs = user.profile.notifs.all()
     for notif in notifs:
         notif.notif_seen=True
         notif.save()

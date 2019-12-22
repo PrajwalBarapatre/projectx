@@ -53,7 +53,7 @@ $('#noti_Container_b').on('click',function(){
     }
     
 })
-$('#noti_Container_s').on('click',function(){
+$('#noti_Bell_s').on('click',function(){
   var div = document.getElementById('notifications_s');
     if (div.style.display !== 'none') {
         div.style.display = 'none';              
