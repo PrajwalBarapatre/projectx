@@ -59,7 +59,7 @@ var initial_noti = true;
 function notification_start(){
     // e.preventDefault();
     var div = document.getElementById('notifications_b');
-    if (div.style.display !== 'none') {
+    if (div.style.display != 'none') {
         div.style.display = 'none';
         
     }

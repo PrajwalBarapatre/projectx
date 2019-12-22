@@ -749,7 +749,7 @@
                                     {% endif %}
 
                                 {% if user.is_authenticated %}
-                                <li class="nav-item pr-2 pl-2 pb-2" onclick="notification_busi();" id="noti_Container_s" >
+                                <li class="nav-item pr-2 pl-2 pb-2 notif_loader" onclick="notification_busi();" id="noti_Container_s" >
                                         <div id="noti_Counter_s">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
 
                                         <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
@@ -1459,14 +1459,14 @@
                                                 </a>
                                             </div>
                                         </li> -->
-                                        <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_b" >
+                                        <li class="nav-item pr-2 pl-2 pb-2 notif_loader" id="noti_Container_b" onclick="notification_start();" >
                                                 <div id="noti_Counter_b">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
 
                                                 <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
-                                                 <div id="noti_Button_b"><input type="image" onclick="notification_start();" src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
+                                                 <div id="noti_Button_b"><input type="image"  src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
 
                                                  <!--THE NOTIFICAIONS DROPDOWN BOX.-->
-                                                 <div id="notifications_b">
+                                                 <div id="notifications_b" style="display:none">
                                                      <h3>Notifications</h3>
                                                      <div style="height:300px;">
                                                      {% for notif in notifications %}
@@ -3686,7 +3686,7 @@
 
 {% if user.is_authenticated %}
 <script>
-$(document).on({
+$(document).not($('.notif_loader')).on({
     ajaxStart: function() { $body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }
 });
