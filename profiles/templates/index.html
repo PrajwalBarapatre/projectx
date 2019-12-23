@@ -99,6 +99,32 @@
                     50% 50%
                     no-repeat;
     }
+    #nlodal_s {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
+#nlodal_b {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
 
     /* When the body has the loading class, we turn
     the scrollbar off with overflow:hidden */
@@ -109,6 +135,12 @@
     /* Anytime the body has the loading class, our
     modal element will be visible */
     body.loading .lodal {
+        display: block;
+    }
+    #notif_loader_s.loading .lodal {
+        overflow: hidden;
+    }
+    #notif_loader_s.loading .lodal {
         display: block;
     }
     .h-51{
@@ -884,6 +916,8 @@
 
                                              </div>
                                          </div>
+                                         <div id="notif_loader_s" class="lodal" ><!-- Place at bottom of page --></div>
+                                        
                                      </li>
                                 {% endif %}
                                 </ul>
@@ -1480,6 +1514,8 @@
                                                      </div>
                                                      <div class="seeAll"><a href="#">See All</a></div>
                                                  </div>
+                                                 <div id="notif_loader_b" class="lodal" ><!-- Place at bottom of page --></div>
+                                                <div id="nlodal_b" style="display:none" ><!-- Place at bottom of page --></div>
                                         </li>
                                       {% else %}
                                       <li class="nav-item dropdown pr-2 pl-2">

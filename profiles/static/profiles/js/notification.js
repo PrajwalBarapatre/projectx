@@ -68,10 +68,17 @@ function notification_start(){
         if(initial_noti){
         $('#noti_Counter_s').html('0');
         $('#noti_Counter_b').html('0');
+        $('#noti_Container_b').addClass('loading');
             $.ajax({
                 type:'GET',
                 url:'clear_notif',
+                global: false,
+                // beforeSend: function(){
+                //     // $(document).removeClass('loading');
+                    
+                // },
                 success:function(data){
+                    $('#noti_Container_b').removeClass('loading');
                     $('#noti_Counter_s').html('0');
                     $('#noti_Counter_b').html('0');
                 }
@@ -94,14 +101,18 @@ function notification_busi(){
         if(initial_noti){
           $('#noti_Counter_s').html('0');
    $('#noti_Counter_b').html('0');
+   $('#noti_loader_s').addClass('loading');
+//    $('#nlodal_s').addClass('loading');
     $.ajax({
         type:'GET',
         url:'/clear_notif',
-        beforeSend: function(){
-            $(document).removeClass('loading');
-            $('.notif_loader').addClass('loading');
-        },
+        global: false,
+        // beforeSend: function(){
+        //     // $(document).removeClass('loading');
+            
+        // },
         success:function(data){
+            // $('#noti_Container_s').removeClass('loading');
             console.log('ajax notif done')
             $('#noti_Counter_s').html('0');
             $('#noti_Counter_b').html('0');
