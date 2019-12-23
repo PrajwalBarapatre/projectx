@@ -101,7 +101,7 @@ function notification_busi(){
         if(initial_noti){
           $('#noti_Counter_s').html('0');
    $('#noti_Counter_b').html('0');
-   $('#noti_loader_s').addClass('loading');
+   $('#notif_loader_s').addClass('loading');
 //    $('#nlodal_s').addClass('loading');
     $.ajax({
         type:'GET',
