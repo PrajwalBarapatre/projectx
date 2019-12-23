@@ -26,7 +26,7 @@ SECRET_KEY = '2$v%o)#av9y$+gq93i5o$tlkf_-v(930j(y!52(yd$9l9st-0('
 # print(os.getenv('DJANGO_DB_HOST'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 assert SECRET_KEY is not None, (
     'Please provide DJANGO_SECRET_KEY '
     'environment variable with a value')
