@@ -11,8 +11,8 @@ import requests
 from django.urls import reverse
 from rest_framework.response import Response
 from metadata.views import business_sector, companies,codedata,yeardata
-from seller1.models import Seller1,Ablumfiles, SellBusiness, RevenueModel,\
-    SellAsset, SellEquity, RaiseLoan, SellStartup, SellApp, SellIpcode
+from seller1.models import Seller1, Ablumfiles, SellBusiness, RevenueModel, \
+    SellAsset, SellEquity, RaiseLoan, SellStartup, SellApp, SellIpcode, SellFranchise, Supplier
 from seller1.forms import \
     SellerForm, BusinessForm, SellerUpdateForm, BusinessUpdateForm, \
     RevenueModelForm, RevenueModelUpdateForm, AssetForm, AssetUpdateForm,\
@@ -50,7 +50,9 @@ model_list = {
     'Equity': SellEquity,
     'Startup': SellStartup,
     'Ipcode': SellIpcode,
-    'Application': SellApp
+    'Application': SellApp,
+    'Franchise': SellFranchise,
+    'Supplier': Supplier,
 }
 
 
