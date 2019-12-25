@@ -12,6 +12,14 @@ from chat.models import Chat
 from projectx import settings
 # from attempts.models import Attempt
 
+
+class Feedback(models.Model):
+    feedback_id = models.AutoField(primary_key=True)
+    email = models.EmailField()
+    question = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+
 class Notification(models.Model):
     notif_id = models.AutoField(primary_key=True)
     notif_type = models.CharField(max_length=255)

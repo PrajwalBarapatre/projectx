@@ -30,7 +30,7 @@ from seller1.serializers import SellerSerializer, RevenueModelSerializer, serial
 from seller1.views import model_list
 from user_seller.models import Sell, Advise, Invest
 from .models import Profile, Notification
-from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm, SubscriptionForm
+from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm, SubscriptionForm, FeedbackForm
 from django.http import JsonResponse
 from metadata.views import business_sector, companies,codedata,yeardata
 from .serializers import UserSerializer, ProfileSerializer
@@ -313,8 +313,8 @@ def home_view(request):
         'profile_form': profile_form,
         'code_data': code_data,
         'sectors': sectors,
-        'notifications':notifications,
-        'notif_number':notif_number,
+        # 'notifications':notifications,
+        # 'notif_number':notif_number,
         'similar_sellers': similar_sellers,
         'similar_advisors': similar_advisors,
         'similar_investors': similar_investors,
@@ -546,6 +546,21 @@ def clear_notif(request):
         notif.notif_seen=True
         notif.save()
     return JsonResponse(data={}, safe=False)
+
+
+def feedback_submit(request):
+    if request.POST:
+        feedback_form = FeedbackForm(request.POST)
+        if feedback_form.is_valid():
+            feedback = feedback_form.save(commit=False)
+            feedback.save()
+            data = {}
+            data['status']='valid'
+            return JsonResponse(data, safe=False)
+        else:
+            data = {}
+            data['status'] = 'invalid'
+            return JsonResponse(data, safe=False)
 
 
 def subscription(request):

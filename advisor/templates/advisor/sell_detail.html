@@ -1093,7 +1093,7 @@
                                     password:con_password
                                 },
                                 success:function(data){
-                                    if(data.status==''){
+                                    if(data.status=='valid'){
                                         $('#incorrect_delete').hide();
                                         window.location.replace('/advisor/business/delete/{{business.business_id}}')
                                     }else{
@@ -1258,7 +1258,7 @@
                     password:con_password
                 },
                 success:function(data){
-                    if(data.status==''){
+                    if(data.status=='valid'){
                         $('#incorrect_delete').hide();
                         window.location.replace('/advisor/startup/delete/{{business.startup_id}}')
                     }else{

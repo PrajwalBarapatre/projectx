@@ -1495,6 +1495,11 @@ background: rgba( 255, 255, 255, .8 )
                                                 </a>
                                             </div>
                                         </li> -->
+
+
+                                        <!-- Copy from here to endif of notif_true -->
+
+                                        {% if notif_true %}
                                         <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_b" onclick="notification_start();" >
                                                 <div id="noti_Counter_b">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
 
@@ -1504,21 +1509,55 @@ background: rgba( 255, 255, 255, .8 )
                                                  <!--THE NOTIFICAIONS DROPDOWN BOX.-->
                                                  <div id="notifications_b" style="display:none">
                                                      <h3>Notifications</h3>
-                                                     <div style="height:300px;">
-                                                     {% for notif in notifications %}
-                                                         {% if notif.notif_type == 'Chat' %}
-                                                         <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
-                                                         {% endif %}
-                                                         {% if notif.notif_type == 'Chat' %}
-                                                         <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
-                                                         {% endif %}
-                                                     {% endfor %}
-                                                     </div>
+                                                     <div class="notification_container">
+
+
+                                                        {% for notif in notifications %}
+                                                        {% if notif.notif_type == 'Chat' %}
+            
+                                                        <div class="notify_box">
+                                                                <div class="img_box">
+                                                                    <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
+                                                                </div>
+                                                                <div class="content_box">
+                                                                    <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
+                                                                    <div class="date_time">
+                                                                        <span class="day">Fri</span> at
+                                                                        <span class="time">18:00</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+            
+                                                        {% endif %}
+                                                        {% if notif.notif_type == 'Cart' %}
+                                                        <div class="notify_box">
+                                                                <div class="img_box">
+                                                                    <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
+                                                                </div>
+                                                                <div class="content_box">
+                                                                    <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
+                                                                    <div class="date_time">
+                                                                        <span class="day">Fri</span> at
+                                                                        <span class="time">18:00</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                            
+            
+            
+            
+                                                         </div>
                                                      <div class="seeAll"><a href="#">See All</a></div>
                                                  </div>
                                                  <div id="notif_loader_b" class="lodal" ><!-- Place at bottom of page --></div>
                                                 <div id="nlodal_b" style="display:none" ><!-- Place at bottom of page --></div>
                                         </li>
+                                        {% endif %}
+
+                                        <!-- till here -->
+
                                       {% else %}
                                       <li class="nav-item dropdown pr-2 pl-2">
                                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -2884,36 +2923,79 @@ background: rgba( 255, 255, 255, .8 )
             <!-- <h4 class="modal-title">Modal header</h4> -->
         </div>
         <div class="modal-body pt-1">
-            <form action="" method="POST" id="edit_form" enctype="multipart/form-data" >
+        <form>
             <div class="container-fluid c-3f">
                 <div class="row">
                     <div class="col-sm-12">
-                        <label for="feedback_email" class="f-16 f-w-500 pt-1">Email</label><br>
-                        <input required class="form-control col-sm-12" id="email" name="feedback_email" placeholder="Email" />
-                        <span class="errors" id="first_name_error" style="color: red"></span>
+                        <label  class="f-16 f-w-500 pt-1">Email</label><br>
+                        <input required type="email" class="form-control col-sm-12" id="email_feedback" name="email_feedback" placeholder="Email" />
+                        <span class="errors" id="email_feedback_error" style="color: red">Please provide your email address</span>
                     </div>
                     <div class="col-sm-12">
-                        <label for="feedback_quesion" class="f-16 f-w-500 pt-1">Questions</label><br>
-                        <textarea required class="form-control col-sm-12" rows="3" id="question" name="feedback_quesion" placeholder="Questions" ></textarea>
-                        <span class="errors" id="last_name_error" style="color: red"></span>
+                        <label  class="f-16 f-w-500 pt-1">Questions</label><br>
+                        <textarea required class="form-control col-sm-12" rows="3" id="question_feedback" name="question_feedback" placeholder="Questions" ></textarea>
+                        <span class="errors" id="question_feedback_error" style="color: red">Please mention your query</span>
                     </div>
-                    <div class="col-md-12 text-center pt-2">
-                        <p class="mb-0">
-                            Will get back to you soon ... !!!
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
 
             <div class="col-sm-12 pt-5">
-                <button class="btn-log pt-1 pb-1" id="" type="submit">Submit</button>
+                <button class="btn-log pt-1 pb-1" onclick="feedback_submit();" id="feedback_submit" type="submit">Submit</button>
             </div>
-
+            <div id="feedback_success" style="display:none" class="col-md-12 text-center pt-2">
+                    <p class="mb-0">
+                        Will get back to you soon ... !!!
+                    </p>
+            </div>
         </form>
+        
         </div>
       </div>
     </div>
   </div>
+
+
+
+    <script>
+        function feedback_submit(){
+            var email = $('#email_feedback').val();
+            var question = $('#question_feedback').val();
+            var form_data = new FormData();
+            form_data.append('email',email);
+            form_data.append('question', question);
+            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+            $.ajax({
+                    type: 'POST',
+                    url: '/feedback_submit', // create an AJAX call...
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    async:false, // get the form data
+                    // GET or POST
+                    // the file to call
+                    success: function(data) { // on success..
+                        // $('#log_button').attr("data-dismiss","modal")
+                        if(data.status=='valid'){
+
+                            $('#feedback_success').show();
+                            setTimeout(function(){
+                                $('#feedback_modal').hide();
+                                $('#feedback_success').hide();
+                            },3000)
+                        // update the DIV
+                        // var vdata=JSON.parse(data);
+                        //console.log(data.status);
+                        }else{
+                            alert('Something Went Wrong')
+                            // location.reload();
+                        }
+
+                    }
+                });
+        }
+    </script>
+
 
           <div class="need_qoute" data-toggle="modal" data-target="#feeback_modal">
               <h2>Feedback <i class="fa fa-angle-up" aria-hidden="true"></i></h2>

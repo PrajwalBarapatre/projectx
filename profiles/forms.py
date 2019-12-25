@@ -11,7 +11,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django import forms
 from django.contrib.auth import authenticate, login
-from .models import Profile
+from .models import Profile, Feedback
 
 
 class UserRegisterForm(forms.ModelForm):
@@ -75,6 +75,11 @@ subscription_options = [
     ('1-year', '1-Year subscription Save $30 ($90 USD/Mon)'),
 ]
 
+class FeedbackForm(forms.ModelForm):
+    # contact_number = forms.IntegerField()
+    class Meta:
+        model = Feedback
+        exclude = ['created_at']
 
 class SubscriptionForm(forms.Form):
     plans = forms.ChoiceField(choices=subscription_options)
