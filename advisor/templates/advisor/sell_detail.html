@@ -1844,13 +1844,13 @@
 <!--performance end -->
 {% endif %}
 <!--you may be interested in start -->
-                    <div class="row pt-40">
+                    <!-- <div class="row pt-40">
                         <div class="col-sm-12 col-12 col-lg-12 col-md-12">
                             <h3 class="f-26 ff-p f-w-bold c-3f">You Maybe Interested in:
                             </h3>
                         </div>
-                    </div>
-                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2">
+                    </div> -->
+                    <!-- <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2">
                             <div class="owl-carousel">
                                     {% for seller in inst %}
                                     {%if seller.seller.base_type == 'Seller' %}
@@ -2372,7 +2372,7 @@
 
                                     {% endif %}
 
-                                    <!-- {%if seller.seller.base_type == 'Advisor' %}
+                                    {%if seller.seller.base_type == 'Advisor' %}
                                         <div class="card">
                                                 <a href="">
                                                     <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -2434,7 +2434,7 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                    {% endif %} -->
+                                    {% endif %}
                                     {%if seller.seller.base_type == 'Investor' %}
 
                                         <div class="your_cart card">
@@ -2511,12 +2511,12 @@
                                     {% endif %}
                                     {% endfor %}
                                 </div>
-                    </div>
+                    </div> -->
 
 <!--you may be interested in end -->
 
 <!--sector performance start -->
-                    <div class="row mt-20 mb-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                    <!-- <div class="row mt-20 mb-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
                         <div class="col-sm-12">
                             <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Relevant Sector Companys’ Performance</h1>
                         </div>
@@ -2533,7 +2533,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 <!--sector performance end -->
                 </div>
@@ -2541,12 +2541,18 @@
 <!--chat start -->
             <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
                 <div class="onlineChatBox height-scroller">
-                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                    <!-- <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
                         <button class="btn-sideBox ff-p"> Advanced Valuation
                         </button>
                         <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
                         <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
                         </p>
+                    </div> -->
+                    <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <div id="widget-meter1"></div>
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        </h4>
                     </div>
 
                 </div>
