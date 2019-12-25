@@ -550,17 +550,20 @@ def clear_notif(request):
 
 def feedback_submit(request):
     if request.POST:
-        feedback_form = FeedbackForm(request.POST)
-        if feedback_form.is_valid():
-            feedback = feedback_form.save(commit=False)
-            feedback.save()
-            data = {}
-            data['status']='valid'
-            return JsonResponse(data, safe=False)
-        else:
-            data = {}
-            data['status'] = 'invalid'
-            return JsonResponse(data, safe=False)
+        try:
+            feedback_form = FeedbackForm(request.POST)
+            if feedback_form.is_valid():
+                feedback = feedback_form.save(commit=False)
+                feedback.save()
+                data = {}
+                data['status']='valid'
+                return JsonResponse(data, safe=False)
+            else:
+                data = {}
+                data['status'] = 'invalid'
+                return JsonResponse(data, safe=False)
+        except:
+            return redirect('profiles:user-dash')
 
 
 def subscription(request):

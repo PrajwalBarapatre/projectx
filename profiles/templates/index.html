@@ -2929,12 +2929,12 @@ background: rgba( 255, 255, 255, .8 )
                     <div class="col-sm-12">
                         <label  class="f-16 f-w-500 pt-1">Email</label><br>
                         <input required type="email" class="form-control col-sm-12" id="email_feedback" name="email_feedback" placeholder="Email" />
-                        <span class="errors" id="email_feedback_error" style="color: red">Please provide your email address</span>
+                        <span class="errors" style="display:none" id="email_feedback_error" style="color: red">Please provide your email address</span>
                     </div>
                     <div class="col-sm-12">
                         <label  class="f-16 f-w-500 pt-1">Questions</label><br>
                         <textarea required class="form-control col-sm-12" rows="3" id="question_feedback" name="question_feedback" placeholder="Questions" ></textarea>
-                        <span class="errors" id="question_feedback_error" style="color: red">Please mention your query</span>
+                        <span class="errors" style="display:none" id="question_feedback_error" style="color: red">Please mention your query</span>
                     </div>
                     
                 </div>
@@ -2943,7 +2943,7 @@ background: rgba( 255, 255, 255, .8 )
             <div class="col-sm-12 pt-5">
                 <button class="btn-log pt-1 pb-1" onclick="feedback_submit();" id="feedback_submit" type="submit">Submit</button>
             </div>
-            <div id="feedback_success" style="display:none" class="col-md-12 text-center pt-2">
+            <div id="feedback_success" style="display:none; color: green" class="col-md-12 text-center pt-2">
                     <p class="mb-0">
                         Will get back to you soon ... !!!
                     </p>
@@ -2977,7 +2977,7 @@ background: rgba( 255, 255, 255, .8 )
                     success: function(data) { // on success..
                         // $('#log_button').attr("data-dismiss","modal")
                         if(data.status=='valid'){
-
+                            console.log('feedback submitted')
                             $('#feedback_success').show();
                             setTimeout(function(){
                                 $('#feedback_modal').hide();
@@ -2988,10 +2988,11 @@ background: rgba( 255, 255, 255, .8 )
                         //console.log(data.status);
                         }else{
                             alert('Something Went Wrong')
-                            // location.reload();
+                            
                         }
 
                     }
+                    
                 });
         }
     </script>
