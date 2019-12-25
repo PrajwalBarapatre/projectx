@@ -2957,45 +2957,7 @@ background: rgba( 255, 255, 255, .8 )
 
 
 
-    <script>
-        function feedback_submit(){
-            var email = $('#email_feedback').val();
-            var question = $('#question_feedback').val();
-            var form_data = new FormData();
-            form_data.append('email',email);
-            form_data.append('question', question);
-            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-            $.ajax({
-                    type: 'POST',
-                    url: '/feedback_submit', // create an AJAX call...
-                    data: form_data,
-                    processData: false,
-                    contentType: false,
-                    async:false, // get the form data
-                    // GET or POST
-                    // the file to call
-                    success: function(data) { // on success..
-                        // $('#log_button').attr("data-dismiss","modal")
-                        if(data.status=='valid'){
-                            console.log('feedback submitted')
-                            $('#feedback_success').show();
-                            setTimeout(function(){
-                                $('#feedback_modal').hide();
-                                $('#feedback_success').hide();
-                            },3000)
-                        // update the DIV
-                        // var vdata=JSON.parse(data);
-                        //console.log(data.status);
-                        }else{
-                            alert('Something Went Wrong')
-                            
-                        }
-
-                    }
-                    
-                });
-        }
-    </script>
+    
 
 
           <div class="need_qoute" data-toggle="modal" data-target="#feeback_modal">
@@ -4474,7 +4436,45 @@ switch (type) {
 
 </script>
 
+<script>
+        function feedback_submit(){
+            var email = $('#email_feedback').val();
+            var question = $('#question_feedback').val();
+            var form_data = new FormData();
+            form_data.append('email',email);
+            form_data.append('question', question);
+            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+            $.ajax({
+                    type: 'POST',
+                    url: '/feedback_submit', // create an AJAX call...
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    async:false, // get the form data
+                    // GET or POST
+                    // the file to call
+                    success: function(data) { // on success..
+                        // $('#log_button').attr("data-dismiss","modal")
+                        if(data.status=='valid'){
+                            console.log('feedback submitted')
+                            $('#feedback_success').show();
+                            setTimeout(function(){
+                                $('#feedback_modal').hide();
+                                $('#feedback_success').hide();
+                            },3000)
+                        // update the DIV
+                        // var vdata=JSON.parse(data);
+                        //console.log(data.status);
+                        }else{
+                            alert('Something Went Wrong')
+                            
+                        }
 
+                    }
+                    
+                });
+        }
+    </script>
 <script>
 
         $(document).ready(function(){
