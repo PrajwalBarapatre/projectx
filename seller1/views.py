@@ -127,6 +127,7 @@ def seller(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Business'
                 print(seller_1.album_id)
                 if seller_1.album_id is None:
@@ -1075,6 +1076,7 @@ def seller_asset(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Asset'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -1325,6 +1327,7 @@ def seller_equity(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Equity'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -1579,6 +1582,7 @@ def seller_loan(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Loan'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -1824,6 +1828,7 @@ def seller_startup(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Startup'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -2193,6 +2198,7 @@ def seller_app(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Application'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -2438,6 +2444,7 @@ def seller_ipcode(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Ipcode'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -2558,6 +2565,7 @@ def seller_franchise(request):
                 print('everythin is valid')
                 seller_1 = seller.save(commit=False)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Franchise'
                 if seller_1.album_id is None:
                     # fs = FileSystemStorage()
@@ -2788,6 +2796,7 @@ def seller_supplier(request):
             print('everythin is valid')
             seller_1 = seller.save(commit=False)
             seller_1.save()
+            seller_1.trial = True
             seller_1.type = 'Supplier'
             if seller_1.album_id is None:
                 # fs = FileSystemStorage()
