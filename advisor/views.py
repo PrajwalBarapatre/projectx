@@ -231,6 +231,7 @@ def advisor_busi(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Business'
                 seller_1.save()
                 id = seller_1.advisor_id
@@ -570,6 +571,7 @@ def advisor_startup(request):
                 seller_1 = seller.save(commit=False)
                 #       print(seller)
                 seller_1.save()
+                seller_1.trial = True
                 seller_1.type = 'Startup'
                 seller_1.save()
                 id = seller_1.advisor_id
