@@ -3880,7 +3880,9 @@ $(document).on({
                             setTimeout(function(){
                                 $('#feedback_modal').hide();
                                 $('#feedback_success').hide();
-                            },3000)
+                                $('#email_feedback').val('');
+                                $('#question_feedback').val('');
+                            },1200)
                         // update the DIV
                         // var vdata=JSON.parse(data);
                         //console.log(data.status);
