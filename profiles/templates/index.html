@@ -2923,7 +2923,7 @@ background: rgba( 255, 255, 255, .8 )
             <!-- <h4 class="modal-title">Modal header</h4> -->
         </div>
         <div class="modal-body pt-1">
-        <form>
+        
             <div class="container-fluid c-3f">
                 <div class="row">
                     <div class="col-sm-12">
@@ -2941,14 +2941,14 @@ background: rgba( 255, 255, 255, .8 )
             </div>
 
             <div class="col-sm-12 pt-5">
-                <button class="btn-log pt-1 pb-1" onclick="feedback_submit();" id="feedback_submit" type="submit">Submit</button>
+                <button class="btn-log pt-1 pb-1" onclick="feedb_submit();" type="button">Submit</button>
             </div>
             <div id="feedback_success" style="display:none; color: green" class="col-md-12 text-center pt-2">
                     <p class="mb-0">
                         Will get back to you soon ... !!!
                     </p>
             </div>
-        </form>
+       
         
         </div>
       </div>
@@ -3856,6 +3856,43 @@ $(document).on({
 
 </script>
 <script>
+    function feedb_submit(){
+            var email = $('#email_feedback').val();
+            var question = $('#question_feedback').val();
+            var form_data = new FormData();
+            form_data.append('email',email);
+            form_data.append('question', question);
+            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+            $.ajax({
+                    type: 'POST',
+                    url: '/feedback_submit', // create an AJAX call...
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    async:false, // get the form data
+                    // GET or POST
+                    // the file to call
+                    success: function(data) { // on success..
+                        // $('#log_button').attr("data-dismiss","modal")
+                        if(data.status=='valid'){
+                            console.log('feedback submitted')
+                            $('#feedback_success').show();
+                            setTimeout(function(){
+                                $('#feedback_modal').hide();
+                                $('#feedback_success').hide();
+                            },3000)
+                        // update the DIV
+                        // var vdata=JSON.parse(data);
+                        //console.log(data.status);
+                        }else{
+                            alert('Something Went Wrong')
+                            
+                        }
+
+                    }
+                    
+                });
+        }
     function get_sub_sectors(ele){
     var id = ele.id;
     $.ajax({
@@ -4437,43 +4474,7 @@ switch (type) {
 </script>
 
 <script>
-        function feedback_submit(){
-            var email = $('#email_feedback').val();
-            var question = $('#question_feedback').val();
-            var form_data = new FormData();
-            form_data.append('email',email);
-            form_data.append('question', question);
-            form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-            $.ajax({
-                    type: 'POST',
-                    url: '/feedback_submit', // create an AJAX call...
-                    data: form_data,
-                    processData: false,
-                    contentType: false,
-                    async:false, // get the form data
-                    // GET or POST
-                    // the file to call
-                    success: function(data) { // on success..
-                        // $('#log_button').attr("data-dismiss","modal")
-                        if(data.status=='valid'){
-                            console.log('feedback submitted')
-                            $('#feedback_success').show();
-                            setTimeout(function(){
-                                $('#feedback_modal').hide();
-                                $('#feedback_success').hide();
-                            },3000)
-                        // update the DIV
-                        // var vdata=JSON.parse(data);
-                        //console.log(data.status);
-                        }else{
-                            alert('Something Went Wrong')
-                            
-                        }
-
-                    }
-                    
-                });
-        }
+        
     </script>
 <script>
 
