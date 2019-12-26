@@ -449,6 +449,10 @@ list-style-type: none;
                                                          {{ sell_ipcode.website.errors }}
                                                      </div>
 
+                                                     <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
+                                                     <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
+                                                     <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
+
                                                      <div class="col-sm-12">
                                                         <input hidden name="product_type" id="product_type" />
                                                        <label for="" class="f-16 ff-p f-w-500 pt-19">Type of your Product/Service</label>
@@ -801,6 +805,13 @@ list-style-type: none;
                   }
 
                   if (currTab+n >= x.length) {
+
+                    if(!$('#terms_checkbox').is(":checked")){
+                        $('#terms_error').show()
+                        return false;
+                        }
+                    $('#terms_error').hide()
+
                   // ... the form gets submitted:
                   var number = $('#id_phone_number_primary').val()
                   var code = $('#country_code_primary').val()

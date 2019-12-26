@@ -618,7 +618,11 @@ list-style-type: none;
                                                 {{ sell_app.y3_users|add_class:"w-100" }} 
                                             </div>
                                         </div>
-                                       
+
+                                        
+                                        <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
+                                        <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
+                                        <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
                                         
                                                                                 
 
@@ -974,6 +978,14 @@ list-style-type: none;
                       }
 
                       if (currTab+n >= x.length) {
+
+
+                    if(!$('#terms_checkbox').is(":checked")){
+                        $('#terms_error').show()
+                        return false;
+                    }
+                    $('#terms_error').hide()
+
                       // ... the form gets submitted:
                     //   $("#overlay").fadeIn();
                       var number = $('#id_phone_number_primary').val()

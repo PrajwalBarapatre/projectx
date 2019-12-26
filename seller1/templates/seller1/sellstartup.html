@@ -629,6 +629,11 @@ list-style-type: none;
                                                     <div class="errors" id="email_err" style="color: red">
                                                     {{ rev_form.no_emp.errors }}
                                                     </div>
+
+                                                    <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
+                                                    <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
+                                                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
+
                                                     <h4 class="f-16 f-w-500 pt-30">Cost per employee </h4>
                                                      {{ rev_form.cp_emp|add_class:"usdtagger7 form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
                                                      {{ rev_form.cp_emp_usd|attr:"hidden" }}
@@ -887,6 +892,15 @@ list-style-type: none;
                     }
 
                     if (currTab+n >= x.length) {
+
+
+                        if(!$('#terms_checkbox').is(":checked")){
+                      $('#terms_error').show()
+                    return false;
+                  }
+                  $('#terms_error').hide()
+
+
                     // ... the form gets submitted:
                     var number = $('#id_phone_number_primary').val()
                     var code = $('#country_code_primary').val()

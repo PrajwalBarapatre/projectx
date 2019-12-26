@@ -426,19 +426,21 @@ list-style-type: none;
 
 
                                      {% comment %} <label for="{{ sell_ipcode.looking_for.id_for_label }}" class="f-16 pl-1 pt-30">Looking For?</label>
-                                    {{ sell_ipcode.looking_for|add_class:"form-control ginput begin_empty"|append_attr:"placeholder:Looking For?"|attr:"rows:2"|append_attr:"style: resize:none" }}
+                                    {{ sell_ipcode.looking_for|add_class:"form-control ginput "|append_attr:"placeholder:Looking For?"|attr:"rows:2"|append_attr:"style: resize:none" }}
                                         <div class="errors" id="looking_for_err" style="color: red">
                                     {{ sell_ipcode.looking_for.errors }}
                                     <i class="errors" id="myWordCount_2" style="color: red"></i>
                                     </div>
 
                                      <label for="{{ sell_ipcode.exp_ret.id_for_label }}" class="f-16 pl-1 pt-30">Expected Return</label>
-                                    {{ sell_ipcode.exp_ret|add_class:"form-control ginput begin_empty col-sm-3"|append_attr:"placeholder:55%"}}                                  {% endcomment %}
+                                    {{ sell_ipcode.exp_ret|add_class:"form-control ginput  col-sm-3"|append_attr:"placeholder:55%"}}                                  {% endcomment %}
 
                                       <label for="{{ sell_ipcode.website.id_for_label }}" class="f-16 pl-1 pt-30">Website(Optional)</label>
                                     {{ sell_ipcode.website|add_class:"form-control "|append_attr:"placeholder:www.google.com"}}
 
-                                    
+                                    <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
+                                    <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
+                                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
 
 
 
@@ -719,6 +721,13 @@ list-style-type: none;
                   }
 
                   if (currTab+n >= x.length) {
+
+                    if(!$('#terms_checkbox').is(":checked")){
+                        $('#terms_error').show()
+                        return false;
+                        }
+                    $('#terms_error').hide()
+
                   // ... the form gets submitted:
                   var number = $('#id_phone_number_primary').val()
                   var code = $('#country_code_primary').val()
