@@ -3786,7 +3786,7 @@ def just_sell_type(request, business_id):
     fdata['completeness'] = None
     if stype == 'Business':
         type_fields = 5
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
@@ -3800,11 +3800,11 @@ def just_sell_type(request, business_id):
             optional = optional + 1
         if srevenue.year_13 is None or srevenue.year_13 == 0.00:
             optional = optional + 1
-        if srevenue.no_emp is None or srevenue.no_emp == 0.00:
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
             optional = optional + 1
-        if srevenue.cp_emp is None or srevenue.cp_emp == 0.00:
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
             optional = optional + 1
-        completeness = 100 * (total_fields - optional) / total_fields
+        completeness = 100*(total_fields-optional)/total_fields
         fdata['completeness'] = completeness
         fdata['optional'] = optional
         fdata['total_fields'] = total_fields
