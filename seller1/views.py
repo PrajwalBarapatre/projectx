@@ -3297,6 +3297,231 @@ def detail_sell_type(request, business_id):
     print(fdata['inst'])
     random.shuffle(fdata['cart'])
     print(fdata['inst'])
+
+    basic_fields = 11
+    type_fields = 0
+    optional = 0
+    revenue_fields = 8
+
+    fdata['completeness'] = None
+    if stype == 'Business':
+        type_fields = 5
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+    if stype == 'Asset':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        # if smodel.website:
+        #     optional += 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+    if stype == 'Loan':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+    if stype == 'Equity':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+
+    if stype == 'Startup':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+
+    if stype == 'Application':
+        type_fields = 17
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if smodel.email_app is None or smodel.email_app == '':
+            optional += 1
+        if smodel.monitization_method is None or smodel.monitization_method == '':
+            optional += 1
+        if smodel.platform_used is None or smodel.platform_used == '':
+            optional += 1
+        if smodel.y1_views is None or smodel.y1_views == 0:
+            optional += 1
+        if smodel.y2_views is None or smodel.y2_views == 0:
+            optional += 1
+        if smodel.y3_views is None or smodel.y3_views == 0:
+            optional += 1
+        if smodel.y1_users is None or smodel.y1_users == 0:
+            optional += 1
+        if smodel.y2_users is None or smodel.y2_users == 0:
+            optional += 1
+        if smodel.y3_users is None or smodel.y3_users == 0:
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+
+    if stype == 'Ipcode':
+        type_fields = 6
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if smodel.product_type is None or smodel.product_type == '':
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+    if stype == 'Franchise':
+        type_fields = 7
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        if smodel.cap_req is None or smodel.cap_req == 0:
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+
+    if stype == 'Supplier':
+        type_fields = 3
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website == '':
+            optional += 1
+        # if smodel.cap_req is None or smodel.cap_req==0:
+        #     optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+
     return render(request, 'seller1/detail.html', fdata)
 
 @login_required(login_url='profiles:index')
@@ -3525,6 +3750,229 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
+    basic_fields = 11
+    type_fields = 0
+    optional = 0
+    revenue_fields = 8
+
+    fdata['completeness']=None
+    if stype == 'Business':
+        type_fields = 5
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16==0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17==0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15==0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14==0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13==0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp==0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp==0:
+            optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+    if stype == 'Asset':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        # if smodel.website:
+        #     optional += 1
+        if srevenue.year_16 is None or srevenue.year_16==0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17==0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15==0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14==0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13==0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp==0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp==0:
+            optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+    if stype == 'Loan':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16==0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17==0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15==0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14==0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13==0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp==0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp==0:
+            optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+    if stype == 'Equity':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16==0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17==0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15==0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14==0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13==0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp==0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp==0:
+            optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+
+    if stype == 'Startup':
+        type_fields = 6
+        total_fields = basic_fields + type_fields + revenue_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if srevenue.year_16 is None or srevenue.year_16==0:
+            optional += 1
+        if srevenue.year_17 is None or srevenue.year_17==0:
+            optional += 1
+        if srevenue.year_15 is None or srevenue.year_15==0:
+            optional += 1
+        if srevenue.year_14 is None or srevenue.year_14==0:
+            optional += 1
+        if srevenue.year_13 is None or srevenue.year_13==0:
+            optional += 1
+        if srevenue.no_emp is None or srevenue.no_emp==0:
+            optional += 1
+        if srevenue.cp_emp is None or srevenue.cp_emp==0:
+            optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+
+    if stype == 'Application':
+        type_fields = 17
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if smodel.email_app is None or smodel.email_app=='':
+            optional += 1
+        if smodel.monitization_method is None or smodel.monitization_method=='':
+            optional += 1
+        if smodel.platform_used is None or smodel.platform_used=='':
+            optional += 1
+        if smodel.y1_views is None or smodel.y1_views==0:
+            optional += 1
+        if smodel.y2_views is None or smodel.y2_views==0:
+            optional += 1
+        if smodel.y3_views is None or smodel.y3_views==0:
+            optional += 1
+        if smodel.y1_users is None or smodel.y1_users==0:
+            optional += 1
+        if smodel.y2_users is None or smodel.y2_users==0:
+            optional += 1
+        if smodel.y3_users is None or smodel.y3_users==0:
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+
+    if stype == 'Ipcode':
+        type_fields = 6
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if smodel.product_type is None or smodel.product_type=='':
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+    if stype == 'Franchise':
+        type_fields = 7
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        if smodel.cap_req is None or smodel.cap_req==0:
+            optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
+
+    if stype == 'Supplier':
+        type_fields = 3
+        total_fields = basic_fields + type_fields
+        if smodel.website is None or smodel.website=='':
+            optional += 1
+        # if smodel.cap_req is None or smodel.cap_req==0:
+        #     optional += 1
+        # if srevenue.year_16 or srevenue.year_16==0:
+        #     optional += 1
+        # if srevenue.year_17 or srevenue.year_17==0:
+        #     optional += 1
+        # if srevenue.year_15 or srevenue.year_15==0:
+        #     optional += 1
+        # if srevenue.year_14 or srevenue.year_14==0:
+        #     optional += 1
+        # if srevenue.year_13 or srevenue.year_13==0:
+        #     optional += 1
+        # if srevenue.no_emp or srevenue.no_emp==0:
+        #     optional += 1
+        # if srevenue.cp_emp or srevenue.cp_emp==0:
+        #     optional += 1
+        completeness = 100*(total_fields-optional)/total_fields
+        fdata['completeness']=completeness
 
     print(fdata)
 
