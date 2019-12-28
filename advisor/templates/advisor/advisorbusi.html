@@ -465,7 +465,16 @@ input::-webkit-inner-spin-button {
                                     {{ business_form.title.errors }}
                                     <i class="errors" id="myWordCount_3" style="color: red"></i>
                                     </div>
-
+                
+                <style>                
+                    span.select2.select2-container.select2-container--default.select2-container--below{
+                        width: 100%;
+                    }
+                    .select2-container--default .select2-search--inline .select2-search__field,
+                    .select2-container {
+                        width: 100% !important;
+                    }
+                </style>
                  <div class="row pt-1 ff-p f-w-500">
                            <div class="col-sm-4 col-12">
                                 <input hidden name="skill1" id="skill1" />
@@ -626,11 +635,9 @@ input::-webkit-inner-spin-button {
                                {{ advisor_busi.about.errors }}
                                <i class="errors" id="myWordCount" style="color: red"></i>
                                </div>
+                               <h4 class="f-18 f-w-500 pt-30 d-flex align-items-center"><input id="terms_checkbox" style="height:1rem;width: 1rem;margin-right: 0.5rem;" type="checkbox" checked> Accept <a class="text-primary" href="../../../profiles/templates/terms">Terms and Conditions</a></h4>
                        </div>
                    </div>
-
-                   <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
-                   <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
            </div>
 
