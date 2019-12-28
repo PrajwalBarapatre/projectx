@@ -3302,7 +3302,8 @@ def detail_sell_type(request, business_id):
     type_fields = 0
     optional = 0
     revenue_fields = 8
-
+    fdata['optional']=None
+    fdata['total_fields']=None
     fdata['completeness'] = None
     if stype == 'Business':
         type_fields = 5
@@ -3325,6 +3326,8 @@ def detail_sell_type(request, business_id):
             optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional']=optional
+        fdata['total_fields']=total_fields
     if stype == 'Asset':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
@@ -3346,6 +3349,8 @@ def detail_sell_type(request, business_id):
             optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Loan':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
@@ -3367,6 +3372,8 @@ def detail_sell_type(request, business_id):
             optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Equity':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
@@ -3410,6 +3417,8 @@ def detail_sell_type(request, business_id):
             optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Application':
         type_fields = 17
@@ -3450,6 +3459,8 @@ def detail_sell_type(request, business_id):
         #     optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Ipcode':
         type_fields = 6
@@ -3474,6 +3485,9 @@ def detail_sell_type(request, business_id):
         #     optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+
     if stype == 'Franchise':
         type_fields = 7
         total_fields = basic_fields + type_fields
@@ -3497,6 +3511,8 @@ def detail_sell_type(request, business_id):
         #     optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Supplier':
         type_fields = 3
@@ -3521,6 +3537,8 @@ def detail_sell_type(request, business_id):
         #     optional += 1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     return render(request, 'seller1/detail.html', fdata)
 
