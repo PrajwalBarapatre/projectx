@@ -3307,23 +3307,23 @@ def detail_sell_type(request, business_id):
     fdata['completeness'] = None
     if stype == 'Business':
         type_fields = 5
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         if smodel.website is None or smodel.website == '':
             optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16 == 0.00:
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
             optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17 == 0.00:
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
             optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15 == 0.00:
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
             optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14 == 0.00:
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
             optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13 == 0.00:
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
             optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp == 0.00:
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
             optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp == 0.00:
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
             optional = optional +1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
@@ -3331,7 +3331,7 @@ def detail_sell_type(request, business_id):
         fdata['total_fields'] = total_fields
     if stype == 'Asset':
         type_fields = 6
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         # if smodel.website:
         #     optional = optional +1
@@ -3355,7 +3355,7 @@ def detail_sell_type(request, business_id):
         fdata['total_fields'] = total_fields
     if stype == 'Loan':
         type_fields = 6
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         if smodel.website is None or smodel.website == '':
             optional = optional +1
@@ -3380,7 +3380,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Equity':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         if srevenue.year_16 is None or srevenue.year_16 == 0:
@@ -3403,7 +3403,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Startup':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         if srevenue.year_16 is None or srevenue.year_16 == 0:
@@ -3428,7 +3428,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Application':
         type_fields = 17
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         if smodel.email_app is None or smodel.email_app == '':
@@ -3471,7 +3471,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Ipcode':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         if smodel.product_type is None or smodel.product_type == '':
@@ -3498,7 +3498,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Franchise':
         type_fields = 7
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         if smodel.cap_req is None or smodel.cap_req == 0:
@@ -3525,7 +3525,7 @@ def detail_sell_type(request, business_id):
     if stype == 'Supplier':
         type_fields = 3
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional +1
         # if smodel.cap_req is None or smodel.cap_req==0:
@@ -3790,15 +3790,15 @@ def just_sell_type(request, business_id):
         optional = 0
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
-        if srevenue.year_16 is None or srevenue.year_16 == 0.00:
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
             optional = optional + 1
-        if srevenue.year_17 is None or srevenue.year_17 == 0.00:
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
             optional = optional + 1
-        if srevenue.year_15 is None or srevenue.year_15 == 0.00:
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
             optional = optional + 1
-        if srevenue.year_14 is None or srevenue.year_14 == 0.00:
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
             optional = optional + 1
-        if srevenue.year_13 is None or srevenue.year_13 == 0.00:
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
             optional = optional + 1
         if srevenue.no_emp is None or srevenue.no_emp == 0:
             optional = optional + 1
@@ -3810,7 +3810,7 @@ def just_sell_type(request, business_id):
         fdata['total_fields'] = total_fields
     if stype == 'Asset':
         type_fields = 6
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         # if smodel.website:
         #     optional = optional +1
@@ -3834,7 +3834,7 @@ def just_sell_type(request, business_id):
         fdata['total_fields'] = total_fields
     if stype == 'Loan':
         type_fields = 6
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         optional = 0
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
@@ -3859,7 +3859,7 @@ def just_sell_type(request, business_id):
     if stype == 'Equity':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         if srevenue.year_16 is None or srevenue.year_16 == 0:
@@ -3882,7 +3882,7 @@ def just_sell_type(request, business_id):
     if stype == 'Startup':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields + revenue_fields
+        total_fields = int(basic_fields) + int(type_fields) + int(revenue_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         if srevenue.year_16 is None or srevenue.year_16 == 0:
@@ -3907,7 +3907,7 @@ def just_sell_type(request, business_id):
     if stype == 'Application':
         type_fields = 17
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         if smodel.email_app is None or smodel.email_app == '':
@@ -3950,7 +3950,7 @@ def just_sell_type(request, business_id):
     if stype == 'Ipcode':
         type_fields = 6
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         if smodel.product_type is None or smodel.product_type == '':
@@ -3977,7 +3977,7 @@ def just_sell_type(request, business_id):
     if stype == 'Franchise':
         type_fields = 7
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         if smodel.cap_req is None or smodel.cap_req == 0:
@@ -4004,7 +4004,7 @@ def just_sell_type(request, business_id):
     if stype == 'Supplier':
         type_fields = 3
         optional = 0
-        total_fields = basic_fields + type_fields
+        total_fields = int(basic_fields) + int(type_fields)
         if smodel.website is None or smodel.website == '':
             optional = optional + 1
         # if smodel.cap_req is None or smodel.cap_req==0:
