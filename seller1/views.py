@@ -3302,8 +3302,8 @@ def detail_sell_type(request, business_id):
     # type_fields = 0
     # optional = 0
     revenue_fields = 8
-    fdata['optional']=0
-    fdata['total_fields']=0
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
     fdata['completeness'] = None
     if stype == 'Business':
         type_fields = 5
@@ -3327,8 +3327,8 @@ def detail_sell_type(request, business_id):
             optional = optional +1
         completeness = 100 * (total_fields - optional) / total_fields
         fdata['completeness'] = completeness
-        fdata['optional']=optional
-        fdata['total_fields']=total_fields
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Asset':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
@@ -3778,141 +3778,156 @@ def just_sell_type(request, business_id):
 
     print(fdata['supp_sellers'])
     basic_fields = 11
-    type_fields = 0
-    optional = 0
+    # type_fields = 0
+    # optional = 0
     revenue_fields = 8
-
-    fdata['completeness']=None
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
+    fdata['completeness'] = None
     if stype == 'Business':
         type_fields = 5
         total_fields = basic_fields + type_fields + revenue_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16==0:
-            optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17==0:
-            optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15==0:
-            optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14==0:
-            optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13==0:
-            optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp==0:
-            optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp==0:
-            optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        optional = 0
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0.00:
+            optional = optional + 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0.00:
+            optional = optional + 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0.00:
+            optional = optional + 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0.00:
+            optional = optional + 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0.00:
+            optional = optional + 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0.00:
+            optional = optional + 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0.00:
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Asset':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
+        optional = 0
         # if smodel.website:
         #     optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16==0:
-            optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17==0:
-            optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15==0:
-            optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14==0:
-            optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13==0:
-            optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp==0:
-            optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp==0:
-            optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional = optional + 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional = optional + 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional = optional + 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional = optional + 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional = optional + 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional = optional + 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Loan':
         type_fields = 6
         total_fields = basic_fields + type_fields + revenue_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16==0:
-            optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17==0:
-            optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15==0:
-            optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14==0:
-            optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13==0:
-            optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp==0:
-            optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp==0:
-            optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        optional = 0
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional = optional + 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional = optional + 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional = optional + 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional = optional + 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional = optional + 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional = optional + 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     if stype == 'Equity':
         type_fields = 6
+        optional = 0
         total_fields = basic_fields + type_fields + revenue_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16==0:
-            optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17==0:
-            optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15==0:
-            optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14==0:
-            optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13==0:
-            optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp==0:
-            optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp==0:
-            optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional = optional + 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional = optional + 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional = optional + 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional = optional + 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional = optional + 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional = optional + 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
 
     if stype == 'Startup':
         type_fields = 6
+        optional = 0
         total_fields = basic_fields + type_fields + revenue_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if srevenue.year_16 is None or srevenue.year_16==0:
-            optional = optional +1
-        if srevenue.year_17 is None or srevenue.year_17==0:
-            optional = optional +1
-        if srevenue.year_15 is None or srevenue.year_15==0:
-            optional = optional +1
-        if srevenue.year_14 is None or srevenue.year_14==0:
-            optional = optional +1
-        if srevenue.year_13 is None or srevenue.year_13==0:
-            optional = optional +1
-        if srevenue.no_emp is None or srevenue.no_emp==0:
-            optional = optional +1
-        if srevenue.cp_emp is None or srevenue.cp_emp==0:
-            optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if srevenue.year_16 is None or srevenue.year_16 == 0:
+            optional = optional + 1
+        if srevenue.year_17 is None or srevenue.year_17 == 0:
+            optional = optional + 1
+        if srevenue.year_15 is None or srevenue.year_15 == 0:
+            optional = optional + 1
+        if srevenue.year_14 is None or srevenue.year_14 == 0:
+            optional = optional + 1
+        if srevenue.year_13 is None or srevenue.year_13 == 0:
+            optional = optional + 1
+        if srevenue.no_emp is None or srevenue.no_emp == 0:
+            optional = optional + 1
+        if srevenue.cp_emp is None or srevenue.cp_emp == 0:
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Application':
         type_fields = 17
+        optional = 0
         total_fields = basic_fields + type_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if smodel.email_app is None or smodel.email_app=='':
-            optional = optional +1
-        if smodel.monitization_method is None or smodel.monitization_method=='':
-            optional = optional +1
-        if smodel.platform_used is None or smodel.platform_used=='':
-            optional = optional +1
-        if smodel.y1_views is None or smodel.y1_views==0:
-            optional = optional +1
-        if smodel.y2_views is None or smodel.y2_views==0:
-            optional = optional +1
-        if smodel.y3_views is None or smodel.y3_views==0:
-            optional = optional +1
-        if smodel.y1_users is None or smodel.y1_users==0:
-            optional = optional +1
-        if smodel.y2_users is None or smodel.y2_users==0:
-            optional = optional +1
-        if smodel.y3_users is None or smodel.y3_users==0:
-            optional = optional +1
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if smodel.email_app is None or smodel.email_app == '':
+            optional = optional + 1
+        if smodel.monitization_method is None or smodel.monitization_method == '':
+            optional = optional + 1
+        if smodel.platform_used is None or smodel.platform_used == '':
+            optional = optional + 1
+        if smodel.y1_views is None or smodel.y1_views == 0:
+            optional = optional + 1
+        if smodel.y2_views is None or smodel.y2_views == 0:
+            optional = optional + 1
+        if smodel.y3_views is None or smodel.y3_views == 0:
+            optional = optional + 1
+        if smodel.y1_users is None or smodel.y1_users == 0:
+            optional = optional + 1
+        if smodel.y2_users is None or smodel.y2_users == 0:
+            optional = optional + 1
+        if smodel.y3_users is None or smodel.y3_users == 0:
+            optional = optional + 1
         # if srevenue.year_16 or srevenue.year_16==0:
         #     optional = optional +1
         # if srevenue.year_17 or srevenue.year_17==0:
@@ -3927,16 +3942,19 @@ def just_sell_type(request, business_id):
         #     optional = optional +1
         # if srevenue.cp_emp or srevenue.cp_emp==0:
         #     optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Ipcode':
         type_fields = 6
+        optional = 0
         total_fields = basic_fields + type_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if smodel.product_type is None or smodel.product_type=='':
-            optional = optional +1
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if smodel.product_type is None or smodel.product_type == '':
+            optional = optional + 1
         # if srevenue.year_16 or srevenue.year_16==0:
         #     optional = optional +1
         # if srevenue.year_17 or srevenue.year_17==0:
@@ -3951,15 +3969,19 @@ def just_sell_type(request, business_id):
         #     optional = optional +1
         # if srevenue.cp_emp or srevenue.cp_emp==0:
         #     optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+
     if stype == 'Franchise':
         type_fields = 7
+        optional = 0
         total_fields = basic_fields + type_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
-        if smodel.cap_req is None or smodel.cap_req==0:
-            optional = optional +1
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
+        if smodel.cap_req is None or smodel.cap_req == 0:
+            optional = optional + 1
         # if srevenue.year_16 or srevenue.year_16==0:
         #     optional = optional +1
         # if srevenue.year_17 or srevenue.year_17==0:
@@ -3974,14 +3996,17 @@ def just_sell_type(request, business_id):
         #     optional = optional +1
         # if srevenue.cp_emp or srevenue.cp_emp==0:
         #     optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     if stype == 'Supplier':
         type_fields = 3
+        optional = 0
         total_fields = basic_fields + type_fields
-        if smodel.website is None or smodel.website=='':
-            optional = optional +1
+        if smodel.website is None or smodel.website == '':
+            optional = optional + 1
         # if smodel.cap_req is None or smodel.cap_req==0:
         #     optional = optional +1
         # if srevenue.year_16 or srevenue.year_16==0:
@@ -3998,8 +4023,10 @@ def just_sell_type(request, business_id):
         #     optional = optional +1
         # if srevenue.cp_emp or srevenue.cp_emp==0:
         #     optional = optional +1
-        completeness = 100*(total_fields-optional)/total_fields
-        fdata['completeness']=completeness
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
     print(fdata)
 
