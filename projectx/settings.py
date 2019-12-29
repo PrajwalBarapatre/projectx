@@ -32,7 +32,7 @@ assert SECRET_KEY is not None, (
     'environment variable with a value')
 # ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = [os.getenv('DJANGO_ALLOWED_HOSTS')]
-ALLOWED_HOSTS=['localhost', '127.0.0.1', '[::1]', 'django', 'daphne', 'ec2-13-232-117-88.ap-south-1.compute.amazonaws.com', '13.232.117.88']
+ALLOWED_HOSTS=['localhost', 'bverge.com', 'www.bverge.com', '127.0.0.1', '[::1]', 'django', 'daphne', 'ec2-13-232-117-88.ap-south-1.compute.amazonaws.com', '13.232.117.88']
 DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520
 
@@ -344,6 +344,7 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 
+USE_X_FORWARDED_HOST = True
 
 PAYPAL_RECEIVER_EMAIL = 'businessmerge-facilitator@gmail.com'
 
