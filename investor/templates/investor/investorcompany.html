@@ -365,14 +365,15 @@ input::-webkit-inner-spin-button {
                         </div>
                         </div>
 
-                        <style>
-                            span.select2.select2-container.select2-container--default.select2-container {
-                                min-width: 75%;
-                            }
-                            .m-w-24{
-                                min-width: 24.5%;
-                            }
-                        </style>
+                    <style>
+                        span.select2.select2-container.select2-container--default.select2-container {
+                            min-width: 100%;
+                            max-width: 100%;
+                        }
+                        .m-w-24{
+                            min-width: 20.5%;
+                        }
+                    </style>
 
                         <div id="dialog-confirm"> 
                                 <div class="message">Are you sure you want to exit? All filled form details will be lost</div> 
@@ -575,12 +576,9 @@ input::-webkit-inner-spin-button {
                        <div id="dropzonewidget" class="dropzone ginput begin_empty">
                            <div class="dz-default dz-message"></div>
                        </div>
-
+                       <h4 class="f-18 f-w-500 pt-30 d-flex align-items-center"><input id="terms_checkbox" style="height:1rem;width: 1rem;margin-right: 0.5rem;" type="checkbox" checked> Accept <a class="text-primary pl-2" href="../../../profiles/templates/terms">Terms and Conditions</a></h4>
                     </div>
 
-                    <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
-                    <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
-                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
                 </div>
                 {{ business_form.album_id|attr:"hidden" }}
                    </div>

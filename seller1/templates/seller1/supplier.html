@@ -450,16 +450,15 @@ list-style-type: none;
                                         <div id="dropzonewidget" class="dropzone">
                                             <div class="dz-default dz-message"></div>
                                         </div>
-
+                                        <h4 class="f-18 f-w-500 pt-30 d-flex align-items-center"><input id="terms_checkbox" style="height:1rem;width: 1rem;margin-right: 0.5rem;" type="checkbox" checked> Accept <a class="text-primary pl-2" href="../../../profiles/templates/terms">Terms and Conditions</a></h4>
+                                        <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
+                                        
                                      </div>
                                  </div>
                                  {{ business_form.album_id|attr:"hidden" }}
 
 
-                                 <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
-                                 <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
-                                 <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
-
+                                 
                                  <div class="col-sm-6 col-12 ff-p" >
                                         <div id="map"></div>
 

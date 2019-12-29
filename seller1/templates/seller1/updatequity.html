@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bverge || Update Equityt</title>
+    <title>Bverge || Update Equity</title>
     <link rel="stylesheet" href="{% static 'seller1/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/w3.css' %}">
     <link rel="stylesheet" href="{% static 'seller1/css/jquery-ui.min.css' %}">
@@ -483,7 +483,7 @@ list-style-type: none;
             <div class="custom_tab">
                     <div class="row pt-30">
                       <div class="col-sm-2">
-                        <label for="{{ rev_form.rev_year.id_for_label }}" class="f-16 f-w-500">Revenues/Year:</label>
+                        <h4 for="{{ rev_form.rev_year.id_for_label }}" class="f-16 f-w-500">Revenues (2017):</h4>
                                 <div class="input-group">
                                         {{ rev_form.rev_year|add_class:"usdtagger2 form-control ginput"|attr:"placeholder:0" }}
                                         {{ rev_form.rev_year_usd|attr:"hidden" }}
@@ -588,10 +588,6 @@ list-style-type: none;
                         {{ rev_form.no_emp.errors }}
                         </div>
 
-                        <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
-                        <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
-                        <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
-
                         <h4 class="f-16 f-w-500 pt-30">Cost per employee </h4>
                         {{ rev_form.cp_emp|add_class:"usdtagger8 form-control col-sm-4 ginput"|attr:"placeholder:0" }}
                         {{ rev_form.cp_emp_usd|attr:"hidden" }}
@@ -601,7 +597,9 @@ list-style-type: none;
                         <span id="currency_message_13"></span>
                       </div>
                     </div>
-            </div>
+                    <h4 class="f-18 f-w-500 pt-30 d-flex align-items-center"><input id="terms_checkbox" style="height:1rem;width: 1rem;margin-right: 0.5rem;" type="checkbox" checked> Accept <a class="text-primary pl-2" href="../../../profiles/templates/terms">Terms and Conditions</a></h4>
+                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
+       </div>
 </div>
 </form>
         <!-- Bottom next right container -->

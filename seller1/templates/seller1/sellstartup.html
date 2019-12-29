@@ -630,10 +630,6 @@ list-style-type: none;
                                                     {{ rev_form.no_emp.errors }}
                                                     </div>
 
-                                                    <h4 class="f-16 f-w-500 pt-30">Accept Terms and Conditions</h4>
-                                                    <input id="terms_checkbox" type="checkbox" checked class="form-control col-sm-4">
-                                                    <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
-
                                                     <h4 class="f-16 f-w-500 pt-30">Cost per employee </h4>
                                                      {{ rev_form.cp_emp|add_class:"usdtagger7 form-control col-sm-4 ginput begin_empty"|attr:"placeholder:0" }}
                                                      {{ rev_form.cp_emp_usd|attr:"hidden" }}
@@ -642,8 +638,10 @@ list-style-type: none;
                                                     </div>
                                                     <span id="currency_message_13"></span>
                                                   </div>
-                                    </div>
-                            </div>
+                                        </div>
+                                        <h4 class="f-18 f-w-500 pt-30 d-flex align-items-center"><input id="terms_checkbox" style="height:1rem;width: 1rem;margin-right: 0.5rem;" type="checkbox" checked> Accept <a class="text-primary pl-2" href="../../../profiles/templates/terms">Terms and Conditions</a></h4>
+                                        <span class="errors" style="display:none" id="terms_error" style="color: red">Please accept terms and conditions to list your business</span>
+                           </div>
             </div>
         </form>
         <!-- Bottom next right container -->
