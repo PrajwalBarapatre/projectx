@@ -2852,7 +2852,8 @@ $(document).ready(function(){
             height, numSections, padRad, percToDeg, percToRad,
             percent, radius, svg, totalPercent, width;
 
-            percent = .8;
+            percent = '{{completeness}}'
+            percent = parseFloat(percent)/100;
             numSections = 2;
             sectionPerc = 1 / numSections / 2;
             padRad = 0;
