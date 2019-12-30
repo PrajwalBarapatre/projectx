@@ -2675,51 +2675,7 @@ $('#prof_pic_s').attr('src',name);
 });
 </script>
 
-<script type="text/javascript">
 
-$('#noti_Container_b').click(function(){
-var div = document.getElementById('notifications_b');
-if (div.style.display !== 'none') {
-div.style.display = 'none';
-}
-else {
-div.style.display = 'block';
-}
-})
-$('#noti_Container_s').click(function(){
-var div = document.getElementById('notifications_s');
-if (div.style.display !== 'none') {
-div.style.display = 'none';
-}
-else {
-div.style.display = 'block';
-}
-})
-$('#noti_Button_b').click(function(){
-$('#noti_Counter_s').html('');
-$('#noti_Counter_b').html('');
-$.ajax({
-type:'GET',
-url:'/clear_notif',
-success:function(data){
-    $('#noti_Counter_b').html('');
-    $('#noti_Counter_s').html('');
-}
-})
-})
-$('#noti_Button_s').click(function(){
-$('#noti_Counter_s').html('');
-$('#noti_Counter_b').html('');
-$.ajax({
-type:'GET',
-url:'/clear_notif',
-success:function(data){
-    $('#noti_Counter_s').html('');
-    $('#noti_Counter_b').html('');
-}
-})
-})
-</script>
 {% endif %}
 
 <!-- <script>
