@@ -71,7 +71,7 @@ function notification_start(){
         $('#noti_Container_b').addClass('loading');
             $.ajax({
                 type:'GET',
-                url:'clear_notif',
+                url:'/clear_notif',
                 global: false,
                 // beforeSend: function(){
                 //     // $(document).removeClass('loading');
