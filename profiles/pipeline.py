@@ -37,7 +37,10 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
 
 def check_email_exists(backend,user, strategy, details, response, *args, **kwargs):
     email = details.get('email', '')
-    exists = User.objects.filter(email=email).exists()
+    exists = False
+    users = User.objects.filter(email=email)
+    if len(users) > 1:
+        exists = True
 
     if exists:
         error = {
