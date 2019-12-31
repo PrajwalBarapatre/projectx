@@ -46,17 +46,19 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
     #         return redirect('profiles:auth_error')
 
 
-# def check_email_exists(backend, strategy, response, details, uid, user, *args, **kwargs):
-#     email = details.get('email')
-#     print('check_social_here')
-#     print(email)
-#     exists = False
-#     users = User.objects.filter(email=email)
-#     print(users)
-#     if len(users) > 1:
-#         exists = True
-#
-#     if exists:
-#         return redirect('profiles:auth_error')
-#
-#     pass
+def check_email_exists(backend, strategy, response, details, uid, user, *args, **kwargs):
+    email = details.get('email', None)
+    if email is None:
+        email = response['email']
+    print('check_social_here')
+    print(email)
+    exists = False
+    users = User.objects.filter(email=email)
+    print(users)
+    if len(users) > 1:
+        exists = True
+
+    if exists:
+        return redirect('profiles:auth_error')
+
+    pass
