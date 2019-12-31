@@ -35,7 +35,7 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
         vuser.save()
 
 
-def check_email_exists(backend,user, strategy, details, response, *args, **kwargs):
+def check_email_exists(backend, details, uid, user=None, *args, **kwargs):
     email = details.get('email', '')
     exists = False
     users = User.objects.filter(email=email)
