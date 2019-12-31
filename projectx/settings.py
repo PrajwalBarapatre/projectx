@@ -224,6 +224,9 @@ SOCIAL_AUTH_PIPELINE = (
 
 )
 
+LOGIN_ERROR_URL = '/'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL="/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
