@@ -215,7 +215,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.auth_allowed',
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.user.get_username',
-    # 'profiles.pipeline.check_email_exists',
+    'profiles.pipeline.check_email_exists',
     'social_core.pipeline.user.create_user',
     'profiles.pipeline.get_avatar',
     'social_core.pipeline.social_auth.associate_user',
@@ -225,7 +225,7 @@ SOCIAL_AUTH_PIPELINE = (
 )
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
 SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
-
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 LOGIN_ERROR_URL = '/'
 
 SOCIAL_AUTH_LOGIN_ERROR_URL="/"
