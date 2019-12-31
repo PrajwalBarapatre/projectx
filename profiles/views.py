@@ -187,7 +187,7 @@ def logout_view(request):
 
 
 
-def home_view(request):
+def home_view(request, error=None):
     log_form = UserLoginForm()
     reg_form = UserRegisterForm()
     profile_form = ProfileForm()
@@ -306,7 +306,10 @@ def home_view(request):
         data['seller'] = cx
         data['business'] = z
         similar_investors.append(data)
-
+    social_error = False
+    if error is not None:
+        if error['email_exists']:
+            social_error = True
     context ={
         'log_form': log_form,
         'reg_form': reg_form,
@@ -318,6 +321,7 @@ def home_view(request):
         'similar_sellers': similar_sellers,
         'similar_advisors': similar_advisors,
         'similar_investors': similar_investors,
+        'social_error': social_error,
     }
     return render(request, "index.html", context)
 

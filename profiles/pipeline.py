@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from social_django.models import UserSocialAuth
 from django.contrib.auth.models import User
 
@@ -32,3 +33,16 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
         vuser.profile.photo_url = url
         vuser.profile.social=True
         vuser.save()
+
+
+def check_email_exists(backend,user, strategy, details, response, *args, **kwargs):
+    email = details.get('email', '')
+    exists = User.objects.filter(email=email).exists()
+
+    if exists:
+        error = {
+            'email_exists': True
+        }
+        return redirect('profiles:index', error=error)
+
+    pass
