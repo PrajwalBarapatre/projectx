@@ -33,17 +33,17 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
         vuser.profile.photo_url = url
         vuser.profile.social=True
         vuser.save()
-    userss = User.objects.filter(email=vuser.email)
-    counter = 0
-    for each_user in userss:
-        counter = counter +1
-        if counter == 2:
-            social = UserSocialAuth.objects.get(user=vuser)
-            social.delete()
-            profile = vuser.profile
-            profile.delete()
-            vuser.delete()
-            return redirect('profiles:auth_error')
+    # userss = User.objects.filter(email=vuser.email)
+    # counter = 0
+    # for each_user in userss:
+    #     counter = counter +1
+    #     if counter == 2:
+    #         social = UserSocialAuth.objects.get(user=vuser)
+    #         social.delete()
+    #         profile = vuser.profile
+    #         profile.delete()
+    #         vuser.delete()
+    #         return redirect('profiles:auth_error')
 
 
 # def check_email_exists(backend, details, uid, user=None, *args, **kwargs):
