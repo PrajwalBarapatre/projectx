@@ -223,10 +223,12 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 
 )
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
+SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 
 LOGIN_ERROR_URL = '/'
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL="/"
+SOCIAL_AUTH_LOGIN_ERROR_URL="/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
