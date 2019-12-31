@@ -187,7 +187,7 @@ def logout_view(request):
 
 
 
-def home_view(request, error={}):
+def home_view(request):
     log_form = UserLoginForm()
     reg_form = UserRegisterForm()
     profile_form = ProfileForm()
@@ -307,11 +307,6 @@ def home_view(request, error={}):
         data['business'] = z
         similar_investors.append(data)
     social_error = False
-    try:
-        if error['email_exists']:
-            social_error = True
-    except:
-        pass
     context ={
         'log_form': log_form,
         'reg_form': reg_form,
@@ -734,4 +729,5 @@ def delete_profile(request):
     except:
         return redirect('profiles:index')
 
-
+def auth_error(request):
+    return render(request, 'auth_error.html')

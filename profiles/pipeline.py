@@ -43,9 +43,6 @@ def check_email_exists(backend,user, strategy, details, response, *args, **kwarg
         exists = True
 
     if exists:
-        error = {
-            'email_exists': True
-        }
-        return redirect('profiles:index', error=error)
+        return redirect('profiles:auth_error')
 
     pass

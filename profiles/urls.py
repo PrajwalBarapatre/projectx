@@ -30,5 +30,6 @@ urlpatterns = [
     path('delete_profile', views.delete_profile, name='delete_profile'),
     path('clear_notif', views.clear_notif, name='clear_notif'),
     path('feedback_submit', views.feedback_submit, name='feedback_submit'),
+    path('auth_error', views.auth_error, name='auth_error'),
 
 ]

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BVerge- AI Enabled platform for Business search</title>
+    <link rel="stylesheet" href="/static/profiles/css/bootstrap.min.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link rel="stylesheet" href="/static/profiles/css/w3.css">
+    <!-- <link rel="stylesheet" href="{% static 'profiles/css/jquery-ui.min.css' %}"> -->
+    <link rel="stylesheet" href="/static/profiles/css/style.css">
+    <link rel="stylesheet" href="/static/profiles/css/notification.css">
+    <!-- <link rel="stylesheet" href="{% static 'profiles/css/parsley.css' %}"> -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="/static/seller1/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bverge"/>
+
+    <!-- <meta property="og:description" content="Index Page"/>
+    <meta property='og:url' content='http://13.127.153.254/' />
+    <meta property="og:site_name" content="Bverge"/>
+    <meta property="og:updated_time" content="2018-01-09T00:01:51+05:30" />
+    <meta property="og:image" itemprop="image"  content="http://13.127.153.254/static/seller1/images/Bitmap.png"/>
+    <meta property="og:image:secure_url" itemprop="image"  content="http://13.127.153.254/static/seller1/images/Bitmap.png"/>
+    <meta property="og:image:width" content="958">
+    <meta property="og:image:height" content="698">
+    <meta property="og:image:type" content="image/png"/> -->
+</head>
+
+
+
+<style>
+    #feeback_modal .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_edit_profile .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_change_password .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #signup .profile_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    .f-40{
+    font-size: 40px;
+    }
+    .modal-content{
+    box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+    }
+
+    .pac-container {
+        z-index:20000;
+    }
+    .lodal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('https://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #mlodal {
+
+        position:   fixed;
+        z-index:    10000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('https://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #nlodal_s {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
+#nlodal_b {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
+
+    /* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+    body.loading .lodal {
+        overflow: hidden;
+    }
+
+    /* Anytime the body has the loading class, our
+    modal element will be visible */
+    body.loading .lodal {
+        display: block;
+    }
+    div#notif_loader_s.loading .lodal {
+        overflow: hidden;
+    }
+    div#notif_loader_s.loading .lodal {
+        display: block;
+    }
+    .h-51{
+    height: 51px !important;
+    }
+    .border-r-0{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    }
+    .border-r-all{
+    border-radius: 0;
+    }
+    .location_fields{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
+</style>
+
+<!-- side bar style start-->
+<style>
+    .bg-white{
+        background: #fff;
+        color: #000;
+    }
+</style>
+<!-- side bar style end -->
+
+<body>
+
+        <div>
+            You might have registered with us earlier with the same email id with which you created your google or github or linkedin account. Please try to sign in without git, google or linked in.
+            We will redirect you to the home page
+        </div>
+    <!-- <script src="/profiles/js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="/profiles/js/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+    <script src="/static/profiles/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/profiles/js/jquery-ui.min.js"></script>
+
+    <script src="/static/profiles/js/popper.min.js"></script>
+    <!-- <script src="/profiles/js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="/static/profiles/js/bootstrap.min.js"></script>
+    <!-- <script src="/profiles/js/jquery.validate.min.js"></script> -->
+    <!-- <script src="/profiles/js/parsley.min.js"></script> -->
+    <script src="/static/profiles/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+    <script src="/static/profiles/js/notification.js"></script>
+    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script> -->
+    <script src="/static/seller1/js/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            window.location('https://bverge.com');
+        },1500)
+    })
+</script>
+
+</body>
+
+</html>
