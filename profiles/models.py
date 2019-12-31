@@ -12,6 +12,7 @@ from chat.models import Chat
 from projectx import settings
 # from attempts.models import Attempt
 
+User._meta.get_field('email')._unique = True
 
 class Feedback(models.Model):
     feedback_id = models.AutoField(primary_key=True)
