@@ -229,7 +229,7 @@ SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 LOGIN_ERROR_URL = '/'
 
-SOCIAL_AUTH_LOGIN_ERROR_URL="/"
+SOCIAL_AUTH_LOGIN_ERROR_URL="/auth_error"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
