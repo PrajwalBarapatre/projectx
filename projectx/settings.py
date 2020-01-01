@@ -245,25 +245,30 @@ SOCIAL_AUTH_LOGIN_ERROR_URL="/"
 
 SOCIAL_AUTH_GITHUB_KEY = '3587cb59299b6a333b8e'
 SOCIAL_AUTH_GITHUB_SECRET = '46941b74903fa449f227c956d723e5be9956a4aa'
-
+SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='525491482451-tbhth56o4usmjf1beuca21n4jj2de515.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uYdpgAjU5hPMwlhgarAUZZmk'
 #
 SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '81wmsl0nipfegt'
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'Y4BXLqOUgLXzor2S'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['emailAddress', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
+    ('id', 'id'),
+    ('formattedName', 'name'),
+    ('emailAddress', 'email_address'),
+    ('pictureUrl', 'picture_url'),
+    ('publicProfileUrl', 'profile_url'),
+]
+
+
+
 
 SOCIAL_AUTH_TWITTER_KEY = '9TD12xahCWCDdyLzpmw61GSM9'
 SOCIAL_AUTH_TWITTER_SECRET = 'mwtdcUe4uOvvJjDk2AuQ9Mq2xiHPw3740m5iGLf6hwg3B4TNSx'
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email',}
+SOCIAL_AUTH_FIELD_SELECTORS = ['email-address',]
 
-SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
-        ('id', 'id'),
-        ('formattedName', 'name'),
-        ('emailAddress', 'email_address'),
-        ('pictureUrl', 'picture_url'),
-        ('publicProfileUrl', 'profile_url'),
-    ]
 
 LANGUAGE_CODE = 'en-us'
 

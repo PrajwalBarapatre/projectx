@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/settings.py" afterDir="false" />
     </list>
@@ -88,10 +89,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1576747622538" />
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1577796747061">
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1577867188945">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1577796747061" />
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1577867188945" />
     <state x="365" y="115" width="700" height="530" key="recent.locations.popup" timestamp="1577298050276">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

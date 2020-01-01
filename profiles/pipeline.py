@@ -23,11 +23,13 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
         vuser = user
     if backend.name == 'github':
         url = response['avatar_url']
+        print(response)
         # id = response['id']
         # socialuser = UserSocialAuth.objects.get(uid=id)
         vuser = user
     if url:
         vuser.avatar = url
+        vuser.save()
         vuser.profile.first_name = vuser.first_name
         vuser.profile.last_name = vuser.last_name
         vuser.profile.photo_url = url
