@@ -217,7 +217,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.get_username',
     'profiles.pipeline.check_email_exists',
     # 'social_core.pipeline.social_auth.associate_by_email'
-    'social_core.pipeline.user.create_user',
+    # 'social_core.pipeline.user.create_user',
     'profiles.pipeline.get_avatar',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',

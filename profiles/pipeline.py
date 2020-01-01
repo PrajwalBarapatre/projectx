@@ -1,6 +1,8 @@
 from django.shortcuts import redirect
 from social_django.models import UserSocialAuth
 from django.contrib.auth.models import User
+from social_core.pipeline.user import create_user
+from django.db import IntegrityError
 
 def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
     url = None
@@ -49,18 +51,22 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
 
 
 def check_email_exists(backend, strategy, response, details, uid, user, *args, **kwargs):
-    email = details.get('email', None)
-    if email is None:
-        email = response['email']
-    print('check_social_here')
-    print(email)
-    exists = False
-    users = User.objects.filter(email=email)
-    print(users)
-    if len(users) > 1:
-        exists = True
-
-    if exists:
+    # email = details.get('email', None)
+    # if email is None:
+    #     email = response['email']
+    # print('check_social_here')
+    # print(email)
+    # exists = False
+    # users = User.objects.filter(email=email)
+    # print(users)
+    # if len(users) > 1:
+    #     exists = True
+    #
+    # if exists:
+    #     return redirect('profiles:auth_error')
+    try:
+        create_user(strategy, details, backend, user, *args, **kwargs)
+    except IntegrityError as error:
         return redirect('profiles:auth_error')
 
     pass
