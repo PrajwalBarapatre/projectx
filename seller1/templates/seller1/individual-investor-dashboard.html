@@ -1601,28 +1601,30 @@
                                             <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
                                             <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                             </div>
-                                        
-                                        <div class='modal-body'>
-                                                {% ifequal user.profile.social True %}
+                                        <div id="social_modal" >
+                                        <div class='modal-body' >
+                                                
                                                 <label for="delete_password">OTP has been sent to your email</label>
-                                                <input type="text" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                                <input type="text" id="delete_password_" name="delete_password" class="form-control col-sm-12 ">
                                                 <p style="color:red; display:none;" id="incorrect_delete" >Incorrect OTP, Please try again.. </p>
                                                 <button class="btn-sellers w-100" id="delete_profile_con" >Confirm and Delete</button>
-                                                {% endifequal %}
+                                                
+                                        </div>
                                         </div>
                                         
-                                        
-                                        <div class='modal-body'>
-                                                {% ifequal user.profile.social False %}
+                                        <div id="registered_modal" >
+                                        <div class='modal-body' >
+                                                
                                                 <label for="delete_password">Confirm Password</label>
                                                 <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
                                                 <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
                                                 <button type="button" class="btn-sellers w-100" onclick="delete_profile_own();" >Confirm and Delete</button>
-                                                {% endifequal %}
+                                                
+                                        </div>
                                         </div>
                                         
                                         </div>
-                                        </div>
+                                    </div>
                                 <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
                             </div>
                             <script>
@@ -1782,8 +1784,10 @@
             // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
+                $('#registered_modal').html('')
             }else{
                 name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
+                $('#social_modal').html('')
             }
             console.log(name)
             console.log('{{user.profile.photo_url}}');
