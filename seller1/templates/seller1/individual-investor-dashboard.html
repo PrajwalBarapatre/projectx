@@ -1115,7 +1115,7 @@
                             <button class="btn-startup-cart m-3">Edit Profile
                             </button>
                             </a>
-                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Deactivate Account
+                            <button type="button" id="clk_delete_modal" onclick="delete_modal();" class="btn-startup-cart m-3">Deactivate Account
                             </button>
                         </div>
                     </div>
@@ -1803,7 +1803,7 @@
                             function delete_modal(){
                                 
                                 $.ajax({
-                                    type: 'GET',
+                                    method: 'GET',
                                     url: '/user/check_email',
                                     data:{
                                         email:'{{user.email}}'
