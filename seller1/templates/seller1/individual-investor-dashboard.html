@@ -1119,23 +1119,6 @@
                         </div>
                     </div>
                     {% if user.profile.social %}
-                    <div class="modal" id="delete_profile_modal" >
-                            <div class='modal-dialog modal-lg modal-dialog-centered'>
-                                    <div class='modal-content'>
-                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
-                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
-                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
-                                    </div>
-                                   <div class='modal-body'>
-                                        <label for="delete_password">OTP has been sent to your email</label>
-                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete" >Incorrect OTP, Please try again.. </p>
-                                        <button class="btn-sellers w-100" id="delete_profile" >Confirm and Delete</button>
-                                   </div>
-                                  </div>
-                                   </div>
-                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
-                    </div>
                     <script>
                             function delete_modal(){
                                 
@@ -1163,6 +1146,24 @@
                     
                             
                     </script>
+                    <div class="modal" id="delete_profile_modal" >
+                            <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                    <div class='modal-content'>
+                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                    </div>
+                                   <div class='modal-body'>
+                                        <label for="delete_password">OTP has been sent to your email</label>
+                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                        <p style="color:red; display:none;" id="incorrect_delete" >Incorrect OTP, Please try again.. </p>
+                                        <button class="btn-sellers w-100" id="delete_profile" >Confirm and Delete</button>
+                                   </div>
+                                  </div>
+                                   </div>
+                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                    </div>
+                    
                     {% else %}
                     <div class="modal" id="delete_profile_modal" >
                             <div class='modal-dialog modal-lg modal-dialog-centered'>
