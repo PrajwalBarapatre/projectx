@@ -1665,7 +1665,7 @@ $(document).ready(function(){
                 url: '/unlock_premium',
                 data:{
                     'base_type':'Investor',
-                    'business_id':'{{seller.investor_id}}'
+                    'seller_id':'{{seller.investor_id}}'
                 },
                 success:function(data){
                     if(data.status=='valid'){
