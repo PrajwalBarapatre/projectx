@@ -399,9 +399,9 @@
                     <div class="row pt-36">
                             <div class="col-md-12">
                               <div class="owl-carousel owl2">
-                                      {% for seller in cart %}
-                                      {%if seller.seller.base_type == 'Seller' %}
-                                      {% if seller.seller.type == 'Business' %}
+                                {% for seller in cart %}
+                                    {% if seller.seller.base_type == 'Seller' %}
+                                        {% if seller.seller.type == 'Business' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -470,10 +470,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Equity' %}
+                                        {% if seller.seller.type == 'Equity' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -550,10 +550,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Asset' %}
+                                        {% if seller.seller.type == 'Asset' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -618,10 +618,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Loan' %}
+                                        {% if seller.seller.type == 'Loan' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top"  src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -698,10 +698,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Startup' %}
+                                        {% if seller.seller.type == 'Startup' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -772,10 +772,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Ipcode' %}
+                                        {% if seller.seller.type == 'Ipcode' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top"  src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -847,10 +847,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Application' %}
+                                        {% if seller.seller.type == 'Application' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -922,15 +922,15 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
 
 
 
-                                      {% endif %}
+                                    {% endif %}
 
-                                      {%if seller.seller.base_type == 'Advisor' %}
+                                    {%if seller.seller.base_type == 'Advisor' %}
                                             <div class="your_cart card">
                                                     <a href="" class="img_box">
                                                         <img class="card-img-top img-contain" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -999,8 +999,8 @@
                                                     </div>
                                                     </div>
                                             </div>
-                                      {% endif %}
-                                      {%if seller.seller.base_type == 'Investor' %}
+                                    {% endif %}
+                                    {%if seller.seller.base_type == 'Investor' %}
 
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
@@ -1072,8 +1072,8 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                      {% endif %}
-                                      {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
                                   </div>
                             </div>
                     </div>
@@ -1592,10 +1592,7 @@
 <script src="/static/profiles/js/notification.js"></script>
 <script src="/static/seller1/js/sidebarloader.js"></script>
 
-                        {% ifequal user.profile.social True %}
-                    
-                            
-                        {% endifequal %}
+                        
                         {% ifequal user.profile.social False %}
                             <div class="modal" id="delete_profile_modal" >
                                     <div class='modal-dialog modal-lg modal-dialog-centered'>
@@ -1760,36 +1757,7 @@
 
     {% endif %}
 
-    {% ifequal user.profile.social True %}
-        <script>
-            console.log('{{user.email}}')
-            function delete_modal_own(){
-                
-                $.ajax({
-                    method: 'GET',
-                    url: '/user/check_email',
-                    data:{
-                        email:'{{user.email}}'
-                    },
-                    success:function(data){
-                        if(data.status=='success'){
-                            $('#delete_profile_modal').modal('show');
-                            $('#delete_profile_con').on('click', function(){
-                                if($('#delete_password').val()==data.otp){
-                                    $('#incorrect_delete').hide();
-                                    window.location.replace('/delete_profile')
-                                }else{
-                                    $('#incorrect_delete').show();
-                                }
-                            })
-                        }
-                    }
-                })
-            }
-        
-                
-        </script>
-    {% endifequal %}
+    
 
 
  <!-- <script>
