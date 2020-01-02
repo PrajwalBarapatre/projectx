@@ -70,9 +70,9 @@ class Profile(models.Model):
     sell_type = models.ManyToManyField(Seller1, related_name='profile_from_seller', blank=True)
     advise_type = models.ManyToManyField(Advisor, related_name='profile_from_advisor', blank=True)
     invest_type = models.OneToOneField(Investor, related_name='profile_from_investor', blank=True, null=True, on_delete=models.SET_NULL)
-    user_sell = models.ManyToManyField(Sell, blank=True)
-    user_advise = models.ManyToManyField(Advise, blank=True)
-    user_invest = models.ManyToManyField(Invest, blank=True)
+    user_sell = models.ManyToManyField(Sell, blank=True, related_name='owned_by')
+    user_advise = models.ManyToManyField(Advise, blank=True, related_name='owned_by')
+    user_invest = models.ManyToManyField(Invest, blank=True, related_name='owned_by')
     curr_chat = models.ForeignKey(Chat, blank=True, null=True, on_delete=models.SET_NULL)
     just_sell = models.ManyToManyField(Seller1, related_name='profile_from_jseller', blank=True)
     just_advise = models.ManyToManyField(Advisor, related_name='profile_from_jadvisor', blank=True)
@@ -86,6 +86,9 @@ class Profile(models.Model):
     # otp_valid = models.BooleanField(default=False)
     searches = models.ManyToManyField(Search_log, blank=True, null=True)
     views = models.ManyToManyField(View_log, blank=True, null=True)
+    # sell_unlocks = models.ManyToManyField(Sell, blank=True, related_name='unlocked_by_users')
+    # advise_unlocks = models.ManyToManyField(Advise, blank=True, related_name='unlocked_by_users')
+    # invest_unlocks = models.ManyToManyField(Invest, blank=True, related_name='unlocked_by_users')
 
     # class Paypal_Order(models.Model):
     #     order_id = models.AutoField(primary_key=True)

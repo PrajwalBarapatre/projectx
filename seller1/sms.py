@@ -185,7 +185,9 @@ def check_email_otp(request):
     subject = "Email Verification Business Verge"
 
     email = request.GET['email']
-    name = ''+ request.GET['first_name'] +' '+ request.GET['last_name']
+    name = ''
+    if request.GET['first_name']:
+        name = ''+ request.GET['first_name'] +' '+ request.GET['last_name']
     otp = randint(1000, 9999)
     body = ""
     hbody = ""

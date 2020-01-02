@@ -237,6 +237,7 @@ background: rgba( 255, 255, 255, .8 )
             </button>
             </a>
             <div class="collapse" id="multiple_tagger1">
+                You dont have any listings in here
             </div>
         </div>
         <div class="listing_dashboard_wrapper mt-2">
@@ -246,6 +247,7 @@ background: rgba( 255, 255, 255, .8 )
             </button>
             </a>
             <div class="collapse" id="multiple_tagger2">
+                    You dont have any listings in here
             </div>
         </div>
         <div class="listing_dashboard_wrapper mt-2">
@@ -255,6 +257,7 @@ background: rgba( 255, 255, 255, .8 )
             </button>
             </a>
             <div class="collapse" id="multiple_tagger3">
+                    You dont have any listings in here
             </div>
         </div>
         <a href="/chat">
@@ -4495,10 +4498,20 @@ switch (type) {
                 success:function(data){
                     var a = data["list"];
                     
+                    
+                    var seller_list = true
+                    var investor_list = true
+                    var advisor_list = true
+                
                     for(var i=0;i<a.length;i++)
                     {
+                        
                      //console.log(a[i].seller.title);
                      if(a[i].seller.base_type== 'Seller'){
+                         if(seller_list){
+                            $("#multiple_tagger1").html('')
+                            seller_list = false
+                         }
                         $("#multiple_tagger1").append(
                                  "<a href='/seller/user_detail/"+a[i].seller.business_id+"'>"+
                                     "<button type='button' class='btn bg-white mt-2 w-100 text-control' name='button'>"+a[i].seller.title+"</button>"+
@@ -4506,6 +4519,10 @@ switch (type) {
                           )
                      }
                     if(a[i].seller.base_type== 'Advisor'){
+                        if(advisor_list){
+                            $("#multiple_tagger3").html('')
+                            advisor_list = false
+                         }
                         $("#multiple_tagger3").append(
                                 "<a href='/advisor/user_detail/"+a[i].seller.advisor_id+"'>"+
                                     "<button type='button' class='btn bg-white mt-2 w-100 text-control' name='button'>"+a[i].seller.title+"</button>"+
@@ -4513,6 +4530,10 @@ switch (type) {
                           )
                      }
                     if(a[i].seller.base_type== 'Investor'){
+                        if(investor_list){
+                            $("#multiple_tagger2").html('')
+                            investor_list = false
+                         }
                         $("#multiple_tagger2").append(
                                  "<a href='/investor/user_detail/"+a[i].seller.investor_id+"'>"+
                                     "<button type='button' class='btn bg-white mt-2 w-100 text-control' name='button'>"+a[i].seller.title+"</button>"+
@@ -4521,6 +4542,7 @@ switch (type) {
                      }
 
                     }
+                
                 }
             })
             $("#overlay").fadeOut();

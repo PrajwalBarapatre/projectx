@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advisor/templates/advisor/sell_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/templates/advisor/sell_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/investor/templates/investor/sell_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/investor/templates/investor/sell_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/sms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/individual-investor-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/individual-investor-dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

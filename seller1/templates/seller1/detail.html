@@ -728,9 +728,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -743,22 +744,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/delete/{{business.business_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 <!--business end -->
@@ -874,9 +875,9 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -889,22 +890,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/asset/delete/{{business.asset_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 <!--Asset end -->
@@ -1035,9 +1036,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1050,22 +1052,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/equity/delete/{{business.equity_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1190,9 +1192,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1205,22 +1208,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/loan/delete/{{business.loan_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1340,9 +1343,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1355,22 +1359,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/startup/delete/{{business.startup_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1486,9 +1490,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                       Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1501,22 +1506,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/app/delete/{{business.app_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1622,9 +1627,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1637,22 +1643,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/ipcode/delete/{{business.ipcode_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1759,9 +1765,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1774,22 +1781,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/franchise/delete/{{business.franchise_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
@@ -1903,9 +1910,10 @@
                                     <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
                                     </div>
                                    <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
+                                        Are you sure you want to delete the listing ??
+                                        <!-- <label for="delete_password">Confirm Password</label>
                                         <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p> -->
                                         <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
                                    </div>
                                   </div>
@@ -1918,22 +1926,22 @@
                         }
 
                         function delete_profile(){
-                            var con_password = $('#delete_password').val();
-                            $.ajax({
-                                method:'GET',
-                                url:"{% url 'profiles:con-password' %}",
-                                data:{
-                                    password:con_password
-                                },
-                                success:function(data){
-                                    if(data.status=='valid'){
-                                        $('#incorrect_delete').hide();
+                            // var con_password = $('#delete_password').val();
+                            // $.ajax({
+                            //     method:'GET',
+                            //     url:"{% url 'profiles:con-password' %}",
+                            //     data:{
+                            //         password:con_password
+                            //     },
+                            //     success:function(data){
+                            //         if(data.status=='valid'){
+                            //             $('#incorrect_delete').hide();
                                         window.location.replace('/seller/supplier/delete/{{business.supplier_id}}')
-                                    }else{
-                                        $('#incorrect_delete').show();
-                                    }
-                                }
-                            })
+                            //         }else{
+                            //             $('#incorrect_delete').show();
+                            //         }
+                            //     }
+                            // })
                         }
                     </script>
 
