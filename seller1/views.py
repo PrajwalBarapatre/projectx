@@ -3780,10 +3780,24 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
-
+    unlock_sell = Sell.objects.get(seller=seller)
     fdata['unlock_status'] = False
-    if sell in user.profile.sell_unlocks.all():
+    if unlock_sell in user.profile.sell_unlocks.all():
         fdata['unlock_status'] = True
+    # print(user.profile.sell_unlocks.all())
+    # print('check sell id')
+    # print(sell)
+    #
+    # for unlocked_sell in user.profile.sell_unlocks.all():
+    #     print(unlocked_sell.sell_id)
+    #     if unlocked_sell.sell_id == sell.sell_id:
+    #         print(unlocked_sell.sell_id)
+    #         print(sell.sell_id)
+    #         fdata['unlock_status'] = True
+    #         break
+
+    print('check unlock status')
+    print(fdata['unlock_status'])
 
     basic_fields = 11
     # type_fields = 0

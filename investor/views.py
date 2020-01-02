@@ -849,7 +849,8 @@ def just_invest_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     fdata['unlock_status'] = False
-    if sell in user.profile.invest_unlocks.all():
+    unlock_sell = Invest.objects.get(investor=seller)
+    if unlock_sell in user.profile.invest_unlocks.all():
         fdata['unlock_status'] = True
 
 
