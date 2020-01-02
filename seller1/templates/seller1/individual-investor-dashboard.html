@@ -1109,36 +1109,7 @@
                                 </div>
                             </div>
                         </div>
-                        {% if user.profile.social %}
-                    <script>
-                        console.log('{{user.email}}')
-                            function delete_modal(){
-                                
-                                $.ajax({
-                                    type: 'GET',
-                                    url: '/user/check_email',
-                                    data:{
-                                        email:'{{user.email}}'
-                                    },
-                                    success:function(data){
-                                        if(data.status=='success'){
-                                            $('#delete_profile_modal').modal('show');
-                                            $('#delete_profile').on('click', function(){
-                                                if($('#delete_password').val()==data.otp){
-                                                    $('#incorrect_delete').hide();
-                                                    window.location.replace('/delete_profile')
-                                                }else{
-                                                    $('#incorrect_delete').show();
-                                                }
-                                            })
-                                        }
-                                    }
-                                })
-                            }
-                    
-                            
-                    </script>
-                    {% endif %}
+                        
                         <div class="col-sm-12">
                           <a data-toggle="modal" data-target="#modal_edit_profile">
                             <button class="btn-startup-cart m-3">Edit Profile
@@ -1149,7 +1120,7 @@
                         </div>
                     </div>
                     {% if user.profile.social %}
-                    <script>
+                    <!-- <script>
                             function delete_modal(){
                                 
                                 $.ajax({
@@ -1175,7 +1146,7 @@
                             }
                     
                             
-                    </script>
+                    </script> -->
                     <div class="modal" id="delete_profile_modal" >
                             <div class='modal-dialog modal-lg modal-dialog-centered'>
                                     <div class='modal-content'>
@@ -1826,6 +1797,36 @@
 
 
     {% endif %}
+    {% if user.profile.social %}
+                    <script>
+                        console.log('{{user.email}}')
+                            function delete_modal(){
+                                
+                                $.ajax({
+                                    type: 'GET',
+                                    url: '/user/check_email',
+                                    data:{
+                                        email:'{{user.email}}'
+                                    },
+                                    success:function(data){
+                                        if(data.status=='success'){
+                                            $('#delete_profile_modal').modal('show');
+                                            $('#delete_profile').on('click', function(){
+                                                if($('#delete_password').val()==data.otp){
+                                                    $('#incorrect_delete').hide();
+                                                    window.location.replace('/delete_profile')
+                                                }else{
+                                                    $('#incorrect_delete').show();
+                                                }
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                    
+                            
+                    </script>
+                    {% endif %}
 
 
  <!-- <script>
