@@ -31,5 +31,6 @@ urlpatterns = [
     path('clear_notif', views.clear_notif, name='clear_notif'),
     path('feedback_submit', views.feedback_submit, name='feedback_submit'),
     path('auth_error', views.auth_error, name='auth_error'),
+    path('unlock_premium', sell_views.unlock_premium, name='unlock_premium'),
 
 ]

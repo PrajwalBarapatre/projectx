@@ -490,6 +490,7 @@ body.loading .lodal {
                             {% endif %}
                         </div>
                     </div>
+                    {% if unlock_status %}
                     <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
                         <div class="container-fluid">
                             <div class="row">
@@ -531,6 +532,11 @@ body.loading .lodal {
 
                         </div>
                     </div>
+                    {% else %}
+                        <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                            <button type="button" onclick="unlock_premium();" >Unlock Premium details</button>
+                        </div>
+                    {% endif %}
 {% endif %}
 
 {% if seller.type == 'Company' %}
@@ -596,6 +602,7 @@ body.loading .lodal {
                                     {% endif %}
                                 </div>
                     </div>
+                    {% if unlock_status %}
                     <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
                         <div class="container-fluid">
                             <div class="row">
@@ -637,6 +644,11 @@ body.loading .lodal {
 
                         </div>
                     </div>
+                    {% else %}
+                        <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                            <button type="button" onclick="unlock_premium();" >Unlock Premium details</button>
+                        </div>
+                    {% endif %}
 {% endif %}
 
 
@@ -1645,6 +1657,25 @@ $(document).ready(function(){
 
 </script>
 
+
+<script>
+        function unlock_premium(){
+            $.ajax({
+                method: 'GET',
+                url: '/unlock_premium',
+                data:{
+                    'base_type':'Investor',
+                    'business_id':'{{seller.investor_id}}'
+                },
+                success:function(data){
+                    if(data.status=='valid'){
+                        location.reload()
+                    }
+                    
+                }
+            })
+        }
+</script>
 
 <script>
 

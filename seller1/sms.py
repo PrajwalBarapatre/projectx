@@ -186,8 +186,11 @@ def check_email_otp(request):
 
     email = request.GET['email']
     name = ''
-    if request.GET['first_name']:
-        name = ''+ request.GET['first_name'] +' '+ request.GET['last_name']
+    try:
+        if request.GET['first_name']:
+            name = ''+ request.GET['first_name'] +' '+ request.GET['last_name']
+    except:
+        pass
     otp = randint(1000, 9999)
     body = ""
     hbody = ""

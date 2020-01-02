@@ -399,6 +399,7 @@
                             </div>
                         </div>
                     </div>
+                    {% if unlock_status %}
                     <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
                         <div class="container-fluid">
                             <div class="row">
@@ -453,6 +454,11 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                        <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                            <button type="button" onclick="unlock_premium();" >Unlock Premium details</button>
+                        </div>
+                    {% endif %}
                     {% endif %}
 
                     {% if seller.type == 'Startup' %}
@@ -516,6 +522,7 @@
                             </div>
                         </div>
                     </div>
+                    {% if unlock_status %}
                     <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
                         <div class="container-fluid">
                             <div class="row">
@@ -570,6 +577,11 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                        <div class="row mt-20 pb-12 p-4 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                            <button type="button" onclick="unlock_premium();" >Unlock Premium details</button>
+                        </div>
+                    {% endif %}
                     {% endif %}
                     <!-- <div class="row pt-10">
                         <div class="col-sm-7 col-12 col-lg-7 col-md-7">
@@ -1662,7 +1674,24 @@
 
 
     </script>
-
+    <script>
+            function unlock_premium(){
+                $.ajax({
+                    method: 'GET',
+                    url: '/unlock_premium',
+                    data:{
+                        'base_type':'Advisor',
+                        'business_id':'{{seller.advisor_id}}'
+                    },
+                    success:function(data){
+                        if(data.status=='valid'){
+                            location.reload()
+                        }
+                        
+                    }
+                })
+            }
+    </script>
 
     <script>
         $(".spliter").each(function () {

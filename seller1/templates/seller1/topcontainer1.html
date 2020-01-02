@@ -256,10 +256,7 @@
                         <img id="prof_pic_b" src="" alt="img" class="avatar">
                     </a>
                         <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit Profile</a>
-                          {% ifequal  user.profile.social False %}
-                          <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password" >Change Password</a>
-                          {% endifequal %}
+                          
                           <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
                           <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
                           data-target="#login">Log out</button> -->
@@ -318,6 +315,8 @@
       </div>
     </div>
   </div>
+
+  {% endifequal %}
 
   <div class="modal" id="modal_edit_profile">
           <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1068,7 +1067,7 @@
 
 
 
-  {% endifequal %}
+  
 
 <div class="chat_container">
     <div class="fixed_chat_on_window" id="toggle_chat">

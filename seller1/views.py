@@ -3298,6 +3298,9 @@ def detail_sell_type(request, business_id):
     random.shuffle(fdata['cart'])
     print(fdata['inst'])
 
+
+
+
     basic_fields = 11
     # type_fields = 0
     # optional = 0
@@ -3777,6 +3780,11 @@ def just_sell_type(request, business_id):
         fdata['similar_seller'].append(data)
 
     print(fdata['supp_sellers'])
+
+    fdata['unlock_status'] = False
+    if sell in user.profile.sell_unlocks.all():
+        fdata['unlock_status'] = True
+
     basic_fields = 11
     # type_fields = 0
     # optional = 0
@@ -8054,3 +8062,35 @@ def save_view(request):
         view.save()
         user.profile.views.add(view)
         user.save()
+
+def unlock_premium(request):
+    if request.method=='GET':
+        business_id = request.GET['seller_id']
+        base_type = request.GET['base_type']
+        if base_type=='Seller':
+            seller = Seller1.objects.get(business_id=business_id)
+            sell = Sell.objects.get(seller=seller)
+            user=request.user
+            user.profile.sell_unlocks.add(sell)
+            user.save()
+            data={}
+            data['status']='valid'
+            return JsonResponse(data)
+        if base_type=='Advisor':
+            seller = Advisor.objects.get(advisor_id=business_id)
+            sell = Advise.objects.get(advisor=seller)
+            user=request.user
+            user.profile.advise_unlocks.add(sell)
+            user.save()
+            data={}
+            data['status']='valid'
+            return JsonResponse(data)
+        if base_type=='Investor':
+            seller = Investor.objects.get(investor_id=business_id)
+            sell = Invest.objects.get(investor=seller)
+            user=request.user
+            user.profile.invest_unlocks.add(sell)
+            user.save()
+            data={}
+            data['status']='valid'
+            return JsonResponse(data)
