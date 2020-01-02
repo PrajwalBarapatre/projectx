@@ -1592,7 +1592,7 @@
 <script src="/static/profiles/js/notification.js"></script>
 <script src="/static/seller1/js/sidebarloader.js"></script>
 
-                        {% if user.profile.social %}
+                        {% ifequal user.profile.social True %}
                     
                             <div class="modal" id="delete_profile_modal" >
                                     <div class='modal-dialog modal-lg modal-dialog-centered'>
@@ -1611,8 +1611,8 @@
                                         </div>
                                 <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
                             </div>
-
-                        {% else %}
+                        {% endifequal %}
+                        {% ifequal user.profile.social False %}
                             <div class="modal" id="delete_profile_modal" >
                                     <div class='modal-dialog modal-lg modal-dialog-centered'>
                                             <div class='modal-content'>
@@ -1654,7 +1654,7 @@
                                         })
                                     }
                             </script>
-                        {% endif %}
+                        {% endifequal %}
     
     
 
@@ -1775,8 +1775,8 @@
 
 
     {% endif %}
-    
-    {% if user.profile.social %}
+
+    {% ifequal user.profile.social True %}
         <script>
             console.log('{{user.email}}')
             function delete_modal_own(){
@@ -1805,7 +1805,7 @@
         
                 
         </script>
-    {% endif %}
+    {% endifequal %}
 
 
  <!-- <script>
