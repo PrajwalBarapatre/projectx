@@ -510,6 +510,7 @@ def edit_profile(request):
             print(request.POST['contact_number'])
             user.profile.photo = request.FILES['photo']
             print(request.FILES['photo'])
+            user.profile.photo_updated = True
         except:
             print('except from one')
             pass

@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advisor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/investor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/investor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,10 +89,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1576747622538" />
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1577901855930">
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1578063768514">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1577901855930" />
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1578063768514" />
     <state x="365" y="115" width="700" height="530" key="recent.locations.popup" timestamp="1577298050276">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

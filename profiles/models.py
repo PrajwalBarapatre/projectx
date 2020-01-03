@@ -79,6 +79,7 @@ class Profile(models.Model):
     just_invest = models.ManyToManyField(Investor, related_name='profile_from_jinvestor', blank=True)
     investors_type = models.ManyToManyField(Investor, related_name='related_investor', blank=True)
     social = models.BooleanField(default=False)
+    photo_updated = models.BooleanField(default=False)
     premium = models.BooleanField(default=False)
     trial = models.BooleanField(default=True)
     otp = models.CharField(blank=True, null=True, max_length=255)
