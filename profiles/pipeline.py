@@ -30,6 +30,9 @@ def get_avatar(backend,user, strategy, details, response, *args, **kwargs):
         # socialuser = UserSocialAuth.objects.get(uid=id)
         vuser = user
     if url:
+        # if user is None:
+        #     user = User.objects.get(email=response['email'])
+        #     vuser = user
         vuser.avatar = url
         vuser.save()
         vuser.profile.first_name = vuser.first_name

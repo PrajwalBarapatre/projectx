@@ -19,6 +19,7 @@ from django import forms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from social_django.models import UserSocialAuth
 
 from advisor.serializers import AdvisorSerializer
 from advisor.views import adv_model_list, adv_serializer_list
@@ -509,6 +510,7 @@ def edit_profile(request):
             print(request.POST['contact_number'])
             user.profile.photo = request.FILES['photo']
             print(request.FILES['photo'])
+            user.profile.photo_updated = True
         except:
             print('except from one')
             pass
@@ -708,26 +710,28 @@ def process_subscription(request):
 
 def delete_profile(request):
     # if request.method == 'GET':
-    try:
-        user = request.user
-        user_sells = user.profile.user_sell.all()
-        user_advises = user.profile.user_advise.all()
-        user_invests = user.profile.user_invest.all()
-        for sell in user_sells:
-            seller = sell.seller
-            seller.delete()
-        for invest in user_invests:
-            investor = invest.investor
-            investor.delete()
-        for advise in user_advises:
-            advisor = advise.advisor
-            advisor.delete()
-        # user.profile.active=False
-        username = user.username
-        User.objects.get(username=username).delete()
-        return redirect('profiles:index')
-    except:
-        return redirect('profiles:index')
+    # try:
+    user = request.user
+    user_sells = user.profile.user_sell.all()
+    user_advises = user.profile.user_advise.all()
+    user_invests = user.profile.user_invest.all()
+    for sell in user_sells:
+        seller = sell.seller
+        seller.delete()
+    for invest in user_invests:
+        investor = invest.investor
+        investor.delete()
+    for advise in user_advises:
+        advisor = advise.advisor
+        advisor.delete()
+    # user.profile.active=False
+    username = user.username
+    if user.profile.social:
+        UserSocialAuth.objects.get(user=user).delete()
+    User.objects.get(username=username).delete()
+    return redirect('profiles:index')
+    # except:
+    #     return redirect('profiles:index')
 
 def auth_error(request):
     return render(request, 'auth_error.html')

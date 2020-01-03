@@ -79,6 +79,7 @@ class Profile(models.Model):
     just_invest = models.ManyToManyField(Investor, related_name='profile_from_jinvestor', blank=True)
     investors_type = models.ManyToManyField(Investor, related_name='related_investor', blank=True)
     social = models.BooleanField(default=False)
+    photo_updated = models.BooleanField(default=False)
     premium = models.BooleanField(default=False)
     trial = models.BooleanField(default=True)
     otp = models.CharField(blank=True, null=True, max_length=255)
@@ -86,9 +87,9 @@ class Profile(models.Model):
     # otp_valid = models.BooleanField(default=False)
     searches = models.ManyToManyField(Search_log, blank=True, null=True)
     views = models.ManyToManyField(View_log, blank=True, null=True)
-    # sell_unlocks = models.ManyToManyField(Sell, blank=True, related_name='unlocked_by_users')
-    # advise_unlocks = models.ManyToManyField(Advise, blank=True, related_name='unlocked_by_users')
-    # invest_unlocks = models.ManyToManyField(Invest, blank=True, related_name='unlocked_by_users')
+    sell_unlocks = models.ManyToManyField(Sell, blank=True, related_name='unlocked_by_users')
+    advise_unlocks = models.ManyToManyField(Advise, blank=True, related_name='unlocked_by_users')
+    invest_unlocks = models.ManyToManyField(Invest, blank=True, related_name='unlocked_by_users')
 
     # class Paypal_Order(models.Model):
     #     order_id = models.AutoField(primary_key=True)

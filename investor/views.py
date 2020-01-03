@@ -848,6 +848,12 @@ def just_invest_type(request, business_id):
         data['business'] = z
         fdata['similar_seller'].append(data)
 
+    fdata['unlock_status'] = False
+    unlock_sell = Invest.objects.get(investor=seller)
+    if unlock_sell in user.profile.invest_unlocks.all():
+        fdata['unlock_status'] = True
+
+
     print(fdata)
     return render(request, 'investor/detail.html', fdata)
 
@@ -1049,4 +1055,7 @@ def detail_invest_type(request, business_id):
     random.shuffle(fdata['cart'])
     print(fdata['inst'])
     print(fdata)
+
+
+
     return render(request, 'investor/sell_detail.html', fdata)

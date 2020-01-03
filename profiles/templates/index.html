@@ -3243,11 +3243,15 @@ $(document).on({
             $('#loggedin_icon_s').css('display','block');
             // name="{{user.profile.photo.name}}";
             // name = "{{MEDIA_PREFIX}}/"+name;
+            var name = '';
             if("{{user.profile.social}}"=="True"){
-                name = "{{user.profile.photo_url}}"
-            }
-            
-            else{
+                if("{{user.profile.photo_updated}}"=="True"){
+                    name = "{{MEDIA_PREFIX}}/{{user.profile.photo}}"
+                }else{
+                    name = "{{user.profile.photo_url}}"
+                }
+                
+            }else{
                 name = "{{MEDIA_PREFIX}}/{{user.profile.photo}}";
                 //console.log('{{user.profile.photo.url}}')
             }

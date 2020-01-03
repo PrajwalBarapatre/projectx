@@ -361,8 +361,8 @@
                       </div>
                       <div class="col-md-12">
                         <div class="owl-carousel owl1 owl-theme">
-                              {% for seller in list %}
-                                    {% if seller.seller.base_type == 'Advisor' %}
+                            {% for seller in list %}
+                                {% if seller.seller.base_type == 'Advisor' %}
                                     <div class="item">
                                       <div class="owl_card">
                                         <div class="owl_card_image">
@@ -379,8 +379,8 @@
                                         </div>
                                       </div>
                                     </div>
-                                    {% endif %}
-                              {% endfor %}
+                                {% endif %}
+                            {% endfor %}
                         </div>
                       </div>    
                     </div>
@@ -398,9 +398,9 @@
                     <div class="row pt-36">
                             <div class="col-md-12">
                               <div class="owl-carousel owl2">
-                                      {% for seller in cart %}
-                                      {%if seller.seller.base_type == 'Seller' %}
-                                      {% if seller.seller.type == 'Business' %}
+                                {% for seller in cart %}
+                                    {% if seller.seller.base_type == 'Seller' %}
+                                        {% if seller.seller.type == 'Business' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -469,10 +469,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Equity' %}
+                                        {% if seller.seller.type == 'Equity' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -549,10 +549,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Asset' %}
+                                        {% if seller.seller.type == 'Asset' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -617,10 +617,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Loan' %}
+                                        {% if seller.seller.type == 'Loan' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top"  src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -697,10 +697,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Startup' %}
+                                        {% if seller.seller.type == 'Startup' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -771,10 +771,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Ipcode' %}
+                                        {% if seller.seller.type == 'Ipcode' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top"  src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -846,10 +846,10 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
-                                          {% if seller.seller.type == 'Application' %}
+                                        {% if seller.seller.type == 'Application' %}
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
                                                       <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -921,15 +921,15 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                          {% endif %}
+                                        {% endif %}
 
 
 
 
 
-                                      {% endif %}
+                                    {% endif %}
 
-                                      {%if seller.seller.base_type == 'Advisor' %}
+                                    {%if seller.seller.base_type == 'Advisor' %}
                                             <div class="your_cart card">
                                                     <a href="" class="img_box">
                                                         <img class="card-img-top img-contain" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
@@ -998,8 +998,8 @@
                                                     </div>
                                                     </div>
                                             </div>
-                                      {% endif %}
-                                      {%if seller.seller.base_type == 'Investor' %}
+                                    {% endif %}
+                                    {%if seller.seller.base_type == 'Investor' %}
 
                                           <div class="your_cart card">
                                                   <a href="" class="img_box">
@@ -1071,8 +1071,8 @@
                                                     </div>
                                                   </div>
                                           </div>
-                                      {% endif %}
-                                      {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
                                   </div>
                             </div>
                     </div>
@@ -1108,134 +1108,17 @@
                                 </div>
                             </div>
                         </div>
-                        {% if user.profile.social %}
-                    <script>
-                        console.log('{{user.email}}')
-                            function delete_modal(){
-                                
-                                $.ajax({
-                                    type: 'GET',
-                                    url: '/user/check_email',
-                                    data:{
-                                        email:'{{user.email}}'
-                                    },
-                                    success:function(data){
-                                        if(data.status=='success'){
-                                            $('#delete_profile_modal').modal('show');
-                                            $('#delete_profile').on('click', function(){
-                                                if($('#delete_password').val()==data.otp){
-                                                    $('#incorrect_delete').hide();
-                                                    window.location.replace('/delete_profile')
-                                                }else{
-                                                    $('#incorrect_delete').show();
-                                                }
-                                            })
-                                        }
-                                    }
-                                })
-                            }
-                    
-                            
-                    </script>
-                    {% endif %}
+                        
                         <div class="col-sm-12">
                           <a data-toggle="modal" data-target="#modal_edit_profile">
                             <button class="btn-startup-cart m-3">Edit Profile
                             </button>
                             </a>
-                            <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Deactivate Account
+                            <button type="button" id="clk_delete_modal" onclick="delete_modal_own();" class="btn-startup-cart m-3">Deactivate Account
                             </button>
                         </div>
                     </div>
-                    {% if user.profile.social %}
-                    <script>
-                            function delete_modal(){
-                                
-                                $.ajax({
-                                    type: 'GET',
-                                    url: '/user/check_email',
-                                    data:{
-                                        email:'{{user.email}}'
-                                    },
-                                    success:function(data){
-                                        if(data.status=='success'){
-                                            $('#delete_profile_modal').modal('show');
-                                            $('#delete_profile').on('click', function(){
-                                                if($('#delete_password').val()==data.otp){
-                                                    $('#incorrect_delete').hide();
-                                                    window.location.replace('/delete_profile')
-                                                }else{
-                                                    $('#incorrect_delete').show();
-                                                }
-                                            })
-                                        }
-                                    }
-                                })
-                            }
                     
-                            
-                    </script>
-                    <div class="modal" id="delete_profile_modal" >
-                            <div class='modal-dialog modal-lg modal-dialog-centered'>
-                                    <div class='modal-content'>
-                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
-                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
-                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
-                                    </div>
-                                   <div class='modal-body'>
-                                        <label for="delete_password">OTP has been sent to your email</label>
-                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete" >Incorrect OTP, Please try again.. </p>
-                                        <button class="btn-sellers w-100" id="delete_profile" >Confirm and Delete</button>
-                                   </div>
-                                  </div>
-                                   </div>
-                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
-                    </div>
-                    
-                    {% else %}
-                    <div class="modal" id="delete_profile_modal" >
-                            <div class='modal-dialog modal-lg modal-dialog-centered'>
-                                    <div class='modal-content'>
-                                    <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
-                                    <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
-                                    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
-                                    </div>
-                                   <div class='modal-body'>
-                                        <label for="delete_password">Confirm Password</label>
-                                        <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
-                                        <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
-                                        <button type="button" class="btn-sellers w-100" onclick="delete_profile();" >Confirm and Delete</button>
-                                   </div>
-                                  </div>
-                                   </div>
-                        <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
-                    </div>
-                    <script>
-                            function delete_modal(){
-                                $('#delete_profile_modal').modal('show');
-                            }
-                    
-                            function delete_profile(){
-                                var con_password = $('#delete_password').val();
-                                $.ajax({
-                                    method:'GET',
-                                    url:"{% url 'profiles:con-password' %}",
-                                    data:{
-                                        password:con_password
-                                    },
-                                    success:function(data){
-                                        if(data.status=='valid'){
-                                            $('#incorrect_delete').hide();
-                                            window.location.replace('/delete_profile')
-                                        }else{
-                                            $('#incorrect_delete').show();
-                                        }
-                                    }
-                                })
-                            }
-                    </script>
-                    {% endif %}
                     
 
                     <!-- <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
@@ -1700,15 +1583,102 @@
         cursor: pointer;
     }
     </style>
+
+<script src="/static/profiles/js/jquery-3.3.1.min.js"></script>
+<script src="/static/profiles/js/jquery-ui.min.js"></script>
+<script src="/static/seller1/js/bootstrap.min.js"></script>
+<script src="/static/seller1/js/custom.js"></script>
+<script src="/static/seller1/js/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
+<script src="/static/profiles/js/notification.js"></script>
+<script src="/static/seller1/js/sidebarloader.js"></script>
+
+                        
+                        
+                            <div class="modal" id="delete_profile_modal" >
+                                    <div class='modal-dialog modal-lg modal-dialog-centered'>
+                                            <div class='modal-content'>
+                                            <div class='modal-header d-flex align-items-center' style='background: url(../../static/seller1/images/homepage-banner.png);background-size: cover;background-position: center; height: 150px;'>
+                                            <a class='navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd' href=''>Business Verge</a>
+                                            <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+                                            </div>
+                                        <div id="social_modal" >
+                                        <div class='modal-body' >
+                                                
+                                                <label for="delete_password">OTP has been sent to your email</label>
+                                                <input type="text" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                                <p style="color:red; display:none;" id="incorrect_delete" >Incorrect OTP, Please try again.. </p>
+                                                <button class="btn-sellers w-100" id="delete_profile_con" >Confirm and Delete</button>
+                                                
+                                        </div>
+                                        </div>
+                                        
+                                        <div id="registered_modal" >
+                                        <div class='modal-body' >
+                                                
+                                                <label for="delete_password">Confirm Password</label>
+                                                <input type="password" id="delete_password" name="delete_password" class="form-control col-sm-12 ">
+                                                <p style="color:red; display:none;" id="incorrect_delete"  > Incorrect Password, Please try again.. </p>
+                                                <button type="button" class="btn-sellers w-100" onclick="delete_profile_own();" >Confirm and Delete</button>
+                                                
+                                        </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+                                <!-- <button id="publish_btn" onclick="publish()" >Publish</button> -->
+                            </div>
+                            <script>
+                                    function delete_modal_own(){
+                                        if('{{user.profile.social}}'=='False'){
+                                            $('#delete_profile_modal').modal('show');
+                                        }else{
+                                            $.ajax({
+                                                    method: 'GET',
+                                                    url: '/user/check_email',
+                                                    data:{
+                                                        email:'{{user.email}}'
+                                                    },
+                                                    success:function(data){
+                                                        if(data.status=='success'){
+                                                            $('#delete_profile_modal').modal('show');
+                                                            $('#delete_profile_con').on('click', function(){
+                                                                if($('#delete_password').val()==data.otp){
+                                                                    $('#incorrect_delete').hide();
+                                                                    window.location.replace('/delete_profile')
+                                                                }else{
+                                                                    $('#incorrect_delete').show();
+                                                                }
+                                                            })
+                                                        }
+                                                    }
+                                                }) 
+                                        }
+                                        
+                                    }
+
+                                    function delete_profile_own(){
+                                        var con_password = $('#delete_password').val();
+                                        $.ajax({
+                                            method:'GET',
+                                            url:"{% url 'profiles:con-password' %}",
+                                            data:{
+                                                password:con_password
+                                            },
+                                            success:function(data){
+                                                if(data.status=='valid'){
+                                                    $('#incorrect_delete').hide();
+                                                    window.location.replace('/delete_profile')
+                                                }else{
+                                                    $('#incorrect_delete').show();
+                                                }
+                                            }
+                                        })
+                                    }
+                            </script>
+                        
     
-    <script src="/static/profiles/js/jquery-3.3.1.min.js"></script>
-    <script src="/static/profiles/js/jquery-ui.min.js"></script>
-    <script src="/static/seller1/js/bootstrap.min.js"></script>
-    <script src="/static/seller1/js/custom.js"></script>
-    <script src="/static/seller1/js/owl.carousel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
-    <script src="/static/profiles/js/notification.js"></script>
-    <script src="/static/seller1/js/sidebarloader.js"></script>
+    
 
     <script>
 
@@ -1815,8 +1785,10 @@
             // name = "{{MEDIA_PREFIX}}/"+name;
             if("{{user.profile.social}}"=="True"){
                 name = "{{user.profile.photo_url}}"
+                $('#registered_modal').html('')
             }else{
                 name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
+                $('#social_modal').html('')
             }
             console.log(name)
             console.log('{{user.profile.photo_url}}');
@@ -1827,6 +1799,8 @@
 
 
     {% endif %}
+
+    
 
 
  <!-- <script>
