@@ -291,70 +291,71 @@
         <div class="row">
             <div class="col-sm-9 col-12 col-md-9 col-lg-9">
                 <div class="container-fluid">
+                    {% if list %}
+                        <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
+                            <div class="col-sm-12 pt-36">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Seller Dashboards</h1>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="owl-carousel owl1 owl-theme">
+                                    {% for seller in list %}
+                                        {% if seller.seller.base_type == 'Seller' %}
+                                        <div class="item">
+                                                <div class="owl_card">
+                                                <div class="owl_card_image">
+                                                    <!-- <a href=""> -->
+                                                    <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid">
+                                                    <!-- </a>   -->
+                                                </div>
+                                                <div class="owl_card_footer">
+                                                    <a href="/seller/user_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.title}}</h4>
+                                                        
+                                                    </a>
+                                                    <h4 class="f-14 f-w-bold">{{seller.seller.type}} Listing</h4>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+                                    {% endfor %}
+                            </div>
+                            </div>      
+                        </div>
+                    {% endif %}
+
+                    {% if list %}
                     <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
-                        {% if list %}
-                      <div class="col-sm-12 pt-36">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Seller Dashboards</h1>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="owl-carousel owl1 owl-theme">
-                              {% for seller in list %}
-                                  {% if seller.seller.base_type == 'Seller' %}
-                                    <div class="item">
+                        <div class="col-sm-12 pt-36">
+                            <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Investor Dashboards</h1>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="owl-carousel owl1 owl-theme">
+                                  {% for seller in list %}
+                                        {% if seller.seller.base_type == 'Investor' %}
+                                        <div class="item">
                                           <div class="owl_card">
                                             <div class="owl_card_image">
                                               <!-- <a href=""> -->
-                                                <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid">
-                                              <!-- </a>   -->
+                                                <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid pl-1 pr-2">
+                                              <!-- </a> -->
                                             </div>
                                             <div class="owl_card_footer">
-                                              <a href="/seller/user_detail/{{seller.seller.business_id}}">
-                                                  <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.title}}</h4>
-                                                  
+                                              <a href="/investor/user_detail/{{seller.seller.investor_id}}">
+                                                  <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
+    
                                               </a>
-                                              <h4 class="f-14 f-w-bold">{{seller.seller.type}} Listing</h4>
+                                      <h4 class="f-14 f-w-bold">{{seller.seller.about_seller}} Listing</h4>
                                             </div>
                                           </div>
-                                    </div>
-                                    {% endif %}
-                              {% endfor %}
-                        </div>
-                      </div>
-    
-                      {% endif %}
-
-                        {% if list %}
-                      <div class="col-sm-12 pt-36">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Investor Dashboards</h1>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="owl-carousel owl1 owl-theme">
-                              {% for seller in list %}
-                                    {% if seller.seller.base_type == 'Investor' %}
-                                    <div class="item">
-                                      <div class="owl_card">
-                                        <div class="owl_card_image">
-                                          <!-- <a href=""> -->
-                                            <img src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="" class="img-fluid pl-1 pr-2">
-                                          <!-- </a> -->
                                         </div>
-                                        <div class="owl_card_footer">
-                                          <a href="/investor/user_detail/{{seller.seller.investor_id}}">
-                                              <h4 class="c-19 f-14 f-w-bold text-limit">{{seller.seller.first_name}} {{seller.seller.last_name}}</h4>
-
-                                          </a>
-                                  <h4 class="f-14 f-w-bold">{{seller.seller.about_seller}} Listing</h4>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    {% endif %}
-                              {% endfor %}
-                        </div>
-                      </div>
-    
-                      {% endif %}
-
-                        {% if list %}
+                                        {% endif %}
+                                  {% endfor %}
+                            </div>
+                          </div>
+                    </div>
+                    {% endif %}
+                    {% if list %}
+                    <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">                 
                       <div class="col-sm-12 pt-36">
                         <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Advisor Dashboards</h1>
                       </div>
@@ -381,11 +382,9 @@
                                     {% endif %}
                               {% endfor %}
                         </div>
-                      </div>
-    
-                      {% endif %}
-
-                  </div>
+                      </div>    
+                    </div>
+                    {% endif %}
                 </div>
                 
                 <div class="container-fluid">
@@ -1078,7 +1077,7 @@
                             </div>
                     </div>
                     {% else %}
-                    <div class="row pt-60">
+                    <div class="row pt-20">
                             <div class="col-sm-7 col-12 col-lg-7 col-md-7">
                                 <h3 class="f-26 ff-p f-w-bold c-3f">No listings in your cart</h3>
                             </div>
@@ -1095,14 +1094,14 @@
                                   <div class="container-fluid">
                                       <div class="row">
                                           <div class="col-sm-5">
-                                              <h2 class="f-11 ff-p f-w-bold">Name</h2>
-                                              <h2 class="f-11 ff-p f-w-bold">Email</h2>
-                                              <h2 class="f-11 ff-p f-w-bold">Phone Number</h2>
+                                              <h2 class="f-14 ff-p f-w-bold">Name</h2>
+                                              <h2 class="f-14 ff-p f-w-bold">Email</h2>
+                                              <h2 class="f-14 ff-p f-w-bold">Phone Number</h2>
                                           </div>
                                           <div class="col-sm-7">
-                                              <h2 class="f-11 ff-p">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
-                                              <h2 class="f-11 ff-p">{{user.email}}</h2>
-                                              <h2 class="f-11 ff-p">{{user.profile.contact_number}}</h2>
+                                              <h2 class="f-14 ff-p">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
+                                              <h2 class="f-14 ff-p">{{user.email}}</h2>
+                                              <h2 class="f-14 ff-p">{{user.profile.contact_number}}</h2>
                                           </div>
                                       </div>
                                   </div>
@@ -1239,7 +1238,7 @@
                     {% endif %}
                     
 
-                    <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
+                    <!-- <div class="row mt-20 pb-12 ml-0 mr-0 bg-ff mb-2" style="border: 1px solid #DFDDE9">
                         <div class="col-sm-5">
                             <img src="/static/seller1/images/pic1.jpg" class="img-fluid pt-10" alt="">
                         </div>
@@ -1248,13 +1247,13 @@
                             <button class="btn-bv mr-2 mb-2">Click Here to Unlock</button>
                             <button class="btn-bv mr-2 mb-2">View Video Trailer</button>
                         </div>
-                    </div>
-                    <div class="row pt-40">
+                    </div> -->
+                    <!-- <div class="row pt-40">
                         <div class="col-sm-7 col-12 col-lg-7 col-md-7">
                             <h3 class="f-26 ff-p f-w-bold c-3f">You Maybe Interestred in</h3>
                         </div>
-                    </div>
-                    <div class="row pt-36">
+                    </div> -->
+                    <!-- <div class="row pt-36">
                         <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -1519,7 +1518,7 @@
                                 <span><img src="/static/seller1/images/right-arrow-icon.png" alt=""></span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
 
 
@@ -1531,9 +1530,11 @@
             <div class="col-sm-3 col-12 col-md-3 col-lg-3 mt-1">
                 <div class="onlineChatBox height-scroller">
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <button class="btn-sideBox ff-p">  Learn About Advanced Valuation
-                        </button>
-                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About the Business</h2>
+                        <a href="../../../terms">
+                            <button class="btn-sideBox ff-p">  Learn About Our Value Proposition
+                            </button>
+                        </a>
+                        <h2 class="f-18 ff-pd text-left pt-3 f-w-bold">About Business Verge</h2>
                         <p class="f-16 ff-p text-left">Artificial Intelligence enabled valuation, One of the most advanced valuation model in modern Finance Industry
                         </p>
                     </div>

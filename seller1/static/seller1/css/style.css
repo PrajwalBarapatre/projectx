@@ -1728,19 +1728,47 @@ transition: all 0.3s ease-in-out
     margin: -3px 10px 0 10px;
     cursor: pointer;
 }
+#noti_Button_b {
+    width:22px;
+    height:22px;
+    line-height:22px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    /* background:#FFF; */
+    margin:-3px 10px 0 10px;
+    cursor:pointer;
+}
+#noti_Container_b {
+    position: relative;
+    top: 5px;
+}
+#notifications_b {
+    display: none;
+    width: 430px;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: #FFF;
+    border: solid 1px rgba(100, 100, 100, .20);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .20);
+    z-index: 0;
+}
+
 #noti_Counter_b {
-    display:block;
-    position:absolute;
-    background:#E1141E;
-    color:#FFF;
-    font-size:12px;
-    font-weight:normal;
-    padding:1px 3px;
-    margin:-8px 0 0 25px;
-    border-radius:2px;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    z-index:1;
+    display: block;
+    position: absolute;
+    color: #E1141E;
+    background: transparent;
+    top: -13px;
+    right: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1px 3px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    z-index: 1;
 }
 
 /* THE NOTIFICAIONS WINDOW. THIS REMAINS HIDDEN WHEN THE PAGE LOADS. */
