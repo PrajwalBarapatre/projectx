@@ -1070,7 +1070,7 @@ def just_advise_type(request, business_id):
 
     fdata['unlock_status'] = False
     unlock_sell = Advise.objects.get(advisor=seller)
-    if unlock_sell in user.profile.advise_unlocks.all():
+    if unlock_sell in user.profile.advise_unlocks.all() and unlock_sell not in user.profile.user_advise.all():
         fdata['unlock_status'] = True
     print(fdata)
     return render(request, 'advisor/detail.html', fdata)

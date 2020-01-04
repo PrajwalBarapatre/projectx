@@ -3782,7 +3782,7 @@ def just_sell_type(request, business_id):
     print(fdata['supp_sellers'])
     unlock_sell = Sell.objects.get(seller=seller)
     fdata['unlock_status'] = False
-    if unlock_sell in user.profile.sell_unlocks.all():
+    if unlock_sell in user.profile.sell_unlocks.all() and unlock_sell not in user.profile.user_sell.all():
         fdata['unlock_status'] = True
     # print(user.profile.sell_unlocks.all())
     # print('check sell id')
