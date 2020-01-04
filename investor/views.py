@@ -851,7 +851,7 @@ def just_invest_type(request, business_id):
     fdata['unlock_status'] = False
     unlock_sell = Invest.objects.get(investor=seller)
 
-    if unlock_sell in user.profile.invest_unlocks.all() and unlock_sell not in user.profile.user_invest.all():
+    if unlock_sell in user.profile.invest_unlocks.all() or unlock_sell in user.profile.user_invest.all():
         fdata['unlock_status'] = True
 
 
