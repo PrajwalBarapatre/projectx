@@ -970,7 +970,7 @@ def SellStartupDelete(request, business_id):
 @login_required(login_url='profiles:index')
 def SellFranchiseDelete(request, business_id):
     bsn_id = business_id
-    bsn = SellFranchise.objects.get(ipcode_id=bsn_id)
+    bsn = SellFranchise.objects.get(franchise_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
     sell = Sell.objects.get(seller=seller)
@@ -1000,7 +1000,7 @@ def SellFranchiseDelete(request, business_id):
 @login_required(login_url='profiles:index')
 def SellSupplierDelete(request, business_id):
     bsn_id = business_id
-    bsn = Supplier.objects.get(ipcode_id=bsn_id)
+    bsn = Supplier.objects.get(supplier_id=bsn_id)
     seller_id = bsn.seller.business_id
     seller = Seller1.objects.get(business_id=seller_id)
     sell = Sell.objects.get(seller=seller)
