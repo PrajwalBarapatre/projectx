@@ -22,11 +22,11 @@ margin: 4px 0;
 text-align:left;
 }
 .notify_box .img_box{
-    width: 85px;
-    max-width: 85px;
+    min-width: 60px;
+    max-width: 60px;
     text-align: center;
     display: flex;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
 }
@@ -39,6 +39,7 @@ object-fit: contain;
 display: flex;
 flex-direction: column;
 justify-content: center;
+padding-right: 0.5rem;
 }
 .notify_box .content_box a p{
 margin: 0;

@@ -245,6 +245,39 @@
         opacity: .5;
     }
 </style>
+ <style media="screen">
+    .cust_slider .carousel-control-next, .carousel-control-prev {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 35% !important;
+      color: #fff;
+      text-align: center;
+      opacity: .5;
+  }
+  #publish_back {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+      display: block;
+      opacity: 0.7;
+      background-color: rgb(117, 133, 130);
+      z-index: 99;
+      align-items: center;
+      text-align: center;
+  }
+  </style>
 
 <body>
 
@@ -257,15 +290,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 mt-80"
-                style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
+            <div class="col-sm-12 mt-80" style="background: url('/static/seller1/images/dashboard-banner.jpg');background-size: cover">
                 <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6 col-lg-6 col-12 col-md-6"
-                            style="padding-top:1.5rem;padding-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-sm-7 col-lg-7 col-12 col-md-7 py-4">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-8 cust_slider">
                                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
                                             data-interval="false">
                                             <div class="carousel-inner">
@@ -277,7 +308,7 @@
                                                             <div class="col-sm-12 text-center">
                                                                 <div class="img_slider_box">
                                                                     <img src="{{MEDIA_PREFIX}}/{{name.file_name}}"
-                                                                        alt="" class="img-fluid">
+                                                                        alt="" class="img-fluid size_contain">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -298,15 +329,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-sm-5 pt-80">
+                                    <div class="col-sm-4 pt-80">
                                         <span class="f-26 ff-p f-w-bold c-f">{{seller.title}} ({{seller.type}} Advisor)
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-6 col-12 col-md-6 c-f pb-3">
-                            <h2 class="f-26 ff-pd f-w-bold">About the {{seller.type}} Advisor </h2>
+                        <div class="col-sm-5 col-lg-5 col-12 col-md-5 c-f pb-3">
+                            <h2 class="f-26 ff-pd pt-20 f-w-bold">About the {{seller.type}} Advisor </h2>
                             <address class="f-16 pt-10 pb-5">
                                 {{business.about}}
                             </address>

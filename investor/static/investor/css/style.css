@@ -1682,3 +1682,8 @@ transition: all 0.3s ease-in-out
     margin: 10px;
     border-radius: 20px;
 }
+.carousel-inner img.img-fluid.size_contain {
+    width: 370px;
+    height: 300px;
+    object-fit: contain;
+}

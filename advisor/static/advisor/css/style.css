@@ -1687,3 +1687,8 @@ span.select2.select2-container.select2-container--default.select2-container--bel
 .select2-container {
      width: 100% !important;
  }
+ .carousel-inner img.img-fluid.size_contain {
+    width: 370px;
+    height: 300px;
+    object-fit: contain;
+}

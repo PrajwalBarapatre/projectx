@@ -49,7 +49,7 @@ class Contact extends React.Component{
     }
     return(
       <li className="contact" onClick={this.handleClick.bind(this)}  
-      style={{ backgroundColor :  this.props.curr_chat==this.props.chat_id ? 'cornflowerblue' : 'transparent' }}
+      style={{ backgroundColor :  this.props.curr_chat==this.props.chat_id ? 'cornflowerblue' : 'rgba(0,0,0,0.3)' }}
       >
           <div className="wrap">
               <span className={`contact-status ${this.props.status}`}></span>
@@ -251,7 +251,7 @@ class Header extends React.Component{
           <img src={this.state.other_profile_url} alt="" />
           <p > {this.state.other_name} </p>
         </div>
-        <p className="pl-4 bm-size f-w-bold c-3f ff-pd"> Business Verge </p>
+        <p className="pl-4 bm-size f-w-bold  ff-pd"> <a href="/" class="c-3f"> Business Verge</a> </p>
         <div className="social-media">
           <button className="submit btn btn-block-unblock" onClick={this.clickBlock.bind(this)} >
             <h5>{block_name}</h5>
