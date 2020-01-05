@@ -123,6 +123,20 @@ def IndividualUpdate(request, business_id):
         instance_seller.type=ktype
         instance_bsn.save()
         instance_seller.save()
+        files = list(KAlbumForFile.objects.get(album_id=instance_seller.album_id).files.all())
+        if len(files) == 0:
+            print('inside no files in album')
+            # category = instance_seller.category1
+            file = None
+            try:
+                file = File.objects.get(name='category/advisor-img2.png')
+            except:
+                file = File()
+                file.file.name = 'category/advisor-img2.png'
+                file.save()
+            album = KAlbumForFile.objects.get(album_id=instance_seller.album_id)
+            album.files.add(file)
+            album.save()
         print('inside if 5')
         return redirect('investor:investor-user-detail', business_id=instance_seller.investor_id)
     else:
@@ -230,6 +244,25 @@ def investor_indiv(request):
                 # business_1=business.save()
                 business_1.investor = seller_1
                 business_1.type = 'Individual'
+                if seller_1.album_id is None:
+                    # fs = FileSystemStorage()
+                    print('no file selected')
+                    # category = seller_1.category1
+                    bcard_pdf_name = os.path.join(settings.MEDIA_ROOT, 'category/advisor-img2.png')
+                    file = None
+                    try:
+                        file = File.objects.get(name='category/advisor-img2.png')
+                    except:
+                        file = File()
+                        file.file.name = 'category/advisor-img2.png'
+                        file.save()
+                    album = KAlbumForFile()
+                    album.save()
+                    album.files.add(file)
+                    # album.seller=seller_1
+                    album.save()
+                    seller_1.album_id = album.album_id
+                    seller_1.save()
                 business_1.save()
                 print('business is also done')
                 user = request.user
@@ -459,6 +492,20 @@ def CompanyUpdate(request, business_id):
         instance_seller.type=ktype
         instance_bsn.save()
         instance_seller.save()
+        files = list(KAlbumForFile.objects.get(album_id=instance_seller.album_id).files.all())
+        if len(files) == 0:
+            print('inside no files in album')
+            # category = instance_seller.category1
+            file = None
+            try:
+                file = File.objects.get(name='category/advisor-img2.png')
+            except:
+                file = File()
+                file.file.name = 'category/advisor-img2.png'
+                file.save()
+            album = KAlbumForFile.objects.get(album_id=instance_seller.album_id)
+            album.files.add(file)
+            album.save()
         print('inside if 5')
         return redirect('investor:investor-user-detail', business_id=instance_seller.investor_id)
     else:
@@ -567,6 +614,25 @@ def investor_company(request):
                 # business_1=business.save()
                 business_1.investor = seller_1
                 business_1.type = 'Company'
+                if seller_1.album_id is None:
+                    # fs = FileSystemStorage()
+                    print('no file selected')
+                    # category = seller_1.category1
+                    bcard_pdf_name = os.path.join(settings.MEDIA_ROOT, 'category/advisor-img2.png')
+                    file = None
+                    try:
+                        file = File.objects.get(name='category/advisor-img2.png')
+                    except:
+                        file = File()
+                        file.file.name = 'category/advisor-img2.png'
+                        file.save()
+                    album = KAlbumForFile()
+                    album.save()
+                    album.files.add(file)
+                    # album.seller=seller_1
+                    album.save()
+                    seller_1.album_id = album.album_id
+                    seller_1.save()
                 business_1.save()
                 print('business is also done')
                 user = request.user

@@ -3,33 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advisor/templates/advisor/advisorbusi.html" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/templates/advisor/advisorbusi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advisor/templates/advisor/advisorstartup.html" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/templates/advisor/advisorstartup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advisor/templates/advisor/updatebusi.html" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/templates/advisor/updatebusi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advisor/templates/advisor/updatestartup.html" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/templates/advisor/updatestartup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advisor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/advisor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/investor/templates/investor/investorcompany.html" beforeDir="false" afterPath="$PROJECT_DIR$/investor/templates/investor/investorcompany.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/investor/templates/investor/investorindiv.html" beforeDir="false" afterPath="$PROJECT_DIR$/investor/templates/investor/investorindiv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/investor/templates/investor/updateindiv.html" beforeDir="false" afterPath="$PROJECT_DIR$/investor/templates/investor/updateindiv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/templates/chat/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chat/templates/chat/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/investor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/investor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellapp.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellapp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellasset.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellasset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellbusiness.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellbusiness.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellequity.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellequity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellfranchise.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellfranchise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellipcode.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellipcode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/selloan.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/selloan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellstartup.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellstartup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/supplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/supplier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updateapp.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updateapp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updateasset.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updateasset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updatebusiness.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updatebusiness.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updatefranchise.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updatefranchise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updateipcode.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updateipcode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updateloan.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updateloan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updatequity.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updatequity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updatestartup.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updatestartup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/updatesupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/updatesupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/display_invest.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/display_invest.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

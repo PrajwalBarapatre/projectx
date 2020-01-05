@@ -133,6 +133,20 @@ def BusinessUpdate(request, business_id):
         instance_seller.type=ktype
         instance_bsn.save()
         instance_seller.save()
+        files = list(KAlbumForFile.objects.get(album_id=instance_seller.album_id).files.all())
+        if len(files) == 0:
+            print('inside no files in album')
+            # category = instance_seller.category1
+            file = None
+            try:
+                file = File.objects.get(name='category/advisor-img2.png')
+            except:
+                file = File()
+                file.file.name = 'category/advisor-img2.png'
+                file.save()
+            album = KAlbumForFile.objects.get(album_id=instance_seller.album_id)
+            album.files.add(file)
+            album.save()
         print('inside if 5')
         return redirect('advisor:advisor-user-detail', business_id=instance_seller.advisor_id)
     else:
@@ -233,6 +247,25 @@ def advisor_busi(request):
                 seller_1.save()
                 seller_1.trial = True
                 seller_1.type = 'Business'
+                if seller_1.album_id is None:
+                    # fs = FileSystemStorage()
+                    print('no file selected')
+                    # category = seller_1.category1
+                    bcard_pdf_name = os.path.join(settings.MEDIA_ROOT, 'category/advisor-img2.png')
+                    file = None
+                    try:
+                        file = File.objects.get(name='category/advisor-img2.png')
+                    except:
+                        file = File()
+                        file.file.name = 'category/advisor-img2.png'
+                        file.save()
+                    album = KAlbumForFile()
+                    album.save()
+                    album.files.add(file)
+                    # album.seller=seller_1
+                    album.save()
+                    seller_1.album_id = album.album_id
+                    seller_1.save()
                 seller_1.save()
                 id = seller_1.advisor_id
                 print(id)
@@ -476,6 +509,20 @@ def StartupUpdate(request, business_id):
         instance_seller.type=ktype
         instance_bsn.save()
         instance_seller.save()
+        files = list(KAlbumForFile.objects.get(album_id=instance_seller.album_id).files.all())
+        if len(files) == 0:
+            print('inside no files in album')
+            # category = instance_seller.category1
+            file = None
+            try:
+                file = File.objects.get(name='category/advisor-img2.png')
+            except:
+                file = File()
+                file.file.name = 'category/advisor-img2.png'
+                file.save()
+            album = KAlbumForFile.objects.get(album_id=instance_seller.album_id)
+            album.files.add(file)
+            album.save()
         print('inside if 5')
         return redirect('advisor:advisor-user-detail', business_id=instance_seller.advisor_id)
     else:
@@ -573,6 +620,25 @@ def advisor_startup(request):
                 seller_1.save()
                 seller_1.trial = True
                 seller_1.type = 'Startup'
+                if seller_1.album_id is None:
+                    # fs = FileSystemStorage()
+                    print('no file selected')
+                    # category = seller_1.category1
+                    bcard_pdf_name = os.path.join(settings.MEDIA_ROOT, 'category/advisor-img2.png')
+                    file = None
+                    try:
+                        file = File.objects.get(name='category/advisor-img2.png')
+                    except:
+                        file = File()
+                        file.file.name = 'category/advisor-img2.png'
+                        file.save()
+                    album = KAlbumForFile()
+                    album.save()
+                    album.files.add(file)
+                    # album.seller=seller_1
+                    album.save()
+                    seller_1.album_id = album.album_id
+                    seller_1.save()
                 seller_1.save()
                 id = seller_1.advisor_id
                 print(id)
