@@ -856,6 +856,77 @@ def just_invest_type(request, business_id):
 
 
     print(fdata)
+    basic_fields = 9
+    # type_fields = 0
+    # optional = 0
+    revenue_fields = 8
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
+    fdata['completeness'] = None
+    if stype == 'Individual':
+        type_fields = 9
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.website is None or smodel.website == '':
+            print(smodel.website)
+            optional = optional + 1
+        # if smodel.language is None or smodel.language == '':
+        #     print(smodel.language)
+        #     optional = optional + 1
+        # if smodel.total_advised is None or smodel.total_advised == 0:
+        #     print(smodel.total_advised)
+        #     optional = optional + 1
+        # if smodel.years_exp is None or smodel.years_exp == 0:
+        #     optional = optional + 1
+        # if smodel.hour_fee is None or smodel.hour_fee == 0:
+        #     optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.expertise_area is None or seller.expertise_area == '':
+            optional = optional + 1
+        if seller.type_companies is None or seller.type_companies == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+    if stype == 'Company':
+        type_fields = 10
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.website is None or smodel.website == '':
+            print(smodel.website)
+            optional = optional + 1
+        # if smodel.language is None or smodel.language == '':
+        #     print(smodel.language)
+        #     optional = optional + 1
+        # if smodel.total_advised is None or smodel.total_advised == 0:
+        #     print(smodel.total_advised)
+        #     optional = optional + 1
+        # if smodel.years_exp is None or smodel.years_exp == 0:
+        #     optional = optional + 1
+        # if smodel.hour_fee is None or smodel.hour_fee == 0:
+        #     optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.expertise_area is None or seller.expertise_area == '':
+            optional = optional + 1
+        if seller.type_companies is None or seller.type_companies == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     return render(request, 'investor/detail.html', fdata)
 
 @login_required(login_url='profiles:index')
@@ -1056,7 +1127,77 @@ def detail_invest_type(request, business_id):
     random.shuffle(fdata['cart'])
     print(fdata['inst'])
     print(fdata)
-
+    basic_fields = 9
+    # type_fields = 0
+    # optional = 0
+    revenue_fields = 8
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
+    fdata['completeness'] = None
+    if stype == 'Individual':
+        type_fields = 9
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.website is None or smodel.website == '':
+            print(smodel.website)
+            optional = optional + 1
+        # if smodel.language is None or smodel.language == '':
+        #     print(smodel.language)
+        #     optional = optional + 1
+        # if smodel.total_advised is None or smodel.total_advised == 0:
+        #     print(smodel.total_advised)
+        #     optional = optional + 1
+        # if smodel.years_exp is None or smodel.years_exp == 0:
+        #     optional = optional + 1
+        # if smodel.hour_fee is None or smodel.hour_fee == 0:
+        #     optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.expertise_area is None or seller.expertise_area == '':
+            optional = optional + 1
+        if seller.type_companies is None or seller.type_companies == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+    if stype == 'Company':
+        type_fields = 10
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.website is None or smodel.website == '':
+            print(smodel.website)
+            optional = optional + 1
+        # if smodel.language is None or smodel.language == '':
+        #     print(smodel.language)
+        #     optional = optional + 1
+        # if smodel.total_advised is None or smodel.total_advised == 0:
+        #     print(smodel.total_advised)
+        #     optional = optional + 1
+        # if smodel.years_exp is None or smodel.years_exp == 0:
+        #     optional = optional + 1
+        # if smodel.hour_fee is None or smodel.hour_fee == 0:
+        #     optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.expertise_area is None or seller.expertise_area == '':
+            optional = optional + 1
+        if seller.type_companies is None or seller.type_companies == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
 
 
     return render(request, 'investor/sell_detail.html', fdata)

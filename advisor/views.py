@@ -898,6 +898,77 @@ def detail_advise_type(request, business_id):
     fdata['jcart']=[]
     fdata['jcart']=json.dumps((fdata['cart']))
     print(cart_seller)
+    basic_fields = 7
+    # type_fields = 0
+    # optional = 0
+    revenue_fields = 8
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
+    fdata['completeness'] = None
+    if stype == 'Business':
+        type_fields = 2
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.skill1 is None or smodel.skill1 == '':
+            print(smodel.skill1)
+            optional = optional + 1
+        if smodel.language is None or smodel.language == '':
+            print(smodel.language)
+            optional = optional + 1
+        if smodel.total_advised is None or smodel.total_advised == 0:
+            print(smodel.total_advised)
+            optional = optional + 1
+        if smodel.years_exp is None or smodel.years_exp == 0:
+            optional = optional + 1
+        if smodel.hour_fee is None or smodel.hour_fee == 0:
+            optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.portfolio_website is None or seller.portfolio_website == '':
+            optional = optional + 1
+        if seller.professional_link is None or seller.professional_link == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+    if stype == 'Startup':
+        type_fields = 2
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.skill1 is None or smodel.skill1 == '':
+            print(smodel.skill1)
+            optional = optional + 1
+        if smodel.language is None or smodel.language == '':
+            print(smodel.language)
+            optional = optional + 1
+        if smodel.total_advised is None or smodel.total_advised == 0:
+            print(smodel.total_advised)
+            optional = optional + 1
+        if smodel.years_exp is None or smodel.years_exp == 0:
+            optional = optional + 1
+        if smodel.hour_fee is None or smodel.hour_fee == 0:
+            optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.portfolio_website is None or seller.portfolio_website == '':
+            optional = optional + 1
+        if seller.professional_link is None or seller.professional_link == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     return render(request, 'advisor/sell_detail.html', fdata)
 
 @login_required(login_url='profiles:index')
@@ -1073,4 +1144,75 @@ def just_advise_type(request, business_id):
     if unlock_sell in user.profile.advise_unlocks.all() or unlock_sell in user.profile.user_advise.all():
         fdata['unlock_status'] = True
     print(fdata)
+    basic_fields = 7
+    # type_fields = 0
+    # optional = 0
+    revenue_fields = 8
+    fdata['optional'] = 0
+    fdata['total_fields'] = 0
+    fdata['completeness'] = None
+    if stype == 'Business':
+        type_fields = 2
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.skill1 is None or smodel.skill1 == '':
+            print(smodel.skill1)
+            optional = optional + 1
+        if smodel.language is None or smodel.language == '':
+            print(smodel.language)
+            optional = optional + 1
+        if smodel.total_advised is None or smodel.total_advised == 0:
+            print(smodel.total_advised)
+            optional = optional + 1
+        if smodel.years_exp is None or smodel.years_exp == 0:
+            optional = optional + 1
+        if smodel.hour_fee is None or smodel.hour_fee == 0:
+            optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.portfolio_website is None or seller.portfolio_website == '':
+            optional = optional + 1
+        if seller.professional_link is None or seller.professional_link == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
+    if stype == 'Startup':
+        type_fields = 2
+        total_fields = int(basic_fields) + int(type_fields)
+        optional = 0
+        # print(srevenue)
+        if smodel.skill1 is None or smodel.skill1 == '':
+            print(smodel.skill1)
+            optional = optional + 1
+        if smodel.language is None or smodel.language == '':
+            print(smodel.language)
+            optional = optional + 1
+        if smodel.total_advised is None or smodel.total_advised == 0:
+            print(smodel.total_advised)
+            optional = optional + 1
+        if smodel.years_exp is None or smodel.years_exp == 0:
+            optional = optional + 1
+        if smodel.hour_fee is None or smodel.hour_fee == 0:
+            optional = optional + 1
+        if smodel.address_line1 is None or smodel.address_line1 == '':
+            optional = optional + 1
+        if smodel.address_line2 is None or smodel.address_line2 == '':
+            optional = optional + 1
+        if smodel.address_line3 is None or smodel.address_line3 == '':
+            optional = optional + 1
+        if seller.portfolio_website is None or seller.portfolio_website == '':
+            optional = optional + 1
+        if seller.professional_link is None or seller.professional_link == '':
+            optional = optional + 1
+        completeness = 100 * (total_fields - optional) / total_fields
+        fdata['completeness'] = completeness
+        fdata['optional'] = optional
+        fdata['total_fields'] = total_fields
     return render(request, 'advisor/detail.html', fdata)

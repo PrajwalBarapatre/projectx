@@ -189,7 +189,7 @@ list-style-type: none;
         background-color: #FE3C69 !important;
     }
     </style>
-<body onbeforeunload="return myFunction()">
+ <body>
     {% include "seller1/topcontainer.html" %}
     <div class="container-fluid bg-f2 ff-p">
       <!-- Top container -->
@@ -717,16 +717,16 @@ list-style-type: none;
         $('#id_currency option[value="{{business_form.currency.value}}"]').attr("selected",true);
         $("#id_currency").select2();
 
-          $(function() {
-                $("#dialog-confirm").dialog({ autoOpen: false }).find("a.cancel").click(function(e){
-                    e.preventDefault();
-                    $("#dialog-confirm").dialog("close");
-                });
-                $("a[href]:not(#dialog-confirm a)").click(function(e) {
-                    e.preventDefault();
-                    $("#dialog-confirm").dialog("option", "title", $(this).text()).dialog("open").find("a.ok").attr({href: this.href, target: this.target});
-                });
-            });
+          //   $(function() {
+        //         $("#dialog-confirm").dialog({ autoOpen: false }).find("a.cancel").click(function(e){
+        //             e.preventDefault();
+        //             $("#dialog-confirm").dialog("close");
+        //         });
+        //         $("a[href]:not(#dialog-confirm a)").click(function(e) {
+        //             e.preventDefault();
+        //             $("#dialog-confirm").dialog("option", "title", $(this).text()).dialog("open").find("a.ok").attr({href: this.href, target: this.target});
+        //         });
+        //     });
 
     });
 
