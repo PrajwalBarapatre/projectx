@@ -1819,8 +1819,12 @@ transition: all 0.3s ease-in-out
 #blah{
   max-width: 180px;
 }
+a.nav-link.dropdown-toggle {
+    position: relative;
+}
 .custom_logout_dropdown .dropdown div.dropdown-menu {
-    left: -123px;
+    right: 0;
+    left: auto;
 }
 .your_cart.card {
     border-radius: 8px;

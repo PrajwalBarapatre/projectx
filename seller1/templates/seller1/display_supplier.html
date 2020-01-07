@@ -427,23 +427,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNR2NDXxNNPr57-VKH8HO_QMKSJZDn-t4&libraries=places&callback=initMap" ></script>
     <script>
-            function myFunctions() {
-            var x = document.getElementById("Specifications");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-                document.getElementById('img').className ='selected-side-icon-right';
-                $('#map_parent').css('width','50%');
-                $('#map_parent').css('margin-left','50%');
-                console.log("hello1");
-
-            } else {
-                x.style.display = "none";
-                document.getElementById('img').className ='selected-side-icon-left';
-                $('#map_parent').css('width','100%');
-                $('#map_parent').css('margin-left','0%');
-                console.log("hello2");
-            }
-        }
 
         function get_sub_sectors(ele){
             var id = ele.id;
