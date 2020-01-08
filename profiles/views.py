@@ -743,7 +743,7 @@ def delete_profile(request):
 def auth_error(request):
     return render(request, 'auth_error.html')
 
-def handler404(request):
+def handler404(request, exception):
     return render(request, 'auth_error.html', status=404)
 
 def handler500(request):
