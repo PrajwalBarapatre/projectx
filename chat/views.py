@@ -205,10 +205,10 @@ def make_chat_invest(request):
         investor_id = request.GET['investor_id']
         investor = Investor.objects.get(investor_id=investor_id)
         invest = Invest.objects.get(investor=investor)
-        invest_profile = invest.profile_set.all()[0]
+        invest_profile = invest.owned_by.all()[0]
         invest_user = invest_profile.user
         # seller = Seller1.objects.get(business_id=business_id)
-        # seller_profile = seller.profile_set.all()[0]
+        # seller_profile = seller.owned_by.all()[0]
         # seller_user = User.objects.get(profile=seller_profile)
         user_contact = None
         invest_contact = None
@@ -306,7 +306,7 @@ def make_chat_advisor(request):
         investor_id = request.GET['advisor_id']
         investor = Advisor.objects.get(advisor_id=investor_id)
         invest = Advise.objects.get(advisor=investor)
-        invest_profile = invest.profile_set.all()[0]
+        invest_profile = invest.owned_by.all()[0]
         invest_user = invest_profile.user
 
         user_contact = None
@@ -405,7 +405,7 @@ def make_chat_seller(request):
         investor_id = request.GET['business_id']
         investor = Seller1.objects.get(business_id=investor_id)
         invest = Sell.objects.get(seller=investor)
-        invest_profile = invest.profile_set.all()[0]
+        invest_profile = invest.owned_by.all()[0]
         invest_user = invest_profile.user
 
         user_contact = None
@@ -579,7 +579,7 @@ def fetch_sell_id(request,business_id):
         investor_id = business_id
         investor = Seller1.objects.get(business_id=investor_id)
         invest = Sell.objects.get(seller=investor)
-        invest_profile = invest.profile_set.all()[0]
+        invest_profile = invest.owned_by.all()[0]
         invest_user = invest_profile.user
         print(investor)
 

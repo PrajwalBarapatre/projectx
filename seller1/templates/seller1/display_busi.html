@@ -522,6 +522,7 @@
             $.ajax({
             type: 'GET',
             url: "/metadata/get_sub_sector/",
+            global: false,
             data: {
                 'sector': $('#' + id).val()
             },

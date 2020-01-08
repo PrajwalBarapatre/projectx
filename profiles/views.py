@@ -23,7 +23,7 @@ from social_django.models import UserSocialAuth
 
 from advisor.serializers import AdvisorSerializer
 from advisor.views import adv_model_list, adv_serializer_list
-from album.models import KAlbumForFile
+from album.models import KAlbumForFile, File
 from investor.serializers import InvestorSerializer
 from investor.views import inv_model_list, inv_serializer_list
 from seller1.models import RevenueModel
@@ -136,6 +136,13 @@ def register_view(request):
             user.profile.photo = request.FILES['photo']
             print(request.FILES['photo'])
         except:
+            try:
+                file = File.objects.get(name='category/advisor-img2.png')
+            except:
+                file = File()
+                file.file.name = 'category/advisor-img2.png'
+                file.save()
+            user.profile.photo = file.file
             pass
         # user.profile.about_me = profile_form.cleaned_data['about_me']
         print('2')

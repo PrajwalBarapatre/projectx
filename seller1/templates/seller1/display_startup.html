@@ -454,6 +454,7 @@
             $.ajax({
             type: 'GET',
             url: "/metadata/get_sub_sector/",
+            global: false,
             data: {
                 'sector': $('#' + id).val()
             },
@@ -843,6 +844,7 @@ function get_sub_sectors(ele){
 var id = ele.id;
 $.ajax({
 url: "/metadata/get_sub_sector/",
+            global: false,
 data: {
     'sector': $('#' + id).val()
 },

@@ -2389,7 +2389,7 @@ background: rgba( 255, 255, 255, .8 )
                             <!-- <a href="/">
                             <h3 class="f-28 ff-pd f-w-bold pt-41 pl-38 c-3f">Business Merge</h3>
                         </a> -->
-                        <form action="{% url 'profiles:login' %}" method="POST" id="login_form">
+                        <form id="login_form">
                                 {% csrf_token %}
                             <div class="container pl-4 pt-64">
                                 <div class="row">
@@ -2451,11 +2451,11 @@ background: rgba( 255, 255, 255, .8 )
                                                     <i class="fa fa-linkedin-square c-38" aria-hidden="true"></i>
                                                 </a>
                                             </li>
-                                            <li class="list-inline-item">
+                                            <!-- <li class="list-inline-item">
                                                 <a href="">
                                                     <i class="fa fa-twitter-square c-48 " aria-hidden="true"></i>
                                                 </a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -3645,7 +3645,8 @@ $(document).on({
 
 
         var form = $('#login_form');
-        form.submit(function() {
+        form.submit(function(e) {
+            e.preventDefault();
 
                     var email = $('#login_form').find('#id_email').val()
                     var password = $('#login_form').find('#id_password').val()
@@ -4555,8 +4556,33 @@ switch (type) {
 
 </script>
 
-<script>
-        
+<script type="text/javascript">
+    // Using jQuery.
+    
+    $(function() {
+        $('#login_form').find('input').each(function() {
+            $(this).keypress(function(e) {
+                // Enter pressed?
+                if(e.which == 10 || e.which == 13) {
+                    $('#login_form').submit();
+                    // $(this).find('button').click();
+                }
+            });
+    
+            
+        });
+        $('#signup_form').find('input').each(function() {
+            $(this).keypress(function(e) {
+                // Enter pressed?
+                if(e.which == 10 || e.which == 13) {
+                    $('#signup_form').submit();
+                    // $(this).find('button').click();
+                }
+            });
+    
+            
+        });
+    });
     </script>
 <script>
 
