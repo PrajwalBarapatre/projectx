@@ -4,6 +4,9 @@ import seller1.views as sell_views
 import seller1.sms as sms
 # from rest_framework.urlpatterns import format_suffix_patterns
 
+handler404 = views.handler404
+handler500 = views.handler500
+
 urlpatterns = [
     path('', views.home_view, name='index'),
     path('subscribe', views.subscription, name='subscription'),

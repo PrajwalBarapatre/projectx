@@ -149,15 +149,19 @@
 
                                 <div class="row">
                                     <div class="col-sm-5 offset-2">
-                                    {% if photo_link %}
-                                        <img  src="{{MEDIA_PREFIX}}/{{cart.0.photo_link}}" class="img-fluid sizer" alt="">
-                                    {% else %}
-                                        <img  src="{{cart.0.photo_url}}" class="img-fluid sizer" alt="">
-                                    {% endif %}
+                                        {% if user.profile.social %}
+                                        {% if user.profile.photo_updated %}
+                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo.name}}" class="img-fluid avatar" alt="img" width="50" height="50">
+                                        {% else %}
+                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo_url}}" class="img-fluid avatar" alt="img" width="50" height="50">
+                                        {% endif %}
+                                        {% else %}
+                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo.name}}" class="img-fluid avatar" alt="img" width="50" height="50">
+                                        {% endif %}
                                     </div>
                                     <div class="col-sm-5 pt-70 py-5">
 
-                                        <h5 class="f-26 ff-p f-w-bold c-f">{{cart.0.first_name}} {{cart.0.last_name}} 
+                                        <h5 class="f-26 ff-p f-w-bold c-f">{{user.profile.first_name}} {{user.profile.last_name}} 
                                         </h5>
 
                                     </div>
@@ -288,8 +292,8 @@
         .cards_listing .img_box {
             margin: 0.5rem 1rem;
         }
-        .cards_listing .content p{
-        }
+        /* .cards_listing .content p{
+        } */
         .cards_listing .img_box  img.img-fluid {
             width: 200px;
             height: 150px;
