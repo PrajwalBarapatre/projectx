@@ -2575,8 +2575,8 @@ success: function(data){
     $('#carousel').html('');
     for(k=0; k<data.pages; k++){
                var pp = k+1;
-               $('#carousel').append("<div  class='slide btn-pagenation  ff-p mb-2'  >"+
-                "<span id='page_"+pp+"' page='"+pp+"' onclick='get_sellers(this);myCurrency();' ><h6  style='width: 10%' >" + pp +"</h6></span>"+
+               $('#carousel').append("<div  class='slide btn-pagenation  ff-p mb-2' onclick='get_sellers(this);myCurrency();'  >"+
+                "<span id='page_"+pp+"' page='"+pp+"'  ><h6  style='width: 10%' >" + pp +"</h6></span>"+
             "</div>");
            }
 },
