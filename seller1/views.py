@@ -6924,7 +6924,7 @@ def add_invest_cart(request):
             notif.notif_on_id=seller_id
             notif.notif_statement = ''+ investor.first_name + ' ' + investor.last_name + ', is interested in ' + seller.title
             notif.save()
-            seller_user=user_sell.profile_set.all()[0].user
+            seller_user=user_sell.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
 
@@ -6946,7 +6946,7 @@ def add_invest_cart(request):
             notif.notif_on_id = advisor_id
             notif.notif_statement = '' + investor.first_name + ' ' + investor.last_name + ', is interested in your advising as' + advisor.first_name + ' ' + advisor.last_name
             notif.save()
-            seller_user = user_advise.profile_set.all()[0].user
+            seller_user = user_advise.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
         # if base_type=='Investor':
@@ -7023,7 +7023,7 @@ def add_advise_cart(request):
             notif.notif_on_id = seller_id
             notif.notif_statement = '' + advisor.first_name + ' ' + advisor.last_name + ', is interested in ' +seller.title
             notif.save()
-            seller_user = user_sell.profile_set.all()[0].user
+            seller_user = user_sell.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': seller.title, 'status': 'success'})
@@ -7044,7 +7044,7 @@ def add_advise_cart(request):
             notif.notif_on_id = investor_id
             notif.notif_statement = '' + advisor.first_name + ' ' + advisor.last_name + ', is interested in your investing'
             notif.save()
-            seller_user = user_invest.profile_set.all()[0].user
+            seller_user = user_invest.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': investor.first_name, 'status': 'success'})
@@ -7122,7 +7122,7 @@ def add_sell_cart(request):
             notif.notif_on_id = advisor_id
             notif.notif_statement = '' + seller.title + ', is interested in your listing ' + advisor.title
             notif.save()
-            seller_user = user_advise.profile_set.all()[0].user
+            seller_user = user_advise.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': advisor.first_name, 'status': 'success'})
@@ -7143,7 +7143,7 @@ def add_sell_cart(request):
             notif.notif_on_id = advisor_id
             notif.notif_statement = '' + seller.title + ', is interested in your listing ' + advisor.title
             notif.save()
-            seller_user = user_advise.profile_set.all()[0].user
+            seller_user = user_advise.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': advisor.first_name, 'status': 'success'})
@@ -7164,7 +7164,7 @@ def add_sell_cart(request):
             notif.notif_on_id = advisor_id
             notif.notif_statement = '' + seller.title + ', is interested in your advising ' + advisor.first_name + ' ' + advisor.last_name
             notif.save()
-            seller_user = user_advise.profile_set.all()[0].user
+            seller_user = user_advise.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': advisor.first_name, 'status': 'success'})
@@ -7185,7 +7185,7 @@ def add_sell_cart(request):
             notif.notif_on_id = investor_id
             notif.notif_statement = '' + seller.title + ', is interested in your investing'
             notif.save()
-            seller_user = user_invest.profile_set.all()[0].user
+            seller_user = user_invest.owned_by.all()[0].user
             seller_user.profile.notifs.add(notif)
             seller_user.save()
             return JsonResponse({'title': investor.first_name, 'status': 'success'})
@@ -7714,127 +7714,65 @@ def indiv_dash2(request):
     return JsonResponse(fdata, safe=False)
 
 
-def fetch_sell_id(request,business_id):
-    investor_id = business_id
-    investor = Sell.objects.get(business_id=investor_id)
-    invest = Profile.objects.get(user_sell=investor)
-    profile_id = invest.profile_id
-    photo_link = invest.photo.name
-    first_name = invest.first_name
-    last_name = invest.last_name
-    contact_number = invest.contact_number
-    social= invest.social
-    country= invest.country
-    premium = invest.premium
+# def fetch_sell_id(request,business_id):
+#     investor_id = business_id
+#     investor = Sell.objects.get(business_id=investor_id)
+#     invest = Profile.objects.get(user_sell=investor)
+#     profile_id = invest.profile_id
+#     photo_link = ''
+#     photo_bool = 'True'
+#     if invest.social:
+#         if invest.photo_updated:
+#             photo_link = invest.photo.name
+            
+#         else:
+#             photo_link = invest.photo_url
+#             photo_bool = 'False'
+#     else:
+#         photo_link = invest.photo.name
+#     first_name = invest.first_name
+#     last_name = invest.last_name
+#     contact_number = invest.contact_number
+#     social= invest.social
+#     country= invest.country
+#     premium = invest.premium
 
 
-    datapack={
-        'profile_id':profile_id,
-        'photo_link':photo_link,
-        'first_name':first_name,
-        'last_name':last_name,
-        'contact_number':contact_number,
-        'social':social,
-        'country':country,
-        'premium':premium
-    }
-
-    return JsonResponse(datapack, safe=False)
-
-def fetch_invest_id(request,business_id):
-    investor_id = business_id
-    investor = Invest.objects.get(investor_id=investor_id)
-    invest = Profile.objects.get(user_invest=investor)
-    profile_id = invest.profile_id
-    photo_link = invest.photo.name
-    first_name = invest.first_name
-    last_name = invest.last_name
-    contact_number = invest.contact_number
-    social= invest.social
-    country= invest.country
-    premium = invest.premium
-
-
-    datapack={
-        'profile_id':profile_id,
-        'photo_link':photo_link,
-        'first_name':first_name,
-        'last_name':last_name,
-        'contact_number':contact_number,
-        'social':social,
-        'country':country,
-        'premium':premium
-    }
-
-    return JsonResponse(datapack, safe=False)
-
-def fetch_advise_id(request,business_id):
-    investor_id = business_id
-    investor = Advise.objects.get(advisor_id=investor_id)
-    invest = Profile.objects.get(user_advise=investor)
-    profile_id = invest.profile_id
-    photo_link = invest.photo.name
-    first_name = invest.first_name
-    last_name = invest.last_name
-    contact_number = invest.contact_number
-    social= invest.social
-    country= invest.country
-    premium = invest.premium
-
-
-    datapack={
-        'profile_id':profile_id,
-        'photo_link':photo_link,
-        'first_name':first_name,
-        'last_name':last_name,
-        'contact_number':contact_number,
-        'social':social,
-        'country':country,
-        'premium':premium
-    }
-
-    return JsonResponse(datapack, safe=False)
-
-
-def fetch_sell_id(request,business_id):
-    investor_id = business_id
-    investor = Sell.objects.get(sell_id=investor_id)
-    invest = Profile.objects.get(user_sell=investor)
-    profile_id = invest.profile_id
-    photo_link = invest.photo.name
-    first_name = invest.first_name
-    last_name = invest.last_name
-    contact_number = invest.contact_number
-    social= invest.social
-    country= invest.country
-    premium = invest.premium
-    photo_url = invest.photo_url
+#     datapack={
+#         'profile_id':profile_id,
+#         'photo_link':photo_link,
+#         'photo_bool':photo_bool,
+#         'first_name':first_name,
+#         'last_name':last_name,
+#         'contact_number':contact_number,
+#         'photo_url':photo_url,
+#         'social':social,
+#         'country':country,
+#         'premium':premium
+#     }
     
 
-
-    datapack={
-        'profile_id':profile_id,
-        'photo_link':photo_link,
-        'first_name':first_name,
-        'last_name':last_name,
-        'contact_number':contact_number,
-        'photo_url':photo_url,
-        'social':social,
-        'country':country,
-        'premium':premium
-    }
-
-    return JsonResponse(datapack, safe=False)
+#     return JsonResponse(datapack, safe=False)
 
 def fetch_invest_id(request,business_id):
     investor_id = business_id
-    investor = Invest.objects.get(investor_id=investor_id)
-    invest = Profile.objects.get(user_invest=investor)
+    seller = Investor.objects.get(investor_id=investor_id)
+    investorr = Invest.objects.get(investor=seller)
+    invest = Profile.objects.get(user_invest=investorr)
     profile_id = invest.profile_id
-    photo_link = invest.photo.name
+    photo_link = ''
+    photo_bool = 'True'
+    if invest.social:
+        if invest.photo_updated:
+            photo_link = invest.photo.name
+            
+        else:
+            photo_link = invest.photo_url
+            photo_bool = 'False'
+    else:
+        photo_link = invest.photo.name
     first_name = invest.first_name
     last_name = invest.last_name
-    photo_url = invest.photo_url
     contact_number = invest.contact_number
     social= invest.social
     country= invest.country
@@ -7844,45 +7782,162 @@ def fetch_invest_id(request,business_id):
     datapack={
         'profile_id':profile_id,
         'photo_link':photo_link,
+        'photo_bool':photo_bool,
         'first_name':first_name,
         'last_name':last_name,
-        'photo_url':photo_url,
         'contact_number':contact_number,
+        # 'photo_url':photo_url,
         'social':social,
         'country':country,
         'premium':premium
     }
+    
 
     return JsonResponse(datapack, safe=False)
 
 def fetch_advise_id(request,business_id):
     investor_id = business_id
-    investor = Advise.objects.get(advisor_id=investor_id)
+    seller = Advisor.objects.get(advisor_id=investor_id)
+    investor = Advise.objects.get(advisor==seller)
     invest = Profile.objects.get(user_advise=investor)
     profile_id = invest.profile_id
-    photo_link = invest.photo.name
+    photo_link = ''
+    photo_bool = 'True'
+    if invest.social:
+        if invest.photo_updated:
+            photo_link = invest.photo.name
+            
+        else:
+            photo_link = invest.photo_url
+            photo_bool = 'False'
+    else:
+        photo_link = invest.photo.name
     first_name = invest.first_name
     last_name = invest.last_name
     contact_number = invest.contact_number
     social= invest.social
     country= invest.country
     premium = invest.premium
-    photo_url = invest.photo_url
 
 
     datapack={
         'profile_id':profile_id,
         'photo_link':photo_link,
+        'photo_bool':photo_bool,
         'first_name':first_name,
         'last_name':last_name,
-        'photo_url':photo_url,
         'contact_number':contact_number,
+        # 'photo_url':photo_url,
         'social':social,
         'country':country,
         'premium':premium
     }
+    
 
     return JsonResponse(datapack, safe=False)
+
+
+
+def fetch_sell_id(request,business_id):
+    investor_id = business_id
+    seller = Seller1.objects.get(business_id=investor_id)
+    investor = Sell.objects.get(seller=seller)
+    invest = Profile.objects.get(user_sell=investor)
+    profile_id = invest.profile_id
+    photo_link = ''
+    photo_bool = 'True'
+    if invest.social:
+        if invest.photo_updated:
+            photo_link = invest.photo.name
+            
+        else:
+            photo_link = invest.photo_url
+            photo_bool = 'False'
+    else:
+        photo_link = invest.photo.name
+    first_name = invest.first_name
+    last_name = invest.last_name
+    contact_number = invest.contact_number
+    social= invest.social
+    country= invest.country
+    premium = invest.premium
+
+
+    datapack={
+        'profile_id':profile_id,
+        'photo_link':photo_link,
+        'photo_bool':photo_bool,
+        'first_name':first_name,
+        'last_name':last_name,
+        'contact_number':contact_number,
+        # 'photo_url':photo_url,
+        'social':social,
+        'country':country,
+        'premium':premium
+    }
+    
+
+    return JsonResponse(datapack, safe=False)
+
+# def fetch_invest_id(request,business_id):
+#     investor_id = business_id
+#     investor = Invest.objects.get(investor_id=investor_id)
+#     invest = Profile.objects.get(user_invest=investor)
+#     profile_id = invest.profile_id
+#     photo_link = invest.photo.name
+#     first_name = invest.first_name
+#     last_name = invest.last_name
+#     photo_url = invest.photo_url
+#     contact_number = invest.contact_number
+#     social= invest.social
+#     country= invest.country
+#     premium = invest.premium
+
+
+#     datapack={
+#         'profile_id':profile_id,
+#         'photo_link':photo_link,
+#         'first_name':first_name,
+#         'last_name':last_name,
+#         'photo_url':photo_url,
+#         'contact_number':contact_number,
+#         'social':social,
+#         'country':country,
+#         'premium':premium
+#     }
+
+#     return JsonResponse(datapack, safe=False)
+
+# def fetch_advise_id(request,business_id):
+#     investor_id = business_id
+#     investor = Advise.objects.get(advisor_id=investor_id)
+#     invest = Profile.objects.get(user_advise=investor)
+#     profile_id = invest.profile_id
+#     photo_link = invest.photo.name
+#     first_name = invest.first_name
+#     last_name = invest.last_name
+#     contact_number = invest.contact_number
+#     social= invest.social
+#     country= invest.country
+#     premium = invest.premium
+#     photo_url = invest.photo_url
+
+
+#     datapack={
+#         'profile_id':profile_id,
+#         'photo_link':photo_link,
+#         'first_name':first_name,
+#         'last_name':last_name,
+#         'photo_url':photo_url,
+#         'contact_number':contact_number,
+#         'social':social,
+#         'country':country,
+#         'premium':premium
+#     }
+
+#     return JsonResponse(datapack, safe=False)
+
+
 
 
 def fetch_detail_id(request,business_id):
@@ -7900,14 +7955,29 @@ def fetch_detail_id(request,business_id):
     just_advise = user.profile.just_advise.all()
     fdata={}
     fdata['cart']=[]
-
+    photo_link = ''
+    photo_bool = True
+    if a.social:
+        if a.photo_updated:
+            photo_link = a.photo.name
+            
+        else:
+            photo_link = a.photo_url
+            photo_bool = False
+    else:
+        photo_link = a.photo.name
+    email = a.user.email
     datapack={
         'photo_link':photo_link,
+        'photo_bool':photo_bool,
         'first_name':first_name,
         'last_name':last_name,
         'photo_url':photo_url,
+        'email':email,
         
     }
+    fdata['prof_info']={}
+    fdata['prof_info']=datapack
 
     fdata['cart'].append(datapack)
 

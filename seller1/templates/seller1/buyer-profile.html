@@ -149,20 +149,23 @@
 
                                 <div class="row">
                                     <div class="col-sm-5 offset-2">
-                                        {% if user.profile.social %}
-                                        {% if user.profile.photo_updated %}
-                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo.name}}" class="img-fluid sizer" alt="img" >
+                                        
+                                        {% if prof_info.photo_bool %}
+                                        <img  src="{{MEDIA_URL}}/{{prof_info.photo_link}}" class="img-fluid sizer" alt="img" >
                                         {% else %}
-                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo_url}}" class="img-fluid sizer" alt="img" >
+                                        <img  src="{{prof_info.photo_link}}" class="img-fluid sizer" alt="img" >
                                         {% endif %}
-                                        {% else %}
-                                        <img id="prof_pic_s" src="{{MEDIA_URL}}/{{user.profile.photo.name}}" class="img-fluid sizer" alt="img" >
-                                        {% endif %}
+                                       
+                                       
                                     </div>
                                     <div class="col-sm-5 pt-70 py-5">
 
-                                        <h5 class="f-26 ff-p f-w-bold c-f">{{user.profile.first_name}} {{user.profile.last_name}} 
+                                        <h5 class="f-26 ff-p f-w-bold c-f">{{prof_info.first_name}} {{prof_info.last_name}} 
                                         </h5>
+                                        
+                                        <script>
+                                            console.log('{{prof_info.email}}')
+                                        </script>
 
                                     </div>
 
@@ -266,7 +269,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tabs-2" role="tabpanel">
-                        <p>Second Panel</p>
+                        <p><h5>Email = {{prof_info.email}}</h5></p>
                     </div>
                 </div>
 

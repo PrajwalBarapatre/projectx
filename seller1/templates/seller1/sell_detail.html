@@ -4504,16 +4504,21 @@
                         type: 'GET',
                         url: '/seller/fetch-sell/{{seller.business_id}}',
                         success: function (data) {
-                            console.log(data.contact_number);
-                            if (data.photo_link != '') {
+                            console.log(data);
+                            console.log('check for photo bool')
+                            var name = '';
+                            console.log(data.photo_bool);
+                            if(data.photo_bool == 'True') {
                                 name = "{{MEDIA_PREFIX}}/" + data.photo_link;
+                                
                                 console.log(data.photo_link);
                                 console.log(data.photo_url);
 
                             }
-                            else {
-                                name = data.photo_url;
+                            else{
+                                name = data.photo_link;
                             }
+                            console.log(name)
 
                             $('#master_tagger1').attr('src', name);
                             namer = data.first_name + " " + data.last_name
