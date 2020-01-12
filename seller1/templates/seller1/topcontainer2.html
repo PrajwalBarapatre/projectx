@@ -185,58 +185,61 @@
             </li>
             {% endif %}
 
-        {% if user.is_authenticated %}
-                                <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_s" >
-                                        <div id="noti_Counter_s">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
+            {% if notif_true %}
+            <li class="nav-item pr-2 pl-2 pb-2" id="noti_Container_b" onclick="notification_start();" >
+                    <div id="noti_Counter_b">{{notif_number}}</div>   <!--SHOW NOTIFICATIONS COUNT.-->
 
-                                        <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
-                                         <div id="noti_Button_s"><input type="image" src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
+                    <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
+                     <div id="noti_Button_b"><input type="image"  src="{% static 'seller1/images/bell.png' %}" alt="Submit" class="img-fluid pt-1" width="48" height="48"></div>
 
-                                         <!--THE NOTIFICAIONS DROPDOWN BOX.-->
-                                         <div id="notifications_s">
-                                             <h3><b>Notifications</b></h3>
-
-                                             <hr class="m-0">
-                                             <div class="notification_container">
+                     <!--THE NOTIFICAIONS DROPDOWN BOX.-->
+                     <div id="notifications_b" style="display:none">
+                         <h3>Notifications</h3>
+                         <div class="notification_container">
 
 
-                                            {% for notif in notifications %}
-                                            {% if notif.notif_type == 'Chat' %}
+                            {% for notif in notifications %}
+                            {% if notif.notif_type == 'Chat' %}
 
-                                                <div class="notify_box">
-                                                    <div class="img_box">
-                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
-                                                    </div>
-                                                    <div class="content_box">
-                                                        <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
-                                                        <div class="date_time">
-                                                            <span class="day">Fri</span> at
-                                                            <span class="time">18:00</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="notify_box">
+                                    <div class="img_box">
+                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
+                                    </div>
+                                    <div class="content_box">
+                                        <a href="/chat" ><p>{{notif.notif_statement}}</p></a>
+                                        <div class="date_time">
+                                            <span class="day">Fri</span> at
+                                            <span class="time">18:00</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                            {% endif %}
-                                            {% if notif.notif_type == 'Cart' %}
-                                            <div class="notify_box">
-                                                    <div class="img_box">
-                                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
-                                                    </div>
-                                                    <div class="content_box">
-                                                        <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
-                                                        <div class="date_time">
-                                                            <span class="day">Fri</span> at
-                                                            <span class="time">18:00</span>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            {% endif %}
-                                            {% endfor %}
+                            {% endif %}
+                            {% if notif.notif_type == 'Cart' %}
+                            <div class="notify_box">
+                                    <div class="img_box">
+                                        <img src="{{MEDIA_PREFIX}}/files/advisor-img2.png" alt="img" class="avatar">
+                                    </div>
+                                    <div class="content_box">
+                                        <a href="/{{notif.notif_on}}/user_detail/{{notif.notif_on_id}}" ><p>{{notif.notif_statement}}</p></a>
+                                        <div class="date_time">
+                                            <span class="day">Fri</span> at
+                                            <span class="time">18:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+                                
 
-                                             </div>
-                                         </div>
-                                     </li>
-        {% endif %}
+
+
+                             </div>
+                         <!-- <div class="seeAll"><a href="#">See All</a></div> -->
+                     </div>
+                     
+            </li>
+            {% endif %}
         </ul>
         <form id="login_icon_b" class="text-center mr-4">
             <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
