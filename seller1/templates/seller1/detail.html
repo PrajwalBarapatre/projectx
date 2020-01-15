@@ -447,6 +447,670 @@
                             </div> -->
                             <div class="owl-carousel">
                                 {% for seller in cart %}
+                                {%if seller.seller.base_type == 'Seller' %}
+                                    {% if seller.seller.type == 'Business' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Run Rate Sales :  </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p>{{seller.seller.rev_year}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category :</p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p> {{seller.seller.category1}</p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Investment</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.asking_price}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Profit Percent</p>
+                                                                    </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                                
+                                                                        </div>
+                                                                    </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Equity' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Run Rate Sales :  </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                              <p>{{seller.seller.rev_year}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category :  </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p>{{seller.seller.category1}}</p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Investment</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.asking_price}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Profit Percent</p>
+                                                                    </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row f-12 pt-10">
+                                                                            <div class="col-sm-7 col-7 text-left">
+                                                                                <p>% Stake For Sale</p>
+                                                                        </div>
+                                                                            <div class="col-sm-5 col-5 text-right">
+                                                                                    <p>{{ seller.business.stake |floatformat }}</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Asset' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price :  </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                              <p>{{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p>{{seller.seller.category1}}</p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Purchase Year</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.purchase_year}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Asset Type</p>
+                                                                    </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p>{{ seller.business.asset_type }}</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Loan' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+
+                                                                <span class="f-12 pl-1"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Run Rate Sales :  </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                              <p>{{seller.seller.rev_year}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category :</p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p> {{seller.seller.category1}}</p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Loan Amount</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>INR {{seller.business.loan_amount}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Loan Term</p>
+                                                                    </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p>{{ seller.business.year_established }} yrs</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row f-12 pt-10">
+                                                                            <div class="col-sm-7 col-7 text-left">
+                                                                                <p>Loan Interest %</p>
+                                                                        </div>
+                                                                            <div class="col-sm-5 col-5 text-right">
+                                                                                    <p>{{ seller.business.sought_interest|floatformat }} %</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Startup' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.type}} Seller</p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Startup Domain : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p>{{seller.seller.category1}} </p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                              <p> {{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Equity For Sale</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>INR {{seller.business.sought_equity|floatformat}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Year of Start</p>
+                                                                    </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p>{{ seller.business.year_established }} yrs</p>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Ipcode' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p py-0">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                  <p>{{seller.seller.category1}}</p>
+                                                                  <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price :  </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                              <p>{{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Type</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.startup_type}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                {% if seller.business.website %}
+                                                                <div class="row f-12 pt-10">
+                                                                        <div class="col-sm-7 col-7 text-left">
+                                                                            <p>Link</p>
+                                                                        </div>
+                                                                        <div class="col-sm-5 col-5 text-right">
+                                                                            <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                        </div>
+                                                                    </div>
+                                                                {% endif %}
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Application' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                    <p>{{seller.seller.category1}}</p>
+                                                                    <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p>{{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Type</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.startup_type}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            {% if seller.business.website %}
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Link</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            {% endif %}
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if seller.seller.type == 'Supplier' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                    <p>{{seller.seller.category1}}</p>
+                                                                    <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p>{{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Type</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.startup_type}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            {% if seller.business.website %}
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Link</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            {% endif %}
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if seller.seller.type == 'Franchise' %}
+                                        <div class="your_cart card">
+                                                <a href="" class="img_box">
+                                                    <img class="card-img-top" src="{{MEDIA_PREFIX}}/{{seller.seller.file_name}}" alt="Card image cap img-fluid">
+                                                </a>
+                                                <div class="card-body ff-p">
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}">
+                                                        <h4 class="c-19 f-14 f-w-bold">{{seller.seller.title}}</h4>
+                                                    </a>
+                                                    <p class="f-11">{{seller.seller.about_seller}} </p>
+                                                    <div class="container-fluid zero-padding pt-2 ff-p">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 col-3">
+                                                                <i class="fa fa-star-o c-d9 f-17" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">8.5</span>
+                                                            </div>
+                                                            <div class="col-sm-9 col-9">
+                                                                <i class="fa fa-map-marker c-eb" aria-hidden="true"></i>
+                                                                <span class="f-12 pl-1">Bangalore, India</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row f-12 pt-10">
+                                                                <div class="col-sm-6 col-7 text-left">
+                                                                    <p>Category : </p>
+                                                                </div>
+                                                                <div class="col-sm-6 col-5 text-right">
+                                                                    <p>{{seller.seller.category1}}</p>
+                                                                    <p>{{seller.seller.category2}}</p>
+                                                                </div>
+                                                            </div>
+                                                        <div class="row f-12 pt-10">
+                                                            <div class="col-sm-6 col-7 text-left">
+                                                                <p class=""> Asking Price : </p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-5 text-right">
+                                                                <p>{{seller.business.asking_price}}</p>
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Type</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p>{{seller.business.startup_type}}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            {% if seller.business.website %}
+                                                            <div class="row f-12 pt-10">
+                                                                    <div class="col-sm-7 col-7 text-left">
+                                                                        <p>Link</p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-5 text-right">
+                                                                        <p><a href="{{seller.business.website}}">{{seller.business.website}}</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            {% endif %}
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <button class="btn-startup-cart w-100">Chat with Advisor
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                    {% endif %}
                                 {%if seller.base_type == 'Advisor' %}
                                     <div class="your_cart card">
                                             <a href="" class="img_box">
