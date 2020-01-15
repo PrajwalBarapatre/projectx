@@ -19,8 +19,9 @@ def generateSecureRandomString(stringLength=10):
     return ''.join(secrets.choice(password_characters) for i in range(stringLength))
 
 def otp_message(request):
-    account_sid = 'ACd50fe123ff4c24314ca2b6ac63c3d350'
-    auth_token = '858bf3236bc7b1d97b4a9290b6da524d'
+    # account_sid = 'ACd50fe123ff4c24314ca2b6ac63c3d350'
+    account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+    auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
     client = Client(account_sid, auth_token)
     number = request.GET['number']
     name = request.GET['name']
@@ -34,7 +35,7 @@ def otp_message(request):
         message = client.messages \
             .create(
             body=body,
-            from_='+14806463893',
+            from_='+18432030382',
             to=number
         )
     except:
@@ -85,15 +86,16 @@ def email_forgot(request):
     try:
         user=User.objects.get(email=email)
 
-        if(user.profile.social):
-            print('found but social')
-            found=False
-            data={}
-            data['status']='invalid'
-            return JsonResponse(data, safe=False)
-        else:
-            print('found')
-            found=True
+        # if(user.profile.social):
+        #     print('found but social')
+        #     found=False
+        #     data={}
+        #     data['status']='invalid'
+        #     return JsonResponse(data, safe=False)
+        # else:
+        
+        #     found=True
+        print('found')
     except:
         print('not found')
         data = {}

@@ -147,6 +147,9 @@ CHANNEL_LAYERS = {
 # DJANGO_DB_HOST = os.getenv('DJANGO_DB_HOST')
 # print(DJANGO_DB_HOST)
 # print(SECRET_KEY)
+
+################################# For Production ############################
+
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -158,6 +161,8 @@ DATABASES = {
     }
 }
 
+############################## For Development #####################################
+
 # DATABASES = {
 #     'default': {
 #             'ENGINE': 'django.db.backends.mysql',
@@ -168,6 +173,8 @@ DATABASES = {
 #             'PORT': 3306,
 #     }
 # }
+
+######################################################################################
 
 # DATABASES = {
 #     'default': {
@@ -234,6 +241,9 @@ SOCIAL_AUTH_LOGIN_ERROR_URL="/auth_error"
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
+
+################################# FOr Production ###################################
+
 SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 
@@ -243,14 +253,21 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY')
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET')
 
+############################################ For Development  #############################################
+
 # SOCIAL_AUTH_GITHUB_KEY = '3587cb59299b6a333b8e'
 # SOCIAL_AUTH_GITHUB_SECRET = '46941b74903fa449f227c956d723e5be9956a4aa'
-SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
+
 # SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='525491482451-tbhth56o4usmjf1beuca21n4jj2de515.apps.googleusercontent.com'
 # SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uYdpgAjU5hPMwlhgarAUZZmk'
 #
 # SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '81wmsl0nipfegt'
 # SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'Y4BXLqOUgLXzor2S'
+
+
+#########################################################################################################
+
+SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
 SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['emailAddress', 'formatted-name', 'public-profile-url', 'picture-url']
 SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
@@ -290,11 +307,24 @@ USE_TZ = True
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # DEFAULT_FROM_EMAIL = 'prajwalbarapatre13@gmail.com' # this is the sendgrid email
 
+
+######################## For Production ###############################
+
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 465
+
+############################## For Development ###############################
+
+# EMAIL_USE_SSL = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'admin@bverge.com'
+# EMAIL_HOST_PASSWORD = 'Merge@2019'
+# EMAIL_PORT = 465
+
+###################################################################################
 
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.gmail.com'
@@ -302,11 +332,7 @@ EMAIL_PORT = 465
 # EMAIL_HOST_PASSWORD = 'Merge@2019'
 # EMAIL_PORT = 25
 
-# EMAIL_USE_SSL = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'admin@bverge.com'
-# EMAIL_HOST_PASSWORD = 'Merge@2019'
-# EMAIL_PORT = 465
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -342,15 +368,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 #
+
+######################## For Production ###############################
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY_ID')
 AWS_STORAGE_BUCKET_NAME = 'bverge'
 
+############################## For Development ###############################
+
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
 # AWS_SECRET_ACCESS_KEY = '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'
 # AWS_STORAGE_BUCKET_NAME = 'bverge'
+
+###################################################################################
 
 INTERNAL_IPS = [
     '127.0.0.1'
