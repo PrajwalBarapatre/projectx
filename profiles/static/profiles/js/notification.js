@@ -163,12 +163,12 @@ $(document).ready(function(){
         // console.log($(this).val().slice(-3));
         var a = $(this).val().split("**");
         $("#select2-id_currency-container").text(a[3]);
-        sessionStorage.setItem("currency", $(this).val());
+        localStorage.setItem("currency", $(this).val());
 
 
     });
 
-    var a = sessionStorage.getItem("currency");
+    var a = localStorage.getItem("currency");
 
     $('#id_currency').val(a).change();
     // console.log(a);
@@ -185,7 +185,7 @@ $(document).ready(function(){
                         myList.push($(this).val())
                     });
         
-                    if(sessionStorage.getItem("currency")==null)
+                    if(localStorage.getItem("currency")==null)
                     {
                         for (i = 0; i < myList.length; i++) {
                                 var b = myList[i].split("**");
@@ -197,9 +197,9 @@ $(document).ready(function(){
                             }
                         }
                     }
-                    if(sessionStorage.getItem("currency")!=null)
+                    if(localStorage.getItem("currency")!=null)
                     {
-                            var a = sessionStorage.getItem("currency");
+                            var a = localStorage.getItem("currency");
                             $('#selUser').val(a).change();
                             console.log(a);
                             var b = a.split("**");

@@ -27,10 +27,11 @@ def otp_message(request):
     name = request.GET['name']
     otp = randint(1000,9999)
     body=""
+    # Hi, Welcome to Business Verge. Verify using the OTP: [1234]
     if name:
-        body="Hii "+ name +", verify your business contact number using this "+ str(otp)
+        body="Hi, Welcome to Business Verge. Verify using the OTP: "+ str(otp)
     else:
-        body="Hii, "+", verify your business contact number using this "+ str(otp)
+        body="Hi, Welcome to Business Verge. Verify using the OTP: "+ str(otp)
     try:
         message = client.messages \
             .create(

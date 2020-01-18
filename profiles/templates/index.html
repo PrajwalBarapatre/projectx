@@ -4409,7 +4409,7 @@ switch (type) {
                     console.log($(this).val().slice(-3));
                     var a = $(this).val().split("**");
                     $("#select2-selUser-container").text(a[3]);
-                      sessionStorage.setItem("currency", $(this).val());
+                      localStorage.setItem("currency", $(this).val());
                 });
 
                 $.getJSON('https://ipapi.co/json/', function(data) {
@@ -4423,7 +4423,7 @@ switch (type) {
                           myList.push($(this).val())
                       });
                       
-                      if(sessionStorage.getItem("currency")==null)
+                      if(localStorage.getItem("currency")==null)
                       {
                         for (i = 0; i < myList.length; i++) {
                             var b = myList[i].split("**");
@@ -4435,9 +4435,9 @@ switch (type) {
                             }
                         }
                       }
-                      if(sessionStorage.getItem("currency")!=null)
+                      if(localStorage.getItem("currency")!=null)
                       {
-                        var a = sessionStorage.getItem("currency");
+                        var a = localStorage.getItem("currency");
                         $('#selUser').val(a).change();
                         console.log(a);
                         var b = a.split("**");
@@ -4591,7 +4591,7 @@ switch (type) {
 
             // $("#selUser").val();
 
-                sessionStorage.setItem("lastname", "Smith");
+                localStorage.setItem("lastname", "Smith");
                 // $.ajax({
                 //     url: "/metadata/session_storage/",
                 //     // data: {

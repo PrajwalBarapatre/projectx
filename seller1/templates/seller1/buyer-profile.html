@@ -648,12 +648,12 @@ $(document).ready(function(){
         // console.log($(this).val().slice(-3));
         var a = $(this).val().split("**");
         $("#select2-id_currency-container").text(a[3]);
-        sessionStorage.setItem("currency", $(this).val());
+        localStorage.setItem("currency", $(this).val());
 
 
     });
 
-    var a = sessionStorage.getItem("currency");
+    var a = localStorage.getItem("currency");
     $('#id_currency').val(a).change();
     // console.log(a);
     var b = a.split("**");
