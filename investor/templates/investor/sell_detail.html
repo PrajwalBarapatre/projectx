@@ -2741,7 +2741,7 @@
 
 
            var a = screen.width;
-           console.log(a);
+           //console.log(a);
            if(a<2000 && a>1500){
                 $("body").css("zoom","90%");
            }
@@ -2778,8 +2778,8 @@
         }else{
             name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
         }
-        console.log(name)
-        console.log('{{user.profile.photo_url}}');
+        //console.log(name)
+        //console.log('{{user.profile.photo_url}}');
         $('#prof_pic_b').attr('src',name);
         $('#prof_pic_s').attr('src',name);
     });
@@ -2988,7 +2988,7 @@
 
             arcFilled.attr('d', arc1).
             attr("fill", function () {
-                //console.log('color = ' + color(Math.round(perc * 100)));
+                ////console.log('color = ' + color(Math.round(perc * 100)));
                 return color(perc);
             });
             arcEmpty.attr('d', arc2);

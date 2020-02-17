@@ -36,8 +36,8 @@ class Contact extends React.Component{
     var chat_id = this.props.chat_id;
     var notif_id = this.props.notif_id;
     this.props.changeChat(chat_id, notif_id)
-    console.log('different chat clicked');
-    console.log('inside Contact');
+    //console.log('different chat clicked');
+    //console.log('inside Contact');
   }
   
   render(){
@@ -102,35 +102,35 @@ class WebSocketService {
       const path = `wss://www.bverge.com/ws/chat/${chatUrl}/`;
       this.socketRef = new WebSocket(path);
       this.socketRef.onopen = () => {
-        console.log('WebSocket open in '+ chatUrl);
+        //console.log('WebSocket open in '+ chatUrl);
       };
       this.socketNewMessage(JSON.stringify({
         command: 'fetch_messages'
       }));
       this.socketRef.onmessage = e => {
-        console.log('Message recieved on web socket');
+        //console.log('Message recieved on web socket');
         this.socketNewMessage(e.data);
       };
       this.socketRef.onerror = e => {
-        console.log(e.message);
+        //console.log(e.message);
       };
       this.socketRef.onclose = () => {
-        console.log("WebSocket closed let's reopen");
+        //console.log("WebSocket closed let's reopen");
         
       };
     }
 
     disconnect(chat_id, notif_id){
-      console.log('last message');
+      //console.log('last message');
       this.sendMessage({ command: 'change_chat', chat_id: chat_id, notif_id:notif_id });
-      console.log('closing the connection');
+      //console.log('closing the connection');
 
       this.socketRef.close()
-      console.log('connection closed');
+      //console.log('connection closed');
     }
   
     socketNewMessage(data) {
-      console.log('Message recieved in socketNewMessage');
+      //console.log('Message recieved in socketNewMessage');
       const parsedData = JSON.parse(data);
       const command = parsedData.command;
       if (Object.keys(this.callbacks).length === 0) {
@@ -140,30 +140,30 @@ class WebSocketService {
         this.callbacks[command](parsedData.status);
       }
       if (command === 'messages') {
-        console.log('command is messages');
+        //console.log('command is messages');
         this.callbacks[command](parsedData.messages);
       }
       if (command === 'new_message') {
-        console.log('command is new_message');
+        //console.log('command is new_message');
         this.callbacks[command](parsedData.message);
       }
       if (command === 'blocked') {
-        console.log('command is blocked');
+        //console.log('command is blocked');
         this.callbacks[command]();
       }
       // if (command === 'new_notif') {
-      //   console.log('command is new_notif');
+      //   //console.log('command is new_notif');
       //   this.callbacks[command](parsedData.message);
       // }
     }
   
     fetchMessages(username, chatId) {
-      console.log('sending message to fetch');
+      //console.log('sending message to fetch');
       this.sendMessage({ command: 'fetch_messages', username: username, chatId:chatId });
     }
   
     newChatMessage(message) {
-      console.log('sending message to new');
+      //console.log('sending message to new');
       this.sendMessage({ command: message.command, from: message.from, message: message.content, chatId: message.chat_id, malbum_id:message.malbum_id }); 
     }
   
@@ -180,12 +180,12 @@ class WebSocketService {
     
     sendMessage(data) {
       try {
-        console.log('above send');
+        //console.log('above send');
         this.socketRef.send(JSON.stringify({ ...data }));
-        console.log('message sent');
+        //console.log('message sent');
       }
       catch(err) {
-        console.log(err.message);
+        //console.log(err.message);
       }  
     }
 
@@ -195,13 +195,13 @@ class WebSocketService {
         setTimeout(
             function(){
                 if(socket.readyState === 1){
-                    console.log('connection is secure');
+                    //console.log('connection is secure');
                     if(callback != null){
                         callback();
                     }
                     return;
                 }else{
-                    console.log('waiting for connection...');
+                    //console.log('waiting for connection...');
                     recursion(callback); 
                 }
             }, 1);
@@ -238,7 +238,7 @@ class Header extends React.Component{
   }
 
   clickBlock=()=>{
-    console.log('block clicked')
+    //console.log('block clicked')
     this.props.renderBlock();
   }
 
@@ -282,7 +282,7 @@ class Sidepanel extends React.Component{
 
   
   getUserChats = (username) => {
-    console.log(username);
+    //console.log(username);
     fetch(`https://www.bverge.com/chat/api/${username}`,{
             method: 'GET',
             headers: {
@@ -295,8 +295,8 @@ class Sidepanel extends React.Component{
         })
         .then((response)=>response.json())
         .then((responseJson)=>{
-            console.log(responseJson);
-            // console.log(responseJson.username);
+            //console.log(responseJson);
+            // //console.log(responseJson.username);
             var blocked=0;
             if(responseJson.curr.blocked){
               blocked=1;
@@ -308,7 +308,7 @@ class Sidepanel extends React.Component{
                 other_id : responseJson.curr.other_id,
                 blocked : blocked
             });
-            // console.log("fetched")
+            // //console.log("fetched")
             // ToastAndroid.showWithGravityAndOffset(
             //     "fetching",
             //     ToastAndroid.SHORT,
@@ -317,13 +317,13 @@ class Sidepanel extends React.Component{
             //     40);
             
         });
-        console.log(username);
+        //console.log(username);
 }
 
 
 handleClick=(chat_id, notif_id)=>{
   this.props.handleContact(chat_id, notif_id)
-  console.log('inside Sidepanel');
+  //console.log('inside Sidepanel');
 }
 
   render(){
@@ -432,7 +432,7 @@ function getCookie(name) {
 }
 
 function pdf_view(file_name){
-  console.log(file_name)
+  //console.log(file_name)
   fetch(`https://www.bverge.com/chat/pdf_view/${file_name}`,{
     method: 'GET'
   })
@@ -442,7 +442,7 @@ class Chat extends React.Component{
 
 
     initialiseChat(){
-      console.log(this.state)
+      //console.log(this.state)
       this.waitForSocketConnection(() => {
         WebSocketInstance.addCallbacks(this.setMessages.bind(this), this.addMessage.bind(this), this.check_users.bind(this), this.blockMessage.bind(this))
         WebSocketInstance.fetchMessages(
@@ -471,22 +471,22 @@ class Chat extends React.Component{
           chats:[],
           self_blocked:false,
         }
-        console.log('this is chat');
+        //console.log('this is chat');
 
         
         this.messageChangHandler = this.messageChangHandler.bind(this);
         this. sendMessageHandler = this.sendMessageHandler.bind(this);
 
-        console.log(props);
+        //console.log(props);
         }
 
     // componentWillReceiveProps(props){
-    //   console.log(props);
+    //   //console.log(props);
     //   this.initialiseChat();
     // }
 
     componentDidMount(){
-      console.log('inside didMount of chat');
+      //console.log('inside didMount of chat');
       fetch('https://www.bverge.com/get_user',{
             method: 'GET',
             headers: {
@@ -499,11 +499,11 @@ class Chat extends React.Component{
         })
         .then((response)=>response.json())
         .then((responseJson)=>{
-            console.log(responseJson);
-            console.log(responseJson.username);
+            //console.log(responseJson);
+            //console.log(responseJson.username);
             var fullname = responseJson.first_name + responseJson.last_name;
             var url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.photo_name ;
-            console.log(responseJson.curr_chat)
+            //console.log(responseJson.curr_chat)
             var blocked=0;
             if(responseJson.blocked){
               blocked=1;
@@ -520,7 +520,7 @@ class Chat extends React.Component{
                 blocked : blocked,
                 chats:responseJson.chats
             },this.initialiseChat());
-            // console.log("fetched")
+            // //console.log("fetched")
             // ToastAndroid.showWithGravityAndOffset(
             //     "fetching",
             //     ToastAndroid.SHORT,
@@ -539,24 +539,24 @@ class Chat extends React.Component{
         setTimeout(
             function () {
             if (WebSocketInstance.state() === 1) {
-                console.log("Connection is made")
+                //console.log("Connection is made")
                 callback();
                 return;
             } else {
-                console.log("wait for connection...")
+                //console.log("wait for connection...")
                 component.waitForSocketConnection(callback);
             }
         }, 100);
     }
     
     addMessage(message) {
-      console.log('adding message to'+this.state.chatId);
+      //console.log('adding message to'+this.state.chatId);
         this.setState({ messages: [...this.state.messages, message], self_blocked:false});
         
     }
     
     setMessages(messages) {
-      console.log('adding messagess to'+this.state.chatId);
+      //console.log('adding messagess to'+this.state.chatId);
         this.setState({ messages: messages.reverse()});
     }
 
@@ -594,7 +594,7 @@ class Chat extends React.Component{
 
   renderMessage=(message)=>{
     var currentUser = this.state.currentUser;
-    console.log(message.file_exist)
+    //console.log(message.file_exist)
     if(!message.file_exist){
       return (
             <li
@@ -619,7 +619,7 @@ class Chat extends React.Component{
       var content = ''+message.content;
       var file_name = content
       content=content.replace('message/','');
-      console.log(content)
+      //console.log(content)
       return(
             <li
                 key = {message.id}
@@ -645,7 +645,7 @@ class Chat extends React.Component{
   }
 
     renderMessages = (messages)=>{
-      console.log('rendering message to'+ this.state.chatId);
+      //console.log('rendering message to'+ this.state.chatId);
       
         // const currentUser = 'minu1';
         var currentUser = this.state.currentUser;
@@ -663,20 +663,20 @@ class Chat extends React.Component{
     }
 
     changingConnection(){
-      console.log('chatId is set');
-      console.log(this.state)
+      //console.log('chatId is set');
+      //console.log(this.state)
       // WebSocketInstance.change_chat(this.state.chatId);
       WebSocketInstance.disconnect(this.state.chatId, this.state.notif_id);
-      console.log('Chat says websocket disconnected');
+      //console.log('Chat says websocket disconnected');
       this.waitForSocketConnection(() => {
         WebSocketInstance.fetchMessages(
           this.state.currentUser,
           this.state.chatId);
       });
       var chatUrl = this.state.chatId;
-      console.log(chatUrl);
+      //console.log(chatUrl);
       WebSocketInstance.connect(chatUrl);
-      console.log('new connection made');
+      //console.log('new connection made');
     }
 
     sendMessageHandler = e =>{
@@ -687,9 +687,9 @@ class Chat extends React.Component{
             chat_id:this.state.chatId,
             command:'new_message'
         }
-        console.log('message objeect created in'+this.state.chatId);
+        //console.log('message objeect created in'+this.state.chatId);
         WebSocketInstance.newChatMessage(messageObject);
-        console.log('message objeect sent to newChatMessage in'+this.state.chatId);
+        //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
         this.setState({
             message:''
         });
@@ -702,16 +702,16 @@ class Chat extends React.Component{
     }
 
     renderChat = (chat_id,notif_id) => {
-      console.log('inside renderChat')
+      //console.log('inside renderChat')
         var arr = this.state.chats;
         var chatId=chat_id;
         var blocked_;
         for(var i=0; i<arr.length;i++){
           if(arr[i].chat_id==chatId){
            blocked_ = arr[i].blocked!='' ? 1 :0
-           console.log('/media/'+arr[i].other_profile_url)
-           console.log(arr[i].other_name)
-           console.log()
+           //console.log('/media/'+arr[i].other_profile_url)
+           //console.log(arr[i].other_name)
+           //console.log()
             this.setState({
               chatId : chat_id,
               notif_id:notif_id,
@@ -724,9 +724,9 @@ class Chat extends React.Component{
             }, this.changingConnection);
           }
         }
-        console.log(this.state)
+        //console.log(this.state)
         
-      console.log('chatId is going to set');
+      //console.log('chatId is going to set');
       
       
     }
@@ -746,24 +746,24 @@ class Chat extends React.Component{
         }).then((response)=>response.json())
         .then((responseJson)=>{
 
-          console.log(responseJson);
+          //console.log(responseJson);
           // var data = responseJson.parse();
-          // console.log(data)
+          // //console.log(data)
           var messageObject = {
             from:this.state.currentUser,
             chat_id:this.state.chatId,
             malbum_id:responseJson.malbum_id,
             command:'new_file'
           }
-          console.log('message objeect created in'+this.state.chatId);
+          //console.log('message objeect created in'+this.state.chatId);
           WebSocketInstance.newChatMessage(messageObject);
-          console.log('message objeect sent to newChatMessage in'+this.state.chatId);
+          //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
         })
       })
     }
 
     handleBlock=()=>{
-      console.log('inside chat for block click')
+      //console.log('inside chat for block click')
       var block = this.state.blocked==1 ? 0 : 1
       var chatId = this.state.chatId
       var data={
@@ -791,7 +791,7 @@ class Chat extends React.Component{
 
     render(){
         const messages = this.state.messages;
-        console.log(this.state);
+        //console.log(this.state);
         var block_name = this.state.blocked==1 ? 'Unblock' : 'Block';
         return(
             <div id="frame">
@@ -909,7 +909,7 @@ class App extends React.Component{
 //           // Add some additional logging to localhost, pointing developers to the
 //           // service worker/PWA documentation.
 //           navigator.serviceWorker.ready.then(() => {
-//             console.log(
+//             //console.log(
 //               'This web app is being served cache-first by a service ' +
 //                 'worker. To learn more, visit https://bit.ly/CRA-PWA'
 //             );
@@ -937,7 +937,7 @@ class App extends React.Component{
 //                 // At this point, the updated precached content has been fetched,
 //                 // but the previous service worker will still serve the older
 //                 // content until all client tabs are closed.
-//                 console.log(
+//                 //console.log(
 //                   'New content is available and will be used when all ' +
 //                     'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
 //                 );
@@ -950,7 +950,7 @@ class App extends React.Component{
 //                 // At this point, everything has been precached.
 //                 // It's the perfect time to display a
 //                 // "Content is cached for offline use." message.
-//                 console.log('Content is cached for offline use.');
+//                 //console.log('Content is cached for offline use.');
   
 //                 // Execute callback
 //                 if (config && config.onSuccess) {
@@ -988,7 +988,7 @@ class App extends React.Component{
 //         }
 //       })
 //       .catch(() => {
-//         console.log(
+//         //console.log(
 //           'No internet connection found. App is running in offline mode.'
 //         );
 //       });

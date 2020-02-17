@@ -4014,7 +4014,7 @@
     
 
                var a = screen.width;
-               console.log(a);
+               //console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
                }
@@ -4050,8 +4050,8 @@
         }else{
             name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
         }
-        console.log(name)
-        console.log('{{user.profile.photo_url}}');
+        //console.log(name)
+        //console.log('{{user.profile.photo_url}}');
         $('#prof_pic_b').attr('src',name);
         $('#prof_pic_s').attr('src',name);
     });
@@ -4116,63 +4116,63 @@
                         min=0
                         max=((10000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
                     else if(cur_fut=="10,000 to 100,000"){
                         min=((10000)*(curr_value))/fut_value;
                         max=((100000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
                     else if(cur_fut=="100,000 to 1 Million"){
                         min=((100000)*(curr_value))/fut_value;
                         max=((1000000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
                     else if(cur_fut=="1 Million to 10 Million"){
                         min=((1000000)*(curr_value))/fut_value;
                         max=((10000000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
                     else if(cur_fut=="10 Million to 100 Million"){
                         min=((10000000)*(curr_value))/fut_value;
                         max=((100000000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
                     else if(cur_fut=="Greater than 100 Million"){
                         min=((100000000)*(curr_value))/fut_value;
                         max=((1000000000)*(curr_value))/fut_value;
                         var avg = (min+max)/2;
-                        console.log(avg);
+                        //console.log(avg);
                     }
 
 
                     if(avg<=10000){
                         $(this).html("0 to 10,000"+" "+curr_string);
-                        console.log("0 to 10,000");
+                        //console.log("0 to 10,000");
                     }
                     else if(avg>10000 && avg<=100000){
                         $(this).html("10,000 to 100,000"+" "+curr_string);
-                        console.log("10,000 to 100,000");
+                        //console.log("10,000 to 100,000");
                     }
                     else if(avg>100000 && avg<=1000000){
                         $(this).html("100,000 to 1 Million"+" "+curr_string);
-                        console.log("100,000 to 1 Million");
+                        //console.log("100,000 to 1 Million");
                     }
                     else if(avg>1000000 && avg<=10000000){
                         $(this).html("1 Million to 10 Million"+" "+curr_string);
-                        console.log("1 Million to 10 Million");
+                        //console.log("1 Million to 10 Million");
                     }
                     else if(avg>10000000 && avg<=100000000){
                         $(this).html("10 Million to 100 Million"+" "+curr_string);
-                        console.log("10 Million to 100 Million");
+                        //console.log("10 Million to 100 Million");
                     }
                     else if(avg>=1000000000){
                         $(this).html("Greater than 100 Million"+" "+curr_string);
-                        console.log("Greater than 100 Million");
+                        //console.log("Greater than 100 Million");
                     }
 
                 });
@@ -4281,7 +4281,7 @@
 
             arcFilled.attr('d', arc1).
             attr("fill", function () {
-                //console.log('color = ' + color(Math.round(perc * 100)));
+                ////console.log('color = ' + color(Math.round(perc * 100)));
                 return color(perc);
             });
             arcEmpty.attr('d', arc2);

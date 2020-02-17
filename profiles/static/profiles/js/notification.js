@@ -92,7 +92,7 @@ function notification_start(){
 function notification_busi(){
     
   var div = document.getElementById('notifications_s');
-  console.log(div.style.display);
+  //console.log(div.style.display);
     if (div.style.display != 'none') {
         div.style.display = 'none';              
     }
@@ -113,7 +113,7 @@ function notification_busi(){
         // },
         success:function(data){
             // $('#noti_Container_s').removeClass('loading');
-            console.log('ajax notif done')
+            //console.log('ajax notif done')
             $('#noti_Counter_s').html('0');
             $('#noti_Counter_b').html('0');
         }
@@ -160,7 +160,7 @@ $("#id_currency").select2();
 
 $(document).ready(function(){
     $("#id_currency").change(function () {
-        // console.log($(this).val().slice(-3));
+        // //console.log($(this).val().slice(-3));
         var a = $(this).val().split("**");
         $("#select2-id_currency-container").text(a[3]);
         localStorage.setItem("currency", $(this).val());
@@ -171,14 +171,14 @@ $(document).ready(function(){
     var a = localStorage.getItem("currency");
 
     $('#id_currency').val(a).change();
-    // console.log(a);
+    // //console.log(a);
     var b = a.split("**");
     $("#select2-id_currency-container").html(b[3]);
-    console.log(b[3]);
+    //console.log(b[3]);
 
     $.getJSON('https://ipapi.co/json/', function(data) {
 
-        console.log(data.country);
+        //console.log(data.country);
         $("#country_code_primary option[id='"+data.country+"']").attr("selected", "selected");
                     myList = [];
                     $('#selUser option').each(function() {
@@ -189,7 +189,7 @@ $(document).ready(function(){
                     {
                         for (i = 0; i < myList.length; i++) {
                                 var b = myList[i].split("**");
-                                console.log(b[1]);
+                                //console.log(b[1]);
                                 if(b[1]==data.country){
                                 $('#selUser').val(myList[i]).change();
                                 //   $("#select2-selUser-container").text(b[3]);
@@ -201,10 +201,10 @@ $(document).ready(function(){
                     {
                             var a = localStorage.getItem("currency");
                             $('#selUser').val(a).change();
-                            console.log(a);
+                            //console.log(a);
                             var b = a.split("**");
                             $("#select2-selUser-container").html(b[3]);
-                            console.log(b[3]);
+                            //console.log(b[3]);
                     }
 
           });

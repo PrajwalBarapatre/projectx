@@ -1741,7 +1741,7 @@
 
                toggle_chat();
                var a = screen.width;
-               console.log(a);
+               //console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
                     // $(".owl-carousel").css("zoom","110%");
@@ -1847,8 +1847,8 @@
                 name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
                 $('#social_modal').html('')
             }
-            console.log(name)
-            console.log('{{user.profile.photo_url}}');
+            //console.log(name)
+            //console.log('{{user.profile.photo_url}}');
             $('#prof_pic_b').attr('src',name);
             $('#prof_pic_s').attr('src',name);
         });
@@ -1864,10 +1864,10 @@
 
 var a = localStorage.getItem("currency");
 $('#id_currency').val(a).change();
-console.log(a);
+//console.log(a);
 var b = a.split("**");
 $("#select2-id_currency-container").html(b[3]);
-console.log(b[3]);
+//console.log(b[3]);
 </script>  -->
 
 

@@ -3,7 +3,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-console.log('Hello');
+//console.log('Hello');
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

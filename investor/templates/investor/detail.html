@@ -959,21 +959,21 @@ body.loading .lodal {
     <script>
 
 var data_investor = {{data_investor| safe}};
-    console.log(data_investor);
+    //console.log(data_investor);
     var data_advisors = {{data_advisors|safe}};
 
 
     var my_sellers = {{my_sellers| safe}};
-    console.log(my_sellers);
+    //console.log(my_sellers);
 
     var sellers_investors = {{sellers_investors| safe}}
-    console.log(sellers_investors);
+    //console.log(sellers_investors);
 
     var advise_investors = {{advise_investors| safe}};
-    console.log(advise_investors);
+    //console.log(advise_investors);
 
     var just_investors = {{just_investors| safe}};
-    console.log(just_investors);
+    //console.log(just_investors);
 
     var removeByAttr = function(arr, attr, value){
 var i = arr.length;
@@ -995,7 +995,7 @@ return arr;
     function just_add(ele){
 var id = ele.id;
 id = '#'+id;
-console.log(id);
+//console.log(id);
 var seller_id = $(id).attr('seller_id');
 
 // seller_id=parseInt(seller)
@@ -1008,7 +1008,7 @@ $.ajax({
     url: '{% url "seller1:just_add" %}',
     data: form_data,
     success: function(data){
-        console.log('Added to cart');
+        //console.log('Added to cart');
         $(id).hide();
 $('#just_remove').show();
 $('#cart_'+seller_id).attr('data-just', 'True');
@@ -1049,7 +1049,7 @@ async:false
 function just_remove(ele){
 var id = ele.id;
 id = '#'+id;
-console.log(id);
+//console.log(id);
 var seller_id = $(id).attr('seller_id');
 
 // seller_id=parseInt(seller)
@@ -1062,7 +1062,7 @@ $.ajax({
     url: '{% url "seller1:just_remove" %}',
     data: form_data,
     success: function(data){
-        console.log('Removed from cart');
+        //console.log('Removed from cart');
         $(id).hide();
 $('#just_add').show();
 $('#cart_'+seller_id).attr('data-just', 'False');
@@ -1116,7 +1116,7 @@ $.ajax({
         $(id).hide();
 $('#seller_remove_'+cart_seller_id).show();
 $('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'True');
-console.log('Added to cart');
+//console.log('Added to cart');
 // var in_seller='False';
 var nname= 'seller_'+cart_seller_id;
 sellers_investors[nname].push({
@@ -1170,11 +1170,11 @@ $.ajax({
         $(id).hide();
 $('#seller_add_'+cart_seller_id).show();
 $('#cart_'+seller_id).attr('cart_seller_'+cart_seller_id, 'False');
-console.log('removed from cart');
+//console.log('removed from cart');
 // var in_seller='False';
 var nname= 'seller_'+cart_seller_id;
 removeByAttr(sellers_investors[nname], 'investor_id', parseInt(seller_id))
-console.log('Removed from cart');
+//console.log('Removed from cart');
 var in_seller='False';
         var in_advisor='False';
         var check_arr = check_for_seller(seller_id);
@@ -1229,7 +1229,7 @@ $.ajax({
         $(id).hide();
         $('#advisor_remove_'+advisor_id).show();
         $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'True');
-        console.log('Added to cart');
+        //console.log('Added to cart');
 
         var nname= 'advisor_'+advisor_id;
         advise_investors[nname].push({
@@ -1260,7 +1260,7 @@ if($('#cart_'+seller_id).attr('data-just')=='True' || in_seller=='True' || in_ad
 // advise_investors.business.push({
 //     investor_id: parseInt(seller_id)
 // });
-        console.log('Added to cart');
+        //console.log('Added to cart');
     },
     processData: false,
 contentType: false,
@@ -1289,7 +1289,7 @@ $.ajax({
         $(id).hide();
         $('#advisor_add_'+advisor_id).show();
         $('#cart_'+seller_id).attr('cart_advisor_'+advisor_id, 'False');
-        console.log('removed from cart');
+        //console.log('removed from cart');
 
         var nname= 'advisor_'+advisor_id;
         removeByAttr(advise_investors[nname], 'investor_id', parseInt(seller_id))
@@ -1316,7 +1316,7 @@ if($('#cart_'+seller_id).attr('data-just')=='False' && in_advisor=='False' && in
     );
 }
 // removeByAttr(advise_investors.business, 'investor_id', parseInt(seller_id))
-//         console.log('Removed from cart');
+//         //console.log('Removed from cart');
     },
 
 async:false,
@@ -1355,8 +1355,8 @@ for(var i=0; i<my_sellers.length; i++){
         var same=false;
         var found=false;
         for(var k=0; k<sellers_investors[name].length;k++){
-            console.log(sellers_investors[name][k]);
-            console.log(seller_id);
+            //console.log(sellers_investors[name][k]);
+            //console.log(seller_id);
             if(sellers_investors[name][k].investor_id==seller_id){
                 same=true;
                 found=true;
@@ -1374,7 +1374,7 @@ for(var i=0; i<my_sellers.length; i++){
 });
 }
 
-console.log(arr);
+//console.log(arr);
 
 return arr;
 }
@@ -1394,8 +1394,8 @@ function check_for_advise(seller_id){
                 var found=false;
 
                     for(var k=0; k<advise_investors[name].length;k++){
-                    console.log(advise_investors[name][k]);
-                    console.log(seller_id);
+                    //console.log(advise_investors[name][k]);
+                    //console.log(seller_id);
                     if(advise_investors[name][k].investor_id==seller_id){
                         same=true;
                         found=true;
@@ -1418,7 +1418,7 @@ function check_for_advise(seller_id){
 
         }
 
-       console.log(arr);
+       //console.log(arr);
 
         return arr;
 
@@ -1452,13 +1452,13 @@ return same;
                 //  var in_advise_str=false;
                  var in_some = false;
                 var seller_id = '{{seller.investor_id}}'
-                console.log(seller_id);
+                //console.log(seller_id);
                 var seller_arr=check_for_seller(seller_id);
         var advisor_arr = check_for_advise(seller_id)
         // if(check_for_same(seller_id)){
         //     break;
         // }
-        console.log('going to display this one');
+        //console.log('going to display this one');
 
         // if(check_for_advise(seller_id)){
         //     in_advise=true;
@@ -1481,7 +1481,7 @@ return same;
             }
         }
                                 if(check_for_same(seller_id)){
-                                    console.log('same' + seller_id);
+                                    //console.log('same' + seller_id);
                                     $('#button_cart').hide()
 
                                 }else{
@@ -1506,7 +1506,7 @@ return same;
                     for(var k=0; k<seller_arr.length; k++){
             var attr = 'cart_seller_'+seller_arr[k].seller_id;
             var cart_seller_id = seller_arr[k].found;
-            console.log(cart_seller_id);
+            //console.log(cart_seller_id);
             if(cart_seller_id){
                 $('#cart_'+seller_id).attr(attr, 'True');
             }
@@ -1517,7 +1517,7 @@ return same;
         for(var k=0; k<advisor_arr.length; k++){
             var attr = 'cart_advisor_'+advisor_arr[k].advisor_id;
             var cart_seller_id = advisor_arr[k].found;
-            console.log(cart_seller_id);
+            //console.log(cart_seller_id);
             if(cart_seller_id){
                 $('#cart_'+seller_id).attr(attr, 'True');
             }
@@ -1531,18 +1531,18 @@ return same;
 
 
                             $('#my_modal').on('show.bs.modal', function(e) {
-        console.log('modal clicked');
+        //console.log('modal clicked');
         $('#my_modal').html('');
     var seller_id = $(e.relatedTarget).data('seller_id');
     var in_just = $(e.relatedTarget).attr('data-just');
-    console.log(in_just);
+    //console.log(in_just);
     var in_advise = $(e.relatedTarget).attr('data-advise');
-    console.log(in_advise);
+    //console.log(in_advise);
     var in_advise_str = $(e.relatedTarget).attr('data-advise_str');
-    console.log(in_advise_str);
+    //console.log(in_advise_str);
     // var in_advise = $(e.relatedTarget).attr('data-advise');
-    // console.log(in_advise);
-    console.log(seller_id);
+    // //console.log(in_advise);
+    //console.log(seller_id);
     // $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
     //     $(element).attr('seller_id', seller_id);
     // });
@@ -1627,7 +1627,7 @@ return same;
 
 
            var a = screen.width;
-           console.log(a);
+           //console.log(a);
            if(a<2000 && a>1500){
                 $("body").css("zoom","90%");
            }
@@ -1665,8 +1665,8 @@ return same;
         }else{
             name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
         }
-        console.log(name)
-        console.log('{{user.profile.photo_url}}');
+        //console.log(name)
+        //console.log('{{user.profile.photo_url}}');
         $('#prof_pic_b').attr('src',name);
         $('#prof_pic_s').attr('src',name);
     });
@@ -1682,21 +1682,21 @@ $(document).ready(function(){
         type:'GET',
         url:'/seller/fetch-invest/{{seller.investor_id}}',
         success:function(data){
-            console.log(data);
-            console.log('check for photo bool')
+            //console.log(data);
+            //console.log('check for photo bool')
             var name = '';
-            console.log(data.photo_bool);
+            //console.log(data.photo_bool);
             if(data.photo_bool == 'True') {
                 name = "{{MEDIA_PREFIX}}/" + data.photo_link;
                 
-                console.log(data.photo_link);
-                console.log(data.photo_url);
+                //console.log(data.photo_link);
+                //console.log(data.photo_url);
 
             }
             else{
                 name = data.photo_link;
             }
-            console.log(name)
+            //console.log(name)
              
              $('#master_tagger1').attr('src',name);
              namer=data.first_name+" "+data.last_name
@@ -1790,7 +1790,7 @@ $(window).blur(function() {
     var spentTime = endDate.getTime() - startDate.getTime();
     spentTime=spentTime/1000
     elapsedTime += spentTime;
-    console.log(elapsedTime)
+    //console.log(elapsedTime)
 })
 
 $(window).on('unload',function(){
@@ -1911,7 +1911,7 @@ $(window).on('unload',function(){
 
             arcFilled.attr('d', arc1).
             attr("fill", function () {
-                //console.log('color = ' + color(Math.round(perc * 100)));
+                ////console.log('color = ' + color(Math.round(perc * 100)));
                 return color(perc);
             });
             arcEmpty.attr('d', arc2);

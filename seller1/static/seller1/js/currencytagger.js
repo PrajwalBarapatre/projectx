@@ -505,7 +505,7 @@ $(document).ready(function(){
           
           for(var i=0;i<a.length;i++)
           {
-           console.log(a[i].seller.title);
+           //console.log(a[i].seller.title);
            if(a[i].seller.base_type== 'Seller'){
               $("#multiple_tagger").append(
                        "<a href='/seller/user_detail/"+a[i].seller.business_id+"'>"+

@@ -335,14 +335,14 @@
                 document.getElementById('img').className ='selected-side-icon-right';
                 $('#map_parent').css('width','50%');
                 $('#map_parent').css('margin-left','50%');
-                console.log("hello1");
+                //console.log("hello1");
 
             } else {
                 x.style.display = "none";
                 document.getElementById('img').className ='selected-side-icon-left';
                 $('#map_parent').css('width','100%');
                 $('#map_parent').css('margin-left','0%');
-                console.log("hello2");
+                //console.log("hello2");
             }
         }
 
@@ -382,31 +382,31 @@
 
                     $('.custom_tab').each(function(index, element){
                     marker_ref={};
-                    console.log('preparing');
+                    //console.log('preparing');
                     var id = $(element).attr('id');
                     id = '#' + id;
-                    console.log(id);
+                    //console.log(id);
                     $("body").on('DOMSubtreeModified', id, function() {
-                        console.log('seller added');
+                        //console.log('seller added');
                         while(allmarkers.length) { allmarkers.pop().setMap(null); }
                         $('.info').each(function(index, element){
                             var lat = $(element).attr('lat');
-                            console.log(lat);
+                            //console.log(lat);
                             var lng = $(element).attr('lng');
-                            console.log(lng);
+                            //console.log(lng);
                             var title = $(element).attr('title');
-                            console.log(title);
+                            //console.log(title);
                             var seller_id=$(element).attr('seller_id');
                             var asking_price=$(element).attr('investment');
-                            console.log(asking_price);
+                            //console.log(asking_price);
                             var file_name;
                             var t=0;
 
                             $(element).find('.carousel-inner').find('.carousel-item').each(function(imdex, ielement){
                                 var src=$(ielement).find('img').attr('src');
-                                console.log(src);
+                                //console.log(src);
                                  file_name=src.replace('{{MEDIA_PREFIX}}/', '');
-                                console.log(file_name)
+                                //console.log(file_name)
                                 t++;
                                 // if(t==1){
                                 //     break;
@@ -461,7 +461,7 @@
 
                             // infoWindow.open(map, marker);
                             // marker.setMap(map);
-                            console.log('marker done');
+                            //console.log('marker done');
                             $(element).hover(function(ele){
                                 infoWindow.open(map, marker);
                             },function(ele){
@@ -486,10 +486,10 @@
                 map.fitBounds(bounds);
                 map.setZoom(15);
 
-                console.log(place.geometry.location);
-                console.log(place.address_components[1].long_name);
-                console.log(place.address_components[2].long_name);
-                console.log(place.address_components[3].long_name);
+                //console.log(place.geometry.location);
+                //console.log(place.address_components[1].long_name);
+                //console.log(place.address_components[2].long_name);
+                //console.log(place.address_components[3].long_name);
                 city1.val(place.address_components[1].long_name);
                 state1.val(place.address_components[2].long_name);
                 country1.val(place.address_components[3].long_name);
@@ -502,18 +502,18 @@
         city1.val('{{city}}');
             state1.val('{{state}}');
             country1.val('{{country}}');
-            console.log('{{sub_category}}');
-            console.log($('#sub_category'));
+            //console.log('{{sub_category}}');
+            //console.log($('#sub_category'));
             $("option[value='{{sub_category}}']").attr('selected','selected');
             $('#sub_category').find('option').each(function(index, element){
-                console.log($(element));
+                //console.log($(element));
                 if($(element).val()=='{{sub_category}}'){
                     $(element).attr('selected','selected');
                 }
             })
-            console.log();
+            //console.log();
 
-            console.log($('#sub_category').val());
+            //console.log($('#sub_category').val());
 
             get_sellers($('#Search'), initial=true);
 
@@ -531,32 +531,32 @@
     initialTab(0);
 
     var data_investor = {{data_investor| safe}};
-    console.log(data_investor);
+    //console.log(data_investor);
     var data_advisors = {{data_advisors|safe}};
 
     var my_sellers = {{my_sellers| safe}};
-    console.log(my_sellers);
+    //console.log(my_sellers);
 
     var advise_sellers = {{advise_sellers| safe}};
-    console.log(advise_sellers);
+    //console.log(advise_sellers);
 
     var invest_sellers = {{invest_sellers| safe}};
-    console.log(invest_sellers);
+    //console.log(invest_sellers);
 
     var just_sellers = {{just_sellers| safe}};
-    console.log(just_sellers);
+    //console.log(just_sellers);
 
     $('#my_modal').on('show.bs.modal', function(e) {
-        console.log('modal clicked');
+        //console.log('modal clicked');
         $('#my_modal').html('');
     var seller_id = $(e.relatedTarget).data('seller_id');
     var in_just = $(e.relatedTarget).attr('data-just');
-    console.log(in_just);
+    //console.log(in_just);
     var in_invest = $(e.relatedTarget).attr('data-invest');
-    console.log(in_invest);
+    //console.log(in_invest);
     var in_advise = $(e.relatedTarget).attr('data-advise');
-    console.log(in_advise);
-    console.log(seller_id);
+    //console.log(in_advise);
+    //console.log(seller_id);
     // $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
     //     $(element).attr('seller_id', seller_id);
     // });
@@ -647,26 +647,26 @@
             var currTab, k;
             var id = ele.id;
             var element = document.getElementById(id);
-            console.log(element);
+            //console.log(element);
           // This function will display the specified tab of the form...
 
             currTab=n;
-            console.log(currTab);
+            //console.log(currTab);
 
           var i;
           var x = document.getElementsByClassName("custom_tab");
-          console.log(x);
+          //console.log(x);
           for(i=0; i<x.length; i++){
               x[i].style.display = "none";
-              console.log(x[i]);
+              //console.log(x[i]);
           }
           x[currTab].style.display = "block";
           var zz = document.getElementsByClassName("btn-sellers-tab");
           for(var t=0; t<zz.length; t++){
             zz[t].className=zz[t].className.replace('btn-sellers-active', '');
-              console.log(zz[t]);
+              //console.log(zz[t]);
           }
-          console.log(zz[currTab]);
+          //console.log(zz[currTab]);
           zz[currTab].className += ' btn-sellers-active' ;
           get_sellers(ele);
           //... and fix the Previous/Next buttons:
@@ -682,22 +682,22 @@
           // This function will display the specified tab of the form...
 
             currTab=n;
-            console.log(currTab);
+            //console.log(currTab);
 
           var i;
           var x = document.getElementsByClassName("custom_tab");
-          console.log(x);
+          //console.log(x);
           for(i=0; i<x.length; i++){
               x[i].style.display = "none";
-              console.log(x[i]);
+              //console.log(x[i]);
           }
           x[currTab].style.display = "block";
           var zz = document.getElementsByClassName("btn-sellers-tab");
           for(var t=0; t<zz.length; t++){
             zz[t].className=zz[t].className.replace('btn-sellers-active', '');
-              console.log(zz[t]);
+              //console.log(zz[t]);
           }
-          console.log(zz[currTab]);
+          //console.log(zz[currTab]);
           zz[currTab].className += ' btn-sellers-active' ;
 
 
@@ -739,7 +739,7 @@ var removeByAttr = function(arr, attr, value){
 function just_add(ele){
         var id = ele.id;
         id = '#'+id;
-        console.log(id);
+        //console.log(id);
         var seller_id = $(id).attr('seller_id');
 
         // seller_id=parseInt(seller)
@@ -752,7 +752,7 @@ function just_add(ele){
             url: '{% url "seller1:just_add" %}',
             data: form_data,
             success: function(data){
-                console.log('Added to cart');
+                //console.log('Added to cart');
                 $(id).hide();
         $('#just_remove').show();
         $('#cart_'+seller_id).attr('data-just', 'True');
@@ -776,7 +776,7 @@ function just_add(ele){
     function just_remove(ele){
         var id = ele.id;
         id = '#'+id;
-        console.log(id);
+        //console.log(id);
         var seller_id = $(id).attr('seller_id');
 
         // seller_id=parseInt(seller)
@@ -789,7 +789,7 @@ function just_add(ele){
             url: '{% url "seller1:just_remove" %}',
             data: form_data,
             success: function(data){
-                console.log('Removed from cart');
+                //console.log('Removed from cart');
                 $(id).hide();
         $('#just_add').show();
         $('#cart_'+seller_id).attr('data-just', 'False');
@@ -840,7 +840,7 @@ function just_add(ele){
         advise_sellers.business.push({
             business_id: parseInt(seller_id)
         });
-                console.log('Added to cart');
+                //console.log('Added to cart');
             },
 
         async:false
@@ -875,7 +875,7 @@ function just_add(ele){
             );
         }
         removeByAttr(advise_sellers.business, 'business_id', parseInt(seller_id))
-                console.log('Removed from cart');
+                //console.log('Removed from cart');
             },
 
         async:false
@@ -903,7 +903,7 @@ function just_add(ele){
                 $(id).hide();
         $('#invest_remove').show();
         $('#cart_'+seller_id).attr('data-invest', 'True');
-        console.log('Added to cart');
+        //console.log('Added to cart');
         if($('#cart_'+seller_id).attr('data-just')=='True' || $('#cart_'+seller_id).attr('data-invest')=='True' || $('#cart_'+seller_id).attr('data-advise')=='True'){
             $('#cart_'+seller_id).html('');
             $('#cart_'+seller_id).append(
@@ -944,7 +944,7 @@ function just_add(ele){
             );
         }
         removeByAttr(invest_sellers, 'business_id', parseInt(seller_id))
-        console.log('Removed from cart');
+        //console.log('Removed from cart');
             },
             processData: false,
         contentType: false,
@@ -1008,7 +1008,7 @@ function just_add(ele){
 
 
     function get_sellers(ele, initial=false){
-       console.log('inside get_sellers');
+       //console.log('inside get_sellers');
        var id = ele.id;
        id = '#'+id;
        var page = $(id).attr('page');
@@ -1025,19 +1025,19 @@ function just_add(ele){
         sub_category = sub_category1.val() ;
     }
     $('.btn-sellers-active').each(function(index, element){
-        console.log($(element).attr("id"));
+        //console.log($(element).attr("id"));
         type = $(element).attr("id");
-        console.log(type);
+        //console.log(type);
     })
     var category = category1.val();
     var city = city1.val();
     var state = state1.val();
     var country = country1.val();
-    console.log(category);
-    console.log(sub_category);
-    console.log(country);
-    console.log(state);
-    console.log(city);
+    //console.log(category);
+    //console.log(sub_category);
+    //console.log(country);
+    //console.log(state);
+    //console.log(city);
     var form_data = new FormData()
     form_data.append('category', category);
     form_data.append('sub_category', sub_category);
@@ -1047,7 +1047,7 @@ function just_add(ele){
     form_data.append('page', page_int);
     form_data.append('type', type);
     var appendto = '#tab_' + type;
-    console.log(appendto);
+    //console.log(appendto);
     tab = document.querySelector(appendto);
     form_data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
     page_int=page_int+1;
@@ -1064,7 +1064,7 @@ function just_add(ele){
             'type' : type,
         },
         success: function(data){
-            console.log('success');
+            //console.log('success');
             $(appendto).html('');
             for(i=0; i<data.sellers.length; i++){
                 // define all things you need here and then use in append
@@ -1079,7 +1079,7 @@ function just_add(ele){
                 if(check_for_same(seller_id)){
                     continue;
                 }
-                console.log('going to display this one');
+                //console.log('going to display this one');
                 if(check_for_advise(seller_id)){
                     in_advise=true;
                     in_some = true;
@@ -1106,7 +1106,7 @@ function just_add(ele){
                 var dcategory = data.sellers[i].seller.category1;
                 var sub_category = data.sellers[i].seller.category2;
                 var year = data.sellers[i].business.year_established;
-                console.log('first time');
+                //console.log('first time');
                 $(appendto).append(
                     "<div investment='"+investment+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
         +                "<div class='row'>"
@@ -1252,7 +1252,7 @@ function just_add(ele){
                 var lat = data.sellers[i].seller.lat;
                 var lng = data.sellers[i].seller.lngt;
                 var title = data.sellers[i].seller.title;
-                console.log('first time');
+                //console.log('first time');
                 $(appendto).append(
                     "<div lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='container-fluid pt-2 pb-2'>"
         +                "<div class='row'>"
@@ -1355,7 +1355,7 @@ function just_add(ele){
                 var lat = data.sellers[i].seller.lat;
                 var lng = data.sellers[i].seller.lngt;
                 var title = data.sellers[i].seller.title;
-                console.log('first time');
+                //console.log('first time');
                 $(appendto).append(
                     "<div lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='container-fluid pt-2 pb-2'>"
         +                "<div class='row'>"
@@ -1457,7 +1457,7 @@ function just_add(ele){
                 var lat = data.sellers[i].seller.lat;
                 var lng = data.sellers[i].seller.lngt;
                 var title = data.sellers[i].seller.title;
-                console.log('first time');
+                //console.log('first time');
                 $(appendto).append(
                     "<div lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='container-fluid pt-2 pb-2'>"
         +                "<div class='row'>"
@@ -1574,7 +1574,7 @@ function just_add(ele){
 
         $(document).ready(function(){
                var a = screen.width;
-               console.log(a);
+               //console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
                }
@@ -1600,7 +1600,7 @@ function just_add(ele){
 
     $(document).ready(function(){
            var a = screen.width;
-           console.log(a);
+           //console.log(a);
            if(a<2000 && a>1500){
                 $("body").css("zoom","90%");
            }
@@ -1639,8 +1639,8 @@ function just_add(ele){
         }else{
             name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
         }
-        console.log(name)
-        console.log('{{user.profile.photo_url}}');
+        //console.log(name)
+        //console.log('{{user.profile.photo_url}}');
         $('#prof_pic_b').attr('src',name);
         $('#prof_pic_s').attr('src',name);
     });

@@ -571,16 +571,16 @@ list-style-type: none;
               var number = $('#id_phone_number_primary').val();
               var code = $('#country_code_primary').val()
                   var fnumber = code+number;
-              console.log(cnumber);
+              //console.log(cnumber);
               if(fnumber==cnumber){
                   var otp = localStorage.getItem('otp');
-                  console.log(otp);
+                  //console.log(otp);
                   if($('#otp').val()==otp){
                       localStorage.setItem('phone_verify','true');
                       $('#otp_err').hide();
                       if(localStorage.getItem('email_verify')=='true'){
                           document.getElementById("regForm").submit();
-                          console.log(localStorage.getItem('email_verify'))
+                          //console.log(localStorage.getItem('email_verify'))
                       }else{
                           $('#otp_email_body').show();
                       }
@@ -599,15 +599,15 @@ list-style-type: none;
               var cnumber = localStorage.getItem('cemail');
               var femail = $('#id_email_adress').val();
                   // var fnumber = code+number;
-              console.log(cnumber);
+              //console.log(cnumber);
               if(femail==cnumber){
                   var otp = localStorage.getItem('otp_email');
-                  console.log(otp);
+                  //console.log(otp);
                   if($('#otp_email').val()==otp){
                       localStorage.setItem('email_verify','true');
                       $('#otp_email_err').hide();
                       if(localStorage.getItem('phone_verify')=='true'){
-                          console.log(localStorage.getItem('phone_verify'))
+                          //console.log(localStorage.getItem('phone_verify'))
                           document.getElementById("regForm").submit();
                       }else{
                           $('#otp_body').show();
@@ -629,8 +629,8 @@ list-style-type: none;
                   var code = $('#country_code_primary').val()
                   var fnumber = code+number;
                   var name = ""+ $('#id_first_name').val()
-                  console.log(name);
-                  console.log(fnumber);
+                  //console.log(name);
+                  //console.log(fnumber);
                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
@@ -640,13 +640,13 @@ list-style-type: none;
                           name: name
                       },
                       success: function(data){
-                          console.log(data)
+                          //console.log(data)
                           if(data.status=='success'){
                               localStorage.setItem('phone_verify', 'false');
                               localStorage.setItem('cnumber', data.number);
                               localStorage.setItem('otp', data.otp);
 
-                              console.log('otp sent');
+                              //console.log('otp sent');
                           }else{
                               alert('Invalid Phone Number')
                           }
@@ -661,8 +661,8 @@ list-style-type: none;
       var email = $('#id_email_adress').val()
 
           var name = ""+ $('#id_first_name').val()
-          console.log(name);
-          console.log(email);
+          //console.log(name);
+          //console.log(email);
           $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
@@ -672,13 +672,13 @@ list-style-type: none;
                   name: name
               },
               success: function(data){
-                  console.log(data)
+                  //console.log(data)
                   if(data.status=='success'){
                       localStorage.setItem('email_verify', 'false');
                       localStorage.setItem('cemail', data.email);
                       localStorage.setItem('otp_email', data.otp);
 
-                      console.log('otp sent');
+                      //console.log('otp sent');
                   }
               }
           });
@@ -693,7 +693,7 @@ list-style-type: none;
                 var y = document.getElementsByClassName("btn-sellers");
                 var error=false;
                 var z = x[currTab].getElementsByClassName("ginput");
-                  console.log(z);
+                  //console.log(z);
                   if(n==1){
                       validateForm();
                       for(var m=0;m<=currTab;m++){
@@ -704,16 +704,16 @@ list-style-type: none;
                           for(var l=0; l<check_prev.length; l++){
                           if(check_prev[l].classList.contains('invalid')||check_prev[l].classList.contains('begin_empty')||check_prev[l].classList.contains('kinvalid')){
                               error=true;
-                              console.log(check_prev[l]);
+                              //console.log(check_prev[l]);
                               break;
                           }
                       }
                       }
                       if(error){
                           y[m-1].classList.add('tab_error');
-                          console.log(error);
+                          //console.log(error);
                           error=false;
-                          console.log(error);
+                          //console.log(error);
                           return false;
                       }
                   }
@@ -731,8 +731,8 @@ list-style-type: none;
                   var code = $('#country_code_primary').val()
                   var fnumber = code+number;
                   var name = ""+ $('#id_first_name').val()
-                  console.log(name);
-                  console.log(fnumber);
+                  //console.log(name);
+                  //console.log(fnumber);
                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
@@ -742,7 +742,7 @@ list-style-type: none;
                           name:name
                       },
                       success: function(data){
-                          console.log(data)
+                          //console.log(data)
                           if(data.status=='success'){
                               localStorage.setItem('phone_verify', 'false');
                               localStorage.setItem('cnumber', data.number);
@@ -759,13 +759,13 @@ list-style-type: none;
                           name: name
                       },
                       success: function(data){
-                          console.log(data)
+                          //console.log(data)
                           if(data.status=='success'){
                               localStorage.setItem('email_verify', 'false');
                               localStorage.setItem('cemail', data.email);
                               localStorage.setItem('otp_email', data.otp);
                               $('#otp_modal').modal('show');
-                              console.log('email sent');
+                              //console.log('email sent');
                           }
                       }
                   });
@@ -798,7 +798,7 @@ list-style-type: none;
 
                   //             }),
                   //     success: function(data){
-                  //         console.log(data)
+                  //         //console.log(data)
                   //     }
                   // })
                   // document.getElementById("regForm").submit();
@@ -892,7 +892,7 @@ list-style-type: none;
             $(id).on('input',function(){
                 var input = $(this);
                 var field_name = $(this).val();
-                console.log(field_name);
+                //console.log(field_name);
                 $.ajax({
                                 type: "GET",
                                 url: 'ajax/validate',
@@ -902,17 +902,17 @@ list-style-type: none;
                                 },
                                 success: function (data) {
                                 if (data.error!="") {
-                                    console.log(data.error);
+                                    //console.log(data.error);
                                     var err_id = "#" + "{{key}}" + "_err";
                                     // $(err_id).html(data.error);
                                     $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
-                                    console.log(id);
+                                    //console.log(id);
                                 }
                                 else {
                                     var err_id = "#" + "{{key}}" + "_err";
                                     // $(err_id).html('');
                                     $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
-                                    console.log(data);
+                                    //console.log(data);
                                 }
                                 }
                 })
@@ -936,7 +936,7 @@ list-style-type: none;
         $(id).on('input',function(){
             var input = $(this);
             var field_name = $(this).val();
-            console.log(field_name);
+            //console.log(field_name);
             $.ajax({
                             type: "GET",
                             url: 'ajax/validate/supplier',
@@ -946,17 +946,17 @@ list-style-type: none;
                             },
                             success: function (data) {
                             if (data.error!="") {
-                                console.log(data.error);
+                                //console.log(data.error);
                                 var err_id = "#" + "{{key}}" + "_err";
                                 // $(err_id).html(data.error);
                                 $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
-                                console.log(id);
+                                //console.log(id);
                             }
                             else {
                                 var err_id = "#" + "{{key}}" + "_err";
                                 // $(err_id).html('');
                                 $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
-                                console.log(data);
+                                //console.log(data);
                             }
                             },
                             async:false
@@ -982,7 +982,7 @@ list-style-type: none;
         $(id).on('input',function(){
             var input = $(this);
             var field_name = $(this).val();
-            console.log(field_name);
+            //console.log(field_name);
             $.ajax({
                             type: "GET",
                             url: 'ajax/validate/rev',
@@ -992,17 +992,17 @@ list-style-type: none;
                             },
                             success: function (data) {
                             if (data.error!="") {
-                                console.log(data.error);
+                                //console.log(data.error);
                                 var err_id = "#" + "{{key}}" + "_err";
                                 // $(err_id).html(data.error);
                                 $(input).removeClass('valid').addClass('invalid').removeClass('begin_empty');
-                                console.log(id);
+                                //console.log(id);
                             }
                             else {
                                 var err_id = "#" + "{{key}}" + "_err";
                                 // $(err_id).html('');
                                 $(input).removeClass('invalid').addClass('valid').removeClass('begin_empty');
-                                console.log(data);
+                                //console.log(data);
                             }
                             },
                             async:false
@@ -1036,12 +1036,12 @@ var id="#id_prod_info";
         // $('#myWordCount').text(max-words+" words left");
         if(words<min){
             $('#myWordCount').text(min-words+" Charectors needed");
-            console.log('invalid');
+            //console.log('invalid');
             $(id).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
         }
         if(words>=min){
             $('#myWordCount').text(max-words+" Charectors left");
-            console.log('valid');
+            //console.log('valid');
             $(id).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
         }
         if (words == max + 1) {
@@ -1072,12 +1072,12 @@ var id="#id_prod_info";
         // $('#myWordCount_2').text(max-words+" words left");
         if(words<kmin){
             $('#myWordCount_3').text(kmin-words+" Charectors needed");
-            console.log('invalid');
+            //console.log('invalid');
             $(kid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
         }
         if(words>=kmin){
             $('#myWordCount_3').text(kmax-words+" Charectors left");
-            console.log('kvalid');
+            //console.log('kvalid');
             $(kid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
         }
         if (words == kmax + 1) {
@@ -1108,12 +1108,12 @@ var id="#id_prod_info";
         // $('#myWordCount_2').text(max-words+" words left");
         if(words<tmin){
             $('#myWordCount_3').text(tmin-words+" Charectors needed");
-            console.log('invalid');
+            //console.log('invalid');
             $(tid).removeClass('kvalid').addClass('kinvalid').removeClass('begin_empty');
         }
         if(words>=tmin){
             $('#myWordCount_3').text(tmax-words+" Charectors left");
-            console.log('kvalid');
+            //console.log('kvalid');
             $(tid).removeClass('kinvalid').addClass('kvalid').removeClass('begin_empty');
         }
         if (words == tmax + 1) {
@@ -1209,12 +1209,12 @@ function get_sub_sectors(ele){
                 async:false
             });
             $("#overlay").fadeOut();
-            console.log(files);
+            //console.log(files);
                 for(var k=0; k<files.length; k++){
                     var name = files[k]['name'];
                     name = name.replace('files/','');
 
-                    console.log(name);
+                    //console.log(name);
                     var url = "{{MEDIA_PREFIX}}/files/"+name;
                     var mockFile = { name: name, type: 'image/jpeg' };
         this.options.addedfile.call(this, mockFile);
@@ -1248,7 +1248,7 @@ function get_sub_sectors(ele){
 
                         this.on("removedfile", function(file){
                             if(this.files.length == 0){
-                                console.log('inside remove if');
+                                //console.log('inside remove if');
                                 var img_ele = document.getElementById('dropzonewidget');
                 //    img_ele.className = img_ele.className.replace("ginput begin_empty", "");
                 img_ele.className += " ginput";
@@ -1258,13 +1258,13 @@ function get_sub_sectors(ele){
                         });
 
                         this.on("success", function(file, response){
-                            console.log(response);
-                            console.log(response.name);
+                            //console.log(response);
+                            //console.log(response.name);
                             var name = response.name;
-                            console.log(name);
+                            //console.log(name);
                             name = name.replace('files/', '');
-                            console.log(name);
-                            console.log(initialize);
+                            //console.log(name);
+                            //console.log(initialize);
                             $("#overlay").fadeIn();
                             $.ajax({
                     type: 'POST',
@@ -1275,12 +1275,12 @@ function get_sub_sectors(ele){
                         album_id: album_id
                     },
                     success:function(data){
-                        console.log(initialize);
+                        //console.log(initialize);
                         album_id = data.album_id;
                         album=document.querySelector("#id_album_id");
                         album.value=album_id;
                         initialize=false
-                        console.log(initialize);
+                        //console.log(initialize);
                     },
                     async:false
                 });
@@ -1297,7 +1297,7 @@ function get_sub_sectors(ele){
             url: '{% url "album:remove"%}',
             data: {name: file.name,reque:2},
             success: function(data){
-                console.log('success: ' + data);
+                //console.log('success: ' + data);
             },
                 async:false
         });
@@ -1362,10 +1362,10 @@ function get_sub_sectors(ele){
           var places = searchbox.getPlaces();
           lat.value = marker.getPosition().lat();
         long.value = marker.getPosition().lng();
-        console.log(lat.value);
-		console.log(long.value);
-        console.log(result);
-        console.log(content);
+        //console.log(lat.value);
+		//console.log(long.value);
+        //console.log(result);
+        //console.log(content);
 
         var resultArray = result[0].address_components;
 
@@ -1383,9 +1383,9 @@ function get_sub_sectors(ele){
                 country.value = citi;
             }
         }
-        console.log(city.value);
-		console.log(region.value);
-		console.log(country.value);
+        //console.log(city.value);
+		//console.log(region.value);
+		//console.log(country.value);
 
             }
 
@@ -1437,11 +1437,11 @@ function get_sub_sectors(ele){
 		});
 
         infoWindow.open(map, marker);
-        console.log(city.value);
-		console.log(region.value);
-		console.log(country.value);
-		console.log(lat.value);
-		console.log(long.value);
+        //console.log(city.value);
+		//console.log(region.value);
+		//console.log(country.value);
+		//console.log(lat.value);
+		//console.log(long.value);
       });
 
 
@@ -1456,7 +1456,7 @@ function get_sub_sectors(ele){
           geocoder.geocode({ latLng: marker.getPosition()}, function(result, status){
             if(status == google.maps.GeocoderStatus.OK){
                 address = result[0].formatted_address;
-                console.log(address);
+                //console.log(address);
                 resultArray = result[0].address_components;
 
                 for(var i=0; i<resultArray.length; i++){
@@ -1477,7 +1477,7 @@ function get_sub_sectors(ele){
                 if(infoWindow){
               infoWindow.close();
           }
-          console.log(address);
+          //console.log(address);
           infoWindow = new google.maps.InfoWindow({
               content: address
           });
@@ -1485,14 +1485,14 @@ function get_sub_sectors(ele){
 
             }
             else{
-                console.log('Geocode was not successful for the following reason: '+ status);
+                //console.log('Geocode was not successful for the following reason: '+ status);
             }
           });
-          console.log(city.value);
-		console.log(region.value);
-		console.log(country.value);
-		console.log(lat.value);
-		console.log(long.value);
+          //console.log(city.value);
+		//console.log(region.value);
+		//console.log(country.value);
+		//console.log(lat.value);
+		//console.log(long.value);
 
 
       });
@@ -1528,7 +1528,7 @@ function get_sub_sectors(ele){
 
 
                var a = screen.width;
-               console.log(a);
+               //console.log(a);
                if(a<2000 && a>1500){
                     $("body").css("zoom","90%");
                }

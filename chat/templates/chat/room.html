@@ -114,7 +114,7 @@
 <script>
     var roomName = {{ room_name_json }};
     var username = {{ username }};
-    console.log(username);
+    //console.log(username);
 
     var chatSocket = new ReconnectingWebSocket(
         'ws://' + window.location.host +
@@ -163,7 +163,7 @@
 
     function createMessage(data) {
       var author = data['author'];
-      console.log(author);
+      //console.log(author);
       var msgListTag = document.createElement('li');
       var imgTag = document.createElement('img');
       var pTag = document.createElement('p');

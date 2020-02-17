@@ -957,21 +957,21 @@
     <script>
 
         var data_investor = {{ data_investor| safe}};
-        console.log(data_investor);
+        //console.log(data_investor);
         var data_advisors = {{ data_advisors| safe}};
 
 
         var my_sellers = {{ my_sellers| safe}};
-        console.log(my_sellers);
+        //console.log(my_sellers);
 
         var sellers_advisors = {{ sellers_advisors| safe}}
-        console.log(sellers_advisors);
+        //console.log(sellers_advisors);
 
         var invest_advisors = {{ invest_advisors| safe}};
-        console.log(invest_advisors);
+        //console.log(invest_advisors);
 
         var just_advisors = {{ just_advisors| safe}};
-        console.log(just_advisors);
+        //console.log(just_advisors);
 
         var removeByAttr = function (arr, attr, value) {
             var i = arr.length;
@@ -992,7 +992,7 @@
         function just_add(ele) {
             var id = ele.id;
             id = '#' + id;
-            console.log(id);
+            //console.log(id);
             var seller_id = $(id).attr('seller_id');
 
             // seller_id=parseInt(seller)
@@ -1005,7 +1005,7 @@
                 url: '{% url "seller1:just_add" %}',
                 data: form_data,
                 success: function (data) {
-                    console.log('Added to cart');
+                    //console.log('Added to cart');
                     $(id).hide();
                     $('#just_remove').show();
                     $('#cart_' + seller_id).attr('data-just', 'True');
@@ -1046,7 +1046,7 @@
         function just_remove(ele) {
             var id = ele.id;
             id = '#' + id;
-            console.log(id);
+            //console.log(id);
             var seller_id = $(id).attr('seller_id');
 
             // seller_id=parseInt(seller)
@@ -1059,7 +1059,7 @@
                 url: '{% url "seller1:just_remove" %}',
                 data: form_data,
                 success: function (data) {
-                    console.log('Removed from cart');
+                    //console.log('Removed from cart');
                     $(id).hide();
                     $('#just_add').show();
                     $('#cart_' + seller_id).attr('data-just', 'False');
@@ -1113,7 +1113,7 @@
                     $(id).hide();
                     $('#seller_remove_' + cart_seller_id).show();
                     $('#cart_' + seller_id).attr('cart_seller_' + cart_seller_id, 'True');
-                    console.log('Added to cart');
+                    //console.log('Added to cart');
                     // var in_seller='False';
                     var nname = 'seller_' + cart_seller_id;
                     sellers_advisors[nname].push({
@@ -1167,11 +1167,11 @@
                     $(id).hide();
                     $('#seller_add_' + cart_seller_id).show();
                     $('#cart_' + seller_id).attr('cart_seller_' + cart_seller_id, 'False');
-                    console.log('removed from cart');
+                    //console.log('removed from cart');
                     // var in_seller='False';
                     var nname = 'seller_' + cart_seller_id;
                     removeByAttr(sellers_advisors[nname], 'advisor_id', parseInt(seller_id))
-                    console.log('Removed from cart');
+                    //console.log('Removed from cart');
                     var in_seller = 'False';
                     var in_investor = 'False';
                     var check_arr = check_for_seller(seller_id);
@@ -1223,7 +1223,7 @@
                     $(id).hide();
                     $('#investor_remove_' + cart_investor_id).show();
                     $('#cart_' + seller_id).attr('cart_investor_' + cart_investor_id, 'True');
-                    console.log('Added to cart');
+                    //console.log('Added to cart');
 
                     var nname = 'investor_' + cart_investor_id;
                     invest_advisors[nname].push({
@@ -1245,7 +1245,7 @@
                             break;
                         }
                     }
-                    console.log('Added to cart');
+                    //console.log('Added to cart');
                     if ($('#cart_' + seller_id).attr('data-just') == 'True' || in_investor == 'True' || in_seller == 'True') {
                         $('#cart_' + seller_id).html('');
                         $('#cart_' + seller_id).append(
@@ -1281,7 +1281,7 @@
                     $(id).hide();
                     $('#investor_add_' + cart_investor_id).show();
                     $('#cart_' + seller_id).attr('cart_investor_' + cart_investor_id, 'False');
-                    console.log('removed from cart');
+                    //console.log('removed from cart');
                     var nname = 'investor_' + cart_investor_id;
                     removeByAttr(invest_advisors[nname], 'advisor_id', parseInt(seller_id))
                     var in_seller = 'False';
@@ -1307,7 +1307,7 @@
                         );
                     }
                     // removeByAttr(invest_advisors, 'advisor_id', parseInt(seller_id))
-                    console.log('Removed from cart');
+                    //console.log('Removed from cart');
                 },
                 processData: false,
                 contentType: false,
@@ -1345,8 +1345,8 @@
                 var same = false;
                 var found = false;
                 for (var k = 0; k < sellers_advisors[name].length; k++) {
-                    console.log(sellers_advisors[name][k]);
-                    console.log(seller_id);
+                    //console.log(sellers_advisors[name][k]);
+                    //console.log(seller_id);
                     if (sellers_advisors[name][k].advisor_id == seller_id) {
                         same = true;
                         found = true;
@@ -1364,7 +1364,7 @@
                 });
             }
 
-            console.log(arr);
+            //console.log(arr);
 
             return arr;
         }
@@ -1383,8 +1383,8 @@
                 var same = false;
                 var found = false;
                 for (var k = 0; k < invest_advisors[name].length; k++) {
-                    console.log(invest_advisors[name][k]);
-                    console.log(seller_id);
+                    //console.log(invest_advisors[name][k]);
+                    //console.log(seller_id);
                     if (invest_advisors[name][k].advisor_id == seller_id) {
                         same = true;
                         found = true;
@@ -1402,7 +1402,7 @@
                 });
             }
 
-            console.log(arr);
+            //console.log(arr);
 
             return arr;
         }
@@ -1435,7 +1435,7 @@
             //  var in_invest=false;
             var in_some = false;
             var seller_id = '{{seller.advisor_id}}'
-            console.log(seller_id);
+            //console.log(seller_id);
             var seller_arr = check_for_seller(seller_id);
 
             var seller_arr = check_for_seller(seller_id);
@@ -1443,7 +1443,7 @@
             // if(check_for_same(seller_id)){
             //     break;
             // }
-            console.log('going to display this one');
+            //console.log('going to display this one');
 
             //if(check_for_invest(seller_id)){
             //    in_invest=true;
@@ -1467,7 +1467,7 @@
             }
 
             if (check_for_same(seller_id)) {
-                console.log('same' + seller_id);
+                //console.log('same' + seller_id);
                 $('#button_cart').hide()
 
             } else {
@@ -1493,7 +1493,7 @@
                 for (var k = 0; k < seller_arr.length; k++) {
                     var attr = 'cart_seller_' + seller_arr[k].seller_id;
                     var cart_seller_id = seller_arr[k].found;
-                    console.log(cart_seller_id);
+                    //console.log(cart_seller_id);
                     if (cart_seller_id) {
                         $('#cart_' + seller_id).attr(attr, 'True');
                     }
@@ -1504,7 +1504,7 @@
                 for (var k = 0; k < investor_arr.length; k++) {
                     var attr = 'cart_investor_' + investor_arr[k].investor_id;
                     var cart_seller_id = investor_arr[k].found;
-                    console.log(cart_seller_id);
+                    //console.log(cart_seller_id);
                     if (cart_seller_id) {
                         $('#cart_' + seller_id).attr(attr, 'True');
                     }
@@ -1517,16 +1517,16 @@
         });
 
         $('#my_modal').on('show.bs.modal', function (e) {
-            console.log('modal clicked');
+            //console.log('modal clicked');
             $('#my_modal').html('');
             var seller_id = $(e.relatedTarget).data('seller_id');
             var in_just = $(e.relatedTarget).attr('data-just');
-            console.log(in_just);
+            //console.log(in_just);
             var in_invest = $(e.relatedTarget).attr('data-invest');
-            console.log(in_invest);
+            //console.log(in_invest);
             // var in_advise = $(e.relatedTarget).attr('data-advise');
-            // console.log(in_advise);
-            console.log(seller_id);
+            // //console.log(in_advise);
+            //console.log(seller_id);
             // $('#my_modal').find('.btn-sellers-modal').each(function(index, element){
             //     $(element).attr('seller_id', seller_id);
             // });
@@ -1610,7 +1610,7 @@
 
 
         var a = screen.width;
-        console.log(a);
+        //console.log(a);
         if (a < 2000 && a > 1500) {
             $("body").css("zoom", "90%");
         }
@@ -1646,8 +1646,8 @@
             } else {
                 name = "{{MEDIA_PREFIX}}/" + "{{user.profile.photo.name}}";
             }
-            console.log(name)
-            console.log('{{user.profile.photo_url}}');
+            //console.log(name)
+            //console.log('{{user.profile.photo_url}}');
             $('#prof_pic_b').attr('src', name);
             $('#prof_pic_s').attr('src', name);
         });
@@ -1662,22 +1662,22 @@
                 type: 'GET',
                 url: '/seller/fetch-advise/{{seller.advisor_id}}',
                 success: function (data) {
-                    console.log(data.contact_number);
-                    console.log(data);
-                    console.log('check for photo bool')
+                    //console.log(data.contact_number);
+                    //console.log(data);
+                    //console.log('check for photo bool')
                     var name = '';
-                    console.log(data.photo_bool);
+                    //console.log(data.photo_bool);
                     if(data.photo_bool == 'True') {
                         name = "{{MEDIA_PREFIX}}/" + data.photo_link;
                         
-                        console.log(data.photo_link);
-                        console.log(data.photo_url);
+                        //console.log(data.photo_link);
+                        //console.log(data.photo_url);
 
                     }
                     else{
                         name = data.photo_link;
                     }
-                    console.log(name)
+                    //console.log(name)
                     $('#master_tagger1').attr('src', name);
                     namer = data.first_name + " " + data.last_name
                     $('#master_tagger2').html(namer);
@@ -1751,7 +1751,7 @@
             var spentTime = endDate.getTime() - startDate.getTime();
             spentTime = spentTime / 1000
             elapsedTime += spentTime;
-            console.log(elapsedTime)
+            //console.log(elapsedTime)
         })
 
         $(window).on('unload', function () {
@@ -1904,7 +1904,7 @@
 
                 arcFilled.attr('d', arc1).
                 attr("fill", function () {
-                    //console.log('color = ' + color(Math.round(perc * 100)));
+                    ////console.log('color = ' + color(Math.round(perc * 100)));
                     return color(perc);
                 });
                 arcEmpty.attr('d', arc2);

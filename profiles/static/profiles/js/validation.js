@@ -40,7 +40,7 @@ $("#pass").on('input', function()  {
     var username = $(this).val();
     tex=Validatenumber(username)
     $("#text").text(tex);
-    console.log( $(this).val() );
+    //console.log( $(this).val() );
     $.ajax({
       type: 'GET',
       url: "/rooms/likepost",

@@ -164,7 +164,7 @@
                                         </h5>
                                         
                                         <script>
-                                            console.log('{{prof_info.email}}')
+                                            //console.log('{{prof_info.email}}')
                                         </script>
 
                                     </div>
@@ -598,7 +598,7 @@
 
             $(document).ready(function(){
                    var a = screen.width;
-                   console.log(a);
+                   //console.log(a);
                    if(a<2000 && a>1500){
                         $("body").css("zoom","90%");
                    }
@@ -653,8 +653,8 @@
             }else{
                 name = "{{MEDIA_PREFIX}}/"+"{{user.profile.photo.name}}";
             }
-            console.log(name)
-            console.log('{{user.profile.photo_url}}');
+            //console.log(name)
+            //console.log('{{user.profile.photo_url}}');
             $('#prof_pic_b').attr('src',name);
             $('#prof_pic_s').attr('src',name);
         });
@@ -702,7 +702,7 @@ var c_drop = document.getElementById('select2-id_currency-container');
 $(document).ready(function(){
     $("#id_currency").select2();
     $("#id_currency").change(function () {
-        // console.log($(this).val().slice(-3));
+        // //console.log($(this).val().slice(-3));
         var a = $(this).val().split("**");
         $("#select2-id_currency-container").text(a[3]);
         localStorage.setItem("currency", $(this).val());
@@ -712,12 +712,12 @@ $(document).ready(function(){
 
     var a = localStorage.getItem("currency");
     $('#id_currency').val(a).change();
-    // console.log(a);
+    // //console.log(a);
     var b = a.split("**");
     $("#select2-id_currency-container").html(b[3]);
-    // console.log(b[3]);
+    // //console.log(b[3]);
     // $.getJSON('https://ipapi.co/json/', function(data) {
-    //       console.log(data.country);
+    //       //console.log(data.country);
 
     //       myList = [];
     //       $('#id_currency option').each(function() {
@@ -726,7 +726,7 @@ $(document).ready(function(){
 
     //       for (i = 0; i < myList.length; i++) {
     //         var b = myList[i].split("**");
-    //         console.log(b[1]);
+    //         //console.log(b[1]);
     //         if(b[1]==data.country){
     //           $("#select2-id_currency-container").text(b[3]);
     //         }
