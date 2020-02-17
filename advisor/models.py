@@ -7,7 +7,7 @@ from django.core.validators import RegexValidator
 from django.utils import timezone
 
 class Advisor(models.Model):
-    advisor_id = models.AutoField(primary_key=True)
+    advisor_id = models.UUIDField(primary_key=True)
     first_name = models.CharField(max_length=25)
     middle_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
@@ -28,7 +28,7 @@ class Advisor(models.Model):
 
 
 class BusinessAdvisor(models.Model):
-    business_id = models.AutoField(primary_key=True)
+    business_id = models.UUIDField(primary_key=True)
     advisor = models.OneToOneField(Advisor, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     category1 = models.CharField(max_length=255, blank=True)
@@ -81,7 +81,7 @@ class BusinessAdvisor(models.Model):
 
 
 class StartupAdvisor(models.Model):
-    startup_id = models.AutoField(primary_key=True)
+    startup_id = models.UUIDField(primary_key=True)
     advisor = models.OneToOneField(Advisor, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     category1 = models.CharField(max_length=255, blank=True)

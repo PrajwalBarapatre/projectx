@@ -20,7 +20,7 @@ class File(models.Model):
 
 
 class KAlbumForFile(models.Model):
-    album_id = models.AutoField(primary_key=True)
+    album_id = models.UUIDField(primary_key=True)
     files = models.ManyToManyField(File, blank=True, null=True)
     seller = models.ManyToManyField(SellBusiness, blank=True, null=True)
 

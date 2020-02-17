@@ -26,7 +26,7 @@ SECRET_KEY = '2$v%o)#av9y$+gq93i5o$tlkf_-v(930j(y!52(yd$9l9st-0('
 # print(os.getenv('DJANGO_DB_HOST'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 assert SECRET_KEY is not None, (
     'Please provide DJANGO_SECRET_KEY '
     'environment variable with a value')
@@ -163,16 +163,7 @@ DATABASES = {
 
 ############################## For Development #####################################
 
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': 'bvergedatabase' ,
-#             'USER': 'root' ,
-#             'PASSWORD': 'BvergeProject' ,
-#             'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com' ,
-#             'PORT': 3306,
-#     }
-# }
+
 
 ######################################################################################
 
@@ -255,14 +246,6 @@ SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECR
 
 ############################################ For Development  #############################################
 
-# SOCIAL_AUTH_GITHUB_KEY = '3587cb59299b6a333b8e'
-# SOCIAL_AUTH_GITHUB_SECRET = '46941b74903fa449f227c956d723e5be9956a4aa'
-
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='525491482451-tbhth56o4usmjf1beuca21n4jj2de515.apps.googleusercontent.com'
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uYdpgAjU5hPMwlhgarAUZZmk'
-#
-# SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '81wmsl0nipfegt'
-# SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'Y4BXLqOUgLXzor2S'
 
 
 #########################################################################################################
@@ -318,19 +301,11 @@ EMAIL_PORT = 465
 
 ############################## For Development ###############################
 
-# EMAIL_USE_SSL = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'admin@bverge.com'
-# EMAIL_HOST_PASSWORD = 'Merge@2019'
-# EMAIL_PORT = 465
+
 
 ###################################################################################
 
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'admin@bverge.com'
-# EMAIL_HOST_PASSWORD = 'Merge@2019'
-# EMAIL_PORT = 25
+
 
 
 
@@ -351,11 +326,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'gathered_static_files')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-## AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6DL46EYBO'
-## AWS_SECRET_ACCESS_KEY = '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'
-
-# AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
-# AWS_SECRET_ACCESS_KEY = '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'
 
 
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
@@ -378,10 +348,7 @@ AWS_STORAGE_BUCKET_NAME = 'bverge'
 
 ############################## For Development ###############################
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'bverge'
+
 
 ###################################################################################
 
