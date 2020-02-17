@@ -15,14 +15,14 @@ from projectx import settings
 User._meta.get_field('email')._unique = True
 
 class Feedback(models.Model):
-    feedback_id = models.UUIDField(primary_key=True)
+    feedback_id = models.AutoField(primary_key=True)
     email = models.EmailField()
     question = models.TextField()
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
 
 class Notification(models.Model):
-    notif_id = models.UUIDField(primary_key=True)
+    notif_id = models.AutoField(primary_key=True)
     notif_type = models.CharField(max_length=255)
     notif_statement = models.CharField(max_length=255)
     notif_on = models.CharField(max_length=255, blank=True, null=True)
@@ -31,7 +31,7 @@ class Notification(models.Model):
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
 class Search_log(models.Model):
-    slog_id = models.UUIDField(primary_key=True)
+    slog_id = models.AutoField(primary_key=True)
     city = models.CharField(max_length=255, blank=True, null=True)
     state = models.CharField(max_length=255, blank=True, null=True)
     country = models.CharField(max_length=255, blank=True, null=True)
@@ -40,7 +40,7 @@ class Search_log(models.Model):
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
 class View_log(models.Model):
-    vlog_id = models.UUIDField(primary_key=True)
+    vlog_id = models.AutoField(primary_key=True)
     base_type = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=255, blank=True, null=True)
     category = models.CharField(max_length=255, blank=True, null=True)
@@ -51,7 +51,7 @@ class View_log(models.Model):
 class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_id = models.UUIDField(primary_key=True)
+    profile_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     photo = models.FileField(upload_to='files/', blank=True, null=True, default='files/advisor-img2.png')
@@ -92,7 +92,7 @@ class Profile(models.Model):
     invest_unlocks = models.ManyToManyField(Invest, blank=True, related_name='unlocked_by_users')
 
     # class Paypal_Order(models.Model):
-    #     order_id = models.UUIDField(primary_key=True)
+    #     order_id = models.AutoField(primary_key=True)
     #     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     #     subcription_plan = models.CharField(max_length=255, blank=True, null=True)
     #     listing_type = models.CharField(max_length=255, blank=True, null=True)

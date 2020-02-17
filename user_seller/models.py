@@ -9,7 +9,7 @@ from investor.models import Investor
 from advisor.models import Advisor
 
 class Sell(models.Model):
-    sell_id = models.UUIDField(primary_key=True)
+    sell_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     inst_investors = models.ManyToManyField(Investor, related_name='invest_sell_for_sell', blank=True)
     inst_advisor = models.ManyToManyField(Advisor, related_name='advise_sell_for_sell', blank=True)
@@ -29,7 +29,7 @@ class Sell(models.Model):
         super(Sell, self).save(*args, **kwargs)
 
 class Invest(models.Model):
-    invest_id = models.UUIDField(primary_key=True)
+    invest_id = models.AutoField(primary_key=True)
     investor = models.OneToOneField(Investor, blank=True, null=True, on_delete=models.CASCADE)
     inst_seller = models.ManyToManyField(Seller1, related_name='invest_sell_for_invest', blank=True)
     inst_advisor = models.ManyToManyField(Advisor, related_name='advise_sell_for_invest', blank=True)
@@ -45,7 +45,7 @@ class Invest(models.Model):
         super(Invest, self).save(*args, **kwargs)
 
 class Advise(models.Model):
-    advise_id = models.UUIDField(primary_key=True)
+    advise_id = models.AutoField(primary_key=True)
     advisor = models.OneToOneField(Advisor, blank=True, null=True, on_delete=models.CASCADE)
     inst_seller = models.ManyToManyField(Seller1, related_name='invest_sell_for_advise', blank=True)
     inst_invest = models.ManyToManyField(Investor, related_name='advise_sell_for_advise', blank=True)

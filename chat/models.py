@@ -8,7 +8,7 @@ FILE_EXTENSIONS = ['mp4', 'mp3', 'pdf', 'png', 'jpg', 'jpeg']
 User = get_user_model()
 
 class Contact(models.Model):
-    contact_id = models.UUIDField(primary_key=True)
+    contact_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, related_name='friends', on_delete=models.CASCADE)
     friends = models.ManyToManyField('self', blank=True)
 
@@ -18,7 +18,7 @@ class Contact(models.Model):
 
 
 class Malbum(models.Model):
-    malbum_id = models.UUIDField(primary_key=True)
+    malbum_id = models.AutoField(primary_key=True)
     file = ContentTypeRestrictedFileField(upload_to='message/', content_types=CONTENT_TYPES, file_extensions=FILE_EXTENSIONS, max_upload_size=10485760, blank=True, null=True)
     file_name = models.CharField(max_length=255, blank=True)
 
@@ -30,7 +30,7 @@ class Malbum(models.Model):
         super(Malbum, self).save(*args, **kwargs)
 
 class Message(models.Model):
-    message_id = models.UUIDField(primary_key=True)
+    message_id = models.AutoField(primary_key=True)
     contact = models.ForeignKey(Contact, related_name='messages', on_delete=models.CASCADE, null=True)
     content = models.TextField()
     malbum = models.ForeignKey(Malbum, on_delete=models.CASCADE, blank=True, null=True)
@@ -42,7 +42,7 @@ class Message(models.Model):
 
 
 class Chat(models.Model):
-    chat_id = models.UUIDField(primary_key=True)
+    chat_id = models.AutoField(primary_key=True)
     participants = models.ManyToManyField(Contact, related_name='chats')
     messages = models.ManyToManyField(Message, blank=True)
     seller = models.OneToOneField(Seller1, null=True, blank=True, on_delete=models.CASCADE)
@@ -55,7 +55,7 @@ class Chat(models.Model):
         return "{}".format(self.pk)
 
 class Notify(models.Model):
-    notify_id = models.UUIDField(primary_key=True)
+    notify_id = models.AutoField(primary_key=True)
     contact = models.ForeignKey(Contact, null=True, blank=True, on_delete=models.CASCADE)
     chat = models.ForeignKey(Chat, null=True, blank=True, on_delete=models.CASCADE)
     number = models.IntegerField(default=0)

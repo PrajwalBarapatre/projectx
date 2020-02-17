@@ -65,7 +65,7 @@ class Ablumfiles(models.Model):
 
 class SellBusiness(models.Model):
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
-    business_id = models.UUIDField(primary_key=True)
+    business_id = models.AutoField(primary_key=True)
     type = models.CharField(max_length=100, blank=True, null=True)
     about = models.TextField()
     asking_price = models.IntegerField()
@@ -82,7 +82,7 @@ class SellBusiness(models.Model):
         super(SellBusiness, self).save(*args, **kwargs)
 
 class SellAsset(models.Model):
-    asset_id = models.UUIDField(primary_key=True)
+    asset_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     asset_type = models.CharField(blank=True, max_length=255)
@@ -102,7 +102,7 @@ class SellAsset(models.Model):
         super(SellAsset, self).save(*args, **kwargs)
 
 class RaiseLoan(models.Model):
-    loan_id = models.UUIDField(primary_key=True)
+    loan_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     about_business = models.TextField(blank=True, max_length=255)
@@ -121,7 +121,7 @@ class RaiseLoan(models.Model):
         super(RaiseLoan, self).save(*args, **kwargs)
 
 class SellEquity(models.Model):
-    equity_id = models.UUIDField(primary_key=True)
+    equity_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     about_business = models.TextField(blank=True, max_length=255)
@@ -141,7 +141,7 @@ class SellEquity(models.Model):
 
 
 class RevenueModel(models.Model):
-    revenue_id = models.UUIDField(primary_key=True)
+    revenue_id = models.AutoField(primary_key=True)
     rev_year = models.IntegerField()
     year_16 = models.IntegerField(blank=True, default=0)
     year_15 = models.IntegerField(blank=True, default=0)
@@ -160,7 +160,7 @@ class RevenueModel(models.Model):
     seller = models.OneToOneField(Seller1, blank = True, null = True, on_delete = models.CASCADE)
 
 class SellStartup(models.Model):
-    startup_id = models.UUIDField(primary_key=True)
+    startup_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     about = models.TextField()
@@ -182,7 +182,7 @@ class SellStartup(models.Model):
 
 
 class SellApp(models.Model):
-    app_id = models.UUIDField(primary_key=True)
+    app_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     about = models.TextField()
@@ -215,7 +215,7 @@ class SellApp(models.Model):
         super(SellApp, self).save(*args, **kwargs)
 
 class SellIpcode(models.Model):
-    ipcode_id = models.UUIDField(primary_key=True)
+    ipcode_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     startup_type = models.CharField(max_length=255, blank=True)
@@ -236,7 +236,7 @@ class SellIpcode(models.Model):
 
 
 class SellFranchise(models.Model):
-    franchise_id = models.UUIDField(primary_key=True)
+    franchise_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     num_outlets = models.IntegerField(max_length=100, default=1)
@@ -258,7 +258,7 @@ class SellFranchise(models.Model):
         super(SellFranchise, self).save(*args, **kwargs)
 
 class Supplier(models.Model):
-    supplier_id = models.UUIDField(primary_key=True)
+    supplier_id = models.AutoField(primary_key=True)
     seller = models.OneToOneField(Seller1, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     supplier_type = models.CharField(max_length=100, blank=True, null=True)

@@ -9,7 +9,7 @@ from django.utils import timezone
 
 
 class Investor(models.Model):
-    investor_id = models.UUIDField(primary_key=True)
+    investor_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=25)
     middle_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
@@ -30,7 +30,7 @@ class Investor(models.Model):
 
 
 class IndividualInvestor(models.Model):
-    individual_id = models.UUIDField(primary_key=True)
+    individual_id = models.AutoField(primary_key=True)
     investor = models.OneToOneField(Investor, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     investment_bracket = models.CharField(max_length=255)
@@ -80,7 +80,7 @@ class IndividualInvestor(models.Model):
 
 
 class CompanyInvestor(models.Model):
-    company_id = models.UUIDField(primary_key=True)
+    company_id = models.AutoField(primary_key=True)
     investor = models.OneToOneField(Investor, blank=True, null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True, null=True)
     investment_bracket = models.CharField(max_length=255)
