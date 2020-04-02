@@ -957,8 +957,8 @@ background: rgba( 255, 255, 255, .8 )
                             </div>
                         </nav>
                         <h2 class="f-38 ff-pd f-w-bold c-14 pt-153">
-                            Artificial intelligence enabled services to
-                            <br> connect you to your need
+                            We Enable easy and intelligent Buy and Sell of
+                            <br> Businesses and Services
                         </h2>
                         <button class="business-button btn-business btn-active ff-p" name="data" type="button" onclick="topper(0)" >Business Space</button>
                         <button class="startup-button btn-start ff-p" name="data" type="button" onclick="topper(1)" >StartUp Space</button>
@@ -1194,12 +1194,12 @@ background: rgba( 255, 255, 255, .8 )
             <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow">
                 <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Business</h3>
                 <p class="f-17 ff-p f-w-500 c-f pt-2 pb-36">
-                    If you are looking for great ways to decorate your home or office, then you know <br>
-                    as well as I do that you have nearly countless options. There are so many ways <br>
-                    to decorate that it can easily be very overwhelming to find the rightt
+                    If you are looking to sell you business for the best price, but <br>
+                    due to lack of options - unable to get the right buyer or the price, <br>
+                    then worry no more and just register with us here at bverge
                 </p>
                 {% if user.is_authenticated %}
-              <a href="/seller">  <button class="btn-sell ff-p">Sell Business</button> </a>
+                <a href="/seller">  <button class="btn-sell ff-p">Sell Business</button> </a>
                 {% else %}
                 <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Business</button> </a>
                 {% endif %}
@@ -1683,8 +1683,8 @@ background: rgba( 255, 255, 255, .8 )
                                 </div>
                             </nav>
                         <h2 class="f-38 ff-pd f-w-bold c-14 pt-153">
-                            Artificial intelligence enabled services to
-                            <br> connect you to your need
+                            We Enable easy and intelligent Buy and Sell of
+                            <br> Businesses and Services
                         </h2>
                         </h2>
                         <button class="business-button btn-business ff-p" name="data" type="button" onclick="topper(0)" >Business Space</button>
@@ -2026,13 +2026,17 @@ background: rgba( 255, 255, 255, .8 )
     <div class="container-fluid" style="background: linear-gradient(to bottom,#761DA9,#9191EC)">
         <div class="row">
             <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow">
-                <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Startup</h3>
+                <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Business</h3>
                 <p class="f-17 ff-p f-w-500 c-f pt-2 pb-36">
-                    If you are looking for great ways to decorate your home or office, then you know <br>
-                    as well as I do that you have nearly countless options. There are so many ways <br>
-                    to decorate that it can easily be very overwhelming to find the rightt
+                    If you are looking to sell you business for the best price, but <br>
+                    due to lack of options - unable to get the right buyer or the price, <br>
+                    then worry no more and just register with us here at bverge
                 </p>
-                <button class="btn-sell ff-p">Sell Startup</button>
+                {% if user.is_authenticated %}
+                <a href="/seller">  <button class="btn-sell ff-p">Sell Business</button> </a>
+                {% else %}
+                <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Business</button> </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -2281,17 +2285,19 @@ background: rgba( 255, 255, 255, .8 )
                 <img src="/static/profiles/images/Bitmap.png" alt="" class="img-fluid">
             </div>
             <div class="col-sm-8 ff-p text-center">
-                <h2 class="robo-header">Sell Your Business </h2>
+                <h2 class="robo-header">Sell Your Startup </h2>
                 <p class="robo-body pb-3">Extend your reach to interested investors to invest in your idea. <br>
                  connect - Express - Interact and understand the ideal people to <br>
-                partner with
+                partner with by registering here at bverge
                 </p>
                 <!-- <a href="">
                     <button class="btn-ba ff-p mr-4 mb-2">Basic Valuation</button>
                 </a> -->
-                <a href="">
-                    <button class="btn-ba ff-p mb-2">Sell Business</button>
-                </a>
+                {% if user.is_authenticated %}
+                <a href="/startup">  <button class="btn-sell ff-p">Sell Startup</button> </a>
+                {% else %}
+                <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Startup</button> </a>
+                {% endif %}
             </div>
         </div>
         <div class="row">
