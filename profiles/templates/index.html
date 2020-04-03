@@ -2294,7 +2294,7 @@ background: rgba( 255, 255, 255, .8 )
                     <button class="btn-ba ff-p mr-4 mb-2">Basic Valuation</button>
                 </a> -->
                 {% if user.is_authenticated %}
-                <a href="/startup">  <button class="btn-sell ff-p">Sell Startup</button> </a>
+                <a href="/seller/startup">  <button class="btn-sell ff-p">Sell Startup</button> </a>
                 {% else %}
                 <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Startup</button> </a>
                 {% endif %}
