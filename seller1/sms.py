@@ -95,7 +95,7 @@ def email_forgot(request):
         #     return JsonResponse(data, safe=False)
         # else:
         
-        #     found=True
+        found=True
         print('found')
     except:
         print('not found')
