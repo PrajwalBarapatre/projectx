@@ -344,7 +344,7 @@ background: rgba( 255, 255, 255, .8 )
             <a href="#menu7" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Suppliers</a>
             <div class="collapse pl-3" id="menu7">
                 <a href="seller/display/supplier" class="w3-bar-item w3-button">View Suppliers</a>
-                <a href="/seller/supplier" class="w3-bar-item w3-button">List Suppliers </a>
+                <a href="/seller/supplier" class="w3-bar-item w3-button">List as Supplier</a>
             </div>
         </div>
 
@@ -582,10 +582,36 @@ background: rgba( 255, 255, 255, .8 )
     <i class="fa fa-angle-left" aria-hidden="true"></i>
 </div>
 <!--business start-->
+<style>
+    .left_content,
+    .right_content{
+        padding-top: 6rem;
+    }
+    .left_content h3,
+    .right_content h3{
+        margin: 0;
+        font-family: Playfair Display;
+    }
+    .right_content h1{
+        font-family: Playfair Display;
+        font-weight: bold;
+        margin: 0;
+        font-size: 3rem;
+    }
+    .text-weight-bold{
+        font-weight: bold;
+    }
+</style>
 <div class="tab">
     <div class="container-fluid">
-                <div class="row" style="background: url('static/profiles/images/homepage-banner.jpeg');height: 533px;background-size: cover">
-                    <div class="col-sm-12 text-center">
+                <div class="row" style="background: url('static/profiles/images/homepage-banner.png');height: 533px;background-size: cover">
+                    <div class="col-sm-3 text-center">
+                        <div class="left_content">
+                            <h3>PLatform Optimized for</h3>
+                            <h3><span class="text-danger text-weight-bold">Desktop/Tablet</span> Only</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
                         <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20" style="z-index: 1;" id="navbar-2">
                             <i class="fa fa-bars f-36" style="cursor: pointer;" aria-hidden="true" title="Dashboard" onclick="w3_open()"></i>
                             <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">BVerge</a>
@@ -687,7 +713,7 @@ background: rgba( 255, 255, 255, .8 )
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="seller/display/supplier" class="dropdown-item">View Suppliers</a>
-                                            <a href="/seller/supplier" class="dropdown-item">List Suppliers </a>
+                                            <a href="/seller/supplier" class="dropdown-item">List as Supplier</a>
                                         </div>
                                     </li>
                                     {% else %}
@@ -778,7 +804,7 @@ background: rgba( 255, 255, 255, .8 )
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">View Suppliers</a>
-                                            <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">List Suppliers </a>
+                                            <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">List as Supplier </a>
                                         </div>
                                     </li>
                                     {% endif %}
@@ -995,6 +1021,12 @@ background: rgba( 255, 255, 255, .8 )
                                 </div>
                                 <div class="col-sm-1"></div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <div class="right_content">
+                            <h1 class="text-danger">Free Listing Now!!!</h1>
+                            <h3>(Only for limited time)</h3>
                         </div>
                     </div>
                 </div>
@@ -1396,7 +1428,8 @@ background: rgba( 255, 255, 255, .8 )
 
         <div class="container-fluid">
                 <div class="row" style="background: url('static/profiles/images/startup-banner.png');height: 533px">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 text-center">
                         <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20" style="z-index: 1;" id="navbar">
                                 <i class="fa fa-bars f-36" style="cursor: pointer;" aria-hidden="true" onclick="w3_open()"></i>
                                 <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">Business Verge</a>
@@ -1721,6 +1754,7 @@ background: rgba( 255, 255, 255, .8 )
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-2"></div>
                 </div>
                 <div class="row text-center c-3f pt-59 pb-55">
                     <div class="col-sm-3">
