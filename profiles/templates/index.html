@@ -330,8 +330,6 @@ background: rgba( 255, 255, 255, .8 )
             <a href="#menu5" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Sell-Business</a>
             <div class="collapse pl-3" id="menu5">
                 <a href="/seller" class="w3-bar-item w3-button">Sell Business</a>
-                <a href="#" class="w3-bar-item w3-button">Value your business </a>
-                <a href="#" class="w3-bar-item w3-button">How to sell ? </a>
                 <a href="/seller/equity" class="w3-bar-item w3-button">Sell Stake in Business</a>
                 <a href="/seller/asset" class="w3-bar-item w3-button">Sell Asset</a>
                 <a href="/seller/loan" class="w3-bar-item w3-button">Seek Loan</a>
@@ -462,8 +460,6 @@ background: rgba( 255, 255, 255, .8 )
         <a href="#menu5" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Sell-Business</a>
         <div class="collapse pl-3" id="menu5">
             <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">Sell Business</a>
-            <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">Value your business </a>
-            <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">How to sell ? </a>
             <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">Sell Stake in Business</a>
             <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">Sell Asset</a>
             <a href="#" onclick="$('#signup').modal('show');" class="w3-bar-item w3-button">Seek Loan</a>
@@ -689,8 +685,6 @@ background: rgba( 255, 255, 255, .8 )
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="/seller" class="dropdown-item">Sell Business</a>
-                                            <a href="#" class="dropdown-item">Value your business </a>
-                                            <a href="#" class="dropdown-item">How to sell ? </a>
                                             <a href="seller/equity" class="dropdown-item">Sell Stake in Business</a>
                                             <a href="seller/asset" class="dropdown-item">Sell Asset</a>
                                             <a href="seller/loan" class="dropdown-item">Seek Loan</a>
@@ -780,8 +774,6 @@ background: rgba( 255, 255, 255, .8 )
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Business</a>
-                                            <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Value your business </a>
-                                            <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">How to sell ? </a>
                                             <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Stake in Business</a>
                                             <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Sell Asset</a>
                                             <a href="#" onclick="$('#signup').modal('show');"  class="dropdown-item">Seek Loan</a>
@@ -2456,7 +2448,7 @@ background: rgba( 255, 255, 255, .8 )
                 <h4 class="f-16 f-w-bold c-3f">
                     Most advanced in this Industry
                 </h4>
-                <p class="f-16 pt-2">Sales @ BVerge</p>
+                <p class="f-16 pt-2">info@bverge.com</p>
                 <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
                     <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -2522,7 +2514,7 @@ background: rgba( 255, 255, 255, .8 )
                                             >Log in</button>
                                     </div>
                                     <div class="col-sm-12">
-                                        <h4 class="c-3f f-20 pt-24 text-center">Or login with</h4>
+                                        <h4 class="c-3f f-20 pt-24 text-center">Or login with (Instead of Signup)</h4>
                                         <ul class="list-inline text-center pt-20">
                                             <li class="list-inline-item">
                                                 <a href="{% url 'social:begin' 'github' %}" >
@@ -2669,7 +2661,7 @@ background: rgba( 255, 255, 255, .8 )
                                               <div class="col-md-8 profile_section">
 
                                                 <div class="fileType">
-                                                  <label for="{{ profile_form.photo.id_for_label }}" class="f-16 f-w-500 m-0">Profile Pic</label>
+                                                  <label for="{{ profile_form.photo.id_for_label }}" class="f-16 f-w-500 m-0">Upload Profile Picture (Optional)</label>
                                                   {{ profile_form.photo|add_class:"form-control col-sm-12 ginput " }}
                                                   <div class="errors" id="photo_err" style="color: red">
                                                   {{ profile_form.photo.errors }}
@@ -2677,7 +2669,7 @@ background: rgba( 255, 255, 255, .8 )
                                                 </div>
                                                 <div class="row">
                                                   <div class="col-md-12">
-                                                    <label for="{{ profile_form.photo.id_for_label }}" class="f-16 f-w-500 m-0">Choose your Location</label>
+                                                    <label for="{{ profile_form.photo.id_for_label }}" class="f-16 f-w-500 m-0">Find your Location (Click 'Get' to Auto-Fetch)</label>
                                                   </div>
                                                   <div class="col-md-10">
                                                     <div id="locationField">
