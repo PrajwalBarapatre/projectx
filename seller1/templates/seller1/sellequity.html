@@ -277,7 +277,7 @@ list-style-type: none;
                                     {{ business_form.first_name.errors }}
                                 </div>
                                 <label for="{{ business_form.middle_name.id_for_label }}" class="f-16 pl-1 pt-15">Middle name</label>
-                                    {{ business_form.middle_name|add_class:"form-control pt-9 ginput begin_empty"|append_attr:"placeholder:Middle name" }}
+                                    {{ business_form.middle_name|add_class:"form-control pt-9 ginput "|append_attr:"placeholder:Middle name" }}
                                  <div class="errors" id="middle_name_err" style="color: red">
                                   {{ business_form.middle_name.errors }}
                                   </div>
