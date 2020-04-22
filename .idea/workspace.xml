@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller1/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/sms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="projectx" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,9 +72,9 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1585917443525" />
-    <state x="365" y="115" width="700" height="530" key="recent.locations.popup" timestamp="1577298050276">
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1587539242832">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="365" y="115" width="700" height="530" key="recent.locations.popup/67.27.1299.741@67.27.1299.741" timestamp="1577298050276" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1587539242832" />
   </component>
 </project>
