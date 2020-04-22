@@ -82,10 +82,16 @@ model_list = {
 
 
 @login_required(login_url='profiles:index')
-def Business_task(request, task_hash, task_enc):
+def Business_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
 
@@ -220,10 +226,16 @@ def Business_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Asset_task(request, task_hash, task_enc):
+def Asset_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -356,10 +368,16 @@ def Asset_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Equity_task(request, task_hash, task_enc):
+def Equity_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -490,10 +508,16 @@ def Equity_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Loan_task(request, task_hash, task_enc):
+def Loan_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -623,10 +647,16 @@ def Loan_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Startup_task(request, task_hash, task_enc):
+def Startup_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -758,10 +788,16 @@ def Startup_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def App_task(request, task_hash, task_enc):
+def App_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -894,10 +930,16 @@ def App_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Ipcode_task(request, task_hash, task_enc):
+def Ipcode_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -1026,10 +1068,16 @@ def Ipcode_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Franchise_task(request, task_hash, task_enc):
+def Franchise_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {
@@ -1152,10 +1200,16 @@ def Franchise_task(request, task_hash, task_enc):
 
 
 @login_required(login_url='profiles:index')
-def Supplier_task(request, task_hash, task_enc):
+def Supplier_task(request, task_hash):
     task = None
     try:
-        task = get_object_or_404(Task, task_hash=task_hash, task_enc=task_enc, expires_gte=datetime.now())
+        print('inside business_task')
+        task = get_object_or_404(Task, task_hash=task_hash)
+        print(task.client)
+        if task.expires.time() > datetime.now().time() and task.expires.date() >= datetime.now().date():
+            pass
+        else:
+            return redirect('staff:staff-home')
     except:
         return redirect('profiles:index')
     model_fields = {

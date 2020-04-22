@@ -656,7 +656,7 @@ input::-webkit-inner-spin-button {
                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/otp',
+                      url : '{% url "seller1:otp-message" %}',
                       data: {
                           number:fnumber,
                           name: name
@@ -688,7 +688,7 @@ input::-webkit-inner-spin-button {
           $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
-              url : 'ajax/email',
+              url : '{% url "seller1:email-message" %}',
               data: {
                   email:email,
                   name: name
@@ -758,7 +758,7 @@ input::-webkit-inner-spin-button {
                   //console.log(fnumber)
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/otp',
+                      url : '{% url "seller1:otp-message" %}',
                       data: {
                           number:fnumber,
                           name:name
@@ -775,7 +775,7 @@ input::-webkit-inner-spin-button {
                               $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/email',
+                      url : '{% url "seller1:email-message" %}',
                       data: {
                           email:email,
                           name: name
@@ -916,7 +916,7 @@ input::-webkit-inner-spin-button {
                 //console.log(field_name);
                 $.ajax({
                                 type: "GET",
-                                url: 'ajax/validate',
+                                url: '{% url "seller1:business-validate"%}',
                                 data: {
                                 value: field_name,
                                 field: "{{key}}"
@@ -960,7 +960,7 @@ input::-webkit-inner-spin-button {
             //console.log(field_name);
             $.ajax({
                             type: "GET",
-                            url: 'ajax/validate/franchise',
+                            url: '{% url "seller1:business-validate-franchise"%}',
                             data: {
                             value: field_name,
                             field: "{{key}}"

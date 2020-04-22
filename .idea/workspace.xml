@@ -4,6 +4,24 @@
     <list default="true" id="fe71630e-5f66-4275-9d85-8323559aa4a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectx/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectx/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/sms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellapp.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellapp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellasset.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellasset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellbusiness.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellbusiness.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellequity.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellequity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellfranchise.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellfranchise.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellipcode.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellipcode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/selloan.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/selloan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/sellstartup.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/sellstartup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/templates/seller1/supplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/templates/seller1/supplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/seller1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/staff/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/listings.py" beforeDir="false" afterPath="$PROJECT_DIR$/staff/listings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/staff/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/templates/staff/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/staff/templates/staff/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/templates/staff/staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/staff/templates/staff/staff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/staff/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

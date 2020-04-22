@@ -28,7 +28,9 @@ urlpatterns = [
     re_path(r'^chat/', include(('chat.urls', 'chat'), namespace='chat')),
     re_path(r'^investor/', include(('investor.urls', 'investor'), namespace='investor')),
     re_path(r'^advisor/', include(('advisor.urls', 'advisor'), namespace='advisor')),
+    re_path(r'^staff/authorize/login/', include(('staff.urls', 'staff'), namespace='staff   ')),
     re_path(r'^oauth/', include('social_django.urls', namespace='social')),
+
 
 ]
 

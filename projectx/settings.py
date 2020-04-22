@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'advisor',
     'user_seller',
     'channels',
+    'staff',
 
     'webpack_loader',
     'rest_framework',
@@ -163,30 +164,29 @@ CHANNEL_LAYERS = {
 
 ############################## For Development #####################################
 
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'bvergedatabase' ,
+#             'USER': 'root' ,
+#             'PASSWORD': 'BvergeProject' ,
+#             'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com' ,
+#             'PORT': 3306,
+#     }
+# }
+
+######################################################################################
+
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'bvergedatabase' ,
             'USER': 'root' ,
-            'PASSWORD': 'BvergeProject' ,
-            'HOST': 'bvergedb.cu9s3dzvusve.ap-south-1.rds.amazonaws.com' ,
+            'PASSWORD': 'wellthislooksgood@17' ,
+            'HOST': '127.0.0.1' ,
             'PORT': 3306,
     }
 }
-
-######################################################################################
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'projectx',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306'
-#     }
-# }
-
 
 
 # Password validation
@@ -378,10 +378,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ############################## For Development ###############################
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bverge'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIAWASZ5HF6ABWCZE4U'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'bverge'
 
 ###################################################################################
 

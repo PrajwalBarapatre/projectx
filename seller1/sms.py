@@ -79,6 +79,34 @@ def email_message(request):
     print(data)
     return JsonResponse(data=data, safe=False)
 
+def email_consent(request):
+    subject = "OTP for Listing in Business Verge"
+
+    email = request.GET['email']
+    name = request.GET['name']
+    otp = randint(1000,9999)
+    body=""
+    hbody=""
+    if name:
+        body="Hii "+", please provide the following otp to list yourself "+ str(otp)
+        hbody='<p>Hii '+', please provide the following otp to list yourself <strong>'+ str(otp)+'</strong></p>'
+    else:
+        body = "Hii " + ", please provide the following otp to list yourself " + str(otp)
+        hbody = '<p>Hii ' + ', please provide the following otp to list yourself <strong>' + str(otp) + '</strong></p>'
+
+    # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
+    msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
+    msg.attach_alternative(hbody, "text/html")
+    msg.send()
+    # print(message.sid)
+    data={}
+    data['status']='success'
+    data['email']=email
+    data['otp']=otp
+    print(data)
+    return JsonResponse(data=data, safe=False)
+
+
 def email_forgot(request):
     subject = "Business Verge OTP for New Password"
     user=None

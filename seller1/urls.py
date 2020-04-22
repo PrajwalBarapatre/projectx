@@ -2,11 +2,12 @@ from django.urls import path, re_path
 from . import views
 from django.conf.urls import url
 from django.urls import path
-from seller1.sms import otp_message, email_message, email_forgot, forgot_password
+from seller1.sms import otp_message, email_message, email_forgot, forgot_password, email_consent
 
 urlpatterns = [
     url('ajax/otp/', otp_message, name='otp-message'),
     url('ajax/email/', email_message, name='email-message'),
+    url('ajax/email_consent/', email_consent, name='email-message-consent'),
     url('add_viewer/', views.add_viewer, name='add-viewer'),
     url('check-email/', email_forgot, name='check-email'),
     url('save_view/', views.save_view, name='save-view'),

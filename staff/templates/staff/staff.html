@@ -1,7 +1,209 @@
-{% extends 'base.html' %} {% block content %}
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  
+  {% load staticfiles %}
+        {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bverge || Sell Franchise</title>
+    <link rel="stylesheet" href="/static/seller1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/w3.css">
+    <link rel="stylesheet" href="/static/seller1/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/static/seller1/css/style.css">
+    <link rel="stylesheet" href="/static/seller1/css/parsley.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/profiles/images/icon1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/seller1/css/dropzone.css">
+    <script src="/static/seller1/js/dropzone.js"></script>
+  <title>Bverge Staff</title>
+</head>
+<style>
+    #feeback_modal .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_edit_profile .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #modal_change_password .close{
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 8px;
+    }
+    #signup .profile_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    .f-40{
+    font-size: 40px;
+    }
+    .modal-content{
+    box-shadow:2px 3px 10px 0px rgba(0,0,0,1);
+    }
+
+    .pac-container {
+        z-index:20000;
+    }
+    .lodal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('https://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #mlodal {
+
+        position:   fixed;
+        z-index:    10000000000000000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+                    url('https://i.stack.imgur.com/FhHRx.gif')
+                    50% 50%
+                    no-repeat;
+    }
+    #nlodal_s {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
+#nlodal_b {
+
+position:   fixed;
+z-index:    10000000000000000;
+top:        0;
+left:       0;
+height:     100%;
+width:      100%;
+background: rgba( 255, 255, 255, .8 )
+            url('https://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+}
+
+    /* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+    body.loading .lodal {
+        overflow: hidden;
+    }
+
+    /* Anytime the body has the loading class, our
+    modal element will be visible */
+    body.loading .lodal {
+        display: block;
+    }
+    div#notif_loader_s.loading .lodal {
+        overflow: hidden;
+    }
+    div#notif_loader_s.loading .lodal {
+        display: block;
+    }
+    .h-51{
+    height: 51px !important;
+    }
+    .border-r-0{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    }
+    .border-r-all{
+    border-radius: 0;
+    }
+    .location_fields{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    #overlay{	
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;  
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(359deg); 
+	}
+}
+.is-hide{
+	display:none;
+}
+
+/* .fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+} */
+
+</style>
+<body>
+
+	<div id="overlay">
+		<div class="cv-spinner">
+			<span class="spinner"></span>
+		</div>
+	</div>
+  
 <h2>Generate a task link</h2>
-<form method="post">
-	{% csrf_token %} {% for field in task_form %}
+<form id="task_form" method="post">
+	{% csrf_token %}
+	<!-- <p>
+		{{ task_form.name.label_tag }}
+		<br> {{ task_form.name }} {% if task_form.name.help_text %}
+		<small style="color: grey">{{ task_form.name.help_text }}</small>
+		{% endif %} {% for error in task_form.name.errors %}
+		<p style="color: red">{{ error }}</p>
+		{% endfor %}
+	</p> -->
+	{% for field in task_form %}
 	<p>
 		{{ field.label_tag }}
 		<br> {{ field }} {% if field.help_text %}
@@ -11,6 +213,106 @@
 		{% endfor %}
 	</p>
 	{% endfor %}
-	<button type="submit">Generate Task</button>
+	<button type="button" id="task_submit">Generate Task</button>
 </form>
-{% endblock %}
+
+<div class="modal" id="otp_modal">
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header d-flex align-items-center" style="background: url('static/profiles/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
+				<a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<!-- <h4 class="modal-title">Modal header</h4> -->
+				</div>
+	<div class="modal-body text-center">
+		<!-- <div id="otp_body" >
+			<label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
+			<input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp" id="otp" />
+			<div class="otp-btns">
+				<button class="btn btn-success" id="otp_verify">Verify</button>
+				<button class="btn btn-primary" id="resend_otp">Resend OTP</button>
+			</div>
+			<p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
+		</div> -->
+		<div id="otp_email_body" >
+				<label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
+				<input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp_email" id="otp_email" />
+				<div class="otp-btns">
+					<button type="button" class="btn btn-success" id="otp_email_verify">Verify</button>
+					<!-- <button class="btn btn-primary" id="resend_otp_email">Resend OTP</button> -->
+				</div>
+				<p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
+			</div>
+	</div>
+  </div>
+</div>
+</div>
+
+<div class="lodal" ><!-- Place at bottom of page --></div>
+<div id="mlodal" style="display:none" ><!-- Place at bottom of page --></div>
+
+
+  
+  <script src="{% static 'seller1/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'seller1/js/jquery-ui.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+  <script src="{% static 'seller1/js/popper.min.js' %}"></script>
+  <script src="{% static 'seller1/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'seller1/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'seller1/js/currencytagger.js' %}"></script>
+
+  <script>
+	  $(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }
+});
+    $('#task_submit').on('click', function(){
+		if($('#id_name').val()==''){
+			return 0;
+		}
+		if($('#id_client_email').val()==''){
+			return 0;
+		}
+		if($('#id_phone_number').val()==''){
+			return 0;
+		}
+		var email = $('#id_client_email').val();
+		var name = $('#id_name').val();
+		$("#overlay").fadeIn();
+      $.ajax({
+                    method:'GET',
+                    url : '{% url "seller1:email-message-consent" %}',
+                    data: {
+                        email:email,
+                        name: name
+                    },
+                    success: function(data){
+						$("#overlay").fadeOut();
+						$('#otp_modal').modal('show');
+                        //console.log(data)
+                        if(data.status=='success'){
+                            $('#otp_email_verify').on('click',function(){
+                                if($('#otp_email').val()==data.otp){
+                                  $('#otp_email_err').hide();
+                                  document.getElementById("task_form").submit();
+                                  
+                                }else{
+                                  $('#otp_email_err').show();
+                                }
+                            })
+                            //console.log('email sent');
+                        }
+                    }
+                });
+    })
+    
+
+  </script>
+
+</body>
+
+
+
+
+</html>
+

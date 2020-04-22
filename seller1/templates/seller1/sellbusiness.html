@@ -912,7 +912,7 @@ $(document).ready(function(){
                   $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/otp',
+                      url : '{% url "seller1:otp-message" %}',
                       data: {
                           number:fnumber,
                           name: name
@@ -944,7 +944,7 @@ $(document).ready(function(){
           $("#overlay").fadeIn();
           $.ajax({
               method:'GET',
-              url : 'ajax/email',
+              url : '{% url "seller1:email-message" %}',
               data: {
                   email:email,
                   name: name
@@ -1042,7 +1042,7 @@ $(document).ready(function(){
                    $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/otp',
+                      url : '{% url "seller1:otp-message" %}',
                       data: {
                           number:fnumber,
                           name:name
@@ -1059,7 +1059,7 @@ $(document).ready(function(){
                                $("#overlay").fadeIn();
                   $.ajax({
                       method:'GET',
-                      url : 'ajax/email',
+                      url : '{% url "seller1:email-message" %}',
                       data: {
                           email:email,
                           name: name
@@ -1168,7 +1168,7 @@ $(document).ready(function(){
                 //console.log(field_name);
                 $.ajax({
                                 type: "GET",
-                                url: 'ajax/validate',
+                                url: '{% url "seller1:business-validate"%}',
                                 data: {
                                 value: field_name,
                                 field: "{{key}}"
@@ -1213,7 +1213,7 @@ $(document).ready(function(){
             //console.log(field_name);
             $.ajax({
                             type: "GET",
-                            url: 'ajax/validate/bsn',
+                            url: '{% url "seller1:business-validate-bsn"%}',
                             data: {
                             value: field_name,
                             field: "{{key}}"
@@ -1259,7 +1259,7 @@ $(document).ready(function(){
             //console.log(field_name);
             $.ajax({
                             type: "GET",
-                            url: 'ajax/validate/rev',
+                            url: '{% url "seller1:business-validate-rev"%}',
                             data: {
                             value: field_name,
                             field: "{{key}}"
