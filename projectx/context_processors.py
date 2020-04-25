@@ -5,6 +5,7 @@ def all_media(request):
     notifications = None
     notif_number = None
     notif_true = False
+    user = None
     try:
         user = request.user
         notifications = user.profile.notifs.all().order_by('-created_at')
@@ -20,4 +21,5 @@ def all_media(request):
             'notifications': notifications,
             'notif_number': notif_number,
             'notif_true': notif_true,
+            'user':user
             }

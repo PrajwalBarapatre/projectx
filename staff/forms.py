@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task
+from .models import Task, RegTask
 
 SELL = 'Sell'
 ADVISE = 'Advise'
@@ -52,3 +52,13 @@ class TaskForm(forms.ModelForm):
         model = Task
         exclude = ['created_at', 'completed', 'task_enc',
                    'task_hash', 'sell', 'advise', 'invest', 'task_id', 'user', 'client', 'expires']
+
+class RegTaskForm(forms.ModelForm):
+
+    reg_task_id = forms.CharField(max_length=255, required=False)
+    first_name = forms.CharField(max_length=255, required=False)
+    last_name = forms.CharField(max_length=255, required=False)
+
+    class Meta:
+        model = RegTask
+        exclude = ['created_at', 'user', 'client']

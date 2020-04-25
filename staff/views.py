@@ -1,13 +1,21 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
 import hashlib
 import zlib
 import pickle
 import urllib
+from twilio.rest import Client
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
-from staff.models import Task
-from staff.forms import TaskForm
+
+from metadata.views import codedata
+from staff.models import Task, RegTask, EmailModel, PhoneModel
+from staff.forms import TaskForm, RegTaskForm
 import base64
+from django.http import JsonResponse
+from random import randint
+from django.core.mail import EmailMultiAlternatives
+
 # Create your views here.
 
 ## note mysecret should be same while encode_data and decode_data
@@ -82,6 +90,150 @@ def create_Task(request):
     else:
         print('seems user is not staff')
         return redirect('profiles:index')
+
+def createRegTask(request):
+    user = request.user
+    if user.is_staff and request.method=='POST':
+        reg_form = RegTaskForm(request.POST)
+        print(reg_form)
+        if reg_form.is_valid():
+            reg_form.save(commit=False)
+            reg_task = RegTask()
+            reg_task.client_email = reg_form.cleaned_data['client_email']
+            reg_task.client_phone = reg_form.cleaned_data['client_phone']
+            otp = randint(1000, 9999)
+            reg_task.otp_email = otp
+            otp = randint(1000, 9999)
+            reg_task.otp_phone = otp
+            reg_task.user = user
+            reg_task.country_code_primary = reg_form.cleaned_data['country_code_primary']
+            reg_task.save()
+            data = {}
+            subject = "Email Verification Business Verge"
+
+            email = reg_task.client_email
+            name = reg_form.cleaned_data['first_name']
+            otp = reg_task.otp_email
+            body = ""
+            hbody = ""
+            if name:
+                body = "Hi" + ", verify your business email address using this   " + str(otp)
+                hbody = '<p>Hi' + ', verify your business email address using this <strong>' + str(
+                    otp) + '</strong></p>'
+            else:
+                body = "Hi" + ", verify your business email address using this   " + str(otp)
+                hbody = '<p>Hi' + ', verify your business email address using this <strong>' + str(
+                    otp) + '</strong></p>'
+
+            # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
+            msg = EmailMultiAlternatives(subject, hbody, 'admin@bverge.com', [email])
+            msg.attach_alternative(hbody, "text/html")
+            msg.send()
+
+            data['status'] = 'success'
+            data['email'] = email
+            data['otp'] = otp
+            print(data)
+
+            account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+            auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+            client = Client(account_sid, auth_token)
+            number = reg_task.client_phone
+            name = ''
+            otp = reg_task.otp_phone
+            body = ""
+            # Hi, Welcome to Business Verge. Verify using the OTP: [1234]
+            if name:
+                body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
+            else:
+                body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
+            try:
+                message = client.messages \
+                    .create(
+                    body=body,
+                    from_='+18432030382',
+                    to=number
+                )
+                print(message.sid)
+                # data = {}
+                data['status'] = 'success'
+                data['number'] = number
+                data['otp'] = otp
+                print(data)
+            except:
+                # data = {}
+                data['status'] = 'invalid'
+                return JsonResponse(data, safe=False)
+
+            new_data={}
+            new_data['status']='valid'
+            new_data['reg_id']=reg_task.reg_task_id
+
+            return JsonResponse(new_data, safe=False)
+        else:
+            print(reg_form.errors)
+
+    data = {}
+    data['status'] = 'invalid'
+    return JsonResponse(data, safe=False)
+
+@login_required(login_url='profiles:index')
+def createRegUser(request):
+    user = request.user
+
+    if user.is_staff:
+        print('user is staff')
+        if request.method=='POST':
+            reg_form = RegTaskForm(request.POST)
+            if reg_form.is_valid():
+                reg_form.save(commit=False)
+                reg_task_id = reg_form.cleaned_data['reg_task_id']
+                reg_task = RegTask.objects.get(reg_task_id=reg_task_id)
+                if reg_form.cleaned_data['otp_email'] == reg_task.otp_email and \
+                        reg_form.cleaned_data['otp_phone'] == reg_task.otp_phone:
+
+                    print('inside create RegUser')
+                    print(reg_task)
+                    client = User()
+                    client.email = reg_task.client_email
+                    client.first_name = reg_form.cleaned_data['first_name']
+                    client.last_name = reg_form.cleaned_data['last_name']
+                    task_hash, task_enc = encode_data([reg_task.client_email, reg_task_id])
+                    client.username = task_hash
+                    client.set_password(task_enc)
+                    client.save()
+                    email_model = EmailModel()
+                    email_model.email = client.email
+                    email_model.user = client
+                    email_model.save()
+                    phone_model = PhoneModel()
+                    phone_model.phone_number = reg_task.client_phone
+                    phone_model.country_code_primary = reg_task.country_code_primary
+                    phone_model.user = client
+                    phone_model.save()
+                    client.profile.first_name = client.first_name
+                    client.profile.last_name = client.last_name
+                    # client.profile.contact_number = reg_task.client_phone
+                    client.save()
+                    reg_task.client = client
+                    reg_task.save()
+                    return redirect('staff:staff-home')
+                return redirect('staff:staff-reg')
+            return redirect('staff:staff-reg')
+        print('request is get')
+        reg_form = RegTaskForm()
+        code_data = codedata()
+        context = {
+
+            'code_data': code_data,
+            'task_form': reg_form,
+
+        }
+        return render(request, 'staff/client_reg.html', context)
+    return redirect('profiles:index')
+
+
+
 
 
 

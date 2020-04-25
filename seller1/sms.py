@@ -9,6 +9,7 @@ import string
 import secrets
 from django.contrib.auth.models import User
 from profiles.models import Profile
+from staff.models import PhoneModel, EmailModel
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
 
@@ -18,7 +19,51 @@ def generateSecureRandomString(stringLength=10):
     password_characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(secrets.choice(password_characters) for i in range(stringLength))
 
+def email_adder(user, email):
+    email_model = EmailModel()
+    email_model.email = email
+    email_model.user = user
+    email_model.save()
+
+def phone_adder(user, phone_number, country_code_primary):
+    phone_model = PhoneModel()
+    phone_model.phone_number = ''+country_code_primary+phone_number
+    print(phone_model.phone_number)
+    phone_model.country_code_primary = country_code_primary
+    phone_model.user = user
+    phone_model.save()
+
+def email_checker(user_id, email):
+    try:
+        client = User.objects.get(id=user_id)
+        email_model = EmailModel.objects.get(user=client, email=email)
+        return True
+    except:
+        return False
+
+def phone_checker(user_id, number):
+    print('inside phone checker')
+    try:
+        client = User.objects.get(id=user_id)
+        print(client.email)
+        phone_model = PhoneModel.objects.get(user=client, phone_number=number)
+        print(phone_model.user)
+        return True
+    except:
+        return False
+
+
 def otp_message(request):
+    print(request.GET['client_id'])
+    print(request.GET['number'])
+    print('inside otp_message')
+    if phone_checker(request.GET['client_id'],request.GET['number']):
+        data = {}
+        data['status'] = 'success'
+        data['number'] = request.GET['number']
+        data['exist'] = 'True'
+        print(data)
+        return JsonResponse(data=data, safe=False)
     # account_sid = 'ACd50fe123ff4c24314ca2b6ac63c3d350'
     account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
     auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
@@ -53,6 +98,13 @@ def otp_message(request):
 
 
 def email_message(request):
+    if email_checker(request.GET['client_id'], request.GET['email']):
+        data = {}
+        data['status'] = 'success'
+        data['email'] = request.GET['email']
+        data['exist'] = 'True'
+        print(data)
+        return JsonResponse(data=data, safe=False)
     subject = "Email Verification Business Verge"
 
     email = request.GET['email']
@@ -244,3 +296,6 @@ def check_email_otp(request):
     data['otp'] = otp
     print(data)
     return JsonResponse(data=data, safe=False)
+
+
+

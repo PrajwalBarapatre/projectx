@@ -3,6 +3,8 @@ from staff import views, listings
 
 urlpatterns = [
     path('newtask', views.create_Task, name='staff-home'),
+    path('generate_otps', views.createRegTask, name='generate-otps'),
+    path('regtask', views.createRegUser, name='client-reg'),
     path('business_task/<task_hash>', listings.Business_task, name='business_task'),
     path('asset_task/<task_hash>', listings.Asset_task, name='asset_task'),
     path('loan_task/<task_hash>', listings.Loan_task, name='loan_task'),
