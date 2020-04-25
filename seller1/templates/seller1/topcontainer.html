@@ -326,9 +326,33 @@
     <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
     <div class="container-fluid">
+        <div class="row mobile_header">
+            <div class="col-6 offset-3 ">
+                <h2 class="ff-pd f-w-bold"><a  href="{% url 'profiles:index' %}">Bverge</a></h2>
+            </div>
+            <div class="col-3 text-right">
+                <div class="dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        
+                        <img id="prof_pic_mobile" src="" alt="img" class="avatar">
+                        
+                    </a>
+                    <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit Profile</a>
+                        {% ifequal  user.profile.social False %}
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password" >Change Password</a>
+                        {% endifequal %}
+                      <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
+                        <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                        data-target="#login">Log out</button> -->
+                    </div>
+            </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-5 bg-display" style="z-index: 10;">
+                <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-5 bg-display d-small-none" style="z-index: 10;">
                     <i class="fa fa-bars f-36" aria-hidden="true" onclick="w3_open()" style="cursor: pointer;"></i>
                     <a target="_top" class="backbutton navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="{% url 'profiles:index' %}">Business Verge</a>
                     <!-- <a  href="http://stackoverflow.com/a/11532877/361684">Stackoverflow</a> -->
@@ -386,7 +410,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 mt-25 pl-153" style="background: url('{% static "seller1/images/seller_banner.png" %}');background-size: cover">
+            <div class="col-sm-12 pl-153" style="background: url('{% static "seller1/images/seller_banner.png" %}');background-size: cover">
                 <h2 class="f-36 pt-90 ff-pd f-w-bold c-f">Welcome to Business Verge</h2>
                 <p class="ff-p f-w-500 f-15 c-f pt-32 pb-30">Advanced AI Enabled Services to help you with your Task <br>
                     One of the Best in the Industry Service to help Sell or Expand your Business

@@ -1993,3 +1993,66 @@ a.nav-link.dropdown-toggle {
 .genral-h2-margin h2{
     margin: 10px 0 0;
 }
+/* mobile responsive */
+.mobile_view,
+.mobile_header{
+    display: none;
+}
+.mobile_hide{
+    display: block;
+}
+@media (max-width:678px){
+    .d-small-none{
+        display: none;
+    }
+    .mobile_about_seller .about-seller-body,
+    .mobile_about_seller .about-seller-body-2{
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .small_width_100{
+        width: 100% !important;
+    }
+    #map.mobile_view_hight{
+        height: 50rem;
+    }
+    .small-pt-4{
+        padding-top: 4rem !important;
+    }
+    .mobile_view{
+        display: block;
+    }
+    .mobile_hide{
+        display: none;
+    }
+    .mobile_view .sm-responsive{
+        text-align: center;
+    }
+    .mobile_view .sm-responsive ul{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem !important;
+    }
+    .d-small-block{
+        display: block;
+    }
+    .mobile_view .sm-responsive ul li.social a i{
+        font-size: 40px;
+    }
+    .mobile_view .sm-responsive h4{
+        font-size: 30px !important;
+    }
+    .mobile_view .sm-responsive p{
+        font-size: 28px !important;
+    }
+    .mobile_header{
+        display: flex;
+        background: #E5E5E5;
+    }
+    .mobile_header h2{
+        font-size: 38px;
+        text-align: center;
+        padding: 0;
+    }
+}
