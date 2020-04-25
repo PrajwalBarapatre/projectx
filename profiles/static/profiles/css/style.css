@@ -2120,3 +2120,152 @@ i.fa.fa-bars.f-36:hover{
 .pl-7rem{
     padding-left: 7rem;
 }
+/* new css added for mobile resonsive on date 24/04/2020 */
+.show_free_listing_on_mobile,
+.mobile_login,
+.d-small-block,
+.d-small-inline-block,
+.mobile_header,
+.mobile_after_login_links{
+    display: none;
+}
+@media (max-width: 678px){
+    .d-small-none{
+        display: none;
+    }
+    .d-small-inline-block{
+        display: inline-block;
+    }
+    .pb-small-5{
+        padding-bottom: 2rem;
+    }
+    .pl-7rem{
+        padding: 1rem !important;
+    }
+    .pl-7rem .pl-5{
+        padding-left: 0 !important;
+    }
+    .sm-responsive{
+        text-align: center;
+    }
+    .sm-responsive ul{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem !important;
+    }
+    .pt-153{
+        padding-top: 0 !important;
+    }
+    .show_free_listing_on_mobile{
+        padding-top:0.25rem;
+        display: block;
+    }
+    .show_free_listing_on_mobile h2{
+        font-size: 30px;
+    }
+    .show_free_listing_on_mobile h2 span{
+        font-size: 20px;
+    }
+    section.search_section{display: none;}
+    .mobile_overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(165, 214, 255, 0.767748) -28.02%, rgba(255, 255, 255, 0.0001) 77%);
+    }
+    .mobile_login{
+        display: block;
+        text-align: center;
+        padding: 4rem 0 1rem;
+    }
+    .mobile_login .btn-login {
+        width: 300px;
+        height: auto;
+        padding: 1rem;
+        border-radius: 5px;
+        background: #192ED5;
+        color: white;
+        transition: all .3s;
+        font-size: 24px;
+    }
+    .small-responsive-img-grid img{
+        height: 7rem;
+    }
+    .small-responsive-img-grid img ~ p{
+        padding: 1rem 0 0 !important;
+        font-size: 13px !important;
+    }
+    .d-small-block{
+        display: block;
+    }
+    .mobile_header{
+        display: flex;
+        background: #E5E5E5;
+    }
+    .mobile_header h2{
+        font-size: 38px;
+        text-align: center;
+        padding: 0;
+    }
+    .mobile_bg_height {
+        height: 450px !important;
+        background-position: center !important;
+    }
+    .mobil_sell_your_business{
+        padding: 1rem 0 !important;
+    }
+    .mobil_sell_your_business h3{
+        font-size: 26px !important;
+    }
+    .mobil_sell_your_business p{
+        padding-bottom: 0 !important;
+        font-size: 13px !important;
+    }
+    .mobile_border_top_light{
+        border-top: 5px solid #fff;
+        padding: 1rem 0 !important;
+    }
+    .mobile-f-30{
+        font-size: 30px !important;
+    }
+    .mobile-f-28{
+        font-size: 28px !important;
+    }
+    .mobile_border_top_light .sm-responsive ul li.social a i{
+        font-size: 40px;
+    }
+    .mobile_after_login_links{
+        display: block;
+    }
+    .mobile_after_login_links .header h2{
+        font-size: 22px;
+        font-weight: bold;
+        color: red;
+    }
+    .mobile_after_login_links .header h2 span{
+        font-size: 18px;
+    }
+    .mobile_after_login_links .header ~ .row .col-6,
+    .mobile_after_login_links .header ~ .row .col-12{
+        text-align: center;
+        padding: 1rem 0;
+    }
+    .mobile_after_login_links .btn-sell{
+        width: 270px;
+        font-size: 19px;
+    }
+    .mobile_after_login_links .header ~ .row h2{
+        font-family: Playfair Display;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+    .small_w_100{
+        width: 100%;
+    }
+    .small_pt-300{
+        padding-top: 0 !important;
+    }
+}

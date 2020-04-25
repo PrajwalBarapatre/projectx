@@ -488,7 +488,6 @@ background: rgba( 255, 255, 255, .8 )
         <button class="w3-button w3-block w3-left-align f-w-bold f-16 pb-2 outline-none">
             StartUp
         </button>
->
     <div class="f-14 pb-2 pl-4">
         <a  href="#menu7" class="collapsed w3-bar-item w3-button" data-toggle="collapse">Online business</a>
         <div class="collapse pl-3" id="menu7">
@@ -583,7 +582,7 @@ background: rgba( 255, 255, 255, .8 )
     <!-- Page Content -->
     <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-<div class="sideDashboardArrow" onclick="w3_open()">
+<div class="sideDashboardArrow d-small-none" onclick="w3_open()">
     <i class="fa fa-angle-left" aria-hidden="true"></i>
 </div>
 <!--business start-->
@@ -609,24 +608,49 @@ background: rgba( 255, 255, 255, .8 )
 </style>
 <div class="tab">
     <div class="container-fluid">
-                <div class="row" style="background: url('static/profiles/images/homepage-banner.jpg');height: 533px;background-size: cover">
-                    <div class="col-sm-3 text-center">
+        <div class="row mobile_header">
+            <div class="col-6 offset-3 ">
+                <h2 class="ff-pd f-w-bold">Bverge</h2>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-3 text-right">
+                <div class="dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        
+                        <img id="prof_pic_mobile" src="" alt="img" class="avatar">
+                        
+                    </a>
+                    <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit Profile</a>
+                        {% ifequal  user.profile.social False %}
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password" >Change Password</a>
+                        {% endifequal %}
+                      <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
+                        <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                        data-target="#login">Log out</button> -->
+                    </div>
+            </div>
+            </div>
+            {% endif %}
+        </div>
+                <div class="row mobile_bg_height" style="background: url('static/profiles/images/homepage-banner.jpg');height: 533px;background-size: cover;position: relative;">
+                    <div class="mobile_overlay"></div>
+                    
+                    <div class="col-sm-3 text-center d-small-none">
                         <div class="left_content">
                             <h3>PLatform Optimized for</h3>
                             <h3><span class="text-danger text-weight-bold">Desktop/Tablet</span> Only</h3>
                         </div>
                     </div>
                     <div class="col-sm-6 text-center">
-                        <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20" style="z-index: 1;" id="navbar-2">
+                        <nav class="navbar navbar-expand-lg fixed-top navbar-light pt-10 pb-20 d-small-none" style="z-index: 1;" id="navbar-2">
                             <i class="fa fa-bars f-36" style="cursor: pointer;" aria-hidden="true" title="Dashboard" onclick="w3_open()"></i>
                             <a class="navbar-brand pl-4 bm-size f-w-bold c-3f ff-pd" href="/">BVerge</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
-
-
                             <div class="collapse navbar-collapse m-a pt-1" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto pr-4 c-3f ff-p f-17 f-w-500 text-center ">
                                     {% if user.is_authenticated %}
@@ -987,75 +1011,165 @@ background: rgba( 255, 255, 255, .8 )
                             We Enable easy and intelligent Buy and Sell of
                             <br> Businesses and Services
                         </h2>
-                        <button class="business-button btn-business btn-active ff-p" name="data" type="button" onclick="topper(0)" >Business Space</button>
-                        <button class="startup-button btn-start ff-p" name="data" type="button" onclick="topper(1)" >StartUp Space</button>
-
-                        <div class="container" style="padding-top: 35px">
-                            <div class="row">
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-10 ff-p">
-                                        <div class="search_box_container">
-                                                <div class="row text-center pt-35 pb-35">
-                                                    <select id="type" class="col-sm-2 f-13 ff-p border-r-0">
-                                                    <option value="Business">Business</option>
-                                                    <option value="Equity">Equity</option>
-                                                    <option value="Loan">Loan</option>
-                                                    <option value="Asset">Asset</option>
-                                                    <option value="Franchise">Franchise</option>
-                                                    <option value="Supplier">Supplier</option>
-                                                    <option value="Advisor_Business">Business Advisor</option>
-                                                    <option value="Investor">Investor</option>
-                                                    </select>
-                                                    <select id="category" onchange="get_sub_sectors(this);" class="col-sm-2 f-13 ff-pnote border-0-all">
-                                                    {% for x in sectors %}
-                                                    <option value="{{x.sectors}}">{{x.sectors}}</option>
-                                                    {% endfor %}
-                                                    </select>
-                                                    <input type="text" class="col-sm-6 f-13 ff-p border-0-all" id='location' >
-                                                    <input hidden type="text" id="city">
-                                                    <input hidden type="text" id="state">
-                                                    <input hidden type="text" id="country">
-                                                    <button id='Search' class="btn-sellers m-0 col-sm-2 border-l-0" page='1' onclick="get_sellers(this);">Search</button>
-                                                </div>
-                                          </div>
-
-                                </div>
-                                <div class="col-sm-1"></div>
-                            </div>
+                        <div class="show_free_listing_on_mobile">
+                            <h2 class="ff-pd f-w-bold text-danger">
+                                FREE Lisitngs !!!   
+                                <br>
+                                <span>(For Limited Period)</span>
+                            </h2>
                         </div>
+                        <section class="search_section">
+                            <button class="business-button btn-business btn-active ff-p" name="data" type="button" onclick="topper(0)" >Business Space</button>
+                            <button class="startup-button btn-start ff-p" name="data" type="button" onclick="topper(1)" >StartUp Space</button>
+
+                            <div class="container" style="padding-top: 35px">
+                                <div class="row">
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-10 ff-p">
+                                            <div class="search_box_container">
+                                                    <div class="row text-center pt-35 pb-35">
+                                                        <select id="type" class="col-sm-2 f-13 ff-p border-r-0">
+                                                        <option value="Business">Business</option>
+                                                        <option value="Equity">Equity</option>
+                                                        <option value="Loan">Loan</option>
+                                                        <option value="Asset">Asset</option>
+                                                        <option value="Franchise">Franchise</option>
+                                                        <option value="Supplier">Supplier</option>
+                                                        <option value="Advisor_Business">Business Advisor</option>
+                                                        <option value="Investor">Investor</option>
+                                                        </select>
+                                                        <select id="category" onchange="get_sub_sectors(this);" class="col-sm-2 f-13 ff-pnote border-0-all">
+                                                        {% for x in sectors %}
+                                                        <option value="{{x.sectors}}">{{x.sectors}}</option>
+                                                        {% endfor %}
+                                                        </select>
+                                                        <input type="text" class="col-sm-6 f-13 ff-p border-0-all" id='location' >
+                                                        <input hidden type="text" id="city">
+                                                        <input hidden type="text" id="state">
+                                                        <input hidden type="text" id="country">
+                                                        <button id='Search' class="btn-sellers m-0 col-sm-2 border-l-0" page='1' onclick="get_sellers(this);">Search</button>
+                                                    </div>
+                                            </div>
+
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    <div class="col-sm-3 text-center">
+                    <div class="col-sm-3 text-center d-small-none">
                         <div class="right_content">
                             <h1 class="text-danger">Free Listing Now!!!</h1>
                             <h3>(Only for limited time)</h3>
                         </div>
                     </div>
                 </div>
-                <div class="row text-center c-3f pt-59 pb-55">
-                    <div class="col-sm-3">
-                        <img src="/static/profiles/images/icon1.png" alt="">
+                <section class="mobile_login">
+                    {% ifequal user.is_authenticated False %}
+                    <button type="button" class="btn btn-login ff-p f-w-500" data-toggle="modal" data-target="#login">Log In</button>
+                    {% endifequal %}
+                </section>
+                <section class="mobile_after_login_links">
+                    <div class="row header">
+                        <div class="col-5 text-left">
+                            <h2>
+                                FREE Lisitngs !!! <br>
+                                <span>  (For Limited Period)</span>
+                            </h2>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-5 text-right">
+                            <h2>
+                                Platform Optimized <br> for Desktop / Laptop
+                            </h2>
+                        </div>
+                    </div>
+                    {% ifequal user.is_authenticated True %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Sell Business</h2>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">Sell Business</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">Sell Stake in Business</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">Sell Asset / Machinary</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">List as Business Advisor</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Supplier Space</h2>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn-sell ff-p">List as Supplier</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Franchise Space</h2>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn-sell ff-p">List as Franchisee</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Investor Space</h2>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn-sell ff-p">List as Investor</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Startup Space</h2>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">List Startup</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">List Your Website</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">Sell IP</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-sell ff-p">List as Startup Advisor</button>
+                        </div>
+                    </div>
+                    {% endifequal %}
+                </section>
+                <div class="row text-center c-3f pt-59 pb-55 small-responsive-img-grid">
+                    <div class="col-sm-3 col-3">
+                        <img src="/static/profiles/images/icon1.png" alt="" class="img-fluid">
                         <p class="ff-p f-16 pt-40 pl-5 pr-5">
                             Search & Invest
                             <br>in Business World-wide
                         </p>
                     </div>
-                    <div class="col-sm-3">
-                        <img src="/static/profiles/images/icon2.png" alt="">
+                    <div class="col-sm-3 col-3">
+                        <img src="/static/profiles/images/icon2.png" alt="" class="img-fluid">
 
                         <p class="ff-p f-16 pt-40 pl-5 pr-5">
                             Artificial Intelligence
                             <br> Enabled
                         </p>
                     </div>
-                    <div class="col-sm-3">
-                        <img src="/static/profiles/images/icon3.png" alt="">
+                    <div class="col-sm-3 col-3">
+                        <img src="/static/profiles/images/icon3.png" alt="" class="img-fluid">
                         <p class="ff-p f-16 pt-40 pl-5 pr-5">
                             Risk based Advanced
                             <br> Search
                         </p>
                     </div>
-                    <div class="col-sm-3">
-                        <img src="/static/profiles/images/icon4.png" alt="">
+                    <div class="col-sm-3 col-3">
+                        <img src="/static/profiles/images/icon4.png" alt="" class="img-fluid">
                         <p class="ff-p f-16 pt-40 pl-5 pr-5">
                             High level of data
                             <br> Encryption
@@ -1224,18 +1338,20 @@ background: rgba( 255, 255, 255, .8 )
     </div> -->
     <div class="container-fluid " style="background: linear-gradient(to bottom,#761DA9,#9191EC)">
         <div class="row">
-            <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow">
+            <div class="col-sm-12 text-center ls-1 pt-64 pb-64 container-shadow mobil_sell_your_business">
                 <h3 class="f-36 ff-p f-w-bold c-f">Sell Your Business</h3>
                 <p class="f-17 ff-p f-w-500 c-f pt-2 pb-36">
                     If you are looking to sell you business for the best price, but <br>
                     due to lack of options - unable to get the right buyer or the price, <br>
                     then worry no more and just register with us here at bverge
                 </p>
-                {% if user.is_authenticated %}
-                <a href="/seller">  <button class="btn-sell ff-p">Sell Business</button> </a>
-                {% else %}
-                <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Business</button> </a>
-                {% endif %}
+                <section class="d-small-none">
+                    {% if user.is_authenticated %}
+                    <a href="/seller">  <button class="btn-sell ff-p">Sell Business</button> </a>
+                    {% else %}
+                    <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Business</button> </a>
+                    {% endif %}
+                </section>
             </div>
         </div>
     </div>
@@ -2313,13 +2429,13 @@ background: rgba( 255, 255, 255, .8 )
 </script>
 
 <!--startup end-->
-    <div class="container-fluid bg-ea pt-35">
+    <div class="container-fluid bg-ea">
 
         <div class="row bg-black c-f container-shadow-1">
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-4">
                 <img src="/static/profiles/images/Bitmap.png" alt="" class="img-fluid">
             </div>
-            <div class="col-sm-8 ff-p text-center">
+            <div class="col-sm-8 col-8 ff-p text-center pb-small-5">
                 <h2 class="robo-header">Sell Your Startup </h2>
                 <p class="robo-body pb-3">Extend your reach to interested investors to invest in your idea. <br>
                  connect - Express - Interact and understand the ideal people to <br>
@@ -2328,11 +2444,13 @@ background: rgba( 255, 255, 255, .8 )
                 <!-- <a href="">
                     <button class="btn-ba ff-p mr-4 mb-2">Basic Valuation</button>
                 </a> -->
-                {% if user.is_authenticated %}
-                <a href="/seller/startup">  <button class="btn-sell ff-p">Sell Startup</button> </a>
-                {% else %}
-                <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Startup</button> </a>
-                {% endif %}
+                <section class="d-small-none">
+                    {% if user.is_authenticated %}
+                    <a href="/seller/startup">  <button class="btn-sell ff-p">Sell Startup</button> </a>
+                    {% else %}
+                    <a href="#" onclick="$('#signup').modal('show');"><button class="btn-sell ff-p">Sell Startup</button> </a>
+                    {% endif %}
+                </section>
             </div>
         </div>
         <div class="row">
@@ -2341,11 +2459,11 @@ background: rgba( 255, 255, 255, .8 )
                 <img src="/static/profiles/images/iPad.png" alt="" class="pt-55 img-fluid">
             </div>
         </div>
-        <div class="row pt-53 ff-p">
-            <div class="col-md-9">
+        <div class="row pt-53 ff-p mobile_border_top_light">
+            <div class="col-md-9 d-small-none">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3 pl-7rem">
+                        <div class="col-md-3 col-6 pl-7rem">
                             <h4 class="f-16 f-w-bold c-3f pl-5">
                                 Our Products for Businesses
                             </h4>
@@ -2374,7 +2492,7 @@ background: rgba( 255, 255, 255, .8 )
                                 <a href="seller/loan">Seek Loan</a>
                             </p>
                         </div>
-                        <div class="col-md-3 pl-7rem fp">
+                        <div class="col-md-3 col-6 pl-7rem fp">
                             <h4 class="f-16 f-w-bold c-3f">
                                 Our Products for Investors and Advisors
                             </h4>
@@ -2397,7 +2515,7 @@ background: rgba( 255, 255, 255, .8 )
                                 <a href="advisor/startup">List as Startup Advisor</a>
                             </p>
                         </div>
-                        <div class="col-md-3 pl-7rem fp">
+                        <div class="col-md-3 col-6 pl-7rem fp">
                             <h4 class="f-16 f-w-bold c-3f">
                                 Our Products for Startups
                             </h4>
@@ -2421,7 +2539,7 @@ background: rgba( 255, 255, 255, .8 )
                                 <a href="seller/ipcode">List IP for Sale</a>
                             </p>
                         </div>
-                        <div class="col-md-3 pl-7rem fp">
+                        <div class="col-md-3 col-6 pl-7rem fp">
                             <h4 class="f-16 f-w-bold c-3f">
                                 COMPANY and Other Services
                             </h4>
@@ -2453,17 +2571,22 @@ background: rgba( 255, 255, 255, .8 )
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <h4 class="f-16 f-w-bold c-3f">
+            <div class="col-md-3 sm-responsive">
+                <h4 class="f-16 mobile-f-30 f-w-bold c-3f">
                     Most advanced in this Industry
                 </h4>
-                <p class="f-16 pt-2">info@bverge.com</p>
+                <p class="f-16 pt-2 mobile-f-28"><span class="d-small-inline-block">Contact us @</span> info@bverge.com</p>
                 <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
                     <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
                 </ul>
+            </div>
+            <div class="col-md-12 d-small-block">
+                <h2 class="c-3f ff-p f-w-bold f-26 text-center">
+                    <a href="/terms">Click here for Terms & Conditions / Privacy Policy</a>
+                </h2>
             </div>
         </div>
     </div>
@@ -2553,7 +2676,7 @@ background: rgba( 255, 255, 255, .8 )
                         </div>
                         <div class="col-sm-5 text-center c-f" style="background: url('static/profiles/images/signup-img.png');background-size: cover;background-position: right">
                             <img src="" class="img-fluid signup-img" alt="">
-                            <h3 class="f-29 pt-300 ff-pd f-w-bold">Welcome to Business Verge</h3>
+                            <h3 class="f-29 pt-300 ff-pd f-w-bold small_pt-300">Welcome to Business Verge</h3>
                             <p class="ff-p f-14 pt-1 pb-1">We Re-Imagine how businesses connect <br> and make it happen</p>
                         </div>
                     </div>
@@ -2584,7 +2707,6 @@ background: rgba( 255, 255, 255, .8 )
                                         </a>
                                     </div>
                                     <div class="col-sm-12 ff-p c-3f">
-
                                             <label for="{{ reg_form.username.id_for_label }}" class="f-16 f-w-500 pt-15">Username</label><br>
                                             {{ reg_form.username|add_class:"form-control col-sm-12 ginput "|append_attr:"placeholder:Username" }}
                                             <div class="errors" id="username_err" style="color: red">
@@ -2640,7 +2762,7 @@ background: rgba( 255, 255, 255, .8 )
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 col-5">
 
                                                 <label for="" class="f-16 pl-1 pt-10">Country Code</label>
                                                 <select class="form-control col-sm-12" name= "country_code_primary" id="country_code_primary">
@@ -2650,7 +2772,7 @@ background: rgba( 255, 255, 255, .8 )
                                                         {% endfor %}
                                               </select>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 col-7">
 
                                                     <label for="{{ profile_form.contact_number.id_for_label }}" class="f-16 pl-1 pt-10">Contact Number</label><br>
                                                     {{ profile_form.contact_number|add_class:"form-control col-sm-12 ginput "|append_attr:"placeholder:Contact Number" }}
@@ -2680,13 +2802,13 @@ background: rgba( 255, 255, 255, .8 )
                                                   <div class="col-md-12">
                                                     <label for="{{ profile_form.photo.id_for_label }}" class="f-16 f-w-500 m-0">Find your Location (Click 'Get' to Auto-Fetch)</label>
                                                   </div>
-                                                  <div class="col-md-10">
+                                                  <div class="col-md-10 col-10">
                                                     <div id="locationField">
                                                         {{ profile_form.address_line|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9" }}
                                                     </div>
                                                   </div>
-                                                  <div class="col-md-2 pl-0">
-                                                    <button id="getLocation" class="btn btn-primary" type="button" style="font-size:16px;">Get</button>
+                                                  <div class="col-md-2 pl-0 col-2">
+                                                    <button id="getLocation" class="btn btn-primary 4444444444" type="button" style="font-size:16px;">Get</button>
                                                   </div>
                                                 </div>
                                               </div>
@@ -2721,7 +2843,7 @@ background: rgba( 255, 255, 255, .8 )
                         </div>
                         <div class="col-sm-5 text-center c-f" style="background: url('static/profiles/images/signup-img.png');background-size: cover;background-position: right">
                             <img src="" class="img-fluid signup-img" alt="">
-                            <h3 class="f-29 pt-300 ff-pd f-w-bold">Welcome to Business Verge</h3>
+                            <h3 class="f-29 pt-300 ff-pd f-w-bold small_pt-300">Welcome to Business Verge</h3>
                             <p class="ff-p f-14 pt-1 pb-1">We Re-Imagine how businesses connect <br> and make it happen</p>
                         </div>
                     </div>
@@ -3347,6 +3469,8 @@ $(document).on({
 
             $('#prof_pic_b').attr('src',name);
             $('#prof_pic_s').attr('src',name);
+            $('#prof_pic_mobile').attr('src',name);
+            // $('#prof_pic_s').attr('src',name);
         });
     </script>
     {% endif %}
@@ -3767,6 +3891,7 @@ $(document).on({
                                 name = "{{MEDIA_PREFIX}}/"+name;
                                 $('#prof_pic_b').attr('src',name);
                                 $('#prof_pic_s').attr('src',name);
+                                $('#prof_pic_mobile').attr('src',name);
                                 location.reload();
                                 // update the DIV
                                 // var vdata=JSON.parse(data);
@@ -3949,6 +4074,7 @@ $(document).on({
                                             name = "{{MEDIA_PREFIX}}/"+name;
                                             $('#prof_pic_s').attr('src',name);
                                             $('#prof_pic_b').attr('src',name);
+                                            $('#prof_pic_mobile').attr('src',name);
                                             location.reload();
                                             // update the DIV
                                             // var vdata=JSON.parse(data);
