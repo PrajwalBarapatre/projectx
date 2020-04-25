@@ -1064,13 +1064,14 @@ background: rgba( 255, 255, 255, .8 )
                         </div>
                     </div>
                 </div>
+                {% ifequal user.is_authenticated False %}
                 <section class="mobile_login">
-                    {% ifequal user.is_authenticated False %}
                     <button type="button" class="btn btn-login ff-p f-w-500" data-toggle="modal" data-target="#login">Log In</button>
-                    {% endifequal %}
                 </section>
+                {% endifequal %}
                 <section class="mobile_after_login_links">
-                    <!-- <div class="row header">
+                    {% ifequal user.is_authenticated True %}
+                    <div class="row header">
                         <div class="col-5 text-left">
                             <h2>
                                 FREE Lisitngs !!! <br>
@@ -1083,8 +1084,8 @@ background: rgba( 255, 255, 255, .8 )
                                 Platform Optimized <br> for Desktop / Laptop
                             </h2>
                         </div>
-                    </div> -->
-                    {% ifequal user.is_authenticated True %}
+                    </div>
+                    
                     <div class="row">
                         <div class="col-12">
                             <h2>Sell Business</h2>
