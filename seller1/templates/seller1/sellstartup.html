@@ -904,6 +904,10 @@ list-style-type: none;
                     var code = $('#country_code_primary').val()
                     var fnumber = code+number;
                     var name = ""+ $('#id_first_name').val()
+                    var client_id = '{{client.id}}';
+                    if(client_id==''){
+                            client_id = '{{user.id}}';
+                        }
                     //console.log(name);
                     //console.log(fnumber)
                     $.ajax({
@@ -911,7 +915,8 @@ list-style-type: none;
                         url : '{% url "seller1:otp-message" %}',
                         data: {
                             number:fnumber,
-                            name:name
+                            name:name,
+                            client_id:client_id
                         },
                         success: function(data){
                             //console.log(data)
@@ -919,19 +924,36 @@ list-style-type: none;
                                 localStorage.setItem('phone_verify', 'false');
                                 localStorage.setItem('cnumber', data.number);
                                 localStorage.setItem('otp', data.otp);
-
+                                $('#otp_body').show();
 
                                 var email = $('#id_email_adress').val();
+                                if(data.exist=='True'){
+                                localStorage.setItem('phone_verify', 'true');
+                                $('#otp_body').hide();
+                              }
                     $.ajax({
                         method:'GET',
                         url : '{% url "seller1:email-message" %}',
                         data: {
                             email:email,
-                            name: name
+                            name: name,
+                            client_id:client_id
                         },
                         success: function(data){
                             //console.log(data)
+                            if(data.exist=='True' && localStorage.getItem('phone_verify')=='true'){
+                            document.getElementById("regForm").submit();
+                            // return 0;
+                              }
+                            if(data.exist=='True'){
+                                // document.getElementById("regForm").submit();
+                                localStorage.setItem('email_verify', 'true');
+                                $('#otp_email_body').hide();
+                                $('#otp_modal').modal('show');
+                                return false;
+                            }
                             if(data.status=='success'){
+                                $('#otp_email_body').show();
                                 localStorage.setItem('email_verify', 'false');
                                 localStorage.setItem('cemail', data.email);
                                 localStorage.setItem('otp_email', data.otp);

@@ -58,6 +58,7 @@ from profiles.models import Notification
 from profiles.models import Profile
 from user_seller.models import Sell, Advise, Invest
 from staff.models import Task
+from seller1.sms import email_adder, email_checker, phone_adder, phone_checker
 
 base_model_list={
     'Seller':Seller1,
@@ -183,6 +184,12 @@ def Business_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -208,6 +215,7 @@ def Business_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -215,7 +223,7 @@ def Business_task(request, task_hash):
             'type_fields': type_fields,
             'revenue_fields': revenue_fields,
             'rev_form': rev_form,
-            'task': task,
+            
 
         }
         return render(request, 'seller1/sellbusiness.html', context)
@@ -325,6 +333,12 @@ def Asset_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -352,6 +366,7 @@ def Asset_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -467,6 +482,12 @@ def Equity_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -491,6 +512,7 @@ def Equity_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -607,6 +629,12 @@ def Loan_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -631,6 +659,7 @@ def Loan_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -746,6 +775,12 @@ def Startup_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -771,6 +806,7 @@ def Startup_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -883,6 +919,12 @@ def App_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 # revenue_1 = revenue.save(commit=False)
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
@@ -913,6 +955,7 @@ def App_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -1025,6 +1068,12 @@ def Ipcode_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 # revenue_1 = revenue.save(commit=False)
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
@@ -1052,6 +1101,7 @@ def Ipcode_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -1160,6 +1210,12 @@ def Franchise_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
             else:
                 print(seller.errors)
@@ -1184,6 +1240,7 @@ def Franchise_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
@@ -1287,6 +1344,12 @@ def Supplier_task(request, task_hash):
                 task.completed = True
                 task.sell = sell
                 task.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
             else:
                 print(seller.errors)
@@ -1310,6 +1373,7 @@ def Supplier_task(request, task_hash):
             'types_companies': types_companies,
             'model_fields': model_fields,
             'code_data': code_data,
+            'client': task.client,
             'business_form': business_form,
             'year_data': yeardata,
             'text_fields': text_fields,
