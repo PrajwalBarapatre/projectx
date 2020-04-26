@@ -262,15 +262,14 @@ input::-webkit-inner-spin-button {
 
             <div class="container">
 
-
-                    <div class="row ff-p f-17 pt-61" >
-                                    <div class="col-sm-12">
-                                <button type="button" onclick="displayTab(0)" class="btn-sellers  ff-p mb-2 off" disabled=true>Your Information</button>
-                                 <button type="button" onclick="displayTab(1)" class="btn-sellers ff-p mb-2 off" disabled=true>Detailed Information </button>
-                                 <!-- <button type="button" onclick="displayTab(2)" class="btn-sellers ff-p mb-2 off" disabled=true>Business Financials</button>
-                                 <button type="button" onclick="displayTab(3)" class="btn-sellers ff-p off" disabled=true>Advanced Financials</button> -->
-                                    </div>
+                <div class="row ff-p f-17 pt-61" >
+                    <div class="col-md-4 col-6">
+                        <button type="button" onclick="displayTab(0)" class="btn-sellers w-100  ff-p mb-2 off" disabled=true>Your Information</button>
                     </div>
+                    <div class="col-md-4 col-6">
+                      <button type="button" onclick="displayTab(1)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Detailed Information </button>
+                    </div>
+                </div>
             </div>
             <!-- your information -->
             <div class="container">
@@ -302,7 +301,7 @@ input::-webkit-inner-spin-button {
 
                                  <div class="container-fluid zero-padding">
                                         <div class="row">
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-4">
                                                <!-- <input type="text" name="pass" id="pass" class="form-control col-sm-12" maxlength="4" placeholder="Country Code"> -->
                                                <label for="" class="f-16 pl-1 pt-10">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
@@ -312,7 +311,7 @@ input::-webkit-inner-spin-button {
                                                         {% endfor %}
                                               </select>
                                            </div>
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-8">
 
                                 <label for="{{ business_form.phone_number_primary.id_for_label }}" class="f-16 pl-1 pt-15">Phone number</label>
                                             {{ business_form.phone_number_primary|add_class:"form-control col-sm-12 ginput begin_empty" |append_attr:"placeholder:Phone Number"}}
@@ -329,13 +328,13 @@ input::-webkit-inner-spin-button {
                                                 {{ business_form.email_adress.errors }}
                                             </div>
 
-                                            <label for="{{ business_form.professional_link.id_for_label }}" class="f-16 pl-1 pt-2">Professional Link(Linked In Prefered)</label>
+                                            <label for="{{ business_form.professional_link.id_for_label }}" class="f-16 pl-1 pt-2">Professional Link (Linked In Prefered) (Optional)</label>
                                         {{ business_form.professional_link|add_class:"form-control pt-1 ginput "|append_attr:"placeholder:www.linkedin.com" }}
                                         <div class="errors" id="professional_link_err" style="color: red">
                                             {{ business_form.professional_link.errors }}
                                         </div>
                                         
-                                        <label for="{{ business_form.professional_link.id_for_label }}" class="f-16 pl-1 pt-2">Link to your Portfolio/Professional Certificates</label>
+                                        <label for="{{ business_form.professional_link.id_for_label }}" class="f-16 pl-1 pt-2">Link to your Portfolio/Professional Certificates (Optional)</label>
                                         {{ business_form.portfolio_website|add_class:"form-control pt-1 ginput "|append_attr:"placeholder:www.gdrive.com" }}
                                         <div class="errors" id="professional_link_err" style="color: red">
                                             {{ business_form.portfolio_website.errors }}
@@ -343,7 +342,7 @@ input::-webkit-inner-spin-button {
                              </div>
 
                              <div class="col-sm-6 col-12 ff-p">
-                                            <div>
+                                            <div class="mobile_about_seller">
                                                     <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">You Are?</h3>
                                                     <div class="f-16 about-seller-body-2 about-seller bg-ff">
                                                             <!-- <input type="radio" checked="checked" name="about_seller" value="Owner" />
@@ -422,40 +421,58 @@ input::-webkit-inner-spin-button {
                            <p class="f-20 ff-p f-w-500">Interested sectors</p>
                        </div>
                            <div class="col-sm-4 col-12">
-                               <label for="" class="f-16 ff-p f-w-500 pt-19">Choice 1</label>
-                               <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category1" name="category1">
-                                   {% for x in sectors %}
-                                   <option value="{{x.sectors}}">{{x.sectors}}</option>
-                                   {% endfor %}
-                               </select>
-                               <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
-                               <select class="form-control f-13 ff-p" id="sub_category1" name="sub_category1">
-                                   <option name="subcategory1" value="volvo">Select</option>
-                               </select>
+                               <div class="row">
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 1</label>
+                                    <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category1" name="category1">
+                                        {% for x in sectors %}
+                                        <option value="{{x.sectors}}">{{x.sectors}}</option>
+                                        {% endfor %}
+                                    </select>
+                                   </div>
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                                    <select class="form-control f-13 ff-p" id="sub_category1" name="sub_category1">
+                                        <option name="subcategory1" value="volvo">Select</option>
+                                    </select>
+                                   </div>
+                               </div>
                            </div>
                            <div class="col-sm-4 col-12">
-                               <label for="" class="f-16 ff-p f-w-500 pt-19">Choice 2</label>
-                               <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category2" name="category2">
-                                   {% for x in sectors %}
-                                   <option value="{{x.sectors}}">{{x.sectors}}</option>
-                                   {% endfor %}
-                               </select>
-                               <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
-                               <select class="form-control f-13 ff-p" id="sub_category2" name="sub_category2">
-                                   <option name="subcategory2" value="volvo">Select</option>
-                               </select>
+                               <div class="row">
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 2</label>
+                                    <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category2" name="category2">
+                                        {% for x in sectors %}
+                                        <option value="{{x.sectors}}">{{x.sectors}}</option>
+                                        {% endfor %}
+                                    </select>
+                                   </div>
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                                    <select class="form-control f-13 ff-p" id="sub_category2" name="sub_category2">
+                                        <option name="subcategory2" value="volvo">Select</option>
+                                    </select>
+                                   </div>
+                               </div>
                            </div>
                            <div class="col-sm-4 col-12">
-                               <label for="" class="f-16 ff-p f-w-500 pt-19">Choice 3</label>
-                               <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category3" name="category3">
-                                   {% for x in sectors %}
-                                   <option value="{{x.sectors}}">{{x.sectors}}</option>
-                                   {% endfor %}
-                               </select>
-                               <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
-                               <select class="form-control f-13 ff-p" id="sub_category3" name="sub_category3">
-                                   <option name="subcategory3" value="volvo">Select</option>
-                               </select>
+                               <div class="row">
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Choice 3</label>
+                                    <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="category3" name="category3">
+                                        {% for x in sectors %}
+                                        <option value="{{x.sectors}}">{{x.sectors}}</option>
+                                        {% endfor %}
+                                    </select>
+                                   </div>
+                                   <div class="col-md-12 col-6">
+                                    <label for="" class="f-16 ff-p f-w-500 pt-10">Select Sub category</label>
+                                    <select class="form-control f-13 ff-p" id="sub_category3" name="sub_category3">
+                                        <option name="subcategory3" value="volvo">Select</option>
+                                    </select>
+                                   </div>
+                               </div>
                            </div>
                 </div>
 
@@ -592,20 +609,23 @@ input::-webkit-inner-spin-button {
                                        {{ advisor_busi.state3|attr:"hidden" }}
                                        {{ advisor_busi.country3|attr:"hidden" }}
 
-                       <div class="col-sm-4 col-12">
-                               <div id="locationField">
-                                   {{ advisor_busi.address_line1|append_attr:"placeholder:Location 1"|add_class:"controls form-control pt-9" }}
-                               </div>
+                       <div class="col-sm-4 col-4">
+                            <label for="">Location 1</label>
+                            <div id="locationField">
+                                {{ advisor_busi.address_line1|append_attr:"placeholder:Location 1"|add_class:"controls form-control pt-9" }}
+                            </div>
                        </div>
-                       <div class="col-sm-4 col-12">
-                               <div id="locationField">
-                                   {{ advisor_busi.address_line2|append_attr:"placeholder:Location 2"|add_class:"controls form-control pt-9" }}
-                               </div>
+                       <div class="col-sm-4 col-4">
+                            <label for="">Location 2</label>
+                            <div id="locationField">
+                                {{ advisor_busi.address_line2|append_attr:"placeholder:Location 2"|add_class:"controls form-control pt-9" }}
+                            </div>
                        </div>
-                       <div class="col-sm-4 col-12">
-                               <div id="locationField">
-                                   {{ advisor_busi.address_line3|append_attr:"placeholder:Location 3"|add_class:"controls form-control pt-9" }}
-                               </div>
+                       <div class="col-sm-4 col-4">
+                            <label for="">Location 3</label>
+                            <div id="locationField">
+                                {{ advisor_busi.address_line3|append_attr:"placeholder:Location 3"|add_class:"controls form-control pt-9" }}
+                            </div>
                        </div>
                    </div>
 
@@ -678,37 +698,37 @@ input::-webkit-inner-spin-button {
             padding: 8px;
           }
 </style>
-    <div class="modal" id="otp_modal">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header d-flex align-items-center" style="background: url(' ../../static/seller1/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
-                    <a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <!-- <h4 class="modal-title">Modal header</h4> -->
-                    </div>
-                <div class="modal-body text-center">
-                    <div id="otp_body" >
-                        <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
-                        <input type="text" class="form-control text-center col-sm-4 offset-sm-4" name="otp" id="otp" />
-                        <div class="otp-btns">
-                            <button id="otp_verify" class="btn btn-success">Verify</button>
-                            <button id="resend_otp" class="btn btn-primary">Resend OTP</button>
-                        </div>
-                        <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
-                    </div>
-                    <div id="otp_email_body" style="display: none">
-                            <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
-                            <input type="text" class="form-control text-center col-sm-4 offset-sm-4" name="otp_email" id="otp_email" />
-                            <div class="otp-btns">
-                                <button id="otp_email_verify" class="btn btn-success">Verify</button>
-                                <button id="resend_otp_email" class="btn btn-primary">Resend OTP</button>
-                            </div>
-                            <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
-                        </div>
+<div class="modal" id="otp_modal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-center" style="background: url(' ../../static/seller1/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
+                <a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <!-- <h4 class="modal-title">Modal header</h4> -->
                 </div>
-              </div>
+    <div class="modal-body text-center">
+        <div id="otp_body" >
+            <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
+            <input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp" id="otp" />
+            <div class="otp-btns">
+                <button class="btn btn-success" id="otp_verify">Verify</button>
+                <button class="btn btn-primary" id="resend_otp">Resend OTP</button>
             </div>
-          </div>
+            <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
+        </div>
+        <div id="otp_email_body" style="display: none">
+                <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
+                <input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp_email" id="otp_email" />
+                <div class="otp-btns">
+                    <button class="btn btn-success" id="otp_email_verify">Verify</button>
+                    <button class="btn btn-primary" id="resend_otp_email">Resend OTP</button>
+                </div>
+                <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
+            </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
           {% include "seller1/endbodysection.html" %}
@@ -1982,6 +2002,17 @@ $( ".usdtagger8" ).change(function() {
             });
 
 
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163563435-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163563435-1');
 </script>
 
 </body>

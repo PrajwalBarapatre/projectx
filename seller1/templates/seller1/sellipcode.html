@@ -238,10 +238,10 @@ list-style-type: none;
             <div class="container">
 
                     <div class="row ff-p f-17 pt-61 pr-28" >
-                          <div class="col-md-4">
+                          <div class="col-md-4 col-6">
                             <button type="button" onclick="displayTab(0)" class="btn-sellers w-100  ff-p mb-2 off" disabled=true>Your Information</button>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-4 col-6">
                             <button type="button" onclick="displayTab(1)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Detailed Information </button>
                           </div>
                     </div>
@@ -281,7 +281,7 @@ list-style-type: none;
 
                                  <div class="container-fluid zero-padding">
                                         <div class="row">
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-4">
                                                <!-- <input type="text" name="pass" id="pass" class="form-control col-sm-12" maxlength="4" placeholder="Country Code"> -->
                                                <label for="" class="f-16 pl-1 pt-15">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
@@ -291,7 +291,7 @@ list-style-type: none;
                                                         {% endfor %}
                                               </select>
                                            </div>
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-8">
 
                                 <label for="{{ business_form.phone_number_primary.id_for_label }}" class="f-16 pl-1 pt-15">Phone number</label>
                                             {{ business_form.phone_number_primary|add_class:"form-control col-sm-12 ginput begin_empty" |append_attr:"placeholder:Phone Number"}}
@@ -312,7 +312,7 @@ list-style-type: none;
                              </div>
 
                              <div class="col-sm-6 col-12 ff-p">
-                                            <div>
+                                            <div class="mobile_about_seller">
                                                     <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">Want to Sell?</h3>
                                                     <div class="f-16 about-seller-body-2 about-seller bg-ff p=0">
                                                             <!-- <input type="radio" checked="checked" name="about_seller" value="Owner" />
@@ -365,7 +365,7 @@ list-style-type: none;
                                  <div class="col-sm-6 col-12 ff-p pb-2">
                                     <div class="container-fluid zero-padding">
                                         <div class="row">
-                                            <div class="col-sm-6 col-12">
+                                            <div class="col-sm-6 col-6">
                                                <label for="" class="f-16 ff-p f-w-500">Select category</label>
                                                <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="sectors" name="category1">
                                                        {% for x in sectors %}
@@ -373,7 +373,7 @@ list-style-type: none;
                                                        {% endfor %}
                                                </select>
                                             </div>
-                                            <div class="col-sm-6 col-12">
+                                            <div class="col-sm-6 col-6">
                                                    <label for="" class="f-16 ff-p f-w-500">Select Sub category</label>
                                                    <select class="form-control f-13 ff-p" id="sub_sectors" name="category2">
                                                            <option name="category2" value="volvo">Select</option>
@@ -399,13 +399,13 @@ list-style-type: none;
                                         {{ business_form.region|attr:"hidden" }}
                                         {{ business_form.city|attr:"hidden" }}
                                          <div class="row pt-2">
-                                             <div class="col-sm-10 col-12">
+                                             <div class="col-sm-10 col-10">
                                     <div id="locationField">
                                         {{ business_form.address_line|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9 ginput begin_empty" }}
                                     </div>
                                              </div>
-                                             <div class="col-sm-1 col-12">
-                                      <button id="getLocation" class="btn btn-primary" type="button" style="font-size:16px;">Get</button>
+                                             <div class="col-sm-1 col-2">
+                                      <button id="getLocation" class="btn btn-primary small_width_100" type="button" style="font-size:16px;">Get</button>
                                              </div>
                                          </div>
 
@@ -443,9 +443,9 @@ list-style-type: none;
                                                     <span id="currency_message_1"></span>
 
                                                     <h4 class="f-16 f-w-500 pt-15">Website
-                                                        <span class="f-w-500 f-15"> (if any)</span>
+                                                        <span class="f-w-500 f-15"> (if any) (Optional)</span>
                                                     </h4>
-                                                     {{ sell_ipcode.website|add_class:"form-control col-lg-12 pt-9 col-sm-4 ginput"|attr:"placeholder:www.google.com" }}
+                                                     {{ sell_ipcode.website|add_class:"form-control col-lg-12 pt-9 col-sm-4 ginput"|attr:"placeholder:Company Website" }}
                                                      <div class="errors" id="website_err" style="color: red">
                                                          {{ sell_ipcode.website.errors }}
                                                      </div>
@@ -1640,6 +1640,16 @@ preventDuplicates: true,
 
 </script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163563435-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163563435-1');
+</script>
 
 </body>
 

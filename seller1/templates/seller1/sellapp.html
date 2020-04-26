@@ -240,10 +240,10 @@ list-style-type: none;
             <div class="container">
 
               <div class="row ff-p f-17 pt-61 pr-28" >
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <button type="button" onclick="displayTab(0)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Your Information</button>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <button type="button" onclick="displayTab(1)" class="btn-sellers w-100 ff-p mb-2 off" disabled=true>Detailed Information </button>
                     </div>
               </div>
@@ -284,7 +284,7 @@ list-style-type: none;
 
                                  <div class="container-fluid zero-padding">
                                         <div class="row">
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-4">
                                                <!-- <input type="text" name="pass" id="pass" class="form-control col-sm-12" maxlength="4" placeholder="Country Code"> -->
                                                <label for="" class="f-16 pl-1 pt-10">Country Code</label>
                                                <select class="form-control" name= "country_code_primary" id="country_code_primary">
@@ -294,7 +294,7 @@ list-style-type: none;
                                                         {% endfor %}
                                               </select>
                                            </div>
-                                           <div class="col-sm-6">
+                                           <div class="col-sm-6 col-8">
 
                                 <label for="{{ business_form.phone_number_primary.id_for_label }}" class="f-16 pl-1 pt-15">Phone number</label>
                                             {{ business_form.phone_number_primary|add_class:"form-control col-sm-12 ginput begin_empty" |append_attr:"placeholder:Phone Number"}}
@@ -315,7 +315,7 @@ list-style-type: none;
                              </div>
 
                              <div class="col-sm-6 col-12 ff-p">
-                                            <div>
+                                            <div class="mobile_about_seller">
                                                     <h3 class="f-20 bg-e4 f-w-bold pt-10 pl-23 pb-7 about-seller-body">Want to List?</h3>
                                                     <div class="f-16 about-seller-body-2 about-seller bg-ff">
                                                             <!-- <input type="radio" checked="checked" name="about_seller" value="Owner" />
@@ -367,7 +367,7 @@ list-style-type: none;
                                  <div class="col-sm-6 col-md-6 col-12 ff-p pb-2">
                                      <div class="container-fluid zero-padding">
                                          <div class="row">
-                                             <div class="col-sm-6 col-12">
+                                             <div class="col-sm-6 col-6">
                                                 <label for="" class="f-16 ff-p f-w-500">Select category</label>
                                                 <select class="form-control f-13 ff-p" onchange="get_sub_sectors(this);" id="sectors" name="category1">
                                                         {% for x in sectors %}
@@ -375,7 +375,7 @@ list-style-type: none;
                                                         {% endfor %}
                                                 </select>
                                              </div>
-                                             <div class="col-sm-6 col-12">
+                                             <div class="col-sm-6 col-6">
                                                     <label for="" class="f-16 ff-p f-w-500">Select Sub category</label>
                                                     <select class="form-control f-13 ff-p" id="sub_sectors" name="category2">
                                                             <option name="category2" value="volvo">Select</option>
@@ -401,13 +401,13 @@ list-style-type: none;
                                         {{ business_form.region|attr:"hidden" }}
                                         {{ business_form.city|attr:"hidden" }}
                                          <div class="row pt-10">
-                                             <div class="col-sm-10 col-12">
+                                             <div class="col-sm-10 col-10">
                                     <div id="locationField">
                                         {{ business_form.address_line|attr:"placeholder=Enter your address"|add_class:"controls form-control pt-9 ginput begin_empty" }}
                                     </div>
                                              </div>
-                                             <div class="col-sm-1 col-12">
-                                      <button id="getLocation" class="btn btn-primary h-40" type="button" style="font-size:16px;">Get</button>
+                                             <div class="col-sm-1 col-2">
+                                      <button id="getLocation" class="btn btn-primary h-40 small_width_100" type="button" style="font-size:16px;">Get</button>
                                          </div>
 
                                         <!-- why do i have this -->
@@ -424,7 +424,7 @@ list-style-type: none;
                                                     <h4 class="f-16 f-w-500 pt-15">Email address of webpage
                                                         <span class="f-w-500 f-15"> (if any)</span>
                                                     </h4>
-                                                    {{ sell_app.email_app|add_class:"form-control col-lg-12 ginput"|attr:"placeholder:www.yourewebsite.com" }}
+                                                    {{ sell_app.email_app|add_class:"form-control col-lg-12 ginput"|attr:"placeholder:Website Address" }}
                                                         <div class="errors" id="email_app_err" style="color: red">
                                                             {{ sell_app.email_app.errors }}
                                                         </div>
@@ -444,7 +444,7 @@ list-style-type: none;
                                                     <h4 class="f-16 f-w-500 pt-15">Link to Application
                                                         <span class="f-w-500 f-15"> (if any)</span>
                                                     </h4>
-                                                     {{ sell_app.website|add_class:"form-control pt-9 col-sm-12 ginput"|attr:"placeholder:www.google.com" }}
+                                                     {{ sell_app.website|add_class:"form-control pt-9 col-sm-12 ginput"|attr:"placeholder:Contact Email" }}
                                                      <div class="errors" id="website_err" style="color: red">
                                                          {{ sell_app.website.errors }}
                                                      </div>
@@ -573,9 +573,9 @@ list-style-type: none;
                                         </div> -->
                                    </div>
                                    <div class="col-sm-12 col-12 col-md-12 col-lg-12">
-                                       <h4 class="f-16 f-w-500 pt-30">Average Monthly Downloads
+                                       <h4 class="f-16 f-w-500 pt-30">Total Downloads
                                        </h4>
-                                       {{ sell_app.average_monthly_downloads|attr:"type=month"|add_class:"form-control ginput begin_empty"|attr:"placeholder:192948" }}
+                                       {{ sell_app.average_monthly_downloads|attr:"type=month"|add_class:"form-control ginput begin_empty"|attr:"placeholder:Number of Downloads" }}
                                         <div class="errors" id="average_monthly_downloads_err" style="color: red">
                                            {{ sell_app.average_monthly_downloads.errors }}
                                         </div>
@@ -589,17 +589,17 @@ list-style-type: none;
                                         <h4 class="f-16 f-w-500">Number of Views (Last 3 Months)
                                         </h4>
                                         <div class="row pt-2">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 3</label>
                                                 {{ sell_app.y1_users|add_class:"w-100" }}
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 2</label>
                                                 {{ sell_app.y2_users|add_class:"w-100" }}
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 1 (Latest)</label>
                                                 {{ sell_app.y3_users|add_class:"w-100" }}
 
@@ -610,15 +610,15 @@ list-style-type: none;
                                         <h4 class="f-16 f-w-500">Average Monthly Users (Last 3 months)
                                         </h4>
                                         <div class="row pt-2">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 3</label>
                                                 {{ sell_app.y1_users|add_class:"w-100" }}
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 2</label>
                                                 {{ sell_app.y2_users|add_class:"w-100" }}
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                                 <label class="mb-0" for="">Month 1 (Latest)</label>
                                                 {{ sell_app.y3_users|add_class:"w-100" }} 
                                             </div>
@@ -656,37 +656,51 @@ list-style-type: none;
 
     </div>
 
+    <style>
+        .otp-btns{
+            margin-top: 1rem;
+        }
+        .otp-btns button{
+            min-width: 20%;
+        }
+        #otp_modal .close{
+                    position: absolute;
+                    right: 16px;
+                    top: 18px;
+                    padding: 8px;
+                  }
+        </style>
     <div class="modal" id="otp_modal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Modal header</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="otp_body" >
-                        <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
-                        <input type="text" class="form-control col-sm-4 " name="otp" id="otp" />
-                        <br/>
-                        <button id="otp_verify">Verify</button>
-                        <button id="resend_otp">Resend OTP</button>
-                        <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center" style="background: url(' ../../static/seller1/images/homepage-banner.png');background-size: cover;background-position: center; height: 150px;">
+                    <a class="navbar-brand w-100 text-center pl-4 f-40 font-weight-bold c-f ff-pd" href="">Business Verge</a>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <!-- <h4 class="modal-title">Modal header</h4> -->
                     </div>
-                    <div id="otp_email_body" style="display: none">
-                            <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
-                            <input type="text" class="form-control col-sm-4 " name="otp_email" id="otp_email" />
-                            <br/>
-                            <button id="otp_email_verify">Verify</button>
-                            <button id="resend_otp_email">Resend OTP</button>
-                            <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
-                        </div>
+        <div class="modal-body text-center">
+            <div id="otp_body" >
+                <label for="otp" class="f-16 f-w-500 pt-30">OTP please, for phone number verification</label>
+                <input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp" id="otp" />
+                <div class="otp-btns">
+                    <button class="btn btn-success" id="otp_verify">Verify</button>
+                    <button class="btn btn-primary" id="resend_otp">Resend OTP</button>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
+                <p id="otp_err" style="color: red; display: none;" >Wrong OTP</p>
             </div>
-          </div>
+            <div id="otp_email_body" style="display: none">
+                    <label for="otp_email" class="f-16 f-w-500 pt-30">OTP please, for email address verification</label>
+                    <input type="text" class="form-control col-sm-4 offset-sm-4 text-center" name="otp_email" id="otp_email" />
+                    <div class="otp-btns">
+                        <button class="btn btn-success" id="otp_email_verify">Verify</button>
+                        <button class="btn btn-primary" id="resend_otp_email">Resend OTP</button>
+                    </div>
+                    <p id="otp_email_err" style="color: red; display: none;" >Wrong OTP</p>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     {% include "seller1/endbodysection.html" %}
 
@@ -1829,6 +1843,18 @@ preventDuplicates: true,
     });
 
 </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163563435-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163563435-1');
+</script>
+
 </body>
 
 </html>
