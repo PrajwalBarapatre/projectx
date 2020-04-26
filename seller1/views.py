@@ -57,6 +57,7 @@ from django.http import HttpResponse
 from profiles.models import Notification
 from profiles.models import Profile
 from user_seller.models import Sell, Advise, Invest
+from seller1.sms import email_checker, email_adder, phone_checker, phone_adder
 
 
 
@@ -169,6 +170,12 @@ def seller(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -279,6 +286,14 @@ def SellerUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -1117,6 +1132,12 @@ def seller_asset(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
 
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
@@ -1229,6 +1250,14 @@ def AssetUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -1368,6 +1397,12 @@ def seller_equity(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -1486,6 +1521,14 @@ def EquityUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -1623,6 +1666,12 @@ def seller_loan(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -1731,6 +1780,14 @@ def LoanUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -1869,6 +1926,12 @@ def seller_startup(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
 
             else:
@@ -1978,6 +2041,14 @@ def StartupUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -2099,6 +2170,14 @@ def AppUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -2235,6 +2314,12 @@ def seller_app(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 # revenue_1 = revenue.save(commit=False)
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
@@ -2349,6 +2434,14 @@ def IpcodeUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -2481,6 +2574,12 @@ def seller_ipcode(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 # revenue_1 = revenue.save(commit=False)
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
@@ -2601,6 +2700,12 @@ def seller_franchise(request):
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
                 curr_user.save()
+                if not email_checker(curr_user.id, seller_1.email_adress):
+                    email_adder(curr_user, seller_1.email_adress)
+                phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+                print(phone_number)
+                if not phone_checker(curr_user.id, phone_number):
+                    phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
                 return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
             else:
                 print(seller.errors)
@@ -2707,6 +2812,14 @@ def FranchiseUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
@@ -2832,6 +2945,13 @@ def seller_supplier(request):
             curr_user.profile.sell_type.add(seller_1)
             curr_user.profile.user_sell.add(sell)
             curr_user.save()
+            
+            if not email_checker(curr_user.id, seller_1.email_adress):
+                email_adder(curr_user, seller_1.email_adress)
+            phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+            print(phone_number)
+            if not phone_checker(curr_user.id, phone_number):
+                phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
             return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
         else:
             print(seller.errors)
@@ -2934,6 +3054,14 @@ def SupplierUpdate(request, business_id):
             album.files.add(file)
             album.save()
         print('inside if 5')
+        curr_user = request.user
+        seller_1 = instance_seller
+        if not email_checker(curr_user.id, seller_1.email_adress):
+            email_adder(curr_user, seller_1.email_adress)
+        phone_number = '' + seller_1.country_code_primary + seller_1.phone_number_primary
+        print(phone_number)
+        if not phone_checker(curr_user.id, phone_number):
+            phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
         return redirect('seller1:seller-user-detail', business_id=instance_seller.business_id)
     else:
         print(business_form.errors)
