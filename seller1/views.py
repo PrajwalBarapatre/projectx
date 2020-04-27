@@ -57,9 +57,7 @@ from django.http import HttpResponse
 from profiles.models import Notification
 from profiles.models import Profile
 from user_seller.models import Sell, Advise, Invest
-from seller1.sms import email_checker, email_adder, phone_checker, phone_adder
-
-
+from seller1.sms import email_checker, email_adder, phone_checker, phone_adder, process_request
 
 base_model_list={
     'Seller':Seller1,
@@ -166,6 +164,8 @@ def seller(request):
                 revenue_1.save()
                 print('revenue is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -780,13 +780,13 @@ def SellBusinessDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     revenue = RevenueModel.objects.get(seller=seller)
     revenue.delete()
     seller.delete()
@@ -811,13 +811,13 @@ def SellAssetDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     revenue = RevenueModel.objects.get(seller=seller)
     revenue.delete()
     seller.delete()
@@ -842,13 +842,13 @@ def RaiseLoanDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     revenue = RevenueModel.objects.get(seller=seller)
     revenue.delete()
     seller.delete()
@@ -873,13 +873,13 @@ def SellEquityDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     revenue = RevenueModel.objects.get(seller=seller)
     revenue.delete()
     seller.delete()
@@ -904,13 +904,13 @@ def SellAppDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
 
     seller.delete()
     bsn.delete()
@@ -934,13 +934,13 @@ def SellIpcodeDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
 
     seller.delete()
     bsn.delete()
@@ -966,13 +966,13 @@ def SellStartupDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     revenue = RevenueModel.objects.get(seller=seller)
     revenue.delete()
     seller.delete()
@@ -998,13 +998,13 @@ def SellFranchiseDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
 
     seller.delete()
     bsn.delete()
@@ -1028,13 +1028,13 @@ def SellSupplierDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
 
     seller.delete()
     bsn.delete()
@@ -1128,6 +1128,8 @@ def seller_asset(request):
                 revenue_1.save()
                 print('revenue is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -1393,6 +1395,8 @@ def seller_equity(request):
                 revenue_1.save()
                 print('revenue is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -1662,6 +1666,8 @@ def seller_loan(request):
                 revenue_1.save()
                 print('revenue is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -1922,6 +1928,8 @@ def seller_startup(request):
                 revenue_1.save()
                 print('revenue is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -2310,6 +2318,8 @@ def seller_app(request):
                 business_1.save()
                 print('business is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -2570,6 +2580,8 @@ def seller_ipcode(request):
                 business_1.save()
                 print('business is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -2696,6 +2708,8 @@ def seller_franchise(request):
                 business_1.save()
                 print('business is also done')
                 sell = make_sell(seller_1.business_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 curr_user.profile.sell_type.add(seller_1)
                 curr_user.profile.user_sell.add(sell)
@@ -2941,6 +2955,8 @@ def seller_supplier(request):
             business_1.save()
             print('business is also done')
             sell = make_sell(seller_1.business_id)
+            sell.is_mobile = process_request(request)
+            sell.save()
             curr_user = request.user
             curr_user.profile.sell_type.add(seller_1)
             curr_user.profile.user_sell.add(sell)

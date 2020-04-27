@@ -20,6 +20,7 @@ class Sell(models.Model):
     inst_sellers = models.ManyToManyField(Seller1, blank=True, null=True, related_name='cart_suppliers')
     cart_suppliers = models.ManyToManyField(Seller1, blank=True, null=True, related_name='inst_sells')
     inst_suppliers = models.ManyToManyField(Seller1, blank=True, null=True, related_name='cart_sells')
+    is_mobile = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.seller.title
@@ -36,6 +37,7 @@ class Invest(models.Model):
     cart_seller = models.ManyToManyField(Seller1, related_name='invest_cart_for_invest', blank=True)
     cart_advisor = models.ManyToManyField(Advisor, related_name='advise_cart_for_invest', blank=True)
     type = models.CharField(max_length=255, blank=True, null=True)
+    is_mobile = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.investor.first_name
@@ -52,6 +54,7 @@ class Advise(models.Model):
     cart_seller = models.ManyToManyField(Seller1, related_name='invest_cart_for_advise', blank=True)
     cart_invest = models.ManyToManyField(Investor, related_name='advise_cart_for_advise', blank=True)
     type = models.CharField(max_length=255, blank=True, null=True)
+    is_mobile = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.advisor.first_name

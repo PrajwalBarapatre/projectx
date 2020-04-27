@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from . import views
 from django.conf.urls import url
 from django.urls import path
-from seller1.sms import otp_message, email_message, email_forgot, forgot_password, email_consent
+from seller1.sms import otp_message, email_message, email_forgot, forgot_password, email_consent, mobile_request
 
 urlpatterns = [
     url('ajax/otp/', otp_message, name='otp-message'),
@@ -11,6 +11,7 @@ urlpatterns = [
     url('add_viewer/', views.add_viewer, name='add-viewer'),
     url('check-email/', email_forgot, name='check-email'),
     url('save_view/', views.save_view, name='save-view'),
+    url('mobile_check/', mobile_request, name='mobile-check'),
     url('forgot-password/', forgot_password, name='forgot-password'),
     path('bcard/<business_id>', views.seller_render_to_pdf, name='seller-image'),
     url('ajax/update/files/', views.UpdateFiles, name='business-update-files'),

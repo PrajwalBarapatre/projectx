@@ -39,6 +39,7 @@ from seller1.serializers import serializer_list
 from seller1.serializers import SellerSerializer, RevenueModelSerializer
 from advisor.serializers import AdvisorSerializer, BusinessSerializer, StartupSerializer
 from user_seller.views import make_invest, make_sell, make_advise
+from seller1.sms import process_request
 
 
 
@@ -269,6 +270,8 @@ def investor_indiv(request):
                 user.profile.invest_type=seller_1
                 user.save()
                 sell = make_invest(seller_1.investor_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 # curr_user.profile.advise_type.add(seller_1)
                 curr_user.profile.user_invest.add(sell)
@@ -639,6 +642,8 @@ def investor_company(request):
                 user.profile.invest_type = seller_1
                 user.save()
                 sell = make_invest(seller_1.investor_id)
+                sell.is_mobile = process_request(request)
+                sell.save()
                 curr_user = request.user
                 # curr_user.profile.advise_type.add(seller_1)
                 curr_user.profile.user_invest.add(sell)
@@ -700,13 +705,13 @@ def InvestorIndivDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     seller.delete()
     bsn.delete()
     print('above redirect')
@@ -729,13 +734,13 @@ def InvestorCompanyDelete(request, business_id):
             break
     if not found:
         return redirect('profiles:index')
-    album_id = seller.album_id
-    album = KAlbumForFile.objects.get(album_id=album_id)
-    for file in album.files.all():
-        album.files.remove(file)
-        file.delete()
-
-    album.delete()
+    # album_id = seller.album_id
+    # album = KAlbumForFile.objects.get(album_id=album_id)
+    # for file in album.files.all():
+    #     album.files.remove(file)
+    #     file.delete()
+    #
+    # album.delete()
     seller.delete()
     bsn.delete()
     print('above redirect')

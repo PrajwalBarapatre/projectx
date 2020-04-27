@@ -269,7 +269,16 @@ def home_view(request):
         x = serializer.data
         album_id = advisor.album_id
         album = KAlbumForFile.objects.get(album_id=album_id)
-        file = album.files.all()[0]
+        file = None
+        file_name = ''
+        try:
+            file = album.files.all()[0]
+        except:
+            file = File()
+            file.file.name = 'category/advisor-img2.png'
+            file.save()
+            album.files.add(file)
+            album.save()
         file_name = file.name
         y = {
             'file_name': file_name,
@@ -296,7 +305,17 @@ def home_view(request):
         x = serializer.data
         album_id = investor.album_id
         album = KAlbumForFile.objects.get(album_id=album_id)
-        file = album.files.all()[0]
+        file = None
+        file_name = ''
+        try:
+            file = album.files.all()[0]
+        except:
+            file = File()
+            file.file.name = 'category/advisor-img2.png'
+            file.save()
+            album.files.add(file)
+            album.save()
+        # file = album.files.all()[0]
         file_name = file.name
         y = {
             'file_name': file_name,

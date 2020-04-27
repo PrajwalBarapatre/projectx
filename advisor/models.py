@@ -9,7 +9,7 @@ from django.utils import timezone
 class Advisor(models.Model):
     advisor_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=25)
-    middle_name = models.CharField(max_length=25)
+    middle_name = models.CharField(max_length=25, blank=True, null=True)
     last_name = models.CharField(max_length=25)
     country_code_primary = models.CharField(max_length=255, default="+91")
     phone_number_primary = models.CharField(max_length=15)
