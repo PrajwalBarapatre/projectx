@@ -38,6 +38,7 @@ class Search_log(models.Model):
     base_type = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
+    is_mobile = models.BooleanField(default=False, blank=True, null=True)
 
 class View_log(models.Model):
     vlog_id = models.AutoField(primary_key=True)
@@ -47,6 +48,7 @@ class View_log(models.Model):
     time_spent = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
     id = models.CharField(max_length=255, blank=True, null=True)
+    is_mobile = models.BooleanField(default=False, blank=True, null=True)
 
 class Profile(models.Model):
 
