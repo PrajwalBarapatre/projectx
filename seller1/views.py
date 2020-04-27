@@ -5746,6 +5746,7 @@ def show_sellers(request):
         search.country=country
         search.type=type
         search.base_type='Seller'
+        search.is_mobile = process_request(request)
         search.save()
         user.profile.searches.add(search)
         user.save()
@@ -5823,6 +5824,7 @@ def show_advisors(request):
         search.country = country
         search.type = type
         search.base_type = 'Business_Advisor'
+        search.is_mobile = process_request(request)
         search.save()
         user.profile.searches.add(search)
         user.save()
@@ -5882,6 +5884,7 @@ def show_advisors_startup(request):
         search.country = country
         search.type = type
         search.base_type = 'Startup_Advisor'
+        search.is_mobile = process_request(request)
         search.save()
         user.profile.searches.add(search)
         user.save()
@@ -5935,6 +5938,7 @@ def show_investors(request):
         search.country = country
         search.type = type
         search.base_type = 'Investor'
+        search.is_mobile = process_request(request)
         search.save()
         user.profile.searches.add(search)
         user.save()
@@ -8303,6 +8307,7 @@ def save_view(request):
         view.type=type
         view.category=category
         view.id=id
+        view.is_mobile = process_request(request)
         view.save()
         user.profile.views.add(view)
         user.save()
