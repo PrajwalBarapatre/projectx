@@ -4,9 +4,9 @@ from .models import IndividualInvestor, Investor, CompanyInvestor
 
 nbfc = 'NBFC'
 Financier = 'Financier'
-Equity = 'Private Equity'
+Equity = 'Private_Equity'
 Vc = 'VC'
-Investment_Bank = 'Investment Bank'
+Investment_Bank = 'Investment_Bank'
 Banks = 'Banks'
 SELLER_CHOICES = (
 	(nbfc, 'NBFC'),

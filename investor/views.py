@@ -264,6 +264,8 @@ def investor_indiv(request):
                     album.save()
                     seller_1.album_id = album.album_id
                     seller_1.save()
+                seller_1.about_seller = 'Individual_Investor'
+                seller_1.save()
                 business_1.save()
                 print('business is also done')
                 user = request.user
