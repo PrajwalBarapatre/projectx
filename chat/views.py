@@ -27,7 +27,7 @@ from profiles.models import Profile
 from django.http import HttpResponse
 from advisor.models import Advisor, StartupAdvisor, BusinessAdvisor
 
-from .models import Chat, Contact, Message, Malbum, Notify
+from .models import Chat, Contact, Message, Malbum, Notify, StaffChat, StaffMessage
 import json
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -124,6 +124,10 @@ class ChatDeleteView(DestroyAPIView):
 def get_last_10_messages(chatId):
     chat = get_object_or_404(Chat, chat_id=chatId)
     return chat.messages.order_by('-timestamp').all()[:30]
+
+def get_staff_messages(chat_id):
+    staff_chat = get_object_or_404(StaffChat, chat_id=chat_id)
+    return staff_chat.messages.order_by('-timestamp').all()
 
 def get_user_contact(username):
     user = get_object_or_404(User, username=username)
