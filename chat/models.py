@@ -1,7 +1,11 @@
+from uuid import uuid4
+
 from django.db import models
 from django.contrib.auth import get_user_model
 from seller1.models import Seller1
+from staff.models import PhoneModel
 from .formatChecker import ContentTypeRestrictedFileField
+from django.utils import timezone
 
 CONTENT_TYPES = ['video/x-msvideo', 'application/pdf', 'video/mp4', 'audio/mpeg', 'image/png', 'image/jpeg', 'image/jpg', 'audio/mp3']
 FILE_EXTENSIONS = ['mp4', 'mp3', 'pdf', 'png', 'jpg', 'jpeg']
@@ -72,3 +76,32 @@ class Notify(models.Model):
         self.save()
         print('increased')
         pass
+
+
+class StaffChat(models.Model):
+    chat_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    client = models.OneToOneField(User, on_delete=models.CASCADE, related_name='staff_chat',
+                                  blank=True, null=True)
+    expiry_time = models.DateTimeField(blank=True, null=True)
+    pending = models.BooleanField(default=False)
+    bverge_open = models.BooleanField(default=False)
+    phone_model = models.OneToOneField(PhoneModel, on_delete=models.CASCADE, blank=True, null=True)
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+
+class StaffMessage(models.Model):
+    message_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,
+                             related_name='staff_messages')
+    client = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,
+                               related_name='bverge_messages')
+    chat = models.ForeignKey(StaffChat, on_delete=models.SET_NULL, blank=True, null=True,
+                             related_name='messages')
+    malbum = models.ForeignKey(Malbum, on_delete=models.CASCADE, blank=True, null=True)
+    file_exist = models.BooleanField(default=False)
+    content = models.TextField()
+    from_bverge = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+

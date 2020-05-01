@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth import (
     authenticate,
     get_user_model,
@@ -29,17 +31,19 @@ from investor.views import inv_model_list, inv_serializer_list
 from seller1.models import RevenueModel
 from seller1.serializers import SellerSerializer, RevenueModelSerializer, serializer_list
 from seller1.views import model_list
+from staff.models import PhoneModel, EmailModel
 from user_seller.models import Sell, Advise, Invest
 from .models import Profile, Notification
 from profiles.forms import UserLoginForm, UserRegisterForm, ProfileForm, SubscriptionForm, FeedbackForm
 from django.http import JsonResponse
 from metadata.views import business_sector, companies,codedata,yeardata
 from .serializers import UserSerializer, ProfileSerializer
-from chat.models import Chat, Contact, Notify
+from chat.models import Chat, Contact, Notify, StaffChat, StaffMessage
 from chat.views import get_user_contact, get_chat
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
 from projectx import settings
+from twilio.rest import Client
 from django.core import serializers
 
 
@@ -131,7 +135,7 @@ def register_view(request):
         print('1')
 
         try:
-            user.profile.contact_number = profile_form.cleaned_data['contact_number']
+            user.profile.contact_number = profile_form.cleaned_data['country_code_primary']+profile_form.cleaned_data['contact_number']
             print('2')
             user.profile.photo = request.FILES['photo']
             print(request.FILES['photo'])
@@ -168,6 +172,53 @@ def register_view(request):
         print('3')
         new_user = authenticate(username=user.username, password=password)
         login(request, new_user)
+        # client = user
+        # phone_model = None
+        # if user.profile.contact_number != '':
+        #     phone_model = PhoneModel()
+        #     phone_model.phone_number = user.profile.contact_number
+        #     phone_model.country_code_primary = profile_form.cleaned_data['country_code_primary']
+        #     phone_model.user = client
+        #     phone_model.save()
+        # email_model = EmailModel()
+        # email_model.email = user.email
+        # email_model.user = user
+        # email_model.save()
+        #
+        # chat = StaffChat()
+        # chat.client = client
+        # chat.expiry_time = datetime.utcnow()
+        # chat.bverge_open = False
+        # chat.pending = False
+        # chat.phone_model = phone_model
+        # chat.save()
+        # message = StaffMessage()
+        # message.client = client
+        # message.chat = chat
+        # # message.malbum = malbum
+        # message.file_exist = False
+        # message.from_bverge = True
+        # message.content = request.POST['message']
+        # message.save()
+        # body = 'Hi ' + client.first_name + ' ' + client.last_name + \
+        #        ', Welcome to Business Verge! \n' \
+        #        'We are a business networking platform and help' \
+        #        ' Businesses and Startups to connect to beneficial Businesses, Investors and Advisors. \n' \
+        #        'Please, reply with your details to help BVerge to list your need.'
+        #
+        # account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+        # auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+        # client = Client(account_sid, auth_token)
+        # phone_number = chat.phone_model.phone_number
+        # to_ = 'whatsapp:' + phone_number
+        # send_message = client.messages \
+        #     .create(
+        #     from_='whatsapp:+14155238886',
+        #     body=body,
+        #     to=to_
+        # )
+        # print(send_message.sid)
+
         data = {}
         name = user.profile.photo.name
         data['status'] = 'success'

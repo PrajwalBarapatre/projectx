@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from profiles.models import Profile
 from staff.models import PhoneModel, EmailModel
 import re
+from django.template.loader import render_to_string
+from django.template import Context
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
 
@@ -114,18 +116,20 @@ def email_message(request):
     except:
         pass
     subject = "Email Verification Business Verge"
-
+    name = ''
     email = request.GET['email']
     name = request.GET['name']
     otp = randint(1000,9999)
     body=""
     hbody=""
-    if name:
+    if name!='':
         body="Hii "+", verify your business email address using this   "+ str(otp)
-        hbody='<p>Hii '+', verify your business email address using this <strong>'+ str(otp)+'</strong></p>'
+        c = {'name':name, 'otp':otp}
+        hbody= render_to_string('seller1/otp_verify.html', context=c)
     else:
         body = "Hii " + ", verify your business email address using this   " + str(otp)
-        hbody = '<p>Hii ' + ', verify your business email address using this <strong>' + str(otp) + '</strong></p>'
+        c = {'name': '', 'otp': otp}
+        hbody = render_to_string('seller1/otp_verify.html', context=c)
 
     # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
     msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
@@ -147,13 +151,14 @@ def email_consent(request):
     otp = randint(1000,9999)
     body=""
     hbody=""
-    if name:
-        body="Hii "+", please provide the following otp to list yourself "+ str(otp)
-        hbody='<p>Hii '+', please provide the following otp to list yourself <strong>'+ str(otp)+'</strong></p>'
+    if name != '':
+        body = "Hii " + ", verify your business email address using this   " + str(otp)
+        c = {'name': name, 'otp': otp}
+        hbody = render_to_string('seller1/otp_verify.html', context=c)
     else:
-        body = "Hii " + ", please provide the following otp to list yourself " + str(otp)
-        hbody = '<p>Hii ' + ', please provide the following otp to list yourself <strong>' + str(otp) + '</strong></p>'
-
+        body = "Hii " + ", verify your business email address using this   " + str(otp)
+        c = {'name': '', 'otp': otp}
+        hbody = render_to_string('seller1/otp_verify.html', context=c)
     # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
     msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
     msg.attach_alternative(hbody, "text/html")

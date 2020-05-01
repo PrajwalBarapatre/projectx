@@ -1,7 +1,14 @@
+from urllib.request import urlopen
+
+from django.core.files.temp import NamedTemporaryFile
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
+from staff.models import PhoneModel
+from .formatChecker import ContentTypeRestrictedFileField
 from .serializer import ChatSerializer
 from django.http import FileResponse, Http404
 from rest_framework.views import APIView
@@ -27,10 +34,20 @@ from profiles.models import Profile
 from django.http import HttpResponse
 from advisor.models import Advisor, StartupAdvisor, BusinessAdvisor
 
-from .models import Chat, Contact, Message, Malbum, Notify
+from .models import Chat, Contact, Message, Malbum, Notify, StaffChat, StaffMessage
 import json
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from urllib.parse import urlparse
+import mimetypes
+import requests
+import os
+from twilio.rest import Client
+from twilio.twiml.messaging_response import MessagingResponse
+from datetime import datetime, timedelta
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+
 
 User = get_user_model()
 
@@ -124,6 +141,10 @@ class ChatDeleteView(DestroyAPIView):
 def get_last_10_messages(chatId):
     chat = get_object_or_404(Chat, chat_id=chatId)
     return chat.messages.order_by('-timestamp').all()[:30]
+
+def get_staff_messages(chat_id):
+    staff_chat = get_object_or_404(StaffChat, chat_id=chat_id)
+    return staff_chat.messages.order_by('-timestamp').all()
 
 def get_user_contact(username):
     user = get_object_or_404(User, username=username)
@@ -583,5 +604,332 @@ def fetch_sell_id(request,business_id):
         invest_user = invest_profile.user
         print(investor)
 
-    return 
+    return
+
+
+def get_staff_chat(chat_id):
+    return get_object_or_404(StaffChat, chat_id=chat_id)
+
+def message_to_json(message):
+    file_name = 'None'
+    if message.malbum is not None:
+        file_name = message.malbum.file_name
+    author = 'Bverge'
+    if not message.from_bverge:
+        author = message.client.email
+    return {
+        'author': author,
+        'content': message.content,
+        'timestamp': str(message.timestamp),
+        'id':message.message_id,
+        'chat_id':message.chat.chat_id,
+        'file':file_name,
+        'file_exist':message.file_exist
+    }
+
+
+
+@csrf_exempt
+def handle_incoming_messages(request):
+    if request.method=='POST':
+        print('inside webhook')
+        message_sid = request.POST.get('MessageSid', '')
+        from_number = request.POST.get('From', '')
+        body = request.POST.get('Body', '')
+        print(from_number)
+        num_media = int(request.POST.get('NumMedia', 0))
+
+        media_files = [(request.POST.get("MediaUrl{}".format(i), ''),
+                        request.POST.get("MediaContentType{}".format(i), ''))
+                       for i in range(0, num_media)]
+
+        if not from_number or not message_sid:
+            raise Exception('Please provide a From Number and a Message Sid')
+        response = MessagingResponse()
+        phonemodel = None
+        client = None
+        try:
+            phonemodel = PhoneModel.objects.get(phone_number=from_number)
+            client = phonemodel.user
+        except:
+            return str(response)
+        chat = None
+        try:
+            chat = StaffChat.objects.get(client=client)
+        except:
+            chat = StaffChat()
+            chat.client = client
+            phone_model = PhoneModel.objects.get(user=client)
+            chat.phone_model = phone_model
+            chat.expiry_time = datetime.utcnow() + timedelta(days=1)
+            chat.bverge_open = False
+            chat.pending = True
+            chat.save()
+
+        if num_media > 0:
+            for (media_url, mime_type) in media_files:
+                file_extension = mimetypes.guess_extension(mime_type)
+                media_sid = os.path.basename(urlparse(media_url).path)
+                # content = requests.get(media_url).text
+                filename = '{sid}{ext}'.format(sid=media_sid, ext=file_extension)
+
+                # mms_media = MMSMedia(
+                #     filename=filename,
+                #     mime_type=mime_type,
+                #     media_sid=media_sid,
+                #     message_sid=message_sid,
+                #     media_url=media_url,
+                #     content=content)
+                # mms_media.save()
+                malbum = Malbum()
+                # malbum.save()
+                img_temp = NamedTemporaryFile(delete=True)
+                img_temp.write(urlopen(media_url).read())
+                img_temp.flush()
+                malbum.file.save(filename, ContentTypeRestrictedFileField(img_temp), save=True)
+                malbum.save()
+                message = StaffMessage()
+                message.client = client
+                message.chat = chat
+                message.malbum = malbum
+                message.file_exist = True
+                message.from_bverge = False
+                message.content = malbum.file_name
+                message.save()
+                if chat.bverge_open:
+                    channel_layer = get_channel_layer()
+                    room_name = chat.chat_id
+                    content = {
+                        'command': 'new_message',
+                        # 'message': serializer.data
+                        'message': message_to_json(message)
+                    }
+                    async_to_sync(channel_layer.group_send)(room_name,
+                                                            {"type": "chat_message_whatsapp", 'message': message})
+
+                else:
+                    chat.pending = True
+                    chat.save()
+            if body:
+                message = StaffMessage()
+                message.client = client
+                message.chat = chat
+                # message.malbum = malbum
+                message.file_exist = False
+                message.from_bverge = False
+                message.content = body
+                message.save()
+                if chat.bverge_open:
+                    channel_layer = get_channel_layer()
+                    room_name = chat.chat_id
+                    content = {
+                        'command': 'new_message',
+                        # 'message': serializer.data
+                        'message': message_to_json(message)
+                    }
+                    async_to_sync(channel_layer.group_send)(room_name,
+                                                            {"type": "chat_message_whatsapp", 'message': message})
+
+                else:
+                    chat.pending = True
+                    chat.save()
+        else:
+            message = StaffMessage()
+            message.client = client
+            message.chat = chat
+            # message.malbum = malbum
+            message.file_exist = False
+            message.from_bverge = False
+            message.content = body
+            message.save()
+            if chat.bverge_open:
+                channel_layer = get_channel_layer()
+                room_name = chat.chat_id
+                content = {
+                    'command': 'new_message',
+                    # 'message': serializer.data
+                    'message': message_to_json(message)
+                }
+                async_to_sync(channel_layer.group_send)(room_name,
+                                                        {"type": "chat_message_whatsapp", 'message': message})
+
+            else:
+                chat.pending = True
+                chat.save()
+
+        response = MessagingResponse()
+        return str(response)
+
+
+def send_whatsapp_message(request):
+    user = request.user
+    if request.method=='POST' and user.is_staff:
+        if request.POST['type']=='text':
+            chat_id = request.POST['chat_id']
+            staff_chat = StaffChat.objects.get(chat_id=chat_id)
+            client = staff_chat.client
+            if staff_chat.bverge_open and\
+                    staff_chat.expiry_time - datetime.utcnow() < timedelta(days=1):
+                message = StaffMessage()
+                message.client = client
+                message.chat = staff_chat
+                # message.malbum = malbum
+                message.file_exist = False
+                message.from_bverge = True
+                message.user = user
+                message.content = request.POST['message']
+                message.save()
+                data = {}
+                account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+                auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+                client = Client(account_sid, auth_token)
+                phone_number = staff_chat.phone_model.phone_number
+                to_= 'whatsapp:'+phone_number
+                send_message = client.messages \
+                    .create(
+                    from_='whatsapp:+14155238886',
+                    body=message.content,
+                    to= to_
+                )
+                print(send_message.sid)
+                data['self_blocked']=False
+                data['message']=message_to_json(message)
+                return JsonResponse(data, safe=False)
+            else :
+                data = {}
+                data['self_blocked'] = True
+                # data['message'] = message_to_json(message)
+                return JsonResponse(data, safe=False)
+        if request.POST['type'] == 'file':
+            chat_id = request.POST['chat_id']
+            staff_chat = StaffChat.objects.get(chat_id=chat_id)
+            client = staff_chat.client
+            if staff_chat.bverge_open and \
+                    staff_chat.expiry_time - datetime.utcnow() < timedelta(days=1):
+                malbum_id = request.POST['malbum_id']
+                malbum = Malbum.objects.get(malbum_id=malbum_id)
+                message = StaffMessage()
+                message.client = client
+                message.user = user
+                message.chat = malbum
+                message.malbum = malbum
+                message.file_exist = True
+                message.from_bverge = True
+                message.content = malbum.file_name
+                message.save()
+                account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+                auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+                client = Client(account_sid, auth_token)
+                phone_number = staff_chat.phone_model.phone_number
+                to_ = 'whatsapp:' + phone_number
+                url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+message.content
+                send_message = client.messages \
+                    .create(
+                    media_url=url,
+                    from_='whatsapp:+14155238886',
+                    body=message.content,
+                    to=to_
+                )
+                print(send_message.sid)
+                data = {}
+                data['self_blocked'] = False
+                data['message'] = message_to_json(message)
+                return JsonResponse(data, safe=False)
+            else :
+                data = {}
+                data['self_blocked'] = True
+                # data['message'] = message_to_json(message)
+                return JsonResponse(data, safe=False)
+        data = {}
+        data['status'] = False
+        # data['message'] = message_to_json(message)
+        return JsonResponse(data, safe=False)
+    else:
+        data = {}
+        data['self_blocked'] = True
+        # data['message'] = message_to_json(message)
+        return JsonResponse(data, safe=False)
+
+
+def staff_close_connection(request):
+    user = request.user
+    if request.method=='POST' and user.is_staff:
+        chat_id = request.POST['chat_id']
+        chat = StaffChat.objects.get(chat_id=chat_id)
+        chat.bverge_open = False
+        chat.pending = False
+        chat.save()
+        data = {}
+        data['status'] = True
+        return JsonResponse(data, safe=False)
+
+def staff_check_connection(request):
+    user=request.user
+    if request.method=='POST' and user.is_staff:
+        email = request.POST['email']
+
+        chat = None
+        self_blocked = True
+        client = User.objects.get(email=email)
+        try:
+            chat = StaffChat.objects.get(client=client)
+            if chat.expiry_time - datetime.utcnow() < timedelta(days=1):
+                self_blocked = False
+        except:
+            chat = StaffChat()
+            chat.client = client
+            chat.expiry_time = datetime.utcnow()
+            chat.bverge_open = False
+            chat.pending = False
+            phone_model = PhoneModel.objects.get(user=client)
+            chat.phone_model=phone_model
+            chat.save()
+
+
+
+
+        photo_name = ''
+        use_prefix = True
+        if client.profile.social and not client.profile.photo_updated:
+            photo_name = client.profile.photo_url
+            use_prefix = False
+        else:
+            photo_name = client.profile.photo
+            use_prefix = True
+
+        data = {
+            'status': 'success',
+            'first_name': client.profile.first_name,
+            'last_name': client.profile.last_name,
+            'photo_name': photo_name,
+            'use_prefix': use_prefix,
+            'self_blocked': self_blocked,
+        }
+
+        return JsonResponse(data, safe=False)
+
+
+def staff_whatsapp(request):
+    context={}
+    user = request.user
+    if user.is_staff:
+        return render(request, 'chat/staff_portal.html', context)
+    else:
+        redirect('profiles:index')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
