@@ -99,7 +99,7 @@ class WebSocketService {
   
     connect(chatUrl) {
       // const path = 'ws://www.bverge.com/ws/chat/test/';
-      const path = `wss://www.bverge.com/ws/chat/${chatUrl}/`;
+      const path = `wss://www.bverge.com/ws/staff-chat/${chatUrl}/`;
       this.socketRef = new WebSocket(path);
       this.socketRef.onopen = () => {
         //console.log('WebSocket open in '+ chatUrl);
@@ -112,7 +112,7 @@ class WebSocketService {
         this.socketNewMessage(e.data);
       };
       this.socketRef.onerror = e => {
-        //console.log(e.message);
+        console.log(e);
       };
       this.socketRef.onclose = () => {
         //console.log("WebSocket closed let's reopen");
@@ -120,9 +120,9 @@ class WebSocketService {
       };
     }
 
-    disconnect(chat_id, notif_id){
+    disconnect(){
       //console.log('last message');
-      this.sendMessage({ command: 'change_chat', chat_id: chat_id, notif_id:notif_id });
+    //   this.sendMessage({ command: 'change_chat', chat_id: chat_id, notif_id:notif_id });
       //console.log('closing the connection');
 
       this.socketRef.close()
@@ -157,9 +157,9 @@ class WebSocketService {
       // }
     }
   
-    fetchMessages(username, chatId) {
+    fetchMessages(chatId) {
       //console.log('sending message to fetch');
-      this.sendMessage({ command: 'fetch_messages', username: username, chatId:chatId });
+      this.sendMessage({ command: 'fetch_messages', chatId:chatId });
     }
   
     newChatMessage(message) {
@@ -243,7 +243,7 @@ class Header extends React.Component{
   }
 
   render(){
-    var block_name = this.state.blocked==1 ? 'Unblock' : 'Block'
+    // var block_name = this.state.blocked==1 ? 'Unblock' : 'Block'
     var self_block = this.props.self_blocked==true ? '  Sorry, the user has blocked you' : ''
     return (
       <div className="contact-profile">
@@ -252,12 +252,14 @@ class Header extends React.Component{
           <p > {this.state.other_name} </p>
         </div>
         <p className="pl-4 bm-size f-w-bold  ff-pd"> <a href="/" class="c-3f"> Business Verge</a> </p>
-        <div className="social-media">
+        {/* <div className="social-media">
           <button className="submit btn btn-block-unblock" onClick={this.clickBlock.bind(this)} >
             <h5>{block_name}</h5>
           </button>
-        </div>
+        </div> */}
+        <p className="pl-4 bm-size f-w-bold  ff-pd">{self_block}</p>
       </div>
+      
     )
   }
 
@@ -274,13 +276,20 @@ class Sidepanel extends React.Component{
       other_id : 0,
       blocked : 0,
       email : '',
-      email_validated: false,
+      wrong_email: false,
+      connection: false,
       
     }
   }
 
   componentWillReceiveProps(props){
-    this.getUserChats(props.username);
+      if(this.state.connection!=this.props.connection){
+        this.setState({
+            connection: this.props.connection
+        });
+      }
+      
+    // this.getUserChats(props.username);
   }
 
   
@@ -324,13 +333,94 @@ class Sidepanel extends React.Component{
 }
 
 
+
+
 handleClick=(chat_id, notif_id)=>{
   this.props.handleContact(chat_id, notif_id)
   //console.log('inside Sidepanel');
 }
 
-  render(){
+emailchangeHandler = event =>{
+    this.setState({
+        email:event.target.value
+    })
+}
 
+
+checkemailHandler = e =>{
+        e.preventDefault();
+        var formData = new FormData()
+        // formData.append('message', this.state.message)
+        formData.append('email', this.state.email)
+        formData.append('csrfmiddlewaretoken', getCookie('csrftoken'))
+        fetch('https://www.bverge.com/chat/check_chat',{
+            method: 'POST',
+            body: formData
+        }).then((response)=>response.json())
+        .then((responseJson)=>{
+            //console.log(responseJson);
+            //console.log(responseJson.username);
+            if(responseJson.status!='success'){
+                this.setState({
+                    wrong_email: true
+                })
+            }else{
+                var fullname = responseJson.first_name + responseJson.last_name;
+                var url = responseJson.photo_name;
+                if(responseJson.use_prefix){
+                    url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.photo_name;
+                }
+                
+                var data = {
+                    chat_id:responseJson.chat_id,
+                    client_id:responseJson.client_id,
+                    profile_url: url,
+                    name: fullname,
+                    self_blocked: responseJson.self_blocked
+                };
+                this.props.handleConnection(data);
+            }
+            
+        })
+}
+    closeConnection=()=>{
+        this.props.closeConnection();
+    }
+
+    search = ()=>{
+
+        var mail_status = this.state.wrong_email==true ? 'Email not registered' : '';
+        if(this.state.connection){
+            return (
+                <button id="chat-close" onClick={this.closeConnection}  className="submit"><h5>Close</h5></button>
+            )
+        }else{
+            return (
+                <form onSubmit={this.checkemailHandler}>
+                <div className="wrap">
+                <input
+                    onChange={this.emailchangeHandler}
+                    value={this.state.email}
+                id="chat-email-input"
+                type="email"
+                placeholder="Email" />
+                <p>{mail_status}</p>
+                {/* <label htmlFor="file_upload" className="custom-file-upload">
+                <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
+                </label> */}
+                {/* <input id="file_upload" style={{display:"none"}} onChange={this.file_submit} multiple type="file"/> */}
+                <button id="chat-message-submit" className="submit">
+                <i className="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                </div>
+                </form>
+            )
+        }
+    }
+
+  render(){
+    
+    
     const activeChats = this.state.chats.map(c => {
       var title, person='';
       var url = '';
@@ -388,23 +478,7 @@ handleClick=(chat_id, notif_id)=>{
         <input type="text" placeholder="Search contacts..." />
       </div> */}
       <div className="message-input">
-      <form onSubmit={this.checkemailHandler}>
-        <div className="wrap">
-        <input
-            onChange={this.emailchangeHandler}
-            value={this.state.email}
-         id="chat-message-input"
-          type="email"
-          placeholder="Email" />
-        {/* <label htmlFor="file_upload" className="custom-file-upload">
-        <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
-        </label> */}
-        {/* <input id="file_upload" style={{display:"none"}} onChange={this.file_submit} multiple type="file"/> */}
-        <button id="chat-message-submit" className="submit">
-          <i className="fa fa-paper-plane" aria-hidden="true"></i>
-        </button>
-        </div>
-        </form>
+        {this.search()}
       </div>
       <div id="contacts">
         <ul>
@@ -468,7 +542,6 @@ class Chat extends React.Component{
       this.waitForSocketConnection(() => {
         WebSocketInstance.addCallbacks(this.setMessages.bind(this), this.addMessage.bind(this), this.check_users.bind(this), this.blockMessage.bind(this))
         WebSocketInstance.fetchMessages(
-          this.state.currentUser,
           this.state.chatId);
       });
       var chatUrl = this.state.chatId;
@@ -478,26 +551,29 @@ class Chat extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          currentUser:'',
-          full_name:'',
-          profile_url:'',
+        //   currentUser:'',
+        //   full_name:'',
+        //   profile_url:'',
           chatId : 1,
-          notif_id:1,
+          client_id: 1,
+        //   notif_id:1,
           message:'',
           messages:[],
           uploading : false,
           other_profile_url: '',
           other_name : '',
-          blocked : 0,
-          other_id: '',
-          chats:[],
+        //   blocked : 0,
+        //   other_id: '',
+        //   chats:[],
           self_blocked:false,
+          status:'',
+          connection:false
         }
         //console.log('this is chat');
 
         
         this.messageChangHandler = this.messageChangHandler.bind(this);
-        this. sendMessageHandler = this.sendMessageHandler.bind(this);
+        this.sendMessageHandler = this.sendMessageHandler.bind(this);
 
         //console.log(props);
         }
@@ -509,50 +585,82 @@ class Chat extends React.Component{
 
     componentDidMount(){
       //console.log('inside didMount of chat');
-      fetch('https://www.bverge.com/get_user',{
-            method: 'GET',
-            headers: {
-                 Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            // body: JSON.stringify({
-            //     from_name:name
-            // }),
-        })
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            //console.log(responseJson);
-            //console.log(responseJson.username);
-            var fullname = responseJson.first_name + responseJson.last_name;
-            var url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.photo_name ;
-            //console.log(responseJson.curr_chat)
-            var blocked=0;
-            if(responseJson.blocked){
-              blocked=1;
-            }
-            this.setState({
-                currentUser:responseJson.username,
-                profile_url : url,
-                full_name : fullname,
-                chatId: responseJson.curr_chat,
-                notif_id: responseJson.notify_id,
-                other_profile_url: 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.other_profile_url,
-                other_name : responseJson.other_name,
-                other_id : responseJson.other_id,
-                blocked : blocked,
-                chats:responseJson.chats
-            },this.initialiseChat());
-            // //console.log("fetched")
-            // ToastAndroid.showWithGravityAndOffset(
-            //     "fetching",
-            //     ToastAndroid.SHORT,
-            //     ToastAndroid.TOP,
-            //     0,
-            //     40);
+    //   fetch('https://www.bverge.com/get_user',{
+    //         method: 'GET',
+    //         headers: {
+    //              Accept: 'application/json',
+    //             'Content-Type': 'application/json',
+    //         },
+    //         // body: JSON.stringify({
+    //         //     from_name:name
+    //         // }),
+    //     })
+    //     .then((response)=>response.json())
+    //     .then((responseJson)=>{
+    //         //console.log(responseJson);
+    //         //console.log(responseJson.username);
+    //         var fullname = responseJson.first_name + responseJson.last_name;
+    //         var url = 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.photo_name ;
+    //         //console.log(responseJson.curr_chat)
+    //         var blocked=0;
+    //         if(responseJson.blocked){
+    //           blocked=1;
+    //         }
+    //         this.setState({
+    //             currentUser:responseJson.username,
+    //             profile_url : url,
+    //             full_name : fullname,
+    //             chatId: responseJson.curr_chat,
+    //             notif_id: responseJson.notify_id,
+    //             other_profile_url: 'https://bverge.s3.ap-south-1.amazonaws.com/'+responseJson.other_profile_url,
+    //             other_name : responseJson.other_name,
+    //             other_id : responseJson.other_id,
+    //             blocked : blocked,
+    //             chats:responseJson.chats
+    //         },this.initialiseChat());
+    //         // //console.log("fetched")
+    //         // ToastAndroid.showWithGravityAndOffset(
+    //         //     "fetching",
+    //         //     ToastAndroid.SHORT,
+    //         //     ToastAndroid.TOP,
+    //         //     0,
+    //         //     40);
             
-        })
-        this.scrollToBottom();
+    //     })
+    //     this.scrollToBottom();
 
+        
+    }
+
+    closeConnection=()=>{
+        var formData = new FormData()
+        // formData.append('message', this.state.message)
+        formData.append('chat_id', this.state.chatId)
+        formData.append('csrfmiddlewaretoken', getCookie('csrftoken'))
+        fetch('https://www.bverge.com/chat/close_service',{
+            method: 'POST',
+            body: formData
+        }).then((response)=>response.json())
+        .then((responseJson)=>{
+            WebSocketInstance.disconnect();
+        this.setState({
+            chatId : 1,
+          client_id: 1,
+        
+          message:'',
+          messages:[],
+          uploading : false,
+          other_profile_url: '',
+          other_name : '',
+        
+          self_blocked:false,
+          status:'',
+          connection:false
+        })
+            
+
+          
+        })
         
     }
 
@@ -615,13 +723,13 @@ class Chat extends React.Component{
 
 
   renderMessage=(message)=>{
-    var currentUser = this.state.currentUser;
+    // var currentUser = this.state.currentUser;
     //console.log(message.file_exist)
     if(!message.file_exist){
       return (
             <li
                 key = {message.id}
-                className = {message.author == currentUser ? 'sent': 'replies'}
+                className = {message.author == 'Bverge' ? 'sent': 'replies'}
                 style={{ display:  message.chat_id == this.state.chatId ? 'block' : 'none' }}>
             {/* <img src="http://emilcarlsson.se/assets/mikeross.png" /> */}
             
@@ -645,7 +753,7 @@ class Chat extends React.Component{
       return(
             <li
                 key = {message.id}
-                className = {message.author == currentUser ? 'sent': 'replies'}
+                className = {message.author == 'Bverge' ? 'sent': 'replies'}
                 style={{ display:  message.chat_id == this.state.chatId ? 'block' : 'none' }}>
             {/* <img src="http://emilcarlsson.se/assets/mikeross.png" /> */}
             
@@ -688,7 +796,7 @@ class Chat extends React.Component{
       //console.log('chatId is set');
       //console.log(this.state)
       // WebSocketInstance.change_chat(this.state.chatId);
-      WebSocketInstance.disconnect(this.state.chatId, this.state.notif_id);
+      WebSocketInstance.disconnect(this.state.chatId);
       //console.log('Chat says websocket disconnected');
       this.waitForSocketConnection(() => {
         WebSocketInstance.fetchMessages(
@@ -703,15 +811,40 @@ class Chat extends React.Component{
 
     sendMessageHandler = e =>{
         e.preventDefault();
-        const messageObject = {
-            from:this.state.currentUser,
-            content:this.state.message,
-            chat_id:this.state.chatId,
-            command:'new_message'
+        if(!this.state.self_blocked){
+            var formData = new FormData()
+            formData.append('message', this.state.message)
+            formData.append('type', 'text')
+            formData.append('chat_id', this.state.chatId)
+            formData.append('csrfmiddlewaretoken', getCookie('csrftoken'))
+            fetch('https://www.bverge.com/chat/send_whatsapp_message',{
+                method: 'POST',
+                body: formData
+            }).then((response)=>response.json())
+            .then((responseJson)=>{
+
+                if(!responseJson.self_blocked){
+                    this.addMessage(responseJson.message)
+                }else{
+                    this.setState({
+                        self_blocked: responseJson.self_blocked
+                    })
+                }
+    
+              //console.log(responseJson);
+              // var data = responseJson.parse();
+              // //console.log(data)
+            //   var messageObject = {
+            //     from:this.state.currentUser,
+            //     chat_id:this.state.chatId,
+            //     malbum_id:responseJson.malbum_id,
+            //     command:'new_file'
+            //   }
+            //   //console.log('message objeect created in'+this.state.chatId);
+            //   WebSocketInstance.newChatMessage(messageObject);
+              //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
+            })
         }
-        //console.log('message objeect created in'+this.state.chatId);
-        WebSocketInstance.newChatMessage(messageObject);
-        //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
         this.setState({
             message:''
         });
@@ -754,7 +887,8 @@ class Chat extends React.Component{
     }
 
     file_submit = e =>{
-      const files = Array.from(e.target.files)
+        if(!this.state.self_blocked){
+            const files = Array.from(e.target.files)
       this.setState({ uploading: true })
 
       files.forEach((file, i) => {
@@ -768,20 +902,55 @@ class Chat extends React.Component{
         }).then((response)=>response.json())
         .then((responseJson)=>{
 
+            var formData = new FormData()
+            formData.append('type', 'file')
+            formData.append('malbum_id', responseJson.malbum_id)
+            formData.append('chat_id', this.state.chatId)
+            formData.append('csrfmiddlewaretoken', getCookie('csrftoken'))
+            fetch('https://www.bverge.com/chat/send_whatsapp_message',{
+                method: 'POST',
+                body: formData
+            }).then((response)=>response.json())
+            .then((responseJson)=>{
+
+                if(!responseJson.self_blocked){
+                    this.addMessage(responseJson.message)
+                }else{
+                    this.setState({
+                        self_blocked: responseJson.self_blocked
+                    })
+                }
+    
+              //console.log(responseJson);
+              // var data = responseJson.parse();
+              // //console.log(data)
+            //   var messageObject = {
+            //     from:this.state.currentUser,
+            //     chat_id:this.state.chatId,
+            //     malbum_id:responseJson.malbum_id,
+            //     command:'new_file'
+            //   }
+            //   //console.log('message objeect created in'+this.state.chatId);
+            //   WebSocketInstance.newChatMessage(messageObject);
+              //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
+            })
+
           //console.log(responseJson);
           // var data = responseJson.parse();
           // //console.log(data)
-          var messageObject = {
-            from:this.state.currentUser,
-            chat_id:this.state.chatId,
-            malbum_id:responseJson.malbum_id,
-            command:'new_file'
-          }
-          //console.log('message objeect created in'+this.state.chatId);
-          WebSocketInstance.newChatMessage(messageObject);
+        //   var messageObject = {
+        //     from:this.state.currentUser,
+        //     chat_id:this.state.chatId,
+        //     malbum_id:responseJson.malbum_id,
+        //     command:'new_file'
+        //   }
+        //   //console.log('message objeect created in'+this.state.chatId);
+        //   WebSocketInstance.newChatMessage(messageObject);
           //console.log('message objeect sent to newChatMessage in'+this.state.chatId);
         })
       })
+        }
+      
     }
 
     handleBlock=()=>{
@@ -811,26 +980,39 @@ class Chat extends React.Component{
       
     }
 
+    makeConnection=(data)=>{
+        this.setState({
+            chatId: data.chat_id,
+            client_id: data.client_id,
+            other_profile_url: data.profile_url,
+            other_name: data.name,
+            self_blocked: data.self_blocked
+        }, this.initialiseChat());
+        this.scrollToBottom();
+    }
+
     render(){
         const messages = this.state.messages;
         //console.log(this.state);
-        var block_name = this.state.blocked==1 ? 'Unblock' : 'Block';
+        var block_name = this.state.self_blocked==true ? '24hr session expired' : '';
         return(
             <div id="frame">
             <Sidepanel 
-            username={this.state.currentUser} 
-            handleContact={this.renderChat} 
-            full_name={this.state.full_name}
-            photo = {this.state.profile_url}
+            // username={this.state.currentUser} 
+            // handleContact={this.renderChat} 
+            handleConnection={this.makeConnection}
+            closeConnection={this.closeConnection}
+            // full_name={this.state.full_name}
+            // photo = {this.state.profile_url}
             curr_chat = {this.state.chatId} 
             />
     <div className="content">
       <Header 
         other_profile_url= {this.state.other_profile_url}
         other_name = {this.state.other_name}
-        other_id = {this.state.other_id}
-        blocked = {this.state.blocked}
-        renderBlock={this.handleBlock}
+        // other_id = {this.state.other_id}
+        // blocked = {this.state.blocked}
+        // renderBlock={this.handleBlock}
         self_blocked={this.state.self_blocked}
       />
       <div className="messages">

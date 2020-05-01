@@ -3,6 +3,7 @@ from uuid import uuid4
 from django.db import models
 from django.contrib.auth import get_user_model
 from seller1.models import Seller1
+from staff.models import PhoneModel
 from .formatChecker import ContentTypeRestrictedFileField
 from django.utils import timezone
 
@@ -79,9 +80,12 @@ class Notify(models.Model):
 
 class StaffChat(models.Model):
     chat_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    client = models.OneToOneField(User, on_delete=models.SET_NULL, related_name='staff_chat', blank=True, null=True)
+    client = models.OneToOneField(User, on_delete=models.CASCADE, related_name='staff_chat',
+                                  blank=True, null=True)
     expiry_time = models.DateTimeField(blank=True, null=True)
     pending = models.BooleanField(default=False)
+    bverge_open = models.BooleanField(default=False)
+    phone_model = models.OneToOneField(PhoneModel, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
 

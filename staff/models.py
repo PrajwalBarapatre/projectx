@@ -31,7 +31,7 @@ class Task(models.Model):
 
 class RegTask(models.Model):
     reg_task_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='staff_reg_task')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='staff_reg_task')
     client_email = models.EmailField(blank=True, null=True)
     client_phone = models.CharField(max_length=255, blank=True, null=True)
     country_code_primary = models.CharField(max_length=255, default="+91")

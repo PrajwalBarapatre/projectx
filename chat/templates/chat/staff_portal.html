@@ -57,7 +57,7 @@
     <!-- <script src="https://unpkg.com/react-router@3.0.0/umd/ReactRouter.js" crossorigin></script> -->
     <script src="https://unpkg.com/react-router/umd/react-router.min.js"></script>
 <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
-    <script type="text/babel" src="{% static '/src/index.js' %}"></script>
+    <script type="text/babel" src="{% static '/src/staff_portal.js' %}"></script>
     <script>
       $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
@@ -107,13 +107,13 @@ $("#status-options ul li").click(function() {
 // $('.submit').click(function() {
 //   newMessage();
 // });
-$(window).unload(function(){
-  $.ajax({
-    type:'GET',
-    url:"/chat/close",
-    async:false,
-  })
-})
+// $(window).unload(function(){
+//   $.ajax({
+//     type:'GET',
+//     url:"/chat/close",
+//     async:false,
+//   })
+// })
 // $(window).on('keydown', function(e) {
 //   if (e.which == 13) {
 //     newMessage();

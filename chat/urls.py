@@ -19,6 +19,10 @@ urlpatterns = [
     path('<pk>/delete/', views.ChatDeleteView.as_view()),
     url(r'^$', views.index, name='index'),
     path('<room_name>/', views.room, name='room'),
+    path('check_chat', views.staff_check_connection, name='check_chat'),
+    path('close_service', views.staff_close_connection, name='close_service'),
+    path('send_whatsapp_message', views.send_whatsapp_message, name='send_whatsapp_message'),
+    path('handle_incoming_messages', views.handle_incoming_messages, name='handle_incoming_messages'),
 
 
 ]

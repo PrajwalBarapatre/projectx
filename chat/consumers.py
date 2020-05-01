@@ -1,11 +1,13 @@
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 import json
-from .models import Message, Contact, Chat, Malbum, Notify
+from .models import Message, Contact, Chat, Malbum, Notify, StaffMessage, StaffChat
 from .serializer import MessageSerializer
 from django.contrib.auth import get_user_model
-from .views import get_last_10_messages, get_user_contact, get_chat, gen_notif, get_staff_messages
+from .views import get_last_10_messages, get_user_contact, get_chat, gen_notif, get_staff_messages, get_staff_chat
 from channels.exceptions import StopConsumer
+from datetime import datetime, timedelta
+
 # from channels.auth import channel_session_user, channel_session_user_from_http
 from profiles.models import Profile
 User = get_user_model()
@@ -281,50 +283,59 @@ class StaffChatConsumer(WebsocketConsumer):
 
     def new_message(self, data):
         print('new message')
-        user_contact = get_user_contact(data['from'])
-        curr_chat = get_chat(data['chatId'])
-        if user_contact in curr_chat.blocked.all():
+        self.user = self.scope["user"]
+        user = self.user
+        curr_chat = get_staff_chat(data['chatId'])
+        # curr_chat.bverge_open = True
+        # curr_chat.save()
+
+        if curr_chat.expiry_time.time() < datetime.now().time() and \
+                curr_chat.expiry_time.date() < datetime.now().date():
             content = {
                 'command': 'blocked',
-                'status': 'online',
+                # 'status': 'online',
 
             }
             return self.send_message(content)
-        message = Message()
-        message.contact = user_contact
-        message.content = data['message']
-        message.save()
+        message = data['message']
+        # message = StaffMessage()
+        # message.user = user
+        # message.chat = curr_chat
+        # message.client = curr_chat.client
+        # message.content = data['message']
+        # message.from_bverge = True
+        # message.save()
 
-        curr_chat.messages.add(message)
-        curr_chat.save()
-        serializer = MessageSerializer(message)
+        # curr_chat.messages.add(message)
+        # curr_chat.save()
+        # serializer = MessageSerializer(message)
         content = {
             'command': 'new_message',
             # 'message': serializer.data
-            'message': self.message_to_json(message)
+            'message': message
         }
-        gen_notif(user_contact, curr_chat)
+        # gen_notif(user_contact, curr_chat)
         return self.send_chat_message(content)
 
-    def change_chat(self, data):
-        print('inside change_chat')
-        print(data['chat_id'])
-        self.user = self.scope["user"]
-        username = self.user.username
-        user = self.user
-        print(user.profile.curr_chat)
-        nuser = User.objects.get(username=username)
-        nuser.profile.curr_chat=get_chat(data['chat_id'])
-        nuser.save()
-        notify = Notify.objects.get(notify_id=data['notif_id'])
-        Notify.clear(notify)
-        print(user.profile.curr_chat)
-        content = {
-            'command': 'status',
-            'status': 'online',
-
-        }
-        return self.send_chat_message(content)
+    # def change_chat(self, data):
+    #     print('inside change_chat')
+    #     print(data['chat_id'])
+    #     self.user = self.scope["user"]
+    #     username = self.user.username
+    #     user = self.user
+    #     print(user.profile.curr_chat)
+    #     nuser = User.objects.get(username=username)
+    #     nuser.profile.curr_chat=get_chat(data['chat_id'])
+    #     nuser.save()
+    #     notify = Notify.objects.get(notify_id=data['notif_id'])
+    #     Notify.clear(notify)
+    #     print(user.profile.curr_chat)
+    #     content = {
+    #         'command': 'status',
+    #         'status': 'online',
+    #
+    #     }
+    #     return self.send_chat_message(content)
 
 
 
@@ -333,55 +344,60 @@ class StaffChatConsumer(WebsocketConsumer):
         print(data)
         malbum_id = data['malbum_id']
         malbum = Malbum.objects.get(malbum_id=malbum_id)
-        user_contact = get_user_contact(data['from'])
-        curr_chat = get_chat(data['chatId'])
-        if user_contact in curr_chat.blocked.all():
+        self.user = self.scope["user"]
+        user = self.user
+        curr_chat = get_staff_chat(data['chatId'])
+        if curr_chat.expiry_time.time() < datetime.now().time() and \
+                curr_chat.expiry_time.date() < datetime.now().date():
             content = {
-                'command': 'status',
-                'status': 'online',
+                'command': 'blocked',
+                # 'status': 'online',
 
             }
             return self.send_chat_message(content)
-        message = Message()
-        message.contact = user_contact
+        message = StaffMessage()
+        message.user = user
+        message.chat = curr_chat
+        message.client = curr_chat.client
         message.malbum = malbum
+        message.from_bverge = True
         message.file_exist=True
         message.content = malbum.file_name
         message.save()
 
-        curr_chat.messages.add(message)
-        curr_chat.save()
+        # curr_chat.messages.add(message)
+        # curr_chat.save()
         content = {
             'command': 'new_message',
             # 'message': serializer.data
             'message': self.message_to_json(message)
         }
-        gen_notif(user_contact, curr_chat)
+        # gen_notif(user_contact, curr_chat)
         return self.send_chat_message(content)
 
-    def block_user(self, data):
-        curr_chat = get_chat(data['chatId'])
-        contact = Contact.objects.get(contact_id=data['contact_id'])
-        if data['block']==1:
-            curr_chat.blocked.add(contact)
-        else:
-            curr_chat.blocked.remove(contact)
-        curr_chat.save()
-        content = {
-            'command': 'status',
-            'status': 'online',
-
-        }
-        return self.send_chat_message(content)
+    # def block_user(self, data):
+    #     curr_chat = get_chat(data['chatId'])
+    #     contact = Contact.objects.get(contact_id=data['contact_id'])
+    #     if data['block']==1:
+    #         curr_chat.blocked.add(contact)
+    #     else:
+    #         curr_chat.blocked.remove(contact)
+    #     curr_chat.save()
+    #     content = {
+    #         'command': 'status',
+    #         'status': 'online',
+    #
+    #     }
+    #     return self.send_chat_message(content)
 
 
 
     commands = {
         'fetch_messages': fetch_messages,
         'new_message': new_message,
-        'change_chat': change_chat,
+        # 'change_chat': change_chat,
         'new_file': file_message,
-        'block':block_user,
+        # 'block':block_user,
     }
 
 
@@ -398,12 +414,15 @@ class StaffChatConsumer(WebsocketConsumer):
         )
         self.accept()
         self.user = self.scope["user"]
-        username = self.user.username
-        user = self.user
-        print(user.profile.status)
-        user.profile.status=True
-        user.save()
-        print(user.profile.status)
+        # username = self.user.username
+        # user = self.user
+        # curr_chat = StaffChat.objects.get(chat_id=self.room_name)
+        # curr_chat.bverge_open = True
+        # curr_chat.save()
+        # print(user.profile.status)
+        # user.profile.status=True
+        # user.save()
+        # print(user.profile.status)
         content ={
             'command':'status',
             'status':'online',
@@ -450,7 +469,7 @@ class StaffChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
-                'type': 'chat_message',
+                'type': 'chat_message_whatsapp',
                 'message': message
             }
         )
@@ -460,7 +479,7 @@ class StaffChatConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps(message))
 
     # Receive message from room group
-    def chat_message(self, event):
+    def chat_message_whatsapp(self, event):
         user = self.scope['user']
 
         print('sending')
