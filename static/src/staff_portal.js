@@ -251,7 +251,7 @@ class Header extends React.Component{
           <img src={this.state.other_profile_url} alt="" />
           <p > {this.state.other_name} </p>
         </div>
-        <p className="pl-4 bm-size f-w-bold  ff-pd"> <a href="/" class="c-3f"> Business Verge</a> </p>
+        <p className="pl-4 bm-size f-w-bold  ff-pd"> <a href="/" className="c-3f"> Business Verge</a> </p>
         {/* <div className="social-media">
           <button className="submit btn btn-block-unblock" onClick={this.clickBlock.bind(this)} >
             <h5>{block_name}</h5>
@@ -360,11 +360,8 @@ checkemailHandler = e =>{
         .then((responseJson)=>{
             //console.log(responseJson);
             //console.log(responseJson.username);
-            if(responseJson.status!='success'){
-                this.setState({
-                    wrong_email: true
-                })
-            }else{
+            console.log(responseJson);
+            if(responseJson.status=='success'){
                 var fullname = responseJson.first_name + responseJson.last_name;
                 var url = responseJson.photo_name;
                 if(responseJson.use_prefix){
@@ -379,6 +376,11 @@ checkemailHandler = e =>{
                     self_blocked: responseJson.self_blocked
                 };
                 this.props.handleConnection(data);
+                
+            }else{
+                this.setState({
+                    wrong_email: true
+                })
             }
             
         })

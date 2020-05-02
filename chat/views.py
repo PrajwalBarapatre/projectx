@@ -904,6 +904,8 @@ def staff_check_connection(request):
             'photo_name': photo_name,
             'use_prefix': use_prefix,
             'self_blocked': self_blocked,
+            'chat_id': chat.chat_id,
+            'client_id': client.id
         }
 
         return JsonResponse(data, safe=False)
