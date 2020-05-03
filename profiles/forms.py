@@ -64,6 +64,7 @@ class UserLoginForm(forms.Form):
 
 class ProfileForm(forms.ModelForm):
     contact_number = forms.IntegerField()
+    country_code_primary = forms.CharField()
     class Meta:
         model = Profile
         exclude = ['user', 'created_at']

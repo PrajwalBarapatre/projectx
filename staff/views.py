@@ -4,10 +4,14 @@ import hashlib
 import zlib
 import pickle
 import urllib
+
+from django.template.context import Context
+from django.template.loader import render_to_string
 from twilio.rest import Client
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 
+from chat.models import StaffChat, StaffMessage
 from metadata.views import codedata
 from staff.models import Task, RegTask, EmailModel, PhoneModel
 from staff.forms import TaskForm, RegTaskForm
@@ -116,14 +120,14 @@ def createRegTask(request):
             otp = reg_task.otp_email
             body = ""
             hbody = ""
-            if name:
-                body = "Hi" + ", verify your business email address using this   " + str(otp)
-                hbody = '<p>Hi' + ', verify your business email address using this <strong>' + str(
-                    otp) + '</strong></p>'
+            if name != '':
+                body = "Hii " + ", verify your business email address using this   " + str(otp)
+                c = {'name': name, 'otp': otp}
+                hbody = render_to_string('seller1/otp_verify.html', context=c)
             else:
-                body = "Hi" + ", verify your business email address using this   " + str(otp)
-                hbody = '<p>Hi' + ', verify your business email address using this <strong>' + str(
-                    otp) + '</strong></p>'
+                body = "Hii " + ", verify your business email address using this   " + str(otp)
+                c = {'name': '', 'otp': otp}
+                hbody = render_to_string('seller1/otp_verify.html', context=c)
 
             # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
             msg = EmailMultiAlternatives(subject, hbody, 'admin@bverge.com', [email])
@@ -217,9 +221,66 @@ def createRegUser(request):
                     client.save()
                     reg_task.client = client
                     reg_task.save()
+                    chat = StaffChat()
+                    chat.client = client
+                    chat.expiry_time = datetime.utcnow()
+                    chat.bverge_open = False
+                    chat.pending = False
+                    phone_model = phone_model
+                    chat.phone_model = phone_model
+                    chat.save()
+                    message = StaffMessage()
+                    message.client = client
+                    message.chat = chat
+                    # message.malbum = malbum
+                    message.file_exist = False
+                    message.from_bverge = True
+                    body = 'Hi ' + client.first_name + ' ' + client.last_name + \
+                           ', Welcome to Business Verge! \n' \
+                           'We are a business networking platform and help' \
+                           ' Businesses and Startups to connect to beneficial Business, Investor and Advisors. \n' \
+                           'Please, reply with your details to help BVerge to list your need.'
+                    message.content = body
+                    message.save()
+
+
+                    account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+                    auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+                    tw_client = Client(account_sid, auth_token)
+                    phone_number = chat.phone_model.phone_number
+                    to_ = 'whatsapp:' + phone_number
+                    send_message = tw_client.messages \
+                        .create(
+                        from_='whatsapp:+14155238886',
+                        body=body,
+                        to=to_
+                    )
+                    print(send_message.sid)
+
+                    subject = "Welcome to Business Verge"
+                    name = ''
+                    email = client.email
+                    name = client.first_name + ' ' + client.last_name
+                    otp = randint(1000, 9999)
+                    body = ""
+                    hbody = ""
+                    if name != '':
+                        body = "Hii " + ", verify your business email address using this   " + str(otp)
+                        c = {'name': name}
+                        hbody = render_to_string('seller1/welcome.html', context=c)
+                    else:
+                        body = "Hii " + ", verify your business email address using this   " + str(otp)
+                        c = {'name': ''}
+                        hbody = render_to_string('seller1/welcome.html', context=c)
+
+                    # send_mail(subject, body, 'businessmerge@gmail.com', [email], fail_silently=False)
+                    msg = EmailMultiAlternatives(subject, body, 'admin@bverge.com', [email])
+                    msg.attach_alternative(hbody, "text/html")
+                    msg.send()
+
                     return redirect('staff:staff-home')
-                return redirect('staff:staff-reg')
-            return redirect('staff:staff-reg')
+                return redirect('staff:client-reg')
+            return redirect('staff:client-reg')
         print('request is get')
         reg_form = RegTaskForm()
         code_data = codedata()

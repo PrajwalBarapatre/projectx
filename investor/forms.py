@@ -7,6 +7,7 @@ Financier = 'Financier'
 Equity = 'Private_Equity'
 Vc = 'VC'
 Investment_Bank = 'Investment_Bank'
+
 Banks = 'Banks'
 SELLER_CHOICES = (
 	(nbfc, 'NBFC'),
@@ -16,6 +17,7 @@ SELLER_CHOICES = (
 	(Investment_Bank, 'Investment Bank'),
 	(Banks, 'Banks'),
 )
+
 
 
 class InvestorForm(forms.ModelForm):

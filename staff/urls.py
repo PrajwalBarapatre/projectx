@@ -1,8 +1,10 @@
 from django.urls import path,  include
 from staff import views, listings
+from chat.views import staff_whatsapp
 
 urlpatterns = [
     path('newtask', views.create_Task, name='staff-home'),
+    path('whatsapp', staff_whatsapp, name='staff-whatsapp'),
     path('generate_otps', views.createRegTask, name='generate-otps'),
     path('regtask', views.createRegUser, name='client-reg'),
     path('business_task/<task_hash>', listings.Business_task, name='business_task'),
