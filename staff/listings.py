@@ -190,7 +190,7 @@ def Business_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -339,7 +339,7 @@ def Asset_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -488,7 +488,7 @@ def Equity_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -635,7 +635,7 @@ def Loan_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -781,7 +781,7 @@ def Startup_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -929,7 +929,7 @@ def App_task(request, task_hash):
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
                 # print('revenue is also done')
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -1078,7 +1078,7 @@ def Ipcode_task(request, task_hash):
                 # revenue_1.seller = seller_1
                 # revenue_1.save()
                 # print('revenue is also done')
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
 
             else:
                 print(seller.errors)
@@ -1216,7 +1216,7 @@ def Franchise_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
             else:
                 print(seller.errors)
 
@@ -1350,7 +1350,7 @@ def Supplier_task(request, task_hash):
                 print(phone_number)
                 if not phone_checker(curr_user.id, phone_number):
                     phone_adder(curr_user, seller_1.phone_number_primary, seller_1.country_code_primary)
-                return redirect('seller1:seller-user-detail', business_id=seller_1.business_id)
+                return redirect('seller1:seller-all-detail', business_id=seller_1.business_id)
             else:
                 print(seller.errors)
                 print(business.errors)

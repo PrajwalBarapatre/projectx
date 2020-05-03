@@ -645,6 +645,8 @@
                                 ////console.log(title);
                                 var seller_id=$(element).attr('seller_id');
                                 var asking_price=$(element).attr('investment');
+                                var dcategory = $(element).attr('dcategory');
+                                var dsub_category = $(element).attr('dsub_category');
                                 ////console.log(asking_price);
                                 var file_name;
                                 var t=0;
@@ -693,22 +695,21 @@
 +                                             "<h4 class='c-19 f-12 f-w-bold ff-p' style='margin-top: -0.2vh'>"+title
 +                                             "</h4>"
 +                                         "</a>"
-+                                         "<i class='fa fa-star-o c-d9 f-17 pl-1' aria-hidden='true'></i>"
-+                                         "<span class='f-9 pl-1 c-3f pt-1'>8.5</span>"
+
 +                                         "<div class='row pt-2'>"
            +                               "<div class='col-sm-6 text-left'>"
-           +                                   "<p class='f-12 mb-0'>Revenue</p>"
+           +                                   "<p class='f-12 mb-0'>Sector</p>"
            +                               "</div>"
            +                               "<div class='col-sm-6 text-right col-6'>"
-           +                                   "<p class='f-12 mb-0'>868</p>"
+           +                                   "<p class='f-12 mb-0'>"+dcategory+"</p>"
            +                               "</div>"
 +                                         "</div>"
 +                                         "<div class='row'>"
            +                               "<div class='col-sm-6 text-left'>"
-           +                                   "<p class='f-12 mb-0'>Revenue</p>"
+           +                                   "<p class='f-12 mb-0'>Sub-Sector</p>"
            +                               "</div>"
            +                               "<div class='col-sm-6 text-right col-6'>"
-           +                                   "<p class='f-12 mb-0'>868</p>"
+           +                                   "<p class='f-12 mb-0'>"+dsub_category+"</p>"
            +                               "</div>"
 +                                         "</div>"
 
@@ -1947,7 +1948,7 @@ success: function(data){
         ////console.log('first time');
         ////console.log(dcurrency);
         $(appendto).append(
-            "<div investment='"+asking_price+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2 onHoverEffect'>"
+            "<div investment='"+asking_price+"' dcategory='"+ dcategory +"' dsub_category='"+dsub_category+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2 onHoverEffect'>"
 +                "<div class='row'>"
  +                  " <div class='col-sm-8'>"
   +                      "<div class='ff-p'>"
@@ -2145,7 +2146,7 @@ success: function(data){
 
         ////console.log('first time');
         $(appendto).append(
-            "<div investment='"+investment+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
+            "<div investment='"+investment+"' dcategory='"+ dcategory +"' dsub_category='"+sub_category+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
 +                "<div class='row'>"
  +                  " <div class='col-sm-8'>"
   +                      "<div class='ff-p'>"
@@ -2349,7 +2350,7 @@ success: function(data){
 
         ////console.log('first time');
         $(appendto).append(
-            "<div investment='"+investment+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
+            "<div investment='"+investment+"' dcategory='"+ category1 +"' dsub_category='"+category2+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
 +                "<div class='row'>"
  +                  " <div class='col-sm-8'>"
   +                      "<div class='ff-p'>"
@@ -2568,7 +2569,7 @@ success: function(data){
 
         ////console.log('first time');
         $(appendto).append(
-            "<div investment='"+sought+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
+            "<div investment='"+sought+"' dcategory='"+ category1 +"' dsub_category='"+category2+"' seller_id='"+seller_id+"' lat='"+lat+"' lng='"+lng+"' title='"+title+"'  class='info container-fluid pt-2 pb-2'>"
 +                "<div class='row'>"
  +                  " <div class='col-sm-8'>"
   +                      "<div class='ff-p'>"

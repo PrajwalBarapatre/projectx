@@ -279,31 +279,32 @@ background: rgba( 255, 255, 255, .8 )
 		var email = $('#id_client_email').val();
 		var name = $('#id_name').val();
 		$("#overlay").fadeIn();
-      $.ajax({
-                    method:'GET',
-                    url : '{% url "seller1:email-message-consent" %}',
-                    data: {
-                        email:email,
-                        name: name
-                    },
-                    success: function(data){
-						$("#overlay").fadeOut();
-						$('#otp_modal').modal('show');
-                        //console.log(data)
-                        if(data.status=='success'){
-                            $('#otp_email_verify').on('click',function(){
-                                if($('#otp_email').val()==data.otp){
-                                  $('#otp_email_err').hide();
-                                  document.getElementById("task_form").submit();
+        document.getElementById("task_form").submit();
+    //   $.ajax({
+    //                 method:'GET',
+    //                 url : '{% url "seller1:email-message-consent" %}',
+    //                 data: {
+    //                     email:email,
+    //                     name: name
+    //                 },
+    //                 success: function(data){
+	// 					$("#overlay").fadeOut();
+	// 					$('#otp_modal').modal('show');
+    //                     //console.log(data)
+    //                     if(data.status=='success'){
+    //                         $('#otp_email_verify').on('click',function(){
+    //                             if($('#otp_email').val()==data.otp){
+    //                               $('#otp_email_err').hide();
+    //                               document.getElementById("task_form").submit();
                                   
-                                }else{
-                                  $('#otp_email_err').show();
-                                }
-                            })
-                            //console.log('email sent');
-                        }
-                    }
-                });
+    //                             }else{
+    //                               $('#otp_email_err').show();
+    //                             }
+    //                         })
+    //                         //console.log('email sent');
+    //                     }
+    //                 }
+    //             });
     })
     
 

@@ -1605,8 +1605,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -1682,8 +1687,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -1751,8 +1761,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -1828,8 +1843,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -1899,8 +1919,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -1974,8 +1999,14 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.about_seller}}
+                                                    
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -2049,8 +2080,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.about_seller}}
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -2123,8 +2159,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.seller.about_seller}}
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -2197,8 +2238,13 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">Supplier
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/seller/all_detail/{{seller.seller.business_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.type}} Seller
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.type}} Seller
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -2281,8 +2327,14 @@
                                             <div class="card-footer">
                                               <div class="row">
                                                 <div class="col-sm-12">
-                                                    <button class="btn-startup-cart w-100">{{seller.type}} Advisor
+                                                    
+                                                    {% if user.is_authenticated %}
+                                                    <a href="/advisor/all_detail/{{seller.advisor_id}}" ><button class="btn-startup-cart w-100">{{seller.type}} Advisor
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.type}} Advisor
                                                     </button>
+                                                {% endif %}
                                                 </div>
                                               </div>
                                             </div>
@@ -2353,8 +2405,13 @@
                                 <div class="card-footer">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <button class="btn-startup-cart w-100">{{seller.seller.about_seller}}
-                                            </button>
+                                            {% if user.is_authenticated %}
+                                                    <a href="/investor/all_detail/{{seller.seller.investor_id}}" ><button class="btn-startup-cart w-100">{{seller.seller.about_seller}}
+                                                    </button></a>
+                                                {% else %}
+                                                <button onclick="$('#signup').modal('show');" class="btn-startup-cart w-100">{{seller.seller.about_seller}}
+                                                    </button>
+                                                {% endif %}
                                         </div>
                                     </div>
                                 </div>
