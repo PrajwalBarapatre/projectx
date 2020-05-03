@@ -2059,7 +2059,6 @@
                         <div class="col-sm-7 col-12 col-lg-7 col-md-7">
                             <h3 class="f-26 ff-p f-w-bold c-3f">Similar Businesses / StartUps
                             </h3>
-
                         </div>
                     </div>
                     <div class="container-fluid">
@@ -3194,9 +3193,9 @@
                             </button></h2></a>
                     </div>
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">% Profile Completion</h1>
                         <div id="widget-meter1"></div>
-                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Absolute Measure
                         </h4>
                     </div>
                 </div>
@@ -4269,11 +4268,18 @@
 
                     $(".owl-carousel").owlCarousel({
                         items: 3,
-                        loop: false,
+                        loop: true,
                         margin: 10,
-                        // nav:true,
-                        // navText: ["<img src='{% static 'seller1/images/displayIcon-left.png'%}'>","<img src='{% static 'seller1/images/displayIcon-right.png'%}'>"]
+                        autoplay:true,
+                        autoplayTimeout:2000,
+                        autoplayHoverPause:false
                     });
+                    $('.play').on('click',function(){
+                        owl.trigger('play.owl.autoplay',[1000])
+                    })
+                    $('.stop').on('click',function(){
+                        owl.trigger('stop.owl.autoplay')
+                    })
 
                     var in_advise = false;
                     var in_just = false;

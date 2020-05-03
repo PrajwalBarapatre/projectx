@@ -189,22 +189,22 @@
                                                     </a>
                                             </div>
                                     </div>
-                                    <div class="col-sm-5 pt-55">
-                                        <span class="f-15 ff-p f-w-bold c-f">{{seller.title}} <br>
+                                    <div class="col-sm-5 pt-55 small-text-center">
+                                        <span class="f-15 ff-p f-w-bold c-f small-f-26">{{seller.title}} <br>
                                         By
                                         {% if seller.type == 'Startup' %}
-                                            <span class="f-w-100 f-16">
+                                            <span class="f-w-100 f-16 small-f-24">
                                                 {{seller.first_name}} {{seller.last_name}}
                                             </span>
-                                            <span class="f-w-100 f-18">
+                                            <span class="f-w-100 f-18 small-f-24">
                                                     Startup Advisor
                                             </span>
                                         {% endif %}
                                         {% if seller.type == 'Business' %}
-                                            <span class="f-w-100 f-16">
+                                            <span class="f-w-100 f-16 small-f-24">
                                                     {{seller.first_name}} {{seller.last_name}}
                                             </span>
-                                            <span class="f-w-100 f-18">
+                                            <span class="f-w-100 f-18 small-f-24">
                                                  Business Advisor
                                             </span>
                                         {% endif %}
@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f pb-3">
+                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f pb-3 d-small-none">
                                 <h2 class="f-22 ff-pd f-w-bold"></h2>
                                 <a href="/advisor/all_detail/{{seller.advisor_id}}" >
                                 <button class="btn-dashboard-banner">View Profile</button>
@@ -353,7 +353,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                                <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                                
                                                                         </div>
                                                                     </div>
 
@@ -420,7 +420,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                            <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="row f-11 pt-10">
@@ -1033,7 +1033,7 @@
                                                 </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 d-small-none">
                                             <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1062,10 +1062,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/advisor/business_update/{{business.business_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/advisor/all_detail/{{seller.advisor_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/advisor/all_detail/{{seller.advisor_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1917,7 +1917,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                                <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                                
                                                                         </div>
                                                                     </div>
 
@@ -1986,7 +1986,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                            <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="row f-12 pt-10">
@@ -2561,9 +2561,9 @@
                         </p>
                     </div> -->
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">% Profile Completion</h1>
                         <div id="widget-meter1"></div>
-                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Absolute Measure
                         </h4>
                     </div>
 
@@ -2579,72 +2579,136 @@
 
     <!-- end body section -->
     <div class="container-fluid bg-ea sticky-fixed">
-        <div class="row pt-53 ff-p">
-            <div class="col-sm-2-custo">
-                <h4 class="f-16 f-w-bold c-3f pl-5">
-                    Businesses across
-                </h4>
-                <p class="f-14 pt-2 pl-5">Ahmedabad</p>
-                <p class="f-14 pl-5">Bangalore</p>
-                <p class="f-14 pl-5">Chennai</p>
-                <p class="f-14 pl-5">Delhi</p>
-                <p class="f-14 pl-5">Hyderabad</p>
-                <p class="f-14 pl-5">Indore</p>
-                <p class="f-14 pl-5">Kolkata</p>
-                <p class="f-14 pl-5">Lucknow</p>
-                <p class="f-14 pl-5">Mumbai</p>
-                <p class="f-14 pl-5">Nagpur</p>
-                <p class="f-14 pl-5">Pune</p>
+        <div class="row pt-53 ff-p mobile_border_top_light">
+            <div class="col-md-9 d-small-none">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-6 pl-7rem">
+                            <h4 class="f-16 f-w-bold c-3f pl-5">
+                                Our Products for Businesses
+                            </h4>
+                            <p class="f-14 pt-2 pl-5">
+                                <a href="seller/display/business?type=Business">View Businesses to Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/display/business?type=Asset">View Assets to Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/display/business?type=Equity">View Equity for Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/display/business?type=Loan">View Business seeking Loan</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/">List your Business for Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/equity">List your Asset for Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/asset">List Equity for Sale</a>
+                            </p>
+                            <p class="f-14 pl-5">
+                                <a href="seller/loan">Seek Loan</a>
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-6 pl-7rem fp">
+                            <h4 class="f-16 f-w-bold c-3f">
+                                Our Products for Investors and Advisors
+                            </h4>
+                            <p class="f-14 pt-2">
+                                <a href="seller/display/investors?type=Individual_Investor">View Business/Startup
+                                    Investors</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/advisors?type=Incubators">View Business Advisors</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/advisors_startup?type=Incubators">View Startup Advisors</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="investor/company">List as Investor</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="advisor/business">List as Business Advisor</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="advisor/startup">List as Startup Advisor</a>
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-6 pl-7rem fp">
+                            <h4 class="f-16 f-w-bold c-3f">
+                                Our Products for Startups
+                            </h4>
+                            <p class="f-14 pt-2">View Startups for Sale</p>
+                            <p class="f-14 pt-2">
+                                <a href="seller/display/startup">View Startups for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/web">View Websites for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/web">View IP for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/startup">List Startup for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/app">List Website for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/ipcode">List IP for Sale</a>
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-6 pl-7rem fp">
+                            <h4 class="f-16 f-w-bold c-3f">
+                                COMPANY and Other Services
+                            </h4>
+                            <p class="f-14 pt-2">
+                                <a href="terms">About Us</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="terms">Privacy Policy</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="terms">Term and Conditions</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="terms">View Franchises for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/franchise">View Franchises for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/franchise">List Franchises for Sale</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/display/supplier">View Listed Suppliers</a>
+                            </p>
+                            <p class="f-14">
+                                <a href="seller/supplier">List as Supplier</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-2-custo fp">
-                <h4 class="f-16 f-w-bold c-3f">
-                    Our Business Products
-                </h4>
-                <p class="f-14 pt-2">Buy a Business</p>
-                <p class="f-14">Buy stake</p>
-                <p class="f-14">Lend-to</p>
-                <p class="f-14">Advisors</p>
-                <p class="f-14">Sell Business</p>
-                <p class="f-14">Investors</p>
-            </div>
-            <div class="col-sm-2-custo fp">
-                <h4 class="f-16 f-w-bold c-3f">
-                    Our Startup Products
-                </h4>
-                <p class="f-14 pt-2">Buy Startup</p>
-                <p class="f-14">Buy stake</p>
-                <p class="f-14">Connect-to</p>
-                <p class="f-14">Advisors</p>
-                <p class="f-14">List Startup</p>
-                <p class="f-14">Investors</p>
-            </div>
-            <div class="col-sm-2-custo fp">
-                <h4 class="f-16 f-w-bold c-3f">
-                    COMPANY
-                </h4>
-                <p class="f-14 pt-2">About Us</p>
-                <p class="f-14">Contact Us</p>
-                <p class="f-14">Career with Us</p>
-                <p class="f-14">Term of Use</p>
-                <p class="f-14">Report a Problem</p>
-                <p class="f-14">Our Blog</p>
-                <p class="f-14">Feedback</p>
-                <p class="f-14">FAQs</p>
-                <p class="f-14">Press Room</p>
-                <p class="f-14">Help</p>
-            </div>
-            <div class="col-sm-3-custo fp">
-                <h4 class="f-16 f-w-bold c-3f">
+            <div class="col-md-3 sm-responsive">
+                <h4 class="f-16 mobile-f-30 f-w-bold c-3f">
                     Most advanced in this Industry
                 </h4>
-                <p class="f-16 pt-2">Sales @ Business Verge</p>
+                <p class="f-16 pt-2 mobile-f-28"><span class="d-small-inline-block">Contact us @</span> info@bverge.com
+                </p>
                 <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
                     <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                     <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
                 </ul>
-
+            </div>
+            <div class="col-md-12 d-small-block">
+                <h2 class="c-3f ff-p f-w-bold f-26 text-center">
+                    <a href="/terms">Click here for Terms & Conditions / Privacy Policy</a>
+                </h2>
             </div>
         </div>
     </div>

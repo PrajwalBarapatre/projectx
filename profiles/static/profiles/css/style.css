@@ -2153,6 +2153,13 @@ i.fa.fa-bars.f-36:hover{
         justify-content: center;
         padding-bottom: 1rem !important;
     }
+    
+    .mobile_view .sm-responsive h4{
+        font-size: 30px !important;
+    }
+    .mobile_view .sm-responsive p{
+        font-size: 28px !important;
+    }
     .pt-153{
         padding-top: 0 !important;
     }
@@ -2268,4 +2275,10 @@ i.fa.fa-bars.f-36:hover{
     .small_pt-300{
         padding-top: 0 !important;
     }
+    .mobile_w_90{
+        width: 90%;
+    }
+}
+.f-bold{
+    font-weight: bold;
 }

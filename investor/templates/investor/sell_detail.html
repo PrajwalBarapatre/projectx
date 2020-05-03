@@ -429,7 +429,7 @@
                                                                         <p>Profit Percent</p>
                                                                 </div>
                                                                     <div class="col-sm-5 col-5 text-right">
-                                                                            <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                            
                                                                     </div>
                                                                 </div>
 
@@ -498,7 +498,7 @@
                                                                         <p>Profit Percent</p>
                                                                 </div>
                                                                     <div class="col-sm-5 col-5 text-right">
-                                                                        <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <div class="row f-12 pt-10">
@@ -1267,7 +1267,7 @@
                                             </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 d-small-none">
                                             <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1296,10 +1296,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-justify-center small-d-flex">
                             <a href="/investor/individual_update/{{business.individual_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/investor/all_detail/{{seller.investor_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/investor/all_detail/{{seller.investor_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1415,7 +1415,7 @@
                                             </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 d-small-none">
                                             <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1444,10 +1444,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/investor/company_update/{{business.company_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/investor/all_detail/{{seller.investor_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/investor/all_detail/{{seller.investor_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1564,7 +1564,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                                <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                                
                                                                         </div>
                                                                     </div>
 
@@ -1633,7 +1633,7 @@
                                                                             <p>Profit Percent</p>
                                                                     </div>
                                                                         <div class="col-sm-5 col-5 text-right">
-                                                                            <p>{{ seller.seller.year_17|div:seller.seller.rev_year |floatformat }}</p>
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="row f-11 pt-10">
@@ -2366,9 +2366,9 @@
                     </div> -->
 
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">% Profile Completion</h1>
                         <div id="widget-meter1"></div>
-                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Absolute Measure
                         </h4>
                     </div>
                 </div>
@@ -2450,6 +2450,26 @@
                     <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
                 </ul>
 
+            </div>
+        </div>
+          <div class="row mobile_view">
+            <div class="col-md-12 sm-responsive pt-3">
+                <h4 class="f-16 mobile-f-30 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2 mobile-f-28"><span class="d-small-inline-block">Contact us @</span> info@bverge.com
+                </p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-12 d-small-block">
+                <h2 class="c-3f ff-p f-w-bold f-26 text-center">
+                    <a href="/terms">Click here for Terms & Conditions / Privacy Policy</a>
+                </h2>
             </div>
         </div>
     </div>

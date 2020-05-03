@@ -2005,6 +2005,12 @@ a.nav-link.dropdown-toggle {
     .d-small-none{
         display: none;
     }
+    .small-d-flex{
+        display: flex;
+    }
+    .small-justify-center{
+        justify-content: center;
+    }
     .mobile_about_seller .about-seller-body,
     .mobile_about_seller .about-seller-body-2{
         margin: 0;
@@ -2054,5 +2060,25 @@ a.nav-link.dropdown-toggle {
         font-size: 38px;
         text-align: center;
         padding: 0;
+    }
+    .carousel-inner img.img-fluid.size_contain {
+        width: 100% !important;
+        height: 300px;
+        object-fit: contain;
+    }
+    .mt-80{
+        margin-top: 0 !important;
+    }
+    .small-text-center{
+        text-align: center !important;
+    }
+    .small-f-25{
+        font-size: 25px !important;
+    }
+    .small-f-24{
+        font-size: 24px !important;
+    }
+    .small-f-26{
+        font-size: 26px !important;
     }
 }

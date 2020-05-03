@@ -1725,6 +1725,14 @@ span.select2.select2-container.select2-container--default.select2-container--bel
     .mobile_hide{
         display: none;
     }
+    .sm-responsive{
+        text-align: center;
+    }
+    .sm-responsive ul{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem !important;
+    }
     .mobile_view .sm-responsive{
         text-align: center;
     }
@@ -1732,6 +1740,15 @@ span.select2.select2-container.select2-container--default.select2-container--bel
         display: flex;
         justify-content: center;
         padding-bottom: 1rem !important;
+    }
+    .mobile-f-30{
+        font-size: 30px !important;
+    }
+    .mobile-f-28{
+        font-size: 28px !important;
+    }
+    .mobile_border_top_light .sm-responsive ul li.social a i{
+        font-size: 40px;
     }
     .d-small-block{
         display: block;

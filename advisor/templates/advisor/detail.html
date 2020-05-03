@@ -284,6 +284,34 @@
     {% include "seller1/sidecontainer.html" %}
 
     <div class="container-fluid">
+        <div class="row mobile_header">
+            <div class="col-6 offset-3 ">
+                <h2 class="ff-pd f-w-bold"><a href="/">Bverge</a></h2>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-3 text-right">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+
+                        <img id="prof_pic_mobile" src="" alt="img" class="avatar">
+
+                    </a>
+                    <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit
+                            Profile</a>
+                        {% ifequal  user.profile.social False %}
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password">Change
+                            Password</a>
+                        {% endifequal %}
+                        <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
+                        <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                    data-target="#login">Log out</button> -->
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
         <div class="row">
             <div class="col-sm-12 text-center">
                 {% include "seller1/topcontainer1.html" %}
@@ -329,14 +357,14 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 pt-80">
-                                        <span class="f-26 ff-p f-w-bold c-f">{{seller.title}} ({{seller.type}} Advisor)
+                                    <div class="col-sm-4 pt-80 small-text-center">
+                                        <span class="f-26 ff-p f-w-bold c-f small-f-26">{{seller.title}} ({{seller.type}} Advisor)
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-5 col-lg-5 col-12 col-md-5 c-f pb-3">
+                        <div class="col-sm-5 col-lg-5 col-12 col-md-5 c-f pb-3 d-small-none">
                             <h2 class="f-26 ff-pd pt-20 f-w-bold">About the {{seller.type}} Advisor </h2>
                             <address class="f-16 pt-10 pb-5">
                                 {{business.about}}
@@ -765,9 +793,9 @@
                             </button></a>
                     </div>
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">% Profile Completion</h1>
                         <div id="widget-meter1"></div>
-                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Absolute Measure
                         </h4>
                     </div>
                 </div>

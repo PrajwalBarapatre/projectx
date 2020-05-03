@@ -145,6 +145,12 @@
       background: #fff;
       color: #28a745;
     }
+    @media (max-width:678px){
+        .custom_banner_slider .carousel-control-next,
+        .custom_banner_slider .carousel-control-prev {
+            width: 0% !important;
+        }
+    }
     </style>
     <style media="screen">
       .owl_card{
@@ -284,6 +290,34 @@
     {% include "seller1/sidecontainer.html" %}
 
     <div class="container-fluid">
+        <div class="row mobile_header">
+            <div class="col-6 offset-3 ">
+                <h2 class="ff-pd f-w-bold"><a href="/">Bverge</a></h2>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-3 text-right">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+
+                        <img id="prof_pic_mobile" src="" alt="img" class="avatar">
+
+                    </a>
+                    <div class="dropdown-menu pull-left" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal_edit_profile">Edit
+                            Profile</a>
+                        {% ifequal  user.profile.social False %}
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal_change_password">Change
+                            Password</a>
+                        {% endifequal %}
+                        <a class="dropdown-item" href="{% url 'profiles:logout'%}">Log Out</a>
+                        <!-- <button type="button" class="btn btn-login ff-p f-17 f-w-500" data-toggle="modal"
+                    data-target="#login">Log out</button> -->
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
         <div class="row">
           <div class="col-sm-12 text-center">
             {% include "seller1/topcontainer1.html" %}
@@ -326,10 +360,10 @@
                                                     </a>
                                             </div>
                                     </div>
-                                    <div class="col-sm-5 pt-55">
-                                        <span class="f-15 ff-p f-w-bold c-f">{{seller.title}} <br>
+                                    <div class="col-sm-5 pt-55 small-text-center">
+                                        <span class="f-15 ff-p f-w-bold c-f small-f-26">{{seller.title}} <br>
                                         By
-                                            <span class="f-w-100 f-14">
+                                            <span class="f-w-100 f-14 small-f-24">
                                                 {{seller.name}}
                                             </span>
                                         </span>
@@ -337,10 +371,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f pb-3">
+                        <div class="col-sm-4 col-lg-4 col-12 col-md-4 c-f pb-3 d-small-none">
                             <h2 class="f-22 ff-pd pt-80 f-w-bold"></h2>
                             <a href="/seller/all_detail/{{seller.business_id}}" >
-                            <button class="btn-dashboard-banner">View Profile</button>
+                            <button class="btn-dashboard-banner small_width_100 small-f-24">View Profile</button>
                             </a>
                         </div>
                     </div>
@@ -1345,7 +1379,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1374,10 +1408,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/seller/seller_update/{{business.business_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" id="delete_profile" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1491,7 +1525,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1520,10 +1554,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/seller/asset_update/{{business.asset_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1652,7 +1686,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1681,10 +1715,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/seller/equity_update/{{business.equity_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1808,7 +1842,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1837,10 +1871,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12  small-d-flex small-justify-center ">
                             <a href="/seller/loan_update/{{business.loan_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -1959,7 +1993,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -1988,10 +2022,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
-                            <a href="/seller/startup_update/{{business.startup_id}}" ><button class="btn-startup-cart m-3">Edit Profile
+                        <div class="col-sm-12 small-d-flex small-justify-center">
+                            <a href="/seller/startup_update/{{business.startup_id}}" ><button class="btn-startup-cart m-3 sma">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -2106,7 +2140,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -2135,10 +2169,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/seller/app_update/{{business.app_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -2243,7 +2277,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -2272,10 +2306,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-justify-center small-d-flex">
                             <a href="/seller/ipcode_update/{{business.ipcode_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -2381,7 +2415,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -2410,10 +2444,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-d-flex small-justify-center">
                             <a href="/seller/franchise_update/{{business.franchise_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -2526,7 +2560,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80">
+                                <div class="col-sm-5 col-12 col-md-5 col-lg-5 pt-80 d-small-none">
                                             <div id="carouselExampleControls_{{seller.type}}" class="carousel slide" data-ride="carousel" data-interval="false">
                                                     <div class="carousel-inner">
                                                     {% for name in images %}
@@ -2555,10 +2589,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 small-justify-center small-d-flex">
                             <a href="/seller/supplier_update/{{business.supplier_id}}" ><button class="btn-startup-cart m-3">Edit Profile
                             </button></a>
-                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3">View Profile
+                            <a href="/seller/all_detail/{{seller.business_id}}" ><button class="btn-startup-cart m-3 d-small-none">View Profile
                             </button></a>
                             <button type="button" onclick="delete_modal();" class="btn-startup-cart m-3">Delete Profile
                             </button>
@@ -3531,9 +3565,9 @@
                         </p>
                     </div> -->
                     <div class="text-center mb-4 mt-3" style="border: 1px solid #DFDDE9;padding: 20px 0 20px 20px">
-                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Business Performance</h1>
+                        <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">% Profile Completion</h1>
                         <div id="widget-meter1"></div>
-                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Financial Strength
+                        <h4 class="text-center f-18 pt-2 ff-p f-w-bold">Absolute Measure
                         </h4>
                     </div>
                 </div>
@@ -3548,7 +3582,7 @@
 
     <!-- end body section -->
     <div class="container-fluid bg-ea sticky-fixed">
-        <div class="row pt-53 ff-p">
+        <div class="row pt-53 ff-p d-small-none">
             <div class="col-sm-2-custo">
                 <h4 class="f-16 f-w-bold c-3f pl-5">
                     Businesses across
@@ -3614,6 +3648,26 @@
                     <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
                 </ul>
 
+            </div>
+        </div>
+        <div class="row mobile_view">
+            <div class="col-md-12 sm-responsive pt-3">
+                <h4 class="f-16 mobile-f-30 f-w-bold c-3f">
+                    Most advanced in this Industry
+                </h4>
+                <p class="f-16 pt-2 mobile-f-28"><span class="d-small-inline-block">Contact us @</span> info@bverge.com
+                </p>
+                <ul style="list-style-type: none;" class="p-0 pt-4 f-21">
+                    <li class="social"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li class="social pl-5"><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-12 d-small-block">
+                <h2 class="c-3f ff-p f-w-bold f-26 text-center">
+                    <a href="/terms">Click here for Terms & Conditions / Privacy Policy</a>
+                </h2>
             </div>
         </div>
     </div>
