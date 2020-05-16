@@ -5,14 +5,14 @@
      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {                        
          $('#navbar').removeClass('bg-t');  
          $('#navbar').addClass('bg-change');        
-         $('#navbar-2').removeClass('bg-t');  
-         $('#navbar-2').addClass('bg-change');        
+        //  $('#navbar-2').removeClass('bg-t');  
+        //  $('#navbar-2').addClass('bg-change');        
 
      } else {                      
          $('#navbar').removeClass('bg-change');
          $('#navbar').addClass('bg-t');
-         $('#navbar-2').removeClass('bg-change');
-         $('#navbar-2').addClass('bg-t');
+        //  $('#navbar-2').removeClass('bg-change');
+        //  $('#navbar-2').addClass('bg-t');
      }
  }
 

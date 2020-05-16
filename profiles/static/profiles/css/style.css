@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+/* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 @media only screen and (max-width: 600px) {
     .mPB-4{
         padding-bottom: 1.5rem!important
@@ -1172,6 +1173,9 @@ a{
 .pb-7{
     padding-bottom: 7px !important
 }
+.pb-11{
+    padding-bottom: 11px !important
+}
 .pb-12{
     padding-bottom: 12px !important
 }
@@ -1352,6 +1356,9 @@ a{
 .pt-123{
     padding-top: 123px !important
 }
+.pt-108{
+    padding-top: 108px !important
+}
 .pt-300{
     padding-top: 300px !important
 }
@@ -1366,6 +1373,9 @@ a{
 }
 .f-w-bold{
     font-weight: bold !important;
+}
+.f-w-900{
+    font-weight: 900 !important;
 }
 .bg-change{
     background: rgb(193, 212, 255);
@@ -2130,10 +2140,22 @@ i.fa.fa-bars.f-36:hover{
 .d-small-block,
 .d-small-inline-block,
 .mobile_header,
-.mobile_after_login_links{
+.mobile_after_login_links,
+.only_mobil_view{
     display: none;
 }
 @media (max-width: 678px){
+    .small_pt_2rem{
+        padding-top: 2rem;
+    }
+    .only_mobile_center{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .only_mobil_view{
+        display: block;
+    }
     .d-small-none{
         display: none;
     }
@@ -2189,7 +2211,6 @@ i.fa.fa-bars.f-36:hover{
     .mobile_login{
         display: block;
         text-align: center;
-        padding: 4rem 0 1rem;
     }
     .mobile_login .btn-login {
         width: 300px;
@@ -2221,8 +2242,16 @@ i.fa.fa-bars.f-36:hover{
         padding: 0;
     }
     .mobile_bg_height {
-        height: 450px !important;
+        height: 300px !important;
         background-position: center !important;
+    }
+    .banner-bg-slider .carousel-item img {
+        height: 300px !important;
+        object-fit: cover;
+    }
+    .listing_part_left_part, .listing_part_right_part {
+        position: relative;
+        height: 300px !important;
     }
     .mobil_sell_your_business{
         padding: 1rem 0 !important;
@@ -2291,4 +2320,72 @@ i.fa.fa-bars.f-36:hover{
 }
 .text-underline{
     text-decoration: underline !important;
+}
+.h-533px{
+    height: 533px;
+    object-fit: cover;
+}
+.banner-bg-slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, .9);
+    font-weight: bold !important;
+}
+.btn-list-your-business{
+    font-size: 22px;
+    width: 290px;
+    margin-top: 3rem;
+}
+@media (min-width: 678px){
+    .pr-sm-10{
+        padding-right: 10vw;
+    }
+    .pr-sm-20{
+        padding-right: 20vw;
+    }
+}
+.listing_part{
+    position: relative;
+}
+.listing_part_left_part,
+.listing_part_right_part{
+    position: relative;
+    height: 505px;
+}
+.listing_part_body_text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.listing_part_left_part .banner-bg-slider img,
+.listing_part_right_part .banner-bg-slider img{
+    height: 505px;
+    object-fit: cover;
+}
+.text-light{
+    color: #fff !important;
+}
+.banner-bg-slider .carousel-item img{
+    height: 505px;
+    object-fit: cover;
+}
+.h-65px{
+    height: 65px;
+}
+.text-shadow{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.f-1_4{
+    font-size: 1.4rem;
+}
+.pb-1rem{
+    padding-bottom: 1rem;
 }
