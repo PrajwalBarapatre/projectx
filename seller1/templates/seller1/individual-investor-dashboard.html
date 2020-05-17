@@ -291,14 +291,14 @@
         <div class="row">
             <div class="col-sm-9 col-12 col-md-9 col-lg-9">
                 <div class="container-fluid">
-                    {% if list %}
+                    {% if sell_list %}
                         <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
                             <div class="col-sm-12 pt-36">
                             <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Seller Dashboards</h1>
                             </div>
                             <div class="col-md-12">
                             <div class="owl-carousel owl1 owl-theme">
-                                    {% for seller in list %}
+                                    {% for seller in sell_list %}
                                         {% if seller.seller.base_type == 'Seller' %}
                                         <div class="item">
                                                 <div class="owl_card">
@@ -323,14 +323,14 @@
                         </div>
                     {% endif %}
 
-                    {% if list %}
+                    {% if invest_list %}
                     <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">
                         <div class="col-sm-12 pt-36">
                             <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Investor Dashboards</h1>
                           </div>
                           <div class="col-md-12">
                             <div class="owl-carousel owl1 owl-theme">
-                                  {% for seller in list %}
+                                  {% for seller in invest_list %}
                                         {% if seller.seller.base_type == 'Investor' %}
                                         <div class="item">
                                           <div class="owl_card">
@@ -354,14 +354,14 @@
                           </div>
                     </div>
                     {% endif %}
-                    {% if list %}
+                    {% if advise_list %}
                     <div class="row mt-20 pb-22 ml-0 mr-0 bg-ff" style="border: 1px solid #DFDDE9">                 
                       <div class="col-sm-12 pt-36">
                         <h1 class="f-26 ff-p f-w-bold pt-18 pl-2">Your Active Advisor Dashboards</h1>
                       </div>
                       <div class="col-md-12">
                         <div class="owl-carousel owl1 owl-theme">
-                            {% for seller in list %}
+                            {% for seller in advise_list %}
                                 {% if seller.seller.base_type == 'Advisor' %}
                                     <div class="item">
                                       <div class="owl_card">

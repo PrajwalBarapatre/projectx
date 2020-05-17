@@ -7600,7 +7600,9 @@ def indiv_dash(request):
         fdata['cart'].append(data)
 
     random.shuffle(fdata['cart'])
-    fdata['list']=[]
+    fdata['sell_list']=[]
+    fdata['invest_list']=[]
+    fdata['advise_list']=[]
     user_sell = user.profile.user_sell.all()
     user_advise = user.profile.user_advise.all()
     user_invest = user.profile.user_invest.all()
@@ -7626,7 +7628,7 @@ def indiv_dash(request):
         # cx.update(z)
         data = {}
         data['seller'] = cx
-        fdata['list'].append(data)
+        fdata['sell_list'].append(data)
     for advise in user_advise:
         advisor = advise.advisor
         serializer = AdvisorSerializer(advisor)
@@ -7646,7 +7648,7 @@ def indiv_dash(request):
         data = {}
         data['seller'] = cx
 
-        fdata['list'].append(data)
+        fdata['advise_list'].append(data)
     for invest in user_invest:
         investor=invest.investor
         serializer = InvestorSerializer(investor)
@@ -7666,7 +7668,7 @@ def indiv_dash(request):
         data = {}
         data['seller'] = cx
 
-        fdata['list'].append(data)
+        fdata['invest_list'].append(data)
 
 
     return render(request, 'seller1/individual-investor-dashboard.html', fdata)
