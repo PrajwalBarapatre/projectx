@@ -147,27 +147,27 @@ def createRegTask(request):
             otp = reg_task.otp_phone
             body = ""
             # Hi, Welcome to Business Verge. Verify using the OTP: [1234]
-            if name:
-                body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
-            else:
-                body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
-            try:
-                message = client.messages \
-                    .create(
-                    body=body,
-                    from_='+18432030382',
-                    to=number
-                )
-                print(message.sid)
-                # data = {}
-                data['status'] = 'success'
-                data['number'] = number
-                data['otp'] = otp
-                print(data)
-            except:
-                # data = {}
-                data['status'] = 'invalid'
-                return JsonResponse(data, safe=False)
+            # if name:
+            #     body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
+            # else:
+            #     body = "Hi, Welcome to Business Verge. Verify using the OTP: " + str(otp)
+            # try:
+            #     message = client.messages \
+            #         .create(
+            #         body=body,
+            #         from_='+18432030382',
+            #         to=number
+            #     )
+            #     print(message.sid)
+            #     # data = {}
+            #     data['status'] = 'success'
+            #     data['number'] = number
+            #     data['otp'] = otp
+            #     print(data)
+            # except:
+            #     # data = {}
+            #     data['status'] = 'invalid'
+            #     return JsonResponse(data, safe=False)
 
             new_data={}
             new_data['status']='valid'
@@ -193,8 +193,8 @@ def createRegUser(request):
                 reg_form.save(commit=False)
                 reg_task_id = reg_form.cleaned_data['reg_task_id']
                 reg_task = RegTask.objects.get(reg_task_id=reg_task_id)
-                if reg_form.cleaned_data['otp_email'] == reg_task.otp_email and \
-                        reg_form.cleaned_data['otp_phone'] == reg_task.otp_phone:
+                if reg_form.cleaned_data['otp_email'] == reg_task.otp_email: #and \
+                        # reg_form.cleaned_data['otp_phone'] == reg_task.otp_phone:
 
                     print('inside create RegUser')
                     print(reg_task)
@@ -229,33 +229,33 @@ def createRegUser(request):
                     phone_model = phone_model
                     chat.phone_model = phone_model
                     chat.save()
-                    message = StaffMessage()
-                    message.client = client
-                    message.chat = chat
-                    # message.malbum = malbum
-                    message.file_exist = False
-                    message.from_bverge = True
-                    body = 'Hi ' + client.first_name + ' ' + client.last_name + \
-                           ', Welcome to Business Verge! \n' \
-                           'We are a business networking platform and help' \
-                           ' Businesses and Startups to connect to beneficial Business, Investor and Advisors. \n' \
-                           'Please, reply with your details to help BVerge to list your need.'
-                    message.content = body
-                    message.save()
-
-
-                    account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
-                    auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
-                    tw_client = Client(account_sid, auth_token)
-                    phone_number = chat.phone_model.phone_number
-                    to_ = 'whatsapp:' + phone_number
-                    send_message = tw_client.messages \
-                        .create(
-                        from_='whatsapp:+14155238886',
-                        body=body,
-                        to=to_
-                    )
-                    print(send_message.sid)
+                    # message = StaffMessage()
+                    # message.client = client
+                    # message.chat = chat
+                    # # message.malbum = malbum
+                    # message.file_exist = False
+                    # message.from_bverge = True
+                    # body = 'Hi ' + client.first_name + ' ' + client.last_name + \
+                    #        ', Welcome to Business Verge! \n' \
+                    #        'We are a business networking platform and help' \
+                    #        ' Businesses and Startups to connect to beneficial Business, Investor and Advisors. \n' \
+                    #        'Please, reply with your details to help BVerge to list your need.'
+                    # message.content = body
+                    # message.save()
+                    #
+                    #
+                    # account_sid = 'ACdd657d4ed521eff8bd750ca7de57142c'
+                    # auth_token = '17591dd653a6f4c24965d63ddb08ccd8'
+                    # tw_client = Client(account_sid, auth_token)
+                    # phone_number = chat.phone_model.phone_number
+                    # to_ = 'whatsapp:' + phone_number
+                    # send_message = tw_client.messages \
+                    #     .create(
+                    #     from_='whatsapp:+14155238886',
+                    #     body=body,
+                    #     to=to_
+                    # )
+                    # print(send_message.sid)
 
                     subject = "Welcome to Business Verge"
                     name = ''

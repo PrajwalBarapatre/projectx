@@ -258,14 +258,14 @@ background: rgba( 255, 255, 255, .8 )
 		{% endfor %}
     </p>
 
-    <p id="otp_phone_para" style="display: none;" >
+    <!-- <p id="otp_phone_para" style="display: none;" >
 		{{ task_form.otp_phone.label_tag }}
 		<br> {{ task_form.otp_phone }} {% if task_form.otp_phone.help_text %}
 		<small style="color: grey">{{ task_form.otp_phone.help_text }}</small>
 		{% endif %} {% for error in task_form.otp_phone.errors %}
 		<p style="color: red">{{ error }}</p>
 		{% endfor %}
-    </p>
+    </p> -->
 
     <button type="button" id="generate_otp">Generate OTPs</button>
 
@@ -377,7 +377,7 @@ background: rgba( 255, 255, 255, .8 )
                         if(data.status=='valid'){
                             $('#id_reg_task_id').val(data.reg_id);
                             $('#otp_email_para').show();
-                            $('#otp_phone_para').show();
+                            // $('#otp_phone_para').show();
                             //console.log('email sent');
                         }
                     }
